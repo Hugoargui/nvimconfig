@@ -62,6 +62,7 @@ opt.cursorline = true
 -- 2 : Always for every window (default)
 -- 3 : Only one bar at the bottom, common to all windows
 opt.laststatus = 3
+opt.cmdheight = 2 -- To avoid message press ENTER to continue
 
 opt.showmode = false
 
