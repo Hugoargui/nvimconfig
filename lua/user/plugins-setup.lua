@@ -50,7 +50,7 @@ return packer.startup(
 		-- use("dstein64/vim-startuptime") -- Get's stuck at 0%
 
 		-- COLORSCHEMES {{{*/
-		-- use("rktjmp/lush.nvim") -- used by some colorschemes
+		use("rktjmp/lush.nvim") -- used by some colorschemes
 
 		-- use('shaeinst/roshnivim-cs')
 		-- use('rafamadriz/neon')
@@ -60,8 +60,8 @@ return packer.startup(
 		use("bluz71/vim-nightfly-guicolors")
 		-- use('bluz71/vim-moonfly-colors')
 		-- use("ChristianChiarulli/nvcode-color-schemes.vim") -- Nvcode, onedark, nord colorschemes with Tree-sitter support.
-		-- use 'folke/tokyonight.nvim'
-		-- use 'sainnhe/sonokai'
+		use("folke/tokyonight.nvim")
+		use("sainnhe/sonokai")
 		-- use 'kyazdani42/blue-moon'
 		-- use 'mhartington/oceanic-next'
 		-- use 'glepnir/zephyr-nvim'
@@ -103,14 +103,14 @@ return packer.startup(
 		-- use("mcchrish/zenbones.nvim") -- Contrast variation of typical themes
 		-- use({ "catppuccin/nvim", as = "catppuccin" })
 		-- use 'FrenzyExists/aquarium-vim'
-		-- use "EdenEast/nightfox.nvim"
+		use("EdenEast/nightfox.nvim")
 
-		-- use { "ellisonleao/gruvbox.nvim" }
-		-- use 'Mofiqul/dracula.nvim'
+		use({ "ellisonleao/gruvbox.nvim" })
+		use("Mofiqul/dracula.nvim")
 		-- use 'tanvirtin/monokai.nvim'
 		-- use "rebelot/kanagawa.nvim"
-		-- use 'shaunsingh/seoul256.nvim'
-		-- use 'challenger-deep-theme/vim'
+		-- use("shaunsingh/seoul256.nvim")
+		use("challenger-deep-theme/vim")
 		-- use 'wadackel/vim-dogrun'
 		-- use 'gosukiwi/vim-atom-dark'
 		-- use 'KeitaNakamura/neodark.vim'
@@ -200,7 +200,7 @@ return packer.startup(
 		-- 		})
 		-- 	end,
 		-- })
-		-- use({ "echasnovski/mini.align", branch = "stable" })
+		use({ "echasnovski/mini.align", branch = "stable" })
 
 		-- managing & installing lsp servers, linters & formatters
 		use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters

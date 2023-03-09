@@ -1,0 +1,38 @@
+                                                          packer.nvim - 13 / 44 sync tasks
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ⟳ akinsho/toggleterm.nvim: checking current branch...
+ ⟳ lewis6991/gitsigns.nvim: pulling updates...
+ ⟳ sunjon/shade.nvim: checking updated commit...
+ ⟳ akinsho/bufferline.nvim: checking current branch...
+ ⟳ williamboman/mason.nvim: checking updated commit...
+ ✓ L3MON4D3/LuaSnip: already up to date
+ ✓ rmagatti/auto-session: already up to date
+ ✓ folke/which-key.nvim: already up to date
+ ✓ moll/vim-bbye: already up to date
+ ✓ nvim-lualine/lualine.nvim: already up to date
+ ✓ echasnovski/mini.align/stable: already up to date
+ ✓ wbthomason/packer.nvim: already up to date
+ ✓ nvim-telescope/telescope-fzf-native.nvim: already up to date
+ ✓ jayp0521/mason-null-ls.nvim: already up to date
+ ✓ jose-elias-alvarez/null-ls.nvim: already up to date
+ ✓ hrsh7th/cmp-buffer: already up to date
+ ✓ nvim-telescope/telescope.nvim: already up to date
+ ✓ saadparwaiz1/cmp_luasnip: already up to date
+ ✓ glepnir/lspsaga.nvim/main: already up to date
+ ✓ williamboman/mason-lspconfig.nvim: already up to date
+ ✓ nvim-treesitter/nvim-treesitter-textobjects: already up to date
+ ✓ hrsh7th/cmp-path: already up to date
+ ✓ b0o/incline.nvim: already up to date
+ ✓ rcarriga/nvim-notify: already up to date
+ ✓ rafamadriz/friendly-snippets: already up to date
+ ✓ nvim-tree/nvim-tree.lua: already up to date
+ ✓ hrsh7th/nvim-cmp: already up to date
+ ✓ rmagatti/session-lens: already up to date
+ ✓ numToStr/Comment.nvim: already up to date
+ ✓ nvim-lua/plenary.nvim: already up to date
+ ✓ neovim/nvim-lspconfig: already up to date
+ ✓ onsails/lspkind.nvim: already up to date
+ ✓ lukas-reineke/indent-blankline.nvim: already up to date
+ ✓ nvim-treesitter/nvim-treesitter: already up to date
+ ✓ folke/tokyonight.nvim: installed
+ ✓ sainnhe/sonokai: installed
