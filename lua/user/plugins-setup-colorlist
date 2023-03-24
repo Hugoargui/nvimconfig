@@ -1,0 +1,70 @@
+
+		-- use('shaeinst/roshnivim-cs')
+		-- use('rafamadriz/neon')
+		-- use('tomasiser/vim-code-dark')
+		-- use('Mofiqul/vscode.nvim')
+		-- use 'marko-cerovac/material.nvim'
+		-- use('bluz71/vim-moonfly-colors')
+		-- use("ChristianChiarulli/nvcode-color-schemes.vim") -- Nvcode, onedark, nord colorschemes with Tree-sitter support.
+		-- use("folke/tokyonight.nvim")
+		-- use("sainnhe/sonokai")
+		-- use 'kyazdani42/blue-moon'
+		-- use 'mhartington/oceanic-next'
+		-- use 'glepnir/zephyr-nvim'
+		-- use 'rockerBOO/boo-colorscheme-nvim'
+		-- use 'jim-at-jibba/ariake-vim-colors'
+		-- use 'Th3Whit3Wolf/onebuddy' --fails
+		-- use 'ishan9299/modus-theme-vim'
+		-- use 'sainnhe/edge'
+		-- use 'theniceboy/nvim-deus'
+		-- -- use {'bkegley/gloombuddy', requires = { {'tjdevries/colorbuddy.vim'} } } -- doesn't autopreview
+		-- use 'Th3Whit3Wolf/one-nvim'
+		-- use 'PHSix/nvim-hybrid'
+		-- use 'Th3Whit3Wolf/space-nvim'
+		-- use ('yonlu/omni.vim')
+
+		-- use 'ray-x/starry.nvim' -- collection: material,moonlight,dracula blood, monokai...
+		-- -- use 'tanvirtin/monokai.nvim' -- monokai is already in starry.vim
+		-- use 'ofirgall/ofirkai.nvim'
+		-- use 'savq/melange'
+		-- use 'RRethy/nvim-base16' -- big collection of base16 colorchemes
+		-- use 'fenetikm/falcon'
+		-- use 'andersevenrud/nordic.nvim'
+		-- -- -- use 'shaunsingh/nord.nvim' -- nord is already in starry.vim and other packages
+		-- use("ishan9299/nvim-solarized-lua")
+		-- -- -- use 'shaunsingh/solarized.nvim' -- this solaried has worse default highliths than ishan9299
+		-- -- -- use 'shaunsingh/moonlight.nvim' --already included in other packages
+		-- use 'navarasu/onedark.nvim'
+		-- use 'lourenci/github-colors'
+		-- use("sainnhe/gruvbox-material")
+		-- use 'sainnhe/everforest'
+		-- use 'NTBBloodbath/doom-one.nvim'
+		-- use 'dracula/vim' -- Already comes in some packages
+		-- use("yashguptaz/calvera-dark.nvim")
+		-- use 'nxvu699134/vn-night.nvim'
+		-- use 'adisen99/codeschool.nvim'
+		-- use 'projekt0n/github-nvim-theme'
+		-- use 'kdheepak/monochrome.nvim'
+		-- use("rose-pine/neovim")
+		-- use("mcchrish/zenbones.nvim") -- Contrast variation of typical themes
+
+		-- use 'FrenzyExists/aquarium-vim'
+		-- use("EdenEast/nightfox.nvim")
+
+		-- use({ "ellisonleao/gruvbox.nvim" })
+		-- use("Mofiqul/dracula.nvim")
+		-- use 'tanvirtin/monokai.nvim'
+		-- use "rebelot/kanagawa.nvim"
+		-- use("shaunsingh/seoul256.nvim")
+		-- use("challenger-deep-theme/vim")
+		-- use 'wadackel/vim-dogrun'
+		-- use 'gosukiwi/vim-atom-dark'
+		-- use 'KeitaNakamura/neodark.vim'
+		-- use 'aktersnurra/no-clown-fiesta.nvim'
+		-- use {'nyoom-engineering/oxocarbon.nvim'} -- good examples of alternative UI in screenshots
+		-- use 'wuelnerdotexe/vim-enfocado'
+		-- use 'preservim/vim-colors-pencil'
+		-- use 'ray-x/aurora'
+		-- -- use 'adisen99/apprentice.nvim'
+		-- use 'Everblush/everblush.nvim'
+		-- -- use 'phha/zenburn.nvim'
