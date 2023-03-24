@@ -42,7 +42,7 @@ bufferline.setup({
 		show_buffer_close_icons = false,
 		diagnostics = false, --'nvim_lsp',
 		-- adding a separator different that default is ugly when telescope is launched
-		separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
+		-- separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
 		-- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
 		offsets = {
 			{
