@@ -36,5 +36,7 @@ require("user.plugins.lualine")
 
 require("user.plugins.toggleterm")
 
+require("user.plugins.markdown-preview")
+
 require("user.core.colorscheme")
 vim.opt.shadafile = ""

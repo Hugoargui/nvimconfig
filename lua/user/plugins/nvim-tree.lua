@@ -16,7 +16,7 @@ vim.g.nvim_tree_respect_buf_cwd = 1
 -- configure nvim-tree
 nvimtree.setup({
 	-- Close if it's the last window
-	autoclose = true, -- Doesn't do anything
+	-- autoclose = true, -- It says option doesnt exists
 	-- open_on_setup = true,
 	update_focused_file = {
 		enable = true,

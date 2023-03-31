@@ -67,6 +67,22 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
+
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+
 	-- bufferline
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 	-- use("noib3/nvim-cokeline")
@@ -172,5 +188,4 @@ return packer.startup(function(use)
 	if packer_bootstrap then
 		require("packer").sync()
 	end
-end
-) -- function
+end) -- function
