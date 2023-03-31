@@ -67,6 +67,14 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- Nice highlight of headings and so on in markdown
+	use({
+		"lukas-reineke/headlines.nvim",
+		after = "nvim-treesitter",
+		config = function()
+			require("headlines").setup()
+		end,
+	})
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
@@ -74,14 +82,14 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	})
+	-- use({
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	run = "cd app && npm install",
+	-- 	setup = function()
+	-- 		vim.g.mkdp_filetypes = { "markdown" }
+	-- 	end,
+	-- 	ft = { "markdown" },
+	-- })
 
 	-- bufferline
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
@@ -173,6 +181,7 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
+	use("HiPhish/nvim-ts-rainbow2")
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

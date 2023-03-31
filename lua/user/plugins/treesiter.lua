@@ -17,15 +17,17 @@ treesitter.setup({
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
 	autotag = { enable = true },
 
-	-- Enable rainbow parens
-	rainbow = {
-		enable = true,
-		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-		max_file_lines = nil, -- Do not enable for files with more than n lines, int
-		-- colors = {}, -- table of hex strings
-		-- termcolors = {} -- table of colour name strings
-	},
+	-- WORKS BUT COLORS HARD TO SET TO LOOK NICE
+	-- AND SEEEMS TO NOT BE MAINTAINTED ANYMORE
+	-- -- Enable rainbow parens
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+	-- 	extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+	-- 	max_file_lines = nil, -- Do not enable for files with more than n lines, int
+	-- 	-- colors = {}, -- table of hex strings
+	-- 	-- termcolors = {} -- table of colour name strings
+	-- },
 
 	-- ensure these language parsers are installed
 	ensure_installed = {
@@ -52,4 +54,27 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
+})
+
+local rainbow = require("ts-rainbow")
+require("nvim-treesitter.configs").setup({
+	rainbow = {
+		query = {
+			"rainbow-parens",
+			html = "rainbow-tags",
+		},
+		strategy = {
+			rainbow.strategy.global,
+			-- commonlisp = rainbow.strategy["local"],
+		},
+		hlgroups = {
+			-- "TSRainbowOrange",
+			"TSRainbowBlue",
+			"TSRainbowRed",
+			"TSRainbowGreen",
+			"TSRainbowViolet",
+			"TSRainbowCyan",
+			"TSRainbowYellow",
+		},
+	},
 })
