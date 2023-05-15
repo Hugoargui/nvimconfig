@@ -93,7 +93,7 @@ return packer.startup(function(use)
 
 	-- bufferline
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
-	-- use("noib3/nvim-cokeline")
+	use("noib3/nvim-cokeline")
 
 	-- floating term
 	use({ "akinsho/toggleterm.nvim", tag = "*" })

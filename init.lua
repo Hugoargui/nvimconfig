@@ -30,9 +30,9 @@ require("user.plugins.indent-blankline")
 require("user.plugins.gitsigns")
 
 require("user.plugins.autosession")
-require("user.plugins.bufferline")
 require("user.plugins.lualine")
--- require("user.plugins.cokeline")
+-- require("user.plugins.bufferline")
+require("user.plugins.cokeline")
 
 require("user.plugins.toggleterm")
 
