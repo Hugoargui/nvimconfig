@@ -1,6 +1,15 @@
--- setup must be called before loading
+-- setup must be called before loading colorschemes
+
+-- we can call colorschemes directly, or with pcall
 -- vim.cmd.colorscheme("catppuccin")
-vim.cmd.colorscheme("nightfly")
+-- vim.cmd.colorscheme("nightfly")
+
+local status, _ = pcall(vim.cmd, "colorscheme nightfly")
+
+if not status then
+	print("Colorscheme not found") -- print error if colorscheme not found
+	return
+end
 
 local opt = vim.opt -- for conciseness
 
