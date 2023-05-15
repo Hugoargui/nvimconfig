@@ -25,6 +25,7 @@ require("user.plugins.lsp.lspconfig")
 require("user.plugins.lsp.null-ls")
 
 require("user.plugins.autopairs")
+require("user.plugins.autolist")
 require("user.plugins.treesiter")
 require("user.plugins.indent-blankline")
 require("user.plugins.gitsigns")
