@@ -13,10 +13,9 @@ require("user.plugins.comment")
 require("user.plugins.mini-align")
 require("user.plugins.nvim-tree")
 require("user.plugins.treesitter-objects")
--- require("user.plugins.shade")
 require("user.plugins.tint")
 -- require("user.plugins.colorful-winsep")
-require("user.plugins.incline")
+-- require("user.plugins.incline")
 require("user.plugins.nvim-cmp")
 
 require("user.plugins.lsp.mason")
@@ -39,5 +38,6 @@ require("user.plugins.toggleterm")
 
 require("user.plugins.markdown-preview")
 
+require("user.plugins.colorschemes.catppuccin")
 require("user.core.colorscheme")
 vim.opt.shadafile = ""

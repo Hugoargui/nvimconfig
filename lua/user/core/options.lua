@@ -53,7 +53,7 @@ vim.g.loaded_perl_provider = 0 -- Don't needed, also suppresses not found warnin
 ------------------------------------------------------------------------
 --
 -- APPEARANCE
-opt.termguicolors = true
+opt.termguicolors = true -- use guifg and guibg everywhere instead of ctermfg and ctermbg
 opt.background = "dark"
 opt.number = true
 opt.signcolumn = "yes"
