@@ -155,6 +155,14 @@ return packer.startup(function(use)
 	})
 	use({ "echasnovski/mini.align", branch = "stable" })
 
+	use({
+		"norcalli/nvim-colorizer.lua",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
+
 	-- managing & installing lsp servers, linters & formatters
 	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
 	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig

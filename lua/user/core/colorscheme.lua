@@ -25,12 +25,35 @@ opt.fillchars = {
 }
 
 -- TODO linking WInseparator works, but linking NvimTreeWinSeparator to it only on changing window with cattpuccin
-vim.cmd([[ highlight link WinSeparator Type  ]])
-vim.cmd([[ highlight link NvimTreeWinSeparator WinSeparator  ]])
+-- vim.cmd([[ highlight link WinSeparator Type  ]])
+-- vim.cmd([[ highlight link NvimTreeWinSeparator WinSeparator  ]])
+
+-- Old way
 -- NvimTree has a different HI group for the separator, link both together
 -- vim.cmd([[ highlight NvimTreeWinSeparator guifg=White ]])
 -- vim.cmd([[ highlight WinSeparator guifg=White ]])
 
+-- Attempt at doint it more flexible
+vim.cmd([[ highlight border guifg=#7d3c98 ]]) -- can't set bg in cterm
+vim.cmd([[ highlight link WinSeparator border  ]])
+vim.cmd([[ highlight link NvimTreeWinSeparator border  ]])
+vim.cmd([[ highlight link TelescopeBorder border  ]])
+vim.cmd([[ highlight link TelescopePromptBorder border  ]])
+vim.cmd([[ highlight link TelescopePreviewBorder border  ]])
+vim.cmd([[ highlight link TelescopeResultsBorder border  ]])
+-- TelescopeNormal
+-- TelescopeBorder
+-- TelescopeSelectionCaret
+-- TelescopeMatching
+-- TelescopePromptNormal
+-- TelescopePromptTitle
+-- TelescopePromptPrefix
+-- TelescopePromptBorder
+-- TelescopePreviewTitle
+-- TelescopePreviewBorder
+-- TelescopeResultsTitle
+-- TelescopeResultsBorder
+--
 vim.cmd([[ highlight StatusLineNc guibg=none ]])
 
 -- Hide tildes

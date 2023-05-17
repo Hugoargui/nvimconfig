@@ -25,7 +25,7 @@ nvimtree.setup({
 	view = {
 		side = "left",
 		width = 40,
-		auto_resize = true,
+		-- auto_resize = true, -- nvim says this is an unknown option
 	},
 	-- change folder arrow icons
 	renderer = {
