@@ -15,7 +15,7 @@ ls.config.set_config({
 	},
 })
 
-require("luasnip/loaders/from_vscode").lazy_load()
+-- SNIPPETS THEMSELVES are setup in nvim-cmp.lua
 
 -- vim.cmd [[
 --   imap <silent><expr> <c-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'

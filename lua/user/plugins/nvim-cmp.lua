@@ -16,13 +16,14 @@ if not lspkind_status then
 	return
 end
 
--- load vs-code like snippets from plugins (e.g. friendly-snippets)
+vim.opt.completeopt = "menu,menuone,noselect"
+
+-- With friendly snippets plugins this is enough, but we can't customize
 -- require("luasnip/loaders/from_vscode").lazy_load()
 
 -- Our own custom snippets
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/vscode" } })
-
-vim.opt.completeopt = "menu,menuone,noselect"
+require("luasnip.loaders.from_lua").lazy_load({ paths = "./snippets/from_lua" })
 
 cmp.setup({
 	snippet = {
