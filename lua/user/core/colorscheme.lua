@@ -15,7 +15,8 @@ local opt = vim.opt -- for conciseness
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
 opt.fillchars = {
-	horiz = "─",
+	-- horiz = "─",
+	horiz = "━",
 	horizup = "┴",
 	horizdown = "┬",
 	vert = "│",

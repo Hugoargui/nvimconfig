@@ -56,17 +56,26 @@ treesitter.setup({
 	auto_install = true,
 })
 
-local rainbow = require("ts-rainbow")
+-- -- don't know where I got this config from
+-- local rainbow = require("ts-rainbow")
+-- require("nvim-treesitter.configs").setup({
+-- 	rainbow = {
+-- 		strategy = {
+-- 			rainbow.strategy.global,
+-- 			-- commonlisp = rainbow.strategy["local"],
+-- 		},
+-- 	},
+-- })
+--
 require("nvim-treesitter.configs").setup({
 	rainbow = {
-		query = {
-			"rainbow-parens",
-			html = "rainbow-tags",
-		},
-		strategy = {
-			rainbow.strategy.global,
-			-- commonlisp = rainbow.strategy["local"],
-		},
+		enable = true,
+		-- list of languages you want to disable the plugin for
+		-- disable = { "jsx", "cpp" },
+		-- Which query to use for finding delimiters
+		query = "rainbow-parens",
+		-- Highlight the entire buffer all at once
+		strategy = require("ts-rainbow").strategy.global,
 		hlgroups = {
 			-- "TSRainbowOrange",
 			"TSRainbowBlue",
@@ -75,6 +84,10 @@ require("nvim-treesitter.configs").setup({
 			"TSRainbowViolet",
 			"TSRainbowCyan",
 			"TSRainbowYellow",
+		},
+		query = {
+			"rainbow-parens",
+			html = "rainbow-tags",
 		},
 	},
 })
