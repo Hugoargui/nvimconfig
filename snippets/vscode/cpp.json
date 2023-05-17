@@ -126,6 +126,7 @@
     "body": ["union ${1:MyUnion} {", "\t$0", "};"],
     "description": "Code snippet for union"
   },
+
   "cout": {
     "prefix": "cout",
     "body": ["std::cout << \"${1:message}\" << std::endl;"],
@@ -141,6 +142,18 @@
     "body": ["printf(\"$1\\n\"$0);"],
     "description": "Generic printf() snippet"
   },
+
+  "vei": {
+    "prefix": "vei",
+    "body": ["std::vector<int> $1 ;"],
+    "description": "vector of ints"
+  },
+  "mku": {
+    "prefix": "mku",
+    "body": ["auto $1 = std::make_unique<$2>();"],
+    "description": "make unique pointer"
+  },
+
   "#inc": {
     "prefix": "#inc",
     "body": ["#include \"$0\""],
