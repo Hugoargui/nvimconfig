@@ -5,8 +5,6 @@ require("impatient")
 require("user.core.options")
 require("user.core.keymaps")
 
-require("user.plugins.whichkey")
-
 require("user.plugins.telescope")
 
 require("user.plugins.comment")
@@ -37,6 +35,8 @@ require("user.plugins.cokeline")
 require("user.plugins.toggleterm")
 
 require("user.plugins.markdown-preview")
+
+require("user.plugins.whichkey")
 
 require("user.plugins.colorschemes.catppuccin")
 require("user.core.colorscheme")

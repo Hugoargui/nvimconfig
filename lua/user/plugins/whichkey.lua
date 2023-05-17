@@ -122,7 +122,7 @@ local leader_mappings = {
 
 	v = {
 		name = "Vim config files",
-		["s"] = { "<cmd>source %<cr>", "Source this file" },
+		["v"] = { "<cmd>source %<cr>", "Source this file" },
 		["a"] = { "<cmd>source ~/.config/nvim/init.lua<cr>", "Source all" },
 		["i"] = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Jump to init.lua" },
 		["k"] = { "<cmd>e ~/.config/nvim/lua/user/core/keymaps.lua<CR>", "Jump to keymaps" },
