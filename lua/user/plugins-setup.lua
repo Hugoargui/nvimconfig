@@ -79,17 +79,8 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- use({
-	-- 	"iamcco/markdown-preview.nvim",
-	-- 	run = "cd app && npm install",
-	-- 	setup = function()
-	-- 		vim.g.mkdp_filetypes = { "markdown" }
-	-- 	end,
-	-- 	ft = { "markdown" },
-	-- })
-
 	-- bufferline
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	-- use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 	use("noib3/nvim-cokeline")
 
 	-- floating term
@@ -143,7 +134,12 @@ return packer.startup(function(use)
 	-- Plugins to speed up editing
 	use("numToStr/Comment.nvim")
 	-- use("tpope/vim-surround") -- add, delete, change surroundings
-	use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
+	use({
+		"gbprod/substitute.nvim",
+		config = function()
+			require("substitute").setup({})
+		end,
+	})
 	use({
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
