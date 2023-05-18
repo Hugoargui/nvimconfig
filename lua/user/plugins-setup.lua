@@ -115,6 +115,9 @@ return packer.startup(function(use)
 	use("nvim-tree/nvim-tree.lua")
 	use("nvim-tree/nvim-web-devicons")
 
+	-- Buffer navigation
+	use("jinh0/eyeliner.nvim")
+
 	-- fuzzy finding w/ telescope
 	use("nvim-lualine/lualine.nvim")
 	use({
@@ -154,7 +157,7 @@ return packer.startup(function(use)
 
 	use({
 		"norcalli/nvim-colorizer.lua",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		-- tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = function()
 			require("colorizer").setup()
 		end,
@@ -197,6 +200,8 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+	-- compiler plugins
 	use("cdelledonne/vim-cmake")
 
 	use({ "folke/which-key.nvim" })
