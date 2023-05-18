@@ -71,9 +71,6 @@ return packer.startup(function(use)
 	use({
 		"lukas-reineke/headlines.nvim",
 		after = "nvim-treesitter",
-		config = function()
-			require("headlines").setup()
-		end,
 	})
 	use({
 		"iamcco/markdown-preview.nvim",
