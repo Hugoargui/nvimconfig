@@ -90,7 +90,9 @@ local leader_mappings = {
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>qa!<CR>", "Quit" },
 	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	-- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["h"] = { "<cmd>Telescope highlights<CR>", "Search Highligts" },
+	["r"] = { "<cmd>Telescope resume<CR>", "RESUME last search" },
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",
