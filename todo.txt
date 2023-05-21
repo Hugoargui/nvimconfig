@@ -24,9 +24,8 @@ improve search and replace workflo, by example by using Spectre
 optimize command line workflow try fine-cmd-line wilder...
 cokeline fix chose buffer to jump or close
 terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this. 
-terminal: is there an easy way to support mix of horizontal/vertical/floating with different ctrl mappings
-
-
+terminal: the size of the terminal stays weird when changing between different terminals
+terminal: there is a nize plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 
 
 
