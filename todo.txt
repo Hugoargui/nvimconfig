@@ -1,5 +1,4 @@
 TODO 
-fix buffer navigation shortcuts for cokeline
 fix tabs broken by snippet plugin
 make terminal workflow better
 lazygit doesnt open in fullscren anymore, fix
@@ -25,6 +24,7 @@ nvim todo plugin
 move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo 
 improve search and replace workflo, by example by using Spectre
 optimize command line workflow try fine-cmd-line wilder...
+cokeline fix chose buffer to jump or close
 
 
 

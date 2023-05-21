@@ -4,33 +4,34 @@ local wk = require("which-key")
 wk.register({
 	b = {
 		name = "Buffers",
-		g = { "<Plug>cokeline-pick-focus", "Pick Buffer" },
-		x = {
-			name = "Close Buffers",
-			x = { "<Cmd>cokeline-pick-close<Cr>", "Pick and Close Buffer" },
-			-- h = { '<Cmd>BufferLineCloseLeft<Cr>', 'Close Buffers to the Left' },
-			-- l = { '<Cmd>BufferLineCloseRight<Cr>', 'Close Buffers to the Right' },
-			o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], "Close All Other Buffers" },
-		},
-		d = { "<Cmd>bd<Cr>", "Delete Current Buffer" },
-		D = { "<Cmd>bd!<Cr>", "Delete Current Buffer (Ignore Unsaved Changes)" },
-		o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], "Close All Other Buffers" },
+		g = { "<Plug>(cokeline-pick-focus)", "Pick Buffer" },
+		x = { "<Plug>(cokeline-pick-close)", "Pick and Close Buffer" },
+		-- h = { '<Cmd>BufferLineCloseLeft<Cr>', 'Close Buffers to the Left' },
+		-- l = { '<Cmd>BufferLineCloseRight<Cr>', 'Close Buffers to the Right' },
+		["["] = { "<Cmd>(cokeline-switch-prev)<Cr>", "Move Buffer Left" },
+		["]"] = { "<Cmd>(cokeline-switch-next)<Cr>", "Move Buffer Right" },
+		o = { [[<Plug>%bd|e#|bd#<Cr>|'"<Cr>]], "Close All Other Buffers" },
 		b = {
 			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Buffers",
 		},
-		["["] = { "<Cmd>cokeline-switch-prev<Cr>", "Move Buffer Left" },
-		["]"] = { "<Cmd>cokeline-switch-next<Cr>", "Move Buffer Right" },
+		d = { "<Cmd>bd<Cr>", "Delete Current Buffer" },
+		D = { "<Cmd>bd!<Cr>", "Delete Current Buffer (Ignore Unsaved Changes)" },
+		o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], "Close All Other Buffers" },
 	},
 }, {
 	prefix = "<Leader>",
 })
-vim.api.nvim_set_keymap("v", "<space>r", "<Plug>(cokeline-pick-focus)", { noremap = false, silent = true })
+
+vim.api.nvim_set_keymap("n", "<Left>", "<Plug>(cokeline-focus-prev)", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<Right>", "<Plug>(cokeline-focus-next)", { noremap = false, silent = true })
 
 wk.register({
-	["[b"] = { "<Plug>cokeline-focus-prev", "Previous Buffer" },
-	["]b"] = { "<Plug>cokeline-focus-next", "Next Buffer" },
+	["[b"] = { "<Plug>(cokeline-focus-prev)", "Previous Buffer" },
+	["]b"] = { "<Plug>(cokeline-focus-next)", "Next Buffer" },
 })
+
+-- vim.api.nvim_set_keymap(k"n", "<space>q", "<Plug>(cokeline-focus-next)", { noremap = false, silent = true })
 
 require("cokeline").setup({
 	default_hl = {
