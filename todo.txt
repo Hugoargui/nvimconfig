@@ -1,7 +1,6 @@
 TODO 
 fix tabs broken by snippet plugin
 make terminal workflow better
-lazygit doesnt open in fullscren anymore, fix
 fix/standardize align, surround plugins, make them show up correctly in whichkey
 find a remap to toggle header/cpp file
 
