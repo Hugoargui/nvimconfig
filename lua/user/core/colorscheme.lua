@@ -42,18 +42,24 @@ vim.cmd([[ highlight link TelescopeBorder border  ]])
 vim.cmd([[ highlight link TelescopePromptBorder border  ]])
 vim.cmd([[ highlight link TelescopePreviewBorder border  ]])
 vim.cmd([[ highlight link TelescopeResultsBorder border  ]])
+
+vim.cmd([[ highlight link TelescopePromptTitle border  ]])
+vim.cmd([[ highlight link TelescopeResultsTitle border  ]])
+vim.cmd([[ highlight link TelescopePreviewTitle border  ]])
+vim.cmd([[ highlight link TelescopeResultsLineNr border  ]])
+vim.cmd([[ highlight link TelescopePromptCounter border  ]])
 -- TelescopeNormal
--- TelescopeBorder
--- TelescopeSelectionCaret
--- TelescopeMatching
 -- TelescopePromptNormal
--- TelescopePromptTitle
+-- TelescopeSelectionCaret
+-- TelescopeMatching -- the highlight of characters matching fuzzy find
+-- TelescopeBorder
+-- TelescopePreviewBorder
+-- TelescopeResultsBorder
 -- TelescopePromptPrefix
 -- TelescopePromptBorder
--- TelescopePreviewTitle
--- TelescopePreviewBorder
+-- TelescopePromptTitle
 -- TelescopeResultsTitle
--- TelescopeResultsBorder
+-- TelescopePreviewTitle
 --
 vim.cmd([[ highlight StatusLineNc guibg=none ]])
 
