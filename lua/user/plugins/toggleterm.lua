@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local opts = { noremap = true, silent = true }
--- vim.keymap.set("n", "<c-f>", ":ToggleTerm<cr>", opts)
+-- vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<cr>", opts)
 -- vim.keymap.set("i", "<c-f>", "<Esc>:ToggleTerm<cr>", opts)
 -- vim.keymap.set("t", "<c-f>", "<esc><C-n>:ToggleTerm<cr>", opts)
 
@@ -19,7 +19,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	-- 	insert_mappings = true,
 	-- 	persist_size = true,
-	-- 	direction = "float",
+	direction = "horizontal",
 	-- 	close_on_exit = true,
 	-- 	shell = vim.o.shell,
 	-- 	float_opts = {

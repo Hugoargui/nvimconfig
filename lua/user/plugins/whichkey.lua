@@ -206,16 +206,17 @@ local leader_mappings = {
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
-	t = {
-		name = "Tabs and Terminals",
-		-- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		-- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		-- p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal Terminal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical Terminal" },
-	},
+	-- t = {
+	-- name = "Tabs and Terminals",
+	-- terminals with learder keys cause problems (not so easy to toggle as with ctrl. For now try to have them on ctrl)
+	-- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+	-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+	-- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+	-- p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+	-- f = { "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" },
+	-- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal Terminal" },
+	-- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical Terminal" },
+	-- },
 }
 
 which_key.setup(setup)
