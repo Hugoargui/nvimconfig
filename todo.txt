@@ -2,8 +2,8 @@ TODO
 fix buffer navigation shortcuts for cokeline
 fix tabs broken by snippet plugin
 make terminal workflow better
+lazygit doesnt open in fullscren anymore, fix
 fix/standardize align, surround plugins, make them show up correctly in whichkey
-remap ge to q 
 find a remap to toggle header/cpp file
 
 add exchange plugin
@@ -13,6 +13,7 @@ fix slow startup of terminal (not vim specific)
 
 
 FUTURE IDEAS, NOT URGENT
+remap ge to q 
 smarter words, skip punctuation
 camelcase motion
 try the moonicipal task runner
