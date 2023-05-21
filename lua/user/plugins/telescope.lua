@@ -70,7 +70,9 @@ telescope.setup({
 		selection_strategy = "reset",
 		sorting_strategy = "ascending",
 		layout_strategy = "horizontal",
-		-- layout_config = {promt_position = "top"}
+		layout_config = {
+			horizontal = { prompt_position = "top" },
+		},
 	}, -- defaults
 }) --setup
 
