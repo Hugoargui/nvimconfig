@@ -29,6 +29,7 @@ require("user.plugins.treesitter-objects")
 
 require("user.plugins.autopairs")
 require("user.plugins.comment")
+-- require("user.plugins.nvim-surround") -- For now i give up on setting it for wichkey, doesn't show, plus pressing f in insert mode breaks
 require("user.plugins.mini-align")
 require("user.plugins.autolist")
 
