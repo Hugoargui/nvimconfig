@@ -38,7 +38,7 @@ local setup = {
 	},
 	icons = {
 		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-		separator = "➜", -- symbol used between a key and it's label
+		-- separator = ">", -- symbol used between a key and it's label
 		group = "+", -- symbol prepended to a group
 	},
 	popup_mappings = {
@@ -99,7 +99,6 @@ local leader_mappings = {
 	},
 	["F"] = { "<cmd>Telescope find_files<cr>", "Find Files with preview" },
 	["s"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-	-- ["s"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	x = {
@@ -116,7 +115,6 @@ local leader_mappings = {
 		["h"] = { "<C-w>s>", "Split horizontally" },
 		["e"] = { "<C-w> =<CR>", "Make splits equal size" },
 		["x"] = { "<cmd>close<CR>", "Close current window" },
-		-- ["o"] = { "<c-w>s", "dcadad" },
 		["s"] = { "<C-q>", "Toggle Shade" },
 		-- ["o"] = { "<cmd>only<CR>", "Close all other windows" },
 		["f"] = { "<cmd>MaximizerToggle<CR>", "Maximizer Toggle" },
@@ -156,8 +154,8 @@ local leader_mappings = {
 			"Undo Stage Hunk",
 		},
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		-- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		-- c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		d = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Diff",
