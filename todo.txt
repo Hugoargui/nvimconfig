@@ -1,12 +1,10 @@
 TODO 
-fix tabs broken by snippet plugin
 fix/standardize align, surround plugins, make them show up correctly in whichkey
 find a remap to toggle header/cpp file
 
 add exchange plugin
 add cutlass plugin to separate copy and paste
 
-fix slow startup of terminal (not vim specific)
 
 
 FUTURE IDEAS, NOT URGENT

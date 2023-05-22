@@ -16,22 +16,30 @@ ls.config.set_config({
 })
 
 -- SNIPPETS THEMSELVES are setup in nvim-cmp.lua
+--
 
--- vim.cmd [[
---   imap <silent><expr> <c-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'
---   inoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>
---   snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(1)<CR>
---   snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>
--- ]]
--- -- " press <Tab> to expand or jump in a snippet. These can also be mapped separately
--- -- " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
--- -- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
--- -- " -1 for jumping backwards.
--- -- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+-- TODO: shold this be part of nvim-cmp.lua?
+-- <c-k> is my expansion key
+-- this will expand the current item or jump to the next item within the snippet.
+vim.keymap.set({ "i", "s" }, "<c-l>", function()
+	if ls.expand_or_jumpable() then
+		ls.expand_or_jump()
+	end
+end, { silent = true })
 
--- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
--- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+-- <c-j> is my jump backwards key.
+-- this always moves to the previous item within the snippet
+vim.keymap.set({ "i", "s" }, "<c-h>", function()
+	if ls.jumpable() then
+		ls.jump(-1)
+	end
+end, { silent = true })
 
--- " For changing choices in choiceNodes (not strictly necessary for a basic setup).
--- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+-- -- This is selecting between a list of options
+-- -- This is useful for choice nodes if you're using them
+-- vim.keymap.set("i", "<c-e>", function()
+-- 	if ls.choice_active() then
+-- 		ls.change_choice(1)
+-- 	end
+-- end)
+--

@@ -42,4 +42,5 @@ require("user.plugins.eyeliner")
 
 require("user.plugins.colorschemes.catppuccin")
 require("user.core.colorscheme")
+require("user.plugins.luasnip")
 vim.opt.shadafile = ""
