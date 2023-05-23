@@ -177,7 +177,7 @@ Hydra({
 		{ "o", "<C-w>o", { exit = true, desc = "remain only" } },
 		{ "<C-o>", "<C-w>o", { exit = true, desc = false } },
 
-		{ "b", choose_buffer, { exit = true, desc = "choose buffer" } },
+		-- { "b", choose_buffer, { exit = true, desc = "choose buffer" } },
 
 		{ "c", pcmd("close", "E444") },
 		{ "q", pcmd("close", "E444"), { desc = "close window" } },

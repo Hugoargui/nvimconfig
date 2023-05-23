@@ -1,44 +1,42 @@
 TODO 
-window managemente (resize, move around, etc...) maybe try Hydra
-fix/standardize align, surround plugins, make them show up correctly in whichkey
-find a remap to toggle header/cpp file
-
-add exchange plugin
-add cutlass plugin to separate copy and paste
-
-
+- fix/standardize align, surround plugins, make them show up correctly in whichkey
+- find a remap to toggle header/cpp file
+- add exchange plugin
+- add cutlass plugin to separate copy and paste
 
 FUTURE IDEAS, NOT URGENT
-remap ge to q 
-smarter words, skip punctuation
-camelcase motion
-try the moonicipal task runner
-try themery colorswitcher
-incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
-automatic whichkey popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
-remove cursor when navigating nerdtree
-nvim todo plugin
-move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo 
-improve search and replace workflo, by example by using Spectre
-optimize command line workflow try fine-cmd-line wilder...
-cokeline fix chose buffer to jump or close
-terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this. 
-terminal: the size of the terminal stays weird when changing between different terminals
-terminal: there is a nize plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
-consider supercharging tab for snippet expansion, plus tabout plugin
+- remap ge to q 
+- smarter words, skip punctuation
+- camelcase motion
+- try the moonicipal task runner
+- try themery colorswitcher
+- incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
+- automatic whichkey popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
+- remove cursor when navigating nerdtree
+- nvim todo plugin
+- move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo 
+- improve search and replace workflo, by example by using Spectre
+- optimize command line workflow try fine-cmd-line wilder...
+- cokeline fix chose buffer to jump or close
+- terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this. 
+- terminal: the size of the terminal stays weird when changing between different terminals
+- terminal: there is a nize plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
+- consider supercharging tab for snippet expansion, plus tabout plugin
 
-harpoon
-
-
+- harpoon
 
 
+improve window management (now it works, consider if it's enough after some usage). Ideas: 
+- extra plugin: buffresize to keep proportions while resizing
+- reenable the autoresizing window plugin anuvyklack/windows.nvim
+- hydra window example comes with barbar integration, consider porting to cokeline
+- jump to any window mapping
 
 
 CHANGES IN workflow
 this are pretty big changes that I'd like to explore someday, but are not critical right now
-
-try a hop/lea/ similar jump plugin
-try structural search and replace
-try yode-nvim
-try multicursors
-try ideas from this video https://www.youtube.com/watch?v=U420QymHjlA
+- try a hop/leap/ similar jump plugin
+- try structural search and replace
+- try yode-nvim
+- try multicursors
+- try ideas from this video https://www.youtube.com/watch?v=U420QymHjlA
