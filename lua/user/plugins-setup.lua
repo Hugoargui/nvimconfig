@@ -180,6 +180,15 @@ return packer.startup(function(use)
 	-- managing & installing lsp servers, linters & formatters
 	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
 	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+	-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+	use({
+		"folke/neodev.nvim", -- adds a bunch of vim/lua annotations/completion/etc for easier config/plugin dev
+		config = function()
+			require("neodev").setup({
+				-- add any options here, or leave empty to use the default settings
+			})
+		end,
+	})
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
