@@ -99,7 +99,6 @@ local leader_mappings = {
 	},
 	["F"] = { "<cmd>Telescope find_files<cr>", "Find Files with preview" },
 	["s"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	x = {
 		name = "Session Management",
@@ -162,6 +161,9 @@ local leader_mappings = {
 		},
 	},
 
+	m = {
+		name = "Make/Build",
+	},
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -204,17 +206,18 @@ local leader_mappings = {
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
-	-- t = {
-	-- name = "Tabs and Terminals",
-	-- terminals with learder keys cause problems (not so easy to toggle as with ctrl. For now try to have them on ctrl)
-	-- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-	-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-	-- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-	-- p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-	-- f = { "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" },
-	-- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal Terminal" },
-	-- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical Terminal" },
-	-- },
+	t = {
+		-- name = "Tabs and Terminals",
+		name = "Tabs / Window Layouts",
+		-- terminals with learder keys cause problems (not so easy to toggle as with ctrl. For now try to have them on ctrl)
+		-- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+		-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+		-- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+		-- p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+		-- f = { "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" },
+		-- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal Terminal" },
+		-- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical Terminal" },
+	},
 }
 
 which_key.setup(setup)
