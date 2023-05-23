@@ -1,4 +1,5 @@
 TODO 
+window managemente (resize, move around, etc...) maybe try Hydra
 fix/standardize align, surround plugins, make them show up correctly in whichkey
 find a remap to toggle header/cpp file
 
@@ -26,6 +27,7 @@ terminal: the size of the terminal stays weird when changing between different t
 terminal: there is a nize plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 consider supercharging tab for snippet expansion, plus tabout plugin
 
+harpoon
 
 
 
@@ -40,4 +42,3 @@ try structural search and replace
 try yode-nvim
 try multicursors
 try ideas from this video https://www.youtube.com/watch?v=U420QymHjlA
-harpoon
