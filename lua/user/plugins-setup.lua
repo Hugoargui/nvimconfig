@@ -93,6 +93,22 @@ return packer.startup(function(use)
 	-- Window appearance
 	use("levouh/tint.nvim") -- more recent version than shade
 	use("b0o/incline.nvim") -- Add file to every split
+	use("mrjones2014/smart-splits.nvim") -- used by hydra window-manager
+	use("sindrets/winshift.nvim") -- used by hydra window=manager
+
+	-- use({
+	-- 	"anuvyklack/windows.nvim",
+	-- 	requires = {
+	-- 		"anuvyklack/middleclass",
+	-- 		"anuvyklack/animation.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		vim.o.winwidth = 10
+	-- 		vim.o.winminwidth = 10
+	-- 		vim.o.equalalways = false
+	-- 		require("windows").setup()
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"nvim-zh/colorful-winsep.nvim", -- add line borders to splits

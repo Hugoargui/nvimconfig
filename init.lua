@@ -48,5 +48,7 @@ require("user.plugins.eyeliner")
 
 require("user.plugins.colorschemes.catppuccin")
 require("user.core.colorscheme")
+require("user.plugins.hydra_menus.toggle_options")
+require("user.plugins.hydra_menus.window_manager")
 require("user.plugins.hydra")
 vim.opt.shadafile = ""
