@@ -23,6 +23,7 @@ FUTURE IDEAS, NOT URGENT
 - incremental selection
 
 - harpoon
+- more textobjects: indent, loop, conditional, number... 
 
 
 improve window management (now it works, consider if it's enough after some usage). Ideas: 
