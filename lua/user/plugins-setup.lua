@@ -202,6 +202,7 @@ return packer.startup(function(use)
 	use("cdelledonne/vim-cmake")
 
 	use({ "folke/which-key.nvim" })
+	use("anuvyklack/hydra.nvim")
 
 	-- End of plugins setup
 	if packer_bootstrap then
