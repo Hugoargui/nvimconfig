@@ -35,3 +35,9 @@ vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
 vim.keymap.set("n", "ss", require("substitute").line, { noremap = true })
 vim.keymap.set("n", "S", require("substitute").eol, { noremap = true })
 vim.keymap.set("x", "s", require("substitute").visual, { noremap = true })
+
+-- For the smartword plugin
+vim.api.nvim_set_keymap("n", "w", "<Plug>(smartword-w)", { noremap = false, silent = true, desc = "Surround" })
+vim.api.nvim_set_keymap("n", "b", "<Plug>(smartword-b)", { noremap = false, silent = true, desc = "Surround" })
+vim.api.nvim_set_keymap("n", "e", "<Plug>(smartword-e)", { noremap = false, silent = true, desc = "Surround" })
+vim.api.nvim_set_keymap("n", "q", "<Plug>(smartword-ge)", { noremap = false, silent = true, desc = "Surround" })

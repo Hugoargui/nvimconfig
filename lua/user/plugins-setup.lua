@@ -124,6 +124,7 @@ return packer.startup(function(use)
 
 	-- Buffer navigation
 	use("jinh0/eyeliner.nvim")
+	use("anuvyklack/vim-smartword")
 
 	-- fuzzy finding w/ telescope
 	use("nvim-lualine/lualine.nvim")

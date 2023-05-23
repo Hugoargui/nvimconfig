@@ -5,8 +5,6 @@ TODO
 - add cutlass plugin to separate copy and paste
 
 FUTURE IDEAS, NOT URGENT
-- remap ge to q 
-- smarter words, skip punctuation
 - camelcase motion
 - try the moonicipal task runner
 - try themery colorswitcher
@@ -14,14 +12,15 @@ FUTURE IDEAS, NOT URGENT
 - automatic whichkey popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
 - remove cursor when navigating nerdtree
 - nvim todo plugin
-- move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo 
+- move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - improve search and replace workflo, by example by using Spectre
 - optimize command line workflow try fine-cmd-line wilder...
 - cokeline fix chose buffer to jump or close
-- terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this. 
+- terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - terminal: the size of the terminal stays weird when changing between different terminals
 - terminal: there is a nize plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 - consider supercharging tab for snippet expansion, plus tabout plugin
+- incremental selection
 
 - harpoon
 
