@@ -25,6 +25,7 @@ require("user.plugins.treesiter")
 require("user.plugins.treesitter-objects")
 require("user.plugins.autopairs")
 require("user.plugins.comment")
+require("user.plugins.todo-comments")
 require("user.plugins.cutlass")
 require("user.plugins.autolist")
 

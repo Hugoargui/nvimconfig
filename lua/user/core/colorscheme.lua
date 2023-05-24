@@ -25,7 +25,8 @@ opt.fillchars = {
 	verthoriz = "┼",
 }
 
--- TODO linking WInseparator works, but linking NvimTreeWinSeparator to it only on changing window with cattpuccin
+-- Todo linking WInseparator works, but linking NvimTreeWinSeparator to it only on changing window with cattpuccin
+
 -- vim.cmd([[ highlight link WinSeparator Type  ]])
 -- vim.cmd([[ highlight link NvimTreeWinSeparator WinSeparator  ]])
 

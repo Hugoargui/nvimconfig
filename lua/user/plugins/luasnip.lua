@@ -1,6 +1,6 @@
 local ls = require("luasnip")
-local fmt = require("luasnip.extras.fmt").fmt
-local rep = require("luasnip.extras").rep
+-- local fmt = require("luasnip.extras.fmt").fmt
+-- local rep = require("luasnip.extras").rep
 
 ls.config.set_config({
 	history = true, -- keep around last snippet local to jump back

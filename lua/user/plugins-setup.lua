@@ -145,10 +145,14 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 	use("rafamadriz/friendly-snippets") -- useful snippets
 
+	-- Todo features
+	use("folke/todo-comments.nvim")
+
 	-- Text objects
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Plugins to speed up editing
+	-- TODO: decide between this two, which one has best features.
 	-- use("numToStr/Comment.nvim")
 	use("terrortylor/nvim-comment")
 	-- use("tpope/vim-surround") -- add, delete, change surroundings

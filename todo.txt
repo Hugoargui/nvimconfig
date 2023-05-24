@@ -1,6 +1,7 @@
 TODO 
 - fix/standardize align, surround plugins, make them show up correctly in whichkey
 - find a remap to toggle header/cpp file
+- LSP make all working
 - add exchange plugin
 
 FUTURE IDEAS, NOT URGENT
@@ -10,7 +11,6 @@ FUTURE IDEAS, NOT URGENT
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
 - automatic whichkey popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
 - remove cursor when navigating nerdtree
-- nvim todo plugin
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - improve search and replace workflo, by example by using Spectre
 - optimize command line workflow try fine-cmd-line wilder...

@@ -86,6 +86,7 @@ local leader_opts = {
 local leader_mappings = {
 	-- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["T"] = { "<cmd>TodoTelescope<cr>", "Explorer" },
 	["c"] = { "<cmd>Telescope colorscheme<cr>", "Colorshemes" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>qa!<CR>", "Quit" },

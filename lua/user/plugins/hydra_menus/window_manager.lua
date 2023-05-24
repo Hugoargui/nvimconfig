@@ -110,7 +110,7 @@ local window_hint = [[
  ^ ^ ^ ^ ^ ^  ^ ^ ^ ^ ^ ^   ^^ ^          ^   _o_: remain only
 ]]
 
--- Todo: the docs add this line
+-- TODO: the docs add this line
 --  _b_: choose buffer
 --  which gives a barbar buffer mode... consider porting it to cockeline
 
