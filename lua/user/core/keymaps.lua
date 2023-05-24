@@ -8,8 +8,8 @@ keymap.set("n", "<C-k>", "<C-w>k") -- navigate window faster
 keymap.set("n", "<C-l>", "<C-w>l") -- navigate window faster
 
 -- tab management
-keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "Open New Tab" }) -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close Current Tab" }) -- close current tab
+-- keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "Open New Tab" }) -- open new tab
+-- keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close Current Tab" }) -- close current tab
 keymap.set("n", "[t", ":tabn<CR>", { desc = "Previous Tab" }) --  go to next tab
 keymap.set("n", "]t", ":tabp<CR>", { desc = "Next Tab" }) --  go to previous tab
 

@@ -20,29 +20,87 @@ end
 -- end
 
 local keymap = vim.keymap -- for conciseness
+local native = vim.lsp.buf -- for conciseness
+local nativediag = vim.diagnostic -- for conciseness
 
 -- enable keybinds only for when lsp server available
-local on_attach = function(client, bufnr)
-	-- keybind options
-	-- local opts = { noremap = true, silent = true, buffer = bufnr }
+local on_attach = function()
+	-- TODO: maybe pass {buffer=0} to keymaps set so mappings only apply to current buffer that has LSP attached
+	-- See TJdevies Neovim Builtin LSP Setup GUide around minute 31 for more info
 
-	-- set keybinds
-	keymap.set("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { desc = "LSP finder" }) -- show definition, references
-	keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "GO TO Declaration" }) -- got to declaration
-	keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "GO TO Definition" }) -- go to definition
-	keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "GO TO References" }) -- go to definition
-	keymap.set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "GO TO Implementation" }) -- go to implementation
+	-- ------------------------------------------------------------------------------------------------------------
+	-- GO TO DEFINITION
+	keymap.set("n", "gd", native.definition, { desc = "GO TO Definition" }) -- go to definition
+
+	-- PPEK DEFINITION
 	keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition" }) -- peek definition and make edits in window
-	keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Actions" }) -- see available code actions
-	keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" }) -- smart rename
-	keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Diagnostics for this line" }) -- show  diagnostics for line
-	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "Diagnostics under cursor" }) -- show diagnostics for cursor
-	keymap.set("n", "<leader>ls", "<cmd> lua vim.lsp.buf.signature_help<cr>", { desc = "Signature" }) -- show documentation for what is under cursor
-	keymap.set("n", "<leader>o", "<cmd>Lspsaga outline <CR>", { desc = "Toggle Outline" }) -- see outline on right hand side
-	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostics" }) -- jump to previous diagnostic in buffer
-	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostics" }) -- jump to next diagnostic in buffer
-	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Documentation" }) -- show documentation for what is under cursor
 
+	-- GO TO DECLARATION
+	keymap.set("n", "gD", native.declaration, { desc = "GO TO Declaration" }) -- got to declaration
+
+	-- GO TO REFERENCES
+	keymap.set("n", "gr", native.references, { desc = "GO TO References" }) -- go to definition
+
+	-- GO TO IMPLEMENTATION
+	keymap.set("n", "gI", native.implementation, { desc = "GO TO Implementation" }) -- go to implementation
+
+	-- GO TO IMPLEMENTATION
+	keymap.set("n", "gt", native.type_definition, { desc = "GO TO Type" }) -- go to type definition
+
+	-- ------------------------------------------------------------------------------------------------------------
+	keymap.set("n", "<leader>lx", "native.format{async=true}", { desc = "Auto-Format" }) -- see available code actions
+
+	-- ------------------------------------------------------------------------------------------------------------
+	-- LSP OUTLINE
+	keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<CR>", { desc = "Toggle Outline" }) -- see outline on right hand side
+
+	-- LSP SEARCH SYMBOLS
+	keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document Symbols" })
+	keymap.set("n", "<leader>lw", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace Symbols" })
+	keymap.set("n", "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { desc = "LSP finder" }) -- show definition, references
+
+	-- ------------------------------------------------------------------------------------------------------------
+	-- HOVER
+	-- keymap.set("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" }) -- show documentation for what is under cursor
+	keymap.set("n", "<leader>lh", native.hover, { desc = "Hover Documentation" }) -- show documentation for what is under cursor
+
+	-- SIGNATURE HELP
+	keymap.set("n", "<leader>ls", native.signature_help, { desc = "Signature" }) -- show documentation for what is under cursor
+
+	-- RENAME
+	keymap.set("n", "<leader>lr", native.rename, { desc = "Native Rename" }) -- show documentation for what is under cursor
+	keymap.set("n", "<leader>lR", "<cmd>Lspsaga rename<CR>", { desc = "LSpsaga Rename" }) -- smart rename
+
+	-- ------------------------------------------------------------------------------------------------------------
+	-- DIAGNOSTICS STUFF
+
+	-- DIAGNOSTICS JUMPING
+	keymap.set("n", "[d", nativediag.goto_prev, { desc = "Previous Diagnostics" })
+	keymap.set("n", "]d", nativediag.goto_next, { desc = "Next Diagnostics" })
+	keymap.set("n", "<leader>dp", nativediag.goto_prev, { desc = "Previous Diagnostics" })
+	keymap.set("n", "<leader>dn", nativediag.goto_next, { desc = "Next Diagnostics" })
+	-- keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostics" }) -- jump to previous diagnostic in buffer
+	-- keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostics" }) -- jump to next diagnostic in buffer
+
+	-- Diagnostics search
+	keymap.set("n", "<leader>dd", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Document Diagnostics" })
+	keymap.set("n", "<leader>dD", "<cmd>Telescope diagnostics<CR>", { desc = "Workspace Diagnostics" })
+
+	-- LINE DIAGNOSTICS
+	keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Diagnostics for this line" }) -- show  diagnostics for line
+
+	-- CURSOR DIAGNOSTICS
+	keymap.set("n", "<leader>dc", nativediag.open_float, { desc = "Diagnostic under cursor" })
+	keymap.set("n", "<leader>da", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "Diagnostics under cursor" }) -- show diagnostics for cursor
+
+	-- Quickfix List
+	keymap.set("n", "<leader>dq", "nativediag.setloclist", { desc = "Send Diagnostics to LocList" }) -- show diagnostics for cursor
+	-- ------------------------------------------------------------------------------------------------------------
+	-- CODE ACTIONS
+	keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Actions" }) -- see available code actions
+	keymap.set("n", "<leader>lA", vim.lsp.codelens.run, { desc = "CodeLens Actions" }) -- see available code actions
+
+	-- ------------------------------------------------------------------------------------------------------------
 	-- if client.name == "tsserver" then -- typescript specific keymaps (e.g. rename file and update imports)
 	-- 	keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>", { desc = "Rename file and update imports" }) -- rename file and update imports
 	-- 	keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>", { desc = "Organize Imports" }) -- organize imports (not in youtube nvim video)
