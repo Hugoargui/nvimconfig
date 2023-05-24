@@ -6,14 +6,13 @@ end
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<c-f>", ":ToggleTerm direction=float<cr>", opts)
 vim.keymap.set("t", "<c-f>", [[<C-\><C-n>:ToggleTerm<cr>]], opts) -- this assumes the terminal keymap already sets <esc> to <C-\><C-n>
-vim.keymap.set("n", "<c-p>", ":ToggleTerm direction=vertical size=80<cr>", opts)
-vim.keymap.set("t", "<c-p>", [[<C-\><C-n>:ToggleTerm<cr>]], opts) -- this assumes the terminal keymap already sets <esc> to <C-\><C-n>
+vim.keymap.set("n", "<m-t>", ":ToggleTerm direction=vertical size=80<cr>", opts)
+vim.keymap.set("t", "<m-t>", [[<C-\><C-n>:ToggleTerm<cr>]], opts) -- this assumes the terminal keymap already sets <esc> to <C-\><C-n>
 vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=horizontal<cr>", opts)
 vim.keymap.set("t", "<c-t>", [[<C-\><C-n>:ToggleTerm<cr>]], opts) -- this assumes the terminal keymap already sets <esc> to <C-\><C-n>
 -- From reddit example:
 -- nnoremap <silent> <Leader>t   :FloatermToggle<CR>
 -- tnoremap <silent> <Leader>t   <C-\><C-n>:FloatermToggle<CR>
-
 toggleterm.setup({
 	-- size = function(term)
 	-- if term.direction == "horizontal" then

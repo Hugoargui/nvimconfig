@@ -1,8 +1,10 @@
--- import comment plugin safely
-local setup, comment = pcall(require, "Comment")
-if not setup then
-  return
-end
+-- -- import comment plugin safely
+-- local setup, comment = pcall(require, "Comment")
+-- if not setup then
+-- 	return
+-- end
 
--- enable comment
-comment.setup()
+-- -- enable comment
+-- comment.setup()
+
+require("nvim_comment").setup()

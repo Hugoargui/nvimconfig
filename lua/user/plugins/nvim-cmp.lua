@@ -31,11 +31,6 @@ local has_words_before = function()
 end
 
 cmp.setup({
-	-- snippet = {
-	-- expand = function(args)
-	-- luasnip.lsp_expand(args.body)
-	-- end,
-	-- },
 
 	mapping = cmp.mapping.preset.insert({
 		-- Maybe don't use <CR>, it's annoying that it selects instead of going at a new line when you press enter.
@@ -89,17 +84,26 @@ cmp.setup({
 	},
 	-- sources for autocompletion
 	sources = cmp.config.sources({
+		{ name = "nvim_lua" }, -- neovim and Lua extra API, it only enables itself in .lua files
 		{ name = "nvim_lsp" }, -- lsp
-		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
+		{ name = "luasnip" }, -- snippets
+		{ name = "buffer", keyword_length = 5 }, -- words from this buffer
 	}),
 
 	-- configure lspkind for vs-code like icons
 	formatting = {
 		format = lspkind.cmp_format({
+			with_text = true,
 			maxwidth = 50,
 			ellipsis_char = "...",
+			menu = {
+				-- buffer = "[buf]", -- if commented out, it will just show Text
+				nvim_ls = "[LSP]",
+				nvim_lua = "[api]",
+				path = "[path]",
+				luasnip = "[snip]",
+			},
 		}),
 	},
 })

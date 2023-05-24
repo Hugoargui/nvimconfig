@@ -149,7 +149,8 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Plugins to speed up editing
-	use("numToStr/Comment.nvim")
+	-- use("numToStr/Comment.nvim")
+	use("terrortylor/nvim-comment")
 	-- use("tpope/vim-surround") -- add, delete, change surroundings
 	use({
 		"gbprod/substitute.nvim",
@@ -169,6 +170,7 @@ return packer.startup(function(use)
 	-- use({ "echasnovski/mini.align", branch = "stable" })
 	-- use({ "junegunn/vim-easy-align" })
 	use("gbprod/cutlass.nvim")
+	use("gbprod/yanky.nvim")
 
 	use({
 		"norcalli/nvim-colorizer.lua",

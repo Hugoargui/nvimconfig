@@ -23,7 +23,7 @@ FUTURE IDEAS, NOT URGENT
 
 - harpoon
 - more textobjects: indent, loop, conditional, number...
-
+- still not totally happy with yank interface
 
 LONGER TERM GOALS
 
