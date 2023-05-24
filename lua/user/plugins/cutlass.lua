@@ -7,8 +7,7 @@ require("cutlass").setup({
 		change = "_", -- put into register "c" or whatever
 	},
 })
--- cutlass breaks visual mode comment, fix it
-vim.keymap.set("x", "gc", ":norm gcc<CR>", { silent = true })
+
 require("yanky").setup({
 	ring = {
 		history_length = 100,
@@ -28,11 +27,16 @@ require("substitute").setup({
 --
 vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
 vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+-- vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+-- vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") -- Preserves cursor position on yank
+
+-- From cutlass documentation:
+-- If you also have vim-cutlass installed then I suggest you set g:yoinkIncludeDeleteOperations to 1.
+-- Otherwise the 'cut' operator that you use will not be added to the yank history.
+vim.g.yoinkIncludeDeleteOperations = 1
 
 -- ------------------------------------------------------------
 -- Hydra integration:

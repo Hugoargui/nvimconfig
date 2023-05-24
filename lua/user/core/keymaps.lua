@@ -30,6 +30,10 @@ wk.register({
 	["]%"] = "which_key_ignore",
 })
 
+-- Move visual selection up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- For the substitute plugin
 vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
 vim.keymap.set("n", "ss", require("substitute").line, { noremap = true })
