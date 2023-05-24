@@ -31,7 +31,10 @@ local has_words_before = function()
 end
 
 cmp.setup({
-
+	experimental = {
+		native_mentu = false,
+		ghost_text = true,
+	},
 	mapping = cmp.mapping.preset.insert({
 		-- Maybe don't use <CR>, it's annoying that it selects instead of going at a new line when you press enter.
 		-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
