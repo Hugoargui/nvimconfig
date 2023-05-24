@@ -166,8 +166,9 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-	use({ "echasnovski/mini.align", branch = "stable" })
-	use({ "junegunn/vim-easy-align" })
+	-- use({ "echasnovski/mini.align", branch = "stable" })
+	-- use({ "junegunn/vim-easy-align" })
+	use("gbprod/cutlass.nvim")
 
 	use({
 		"norcalli/nvim-colorizer.lua",
