@@ -51,6 +51,6 @@ vim.opt.shadafile = ""
 
 -- require("user.plugins.colorful-winsep")
 -- require("user.plugins.incline")
--- require("user.plugins.nvim-surround") -- For now i give up on setting it for wichkey, doesn't show, plus pressing f in insert mode breaks
--- require("user.plugins.mini-align")
+require("user.plugins.nvim-surround") -- For now i give up on setting it for wichkey, doesn't show, plus pressing f in insert mode breaks
+require("user.plugins.align")
 -- require("user.plugins.bufferline")

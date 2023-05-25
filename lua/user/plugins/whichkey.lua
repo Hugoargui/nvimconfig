@@ -8,17 +8,17 @@ end
 -- Setup {{{*/
 local setup = {
 	plugins = {
-		marks = true, -- shows a list of your marks on ' and `
-		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+		marks = false, -- shows a list of your marks on ' and `
+		registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
 		spelling = {
-			enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+			enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
 			suggestions = 20, -- how many suggestions should be shown in the list?
 		},
 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 		-- No actual key bindings are created
 		presets = {
 			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-			motions = false, -- adds help for motions
+			motions = true, -- adds help for motions
 			text_objects = false, -- help for text objects triggered after entering an operator
 			windows = false, -- default bindings on <c-w>
 			nav = false, -- misc bindings to work with windows
@@ -28,7 +28,10 @@ local setup = {
 	},
 	-- add operators that will trigger motion and text object completion
 	-- to enable all native operators, set the preset / operators plugin above
-	-- operators = { gc = "Comments" },
+	-- operators = { gc = "Comment", ys = "Surround", yr = "Replace surround", yd = "Delete Surround", ya = "Align" },
+	operators = { gc = "Comment", ys = "Surround", yr = "Replace surround", yd = "Delete Surround", ya = "Align" },
+	show_keys = true,
+
 	key_labels = {
 		-- override the label used to display some keys. It doesn't effect WK in any other way.
 		-- For example:
@@ -73,6 +76,7 @@ local setup = {
 }
 --}}}
 
+-----------------------------------------------------------------------------------------------------------------
 -- Lader mappings {{{*/
 local leader_opts = {
 	mode = "n", -- NORMAL mode

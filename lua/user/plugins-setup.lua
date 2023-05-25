@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
 augroup packer_user_config
 autocmd!
 autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -162,16 +162,8 @@ return packer.startup(function(use)
 			require("substitute").setup({})
 		end,
 	})
-	use({
-		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
-	})
-	-- use({ "echasnovski/mini.align", branch = "stable" })
+	use({ "kylechui/nvim-surround" })
+	use({ "echasnovski/mini.align", branch = "stable" })
 	-- use({ "junegunn/vim-easy-align" })
 	use("gbprod/cutlass.nvim")
 	use("gbprod/yanky.nvim")

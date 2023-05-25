@@ -31,7 +31,7 @@ vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
 -- vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
-vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") -- Preserves cursor position on yank
+-- vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") -- Preserves cursor position on yank, but breaks other mappings starting in y
 
 -- From cutlass documentation:
 -- If you also have vim-cutlass installed then I suggest you set g:yoinkIncludeDeleteOperations to 1.

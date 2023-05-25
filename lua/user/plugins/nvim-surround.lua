@@ -7,41 +7,41 @@
 -- )
 -- this breaks
 require("nvim-surround").setup({
-	keymaps = {
-		insert = "false", --"<C-g>s",
-		insert_line = "false", --"<C-g>S",
-		normal = "false", --"ys",
-		normal_cur = "false", --"yss",
-		normal_line = "false", --"yS",
-		normal_cur_line = "false", --"ySS",
-		visual = "false", --'S',
-		visual_line = "false", --"gS",
-		delete = "false", --"ds",
-		change = "false", --"cs",
+	keymaps = { -- If i do them here, I can't set the description and the default is too verbose for which-key
+		normal = false,
+		normal_line = false,
+		normal_cur_line = false, --"ySS",
+		delete = false, --"ds",
+		change = false, --"cs",
+
+		insert = false, --"<C-g>s",
+		insert_line = false, --"<C-g>S",
+		visual = false, --'S',
+		visual_line = false, --"gS",
 	},
 	-- For them to show properly in whichkey we define them ourselves
 })
 vim.api.nvim_set_keymap(
 	"n",
-	"ys",
+	"<CR>s",
 	"<Plug>(nvim-surround-normal)",
 	{ noremap = false, silent = true, desc = "Surround" }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"yS",
+	"<CR>S",
 	"<Plug>(nvim-surround-normal-line)",
-	{ noremap = false, silent = true, desc = "Surround Line" }
+	{ noremap = false, silent = true, desc = "Surround with delimiters in new line" }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"yd",
+	"<CR>d",
 	"<Plug>(nvim-surround-delete)",
 	{ noremap = false, silent = true, desc = "Delete surrounding" }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"yr",
+	"<CR>r",
 	"<Plug>(nvim-surround-change)",
 	{ noremap = false, silent = true, desc = "Replace Surrounding" }
 )

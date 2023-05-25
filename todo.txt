@@ -1,9 +1,10 @@
 TODO 
-- fix/standardize align, surround plugins, make them show up correctly in whichkey
 - add exchange plugin
+- add case changing plugin
 - add toggle for markdown preview
 
 FUTURE IDEAS, NOT URGENT
+- add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
 - camelcase motion
 - tabout plugin
 - incremental selection
@@ -20,10 +21,12 @@ FUTURE IDEAS, NOT URGENT
 - terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 
 - harpoon
+- dial
+- hl-lens
 - more textobjects: indent, loop, conditional, number...
 - still not totally happy with yank interface
 - try the moonicipal task runner
-- tabs (viewports) workflow
+- tabs (viewports) workflow. Switching, and unique buffers per tab.
 
 LONGER TERM GOALS
 lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
