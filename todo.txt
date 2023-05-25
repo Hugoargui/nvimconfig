@@ -1,31 +1,33 @@
 TODO 
 - fix/standardize align, surround plugins, make them show up correctly in whichkey
-- find a remap to toggle header/cpp file
-- LSP make all working
 - add exchange plugin
+- add toggle for markdown preview
 
 FUTURE IDEAS, NOT URGENT
 - camelcase motion
-- try the moonicipal task runner
-- try themery colorswitcher
+- tabout plugin
+- incremental selection
+- move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
+- add folds toggle options, folds hints and prettify folds
 - automatic whichkey popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
 - remove cursor when navigating nerdtree
-- move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
-- improve search and replace workflo, by example by using Spectre
+- try themery colorswitcher
+- improve search and replace workflow, by example by using Spectre
 - optimize command line workflow try fine-cmd-line wilder...
 - cokeline fix chose buffer to jump or close
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
-- terminal: the size of the terminal stays weird when changing between different terminals
-- terminal: there is a nize plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
-- consider supercharging tab for snippet expansion, plus tabout plugin
-- incremental selection
+- terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 
 - harpoon
 - more textobjects: indent, loop, conditional, number...
 - still not totally happy with yank interface
+- try the moonicipal task runner
+- tabs (viewports) workflow
 
 LONGER TERM GOALS
+lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
+debugger + DAP UI
 
 migrate to LAZY plugin management, simplify config by merging plugin config files by purpose to reduce number of lua files
 improve window management (now it works, consider if it's enough after some usage). Ideas: 
@@ -42,3 +44,4 @@ this are pretty big changes that I'd like to explore someday, but are not critic
 - try yode-nvim
 - try multicursors
 - try ideas from this video https://www.youtube.com/watch?v=U420QymHjlA
+- AI (copilot or similar)

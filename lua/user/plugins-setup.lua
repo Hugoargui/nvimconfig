@@ -197,6 +197,11 @@ return packer.startup(function(use)
 		end,
 	})
 	use("neovim/nvim-lspconfig") -- easily configure language servers
+	-- TODO: couldn't get clang builting to work, and anyways I don't want to depend on one LSP. BUt consider if there is a bettter solution
+	use({
+		"jakemason/ouroboros",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use({ "nvimdev/lspsaga.nvim" }) -- enhanced LSP UI

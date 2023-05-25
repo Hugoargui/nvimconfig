@@ -21,6 +21,7 @@ require("user.plugins.lsp.lspsaga")
 require("user.plugins.lsp.lspconfig")
 require("user.plugins.lsp.null-ls")
 require("user.plugins.treesiter")
+require("user.plugins.headerswitch")
 
 require("user.plugins.treesitter-objects")
 require("user.plugins.autopairs")
