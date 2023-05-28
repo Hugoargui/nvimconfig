@@ -1,11 +1,12 @@
 TODO 
-- add exchange plugin
+- camelcase motion
 - add case changing plugin
 - add toggle for markdown preview
+- better N
 
 FUTURE IDEAS, NOT URGENT
 - add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
-- camelcase motion
+- more textobjects: indent, loop, conditional, number...
 - tabout plugin
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
@@ -23,7 +24,6 @@ FUTURE IDEAS, NOT URGENT
 - harpoon
 - dial
 - hl-lens
-- more textobjects: indent, loop, conditional, number...
 - still not totally happy with yank interface
 - try the moonicipal task runner
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
