@@ -162,6 +162,7 @@ return packer.startup(function(use)
 			require("substitute").setup({})
 		end,
 	})
+	use({ "chrisgrieser/nvim-spider" })
 	use({ "kylechui/nvim-surround" })
 	use({ "echasnovski/mini.align", branch = "stable" })
 	-- use({ "junegunn/vim-easy-align" })
