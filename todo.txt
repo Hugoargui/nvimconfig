@@ -19,7 +19,7 @@ FUTURE IDEAS, NOT URGENT
 - cokeline fix chose buffer to jump or close
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
-- w camelcase and W smart word motions not very consistent in visual mode
+- viw and vaw seem to work fine now, but not sure if iW and aW are working as expected, especially inside "" or with lots of .,() symbols 
 
 - harpoon
 - dial

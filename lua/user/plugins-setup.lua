@@ -150,6 +150,12 @@ return packer.startup(function(use)
 
 	-- Text objects
 	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use({
+		"chrisgrieser/nvim-various-textobjs",
+		config = function()
+			require("various-textobjs").setup({ useDefaultKeymaps = false })
+		end,
+	})
 
 	-- Plugins to speed up editing
 	-- TODO: decide between this two, which one has best features.

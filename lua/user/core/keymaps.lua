@@ -70,32 +70,14 @@ vim.keymap.set("n", "<bs>", "q", { noremap = true })
 
 -- ----------------------------------------------------
 -- For the smartword plugin
-vim.keymap.set(
-	{ "n", "o", "x" },
-	"W",
-	"<Plug>(smartword-w)",
-	{ noremap = false, silent = true, desc = "Surround" }
-)
-vim.keymap.set(
-	{ "n", "o", "x" },
-	"B",
-	"<Plug>(smartword-b)",
-	{ noremap = false, silent = true, desc = "Surround" }
-)
-vim.keymap.set(
-	{ "n", "o", "x" },
-	"E",
-	"<Plug>(smartword-e)",
-	{ noremap = false, silent = true, desc = "Surround" }
-)
-vim.keymap.set(
-	{ "n", "o", "x" },
-	"Q",
-	"<Plug>(smartword-ge)",
-	{ noremap = false, silent = true, desc = "Surround" }
-)
+-- This adds motions, but no text objects, I'll create a custom textobject
+vim.keymap.set({ "n", "o", "x" }, "W", "<Plug>(smartword-w)", { noremap = false, silent = true, desc = "Surround" })
+vim.keymap.set({ "n", "o", "x" }, "B", "<Plug>(smartword-b)", { noremap = false, silent = true, desc = "Surround" })
+vim.keymap.set({ "n", "o", "x" }, "E", "<Plug>(smartword-e)", { noremap = false, silent = true, desc = "Surround" })
+vim.keymap.set({ "n", "o", "x" }, "Q", "<Plug>(smartword-ge)", { noremap = false, silent = true, desc = "Surround" })
 
 -- For spider casemotion plugin, and skip insignificant puntuation (on by default)
+-- This doesnt add text-objects, that's done by the more textobjects plugin
 vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
