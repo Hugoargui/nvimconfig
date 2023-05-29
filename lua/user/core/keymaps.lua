@@ -48,7 +48,7 @@ vim.keymap.set(
 )
 vim.keymap.set(
 	"n",
-	"<CR>xx",
+	"<CR>X",
 	require("substitute.exchange").line,
 	{ noremap = true, silent = true, desc = "Exchange Line" }
 )
