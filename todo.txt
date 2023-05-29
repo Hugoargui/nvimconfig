@@ -1,5 +1,4 @@
 TODO 
-- add case changing plugin
 - add toggle for markdown preview
 - better N
 

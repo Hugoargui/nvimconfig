@@ -168,6 +168,11 @@ return packer.startup(function(use)
 			require("substitute").setup({})
 		end,
 	})
+	-- There is also johmsalas/text-case.nvim, but after a couple minutes I gave up on setting it up
+	-- it Doesn't seeem to be operator pending, just word under cursor, and that breaks with spiderMotion anyways
+	use({
+		"arthurxavierx/vim-caser",
+	})
 	use({ "chrisgrieser/nvim-spider" })
 	use({ "kylechui/nvim-surround" })
 	use({ "echasnovski/mini.align", branch = "stable" })

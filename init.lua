@@ -36,6 +36,7 @@ require("user.plugins.eyeliner")
 
 require("user.plugins.autopairs")
 require("user.plugins.comment")
+require("user.plugins.nvim-surround")
 require("user.plugins.todo-comments")
 require("user.plugins.cutlass")
 require("user.plugins.autolist")
