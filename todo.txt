@@ -1,5 +1,4 @@
 TODO 
-- add toggle for markdown preview
 - better N
 
 FUTURE IDEAS, NOT URGENT

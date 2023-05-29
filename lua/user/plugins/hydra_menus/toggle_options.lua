@@ -1,5 +1,14 @@
 local Hydra = require("hydra")
 
+local markdownPreview = function()
+	if vim.g.mkdp_auto_start == 1 then
+		return "[x]"
+	else
+		return "[ ]"
+	end
+end
+-- local md = markdownPreview
+
 local hint = [[
   ^^
      Toggle Options:
@@ -11,6 +20,7 @@ local hint = [[
   ^
   ^^^^     _<Esc>_ to exit^^^^
 ]]
+-- _m_ %{md} Markdown Preview  ^^
 
 Hydra({
 	name = "Toggle Options",
@@ -21,6 +31,7 @@ Hydra({
 		hint = {
 			border = "rounded",
 			position = "middle",
+			funcs = { md = markdownPreview },
 		},
 	},
 	mode = { "n", "x" },
@@ -60,6 +71,20 @@ Hydra({
 			end,
 			{ desc = "Virtual Block" },
 		},
+		-- Decided to toggle it manually with keymap
+		-- I could plug the keymap, here ,setting the global here doesn't seem to work
+		-- {
+		-- 	"m",
+		-- 	function()
+		-- 		if vim.g.mkdp_auto_start == 1 then
+		-- 			vim.g.mkdp_auto_start = 0,
+		-- 		else
+		-- 			vim.g.mkdp_auto_start = 1
+		--           <Plug>MarkdownPreviewToggle
+		-- 		end
+		-- 	end,
+		-- 	{ desc = "Markdown Preview" },
+		-- },
 		-- {
 		-- 	"i",
 		-- 	function()
