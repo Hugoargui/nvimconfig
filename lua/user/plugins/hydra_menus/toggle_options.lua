@@ -18,7 +18,7 @@ local hint = [[
   _n_ %{nu} Line numbers
   _r_ %{rnu} Relative numbers  ^^
   ^
-  ^^^^     _<Esc>_ to exit^^^^
+  ^^^^  _<Esc>_ or _~_ to exit^^^^
 ]]
 -- _m_ %{md} Markdown Preview  ^^
 
@@ -144,5 +144,6 @@ Hydra({
 			{ desc = "Cursor Line" },
 		},
 		{ "<Esc>", nil, { exit = true } },
+		{ "~", nil, { exit = true } },
 	},
 })
