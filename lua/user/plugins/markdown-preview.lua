@@ -15,5 +15,9 @@ vim.keymap.set(
 	"<cmd>MarkdownPreview<CR>",
 	{ noremap = false, silent = true, desc = "Launch Markdown Preview" }
 )
+
+vim.cmd(
+	"let g:markdown_fenced_languages = ['cpp', 'c', 'python', 'html', 'javascript', 'typescript', 'vim', 'lua', 'css']"
+)
 -- end
 -- vim.cmd("autocmd FileType markdown lua registerKeymap()")
