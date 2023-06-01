@@ -137,6 +137,7 @@ lspconfig["clangd"].setup({
 	on_attach = on_attach,
 	cmd = {
 		"clangd",
+		"--clang-tidy", -- if you want to run clang-tidy as extra
 		"--background-index",
 		"--suggest-missing-includes",
 		"--query-driver=/usr/bin/x86_64-w64-mingw32-g++",

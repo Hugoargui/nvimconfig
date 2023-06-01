@@ -128,6 +128,8 @@ return packer.startup(function(use)
 
 	-- fuzzy finding w/ telescope
 	use("nvim-lualine/lualine.nvim")
+	use("archibate/lualine-time")
+	use("meuter/lualine-so-fancy.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
@@ -143,19 +145,14 @@ return packer.startup(function(use)
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-	use("rafamadriz/friendly-snippets") -- useful snippets
+	-- use("rafamadriz/friendly-snippets") -- useful snippets
 
 	-- Todo features
 	use("folke/todo-comments.nvim")
 
 	-- Text objects
 	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use({
-		"chrisgrieser/nvim-various-textobjs",
-		config = function()
-			require("various-textobjs").setup({ useDefaultKeymaps = false })
-		end,
-	})
+	use({ "chrisgrieser/nvim-various-textobjs" })
 
 	-- Plugins to speed up editing
 	-- TODO: decide between this two, which one has best features.

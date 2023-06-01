@@ -1,3 +1,18 @@
+require("various-textobjs").setup({
+	-- lines to seek forwards for "small" textobjs (mostly characterwise textobjs)
+	-- set to 0 to only look in the current line
+	lookForwardSmall = 15,
+
+	-- lines to seek forwards for "big" textobjs (linewise textobjs & url textobj)
+	lookForwardBig = 30,
+
+	-- use suggested keymaps (see README)
+	useDefaultKeymaps = false,
+
+	-- disable some default keymaps. E:g { 'ai', 'ii' }
+	disabledKeymaps = {},
+})
+
 require("nvim-treesitter.configs").setup({
 	textobjects = {
 		select = {
@@ -7,8 +22,10 @@ require("nvim-treesitter.configs").setup({
 			keymaps = {
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = { query = "@class.inner" },
+				["ao"] = "@class.outer",
+				["io"] = { query = "@class.inner" },
+				["ac"] = "@comment.inner", -- outer seems to not work
+				["ic"] = "@comment.inner",
 			},
 			selection_modes = { -- default selection modes
 				["@parameter.outer"] = "v", -- charwise
@@ -48,14 +65,20 @@ require("nvim-treesitter.configs").setup({
 })
 
 -- Custom camecalse and smartword text objects:
-vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
-vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
+-- Don't see a difference between aw and iw, just make it directly cw, yw, dw, ...
+-- vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
+-- vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
+vim.keymap.set({ "o", "x" }, "w", '<cmd>lua require("various-textobjs").subword(true)<CR>')
+--
+-- just examples for testing word motions right here:
+-- uint_type exampleTestFoo() = '<cmd>lua this("always-gives").problems(always)'
+-- camelCaseWord()
 
--- TODO: iW/aW seem to be ignored, and even when using ia/aa it seems to not behave as expected anyways
--- vim.keymap.set("n", "viW", "BvE")
--- vim.keymap.set("n", "vaW", "BvW")
-vim.keymap.set({ "o", "x" }, "iW", ":<c-u>normal! BvE<CR>")
-vim.keymap.set({ "o", "x" }, "aW", ":<c-u>normal! BvW<CR>")
+-- -- TODO: For now iW needs to be  at beginning of word, find a way to make it jump to beginning automatically
+vim.keymap.set({ "o", "x" }, "W", "<Plug>(smartword-e)")
+-- vim.keymap.set({ "o", "x" }, "aa", ":<c-u>normal! BvW<CRvim.keymap.set({ "o", "x" }, "ia", ":s/<Plug>(smartword-e)")")
+
+vim.keymap.set({ "o", "x" }, "i<CR>", ":<c-u>normal! ggVG<CR>") -- vi<ENTER> selects whole buffer
 
 vim.keymap.set({ "o", "x" }, "il", ":<c-u>normal! $v^<CR>") -- in line
 vim.keymap.set({ "o", "x" }, "al", ":<c-u>normal! $v0<CR>") -- around line
