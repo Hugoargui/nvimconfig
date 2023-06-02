@@ -1,7 +1,7 @@
-TODO 
+# NEAR FUTURE 
 - better N
 
-FUTURE IDEAS, NOT URGENT
+# MEDIUM TERM IDEAS
 - add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
 - more textobjects: indent, loop, conditional, number...
 - tabout plugin
@@ -19,6 +19,7 @@ FUTURE IDEAS, NOT URGENT
 - terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 - viw and vaw seem to work fine now, but not sure if iW and aW are working as expected, especially inside "" or with lots of .,() symbols 
 
+# LONG TIME IDEAS, NOT URGENT
 - harpoon
 - dial
 - hl-lens
@@ -26,19 +27,19 @@ FUTURE IDEAS, NOT URGENT
 - try the moonicipal task runner
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
 
-LONGER TERM GOALS
-lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
-debugger + DAP UI
+# LONGER TERM GOALS
+- lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
+- debugger + DAP UI
 
-migrate to LAZY plugin management, simplify config by merging plugin config files by purpose to reduce number of lua files
-improve window management (now it works, consider if it's enough after some usage). Ideas: 
-- extra plugin: buffresize to keep proportions while resizing
-- reenable the autoresizing window plugin anuvyklack/windows.nvim
-- hydra window example comes with barbar integration, consider porting to cokeline
-- jump to any window mapping
+- migrate to LAZY plugin management, simplify config by merging plugin config files by purpose to reduce number of lua files
+- improve window management (now it works, consider if it's enough after some usage). Ideas: 
+-- extra plugin: buffresize to keep proportions while resizing
+-- reenable the autoresizing window plugin anuvyklack/windows.nvim
+-- hydra window example comes with barbar integration, consider porting to cokeline
+-- jump to any window mapping
 
 
-CHANGES IN workflow
+# CHANGES IN workflow
 this are pretty big changes that I'd like to explore someday, but are not critical right now
 - try a hop/leap/ similar jump plugin
 - try structural search and replace
