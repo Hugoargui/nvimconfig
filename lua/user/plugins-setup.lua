@@ -209,6 +209,7 @@ return packer.startup(function(use)
 		cmd = "CodeActionMenu",
 	})
 	use("RRethy/vim-illuminate") -- use lsp/treesitter/regex to highlight word under cursor
+	use("haringsrob/nvim_context_vt") -- Add virtual text at end of brackts and so on
 
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	-- use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)

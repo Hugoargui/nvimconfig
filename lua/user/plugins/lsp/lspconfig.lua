@@ -177,35 +177,4 @@ lspconfig["lua_ls"].setup({
 	},
 })
 
--- -- configure html server
--- lspconfig["html"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
-
--- -- configure typescript server with plugin
--- typescript.setup({
--- 	server = {
--- 		capabilities = capabilities,
--- 		on_attach = on_attach,
--- 	},
--- })
-
--- -- configure css server
--- lspconfig["cssls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
-
--- -- configure tailwindcss server
--- lspconfig["tailwindcss"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
-
--- -- configure emmet language server
--- lspconfig["emmet_ls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
--- })
+--require("nvim_context_vt").setup()
