@@ -203,9 +203,13 @@ return packer.startup(function(use)
 		"jakemason/ouroboros",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+	use({ "nvimdev/lspsaga.nvim" }) -- enhanced LSP UI
+	require("packer").use({
+		"weilbith/nvim-code-action-menu",
+		cmd = "CodeActionMenu",
+	})
 
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "nvimdev/lspsaga.nvim" }) -- enhanced LSP UI
 	-- use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
