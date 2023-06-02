@@ -49,3 +49,5 @@ vim.cmd([[ highlight NonText guifg=bg ]]) -- can't set bg in cterm
 vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "LspReferenceRead" })
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceWrite" })
+
+vim.api.nvim_set_hl(0, "CurSearch", { link = "IncSearch" })
