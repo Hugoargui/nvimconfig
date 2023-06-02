@@ -12,7 +12,6 @@ require("user.plugins.nvim-tree")
 
 require("user.plugins.autosession")
 
-require("user.plugins.tint")
 require("user.plugins.nvim-cmp")
 require("user.plugins.luasnip")
 
@@ -44,6 +43,7 @@ require("user.plugins.treesitter-objects")
 
 require("user.plugins.colorschemes.catppuccin")
 require("user.core.colorscheme")
+require("user.plugins.tint")
 require("user.plugins.hydra_menus.toggle_options")
 require("user.plugins.hydra_menus.window_manager")
 require("user.plugins.hydra")
