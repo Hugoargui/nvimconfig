@@ -34,65 +34,99 @@ wk.register({
 
 -- vim.api.nvim_set_keymap(k"n", "<space>q", "<Plug>(cokeline-focus-next)", { noremap = false, silent = true })
 
+local red = vim.g.terminal_color_1
+local green = vim.g.terminal_color_2
+local yellow = vim.g.terminal_color_3
+
 require("cokeline").setup({
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hex("ColorColumn", "bg") or get_hex("Normal", "fg")
+			if buffer.is_focused then
+				if buffer.is_modified then
+					return get_hex("Title", "fg") -- Highlighted buffer, modified. Light Text red FG
+				else
+					return get_hex("IncSearch", "fg") -- Highlighted buffer, not modified. Grey text, normal bg
+				end
+			else
+				if buffer.is_modified then
+					return get_hex("DiagnosticError", "fg") -- Not Highlighted buffer, modified, red text
+				else
+					return get_hex("Comment", "fg")
+				end
+			end
 		end,
 		bg = function(buffer)
-			return buffer.is_focused and get_hex("Normal", "fg") or get_hex("ColorColumn", "bg")
+			if buffer.is_focused then
+				if buffer.is_modified then
+					return get_hex("DiagnosticError", "fg")
+				else
+					return get_hex("IncSearch", "bg")
+				end
+			else
+				return get_hex("ColorColumn", "bg") -- Not focused and not modified, standard background.
+			end
 		end,
 	},
 
 	sidebar = {
 		filetype = "NvimTree",
-		components = {
-			{
-				-- text = " File Explorer",
-				text = "",
-				-- fg = yellow,
-				bg = get_hex("NvimTreeNormal", "bg"),
-				style = "bold",
-			},
-		},
+		-- components = {
+		-- 	{
+		-- 		-- text = " File Explorer",
+		-- 		text = "",
+		-- 		-- fg = yellow,
+		-- 		bg = get_hex("NvimTreeNormal", "bg"),
+		-- 		style = "bold",
+		-- 	},
+		-- },
 	},
 
 	components = {
+
 		-- Show separator between buffertabs:
 		{
 			text = function(buffer)
-				return (buffer.index ~= 1) and "▏" or ""
-			end,
-			fg = get_hex("Normal", "fg"),
-		},
-		-- Show filetype icon:
-		{
-			text = function(buffer)
-				return " " .. buffer.devicon.icon
-			end,
-			fg = function(buffer)
-				return buffer.devicon.color
-			end,
-		},
-		{
-			text = function(buffer)
-				return buffer.unique_prefix
+				-- return (buffer.index ~= 1) and "▏" or "" -- for some fonts this renders better
+				return (buffer.index ~= 1) and "⎸" or ""
 			end,
 			fg = get_hex("Comment", "fg"),
-			style = "italic",
+		},
+
+		-- -- Show filetype icon:
+		-- {
+		-- 	text = function(buffer)
+		-- 		return " " .. buffer.devicon.icon
+		-- 	end,
+		-- 	fg = function(buffer)
+		-- 		return buffer.devicon.color
+		-- 	end,
+		-- },
+		-- {
+		-- 	text = function(buffer)
+		-- 		return buffer.unique_prefix
+		-- 	end,
+		-- 	fg = get_hex("Comment", "fg"),
+		-- 	style = "italic",
+		-- },
+		{
+			text = function(buffer)
+				return buffer.filename
+			end,
+			-- fg = function(buffer)
+			-- 	return buffer.is_modified and red or nil
+			-- end,
 		},
 		{
 			text = function(buffer)
-				return buffer.filename .. " "
+				return buffer.is_modified and " ● " or " "
 			end,
+			-- fg = function(buffer)
+			-- 	return get_hex("DiagnosticError", "fg")
+			-- 	-- return buffer.is_modified and red or nil
+			-- end,
 		},
-		-- Show close icon:
 		-- {
-		-- 	text = "",
-		-- 	delete_buffer_on_left_click = true,
+		-- 	text = " ",
 		-- },
-		{
-			text = " ",
-		},
 	},
 })

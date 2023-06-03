@@ -1,5 +1,6 @@
 -- we can call colorschemes directly, or with pcall
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("nightfly")
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
