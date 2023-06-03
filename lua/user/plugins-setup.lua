@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use("rktjmp/lush.nvim") -- used by some colorschemes
 	use({ "bluz71/vim-nightfly-colors", as = "nightfly" })
 	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "rose-pine/neovim", as = "rose-pine" })
 
 	-- fancy notification windows
 	use("rcarriga/nvim-notify")
