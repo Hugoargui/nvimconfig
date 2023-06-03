@@ -126,5 +126,15 @@ sudo apt install luarocks
 sudo apt install default-jdk
 sudo apt install default-jre
 
+
 install lazygit
 https://github.com/jesseduffield/lazygit#ubuntu
+
+install latest clang format (the one from apt install is lacking some newer features I'm using
+sudo apt install software-properties-common (for add-apt-repository to work)
+sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
+wget https://apt.llvm.org/llvm-snapshot.gpg.key
+sudo apt-key add llvm-snapshot.gpg.key
+sudo apt-install clang-format
+If you run into problems with libffi6 isntall the older libffi6 manually 
+https://stackoverflow.com/questions/61875869/ubuntu-20-04-upgrade-python-missing-libffi-so-6
