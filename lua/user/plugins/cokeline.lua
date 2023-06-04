@@ -18,7 +18,6 @@ wk.register({
 		d = { "<Cmd>bd<Cr>", "Delete Current Buffer" },
 		-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 		D = { "<Cmd>bd!<Cr>", "Delete Current Buffer (Ignore Unsaved Changes)" },
-		o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], "Close All Other Buffers" },
 	},
 }, {
 	prefix = "<Leader>",

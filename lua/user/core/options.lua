@@ -99,7 +99,18 @@ opt.shiftwidth = 4 -- N spaces on syntax tabs (tabs in python, after {<CR> in C+
 
 opt.wrap = false -- do not wrap long lines
 
-opt.foldmethod = "marker"
+opt.foldmethod = "indent"
+opt.foldlevel = 99 -- 0-> Start all folded, 99 start all unfolded
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
+function _G.custom_fold_text()
+	local line = vim.fn.getline(vim.v.foldstart)
+
+	local line_count = vim.v.foldend - vim.v.foldstart + 1
+
+	return "[" .. line_count .. "] lines folded: " .. line
+end
+-- vim.opt.foldtext = 'v:lua.custom_fold_text()'
 
 -- split windows below and right, more intutitive than the default
 opt.splitright = true

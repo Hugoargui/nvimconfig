@@ -2,21 +2,20 @@
 - better N
 
 # MEDIUM TERM IDEAS
-- add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
+- add folds toggle options, folds hints and prettify folds
+- try themery colorswitcher
 - tabout plugin
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
-- add folds toggle options, folds hints and prettify folds
 - automatic hydra popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
 - remove cursor when navigating nerdtree
-- try themery colorswitcher
 - improve search and replace workflow, by example by using Spectre
 - optimize command line workflow try fine-cmd-line wilder...
 - cokeline fix chose buffer to jump or close
+- add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
-- viw and vaw seem to work fine now, but not sure if iW and aW are working as expected, especially inside "" or with lots of .,() symbols 
 
 # LONG TIME IDEAS, NOT URGENT
 - harpoon
