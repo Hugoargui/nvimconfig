@@ -8,6 +8,7 @@ require("user.core.keymaps")
 require("user.plugins.whichkey")
 
 require("user.plugins.telescope")
+require("user.plugins.nvim-hlslens")
 require("user.plugins.nvim-tree")
 
 require("user.plugins.autosession")

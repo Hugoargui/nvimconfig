@@ -69,10 +69,10 @@ return packer.startup(function(use)
 	})
 
 	-- Nice highlight of headings and so on in markdown
-	use({
-		"lukas-reineke/headlines.nvim",
-		after = "nvim-treesitter",
-	})
+	-- use({
+	-- 	"lukas-reineke/headlines.nvim",
+	-- 	after = "nvim-treesitter",
+	-- })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
@@ -137,6 +137,9 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({
+		"kevinhwang91/nvim-hlslens",
+	})
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin

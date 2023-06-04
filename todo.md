@@ -21,7 +21,6 @@
 # LONG TIME IDEAS, NOT URGENT
 - harpoon
 - dial
-- hl-lens
 - still not totally happy with yank interface
 - try the moonicipal task runner
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
