@@ -86,8 +86,8 @@ require("cokeline").setup({
 		-- Show separator between buffertabs:
 		{
 			text = function(buffer)
-				-- return (buffer.index ~= 1) and "▏" or "" -- for some fonts this renders better
-				return (buffer.index ~= 1) and "⎸" or ""
+				return (buffer.index ~= 1) and "▏" or "" -- for some fonts this renders better
+				-- return (buffer.index ~= 1) and "⎸" or ""
 			end,
 			fg = get_hex("Comment", "fg"),
 		},
