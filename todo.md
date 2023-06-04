@@ -3,13 +3,12 @@
 
 # MEDIUM TERM IDEAS
 - add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
-- more textobjects: indent, loop, conditional, number...
 - tabout plugin
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
 - add folds toggle options, folds hints and prettify folds
-- automatic whichkey popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
+- automatic hydra popup when opening nerdtree https://www.reddit.com/r/neovim/comments/114jghr/automatic_menu_popup_when_openingfocusing_nvimtree/
 - remove cursor when navigating nerdtree
 - try themery colorswitcher
 - improve search and replace workflow, by example by using Spectre
