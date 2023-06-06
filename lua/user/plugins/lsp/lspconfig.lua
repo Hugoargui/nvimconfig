@@ -77,24 +77,24 @@ local on_attach = function()
 	-- DIAGNOSTICS JUMPING
 	keymap.set("n", "[d", nativediag.goto_prev, { desc = "Previous Diagnostics" })
 	keymap.set("n", "]d", nativediag.goto_next, { desc = "Next Diagnostics" })
-	keymap.set("n", "<leader>dp", nativediag.goto_prev, { desc = "Previous Diagnostics" })
-	keymap.set("n", "<leader>dn", nativediag.goto_next, { desc = "Next Diagnostics" })
+	keymap.set("n", "<leader>ip", nativediag.goto_prev, { desc = "Previous Diagnostics" })
+	keymap.set("n", "<leader>in", nativediag.goto_next, { desc = "Next Diagnostics" })
 	-- keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostics" }) -- jump to previous diagnostic in buffer
 	-- keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostics" }) -- jump to next diagnostic in buffer
 
 	-- Diagnostics search
-	keymap.set("n", "<leader>dd", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Document Diagnostics" })
-	keymap.set("n", "<leader>dD", "<cmd>Telescope diagnostics<CR>", { desc = "Workspace Diagnostics" })
+	keymap.set("n", "<leader>id", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Document Diagnostics" })
+	keymap.set("n", "<leader>iD", "<cmd>Telescope diagnostics<CR>", { desc = "Workspace Diagnostics" })
 
 	-- LINE DIAGNOSTICS
-	keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Diagnostics for this line" }) -- show  diagnostics for line
+	keymap.set("n", "<leader>il", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Diagnostics for this line" }) -- show  diagnostics for line
 
 	-- CURSOR DIAGNOSTICS
-	keymap.set("n", "<leader>dc", nativediag.open_float, { desc = "Diagnostic under cursor" })
-	keymap.set("n", "<leader>da", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "Diagnostics under cursor" }) -- show diagnostics for cursor
+	keymap.set("n", "<leader>ic", nativediag.open_float, { desc = "Diagnostic under cursor" })
+	keymap.set("n", "<leader>ia", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "Diagnostics under cursor" }) -- show diagnostics for cursor
 
 	-- Quickfix List
-	keymap.set("n", "<leader>dq", "nativediag.setloclist", { desc = "Send Diagnostics to LocList" }) -- show diagnostics for cursor
+	keymap.set("n", "<leader>iq", "nativediag.setloclist", { desc = "Send Diagnostics to LocList" }) -- show diagnostics for cursor
 	-- ------------------------------------------------------------------------------------------------------------
 	-- CODE ACTIONS
 

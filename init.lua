@@ -8,7 +8,7 @@ require("user.core.keymaps")
 require("user.plugins.whichkey")
 
 require("user.plugins.telescope")
-require("user.plugins.nvim-hlslens")
+-- require("user.plugins.nvim-hlslens") -- a bit annoying, maybe add toggle
 require("user.plugins.nvim-tree")
 
 require("user.plugins.autosession")
@@ -50,6 +50,7 @@ require("user.plugins.hydra_menus.window_manager")
 require("user.plugins.hydra")
 vim.opt.shadafile = ""
 
+require("user.plugins.debug")
 -- require("user.plugins.bufferline")
 -- require("user.plugins.incline")
 -- require("user.plugins.colorful-winsep")

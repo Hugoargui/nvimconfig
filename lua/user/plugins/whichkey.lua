@@ -170,8 +170,11 @@ local leader_mappings = {
 	l = {
 		name = "LSP",
 	},
-	d = {
+	i = {
 		name = "Diagnostics",
+	},
+	d = {
+		name = "Debugger",
 	},
 	S = {
 		name = "Search",

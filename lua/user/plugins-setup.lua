@@ -137,9 +137,9 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({
-		"kevinhwang91/nvim-hlslens",
-	})
+	-- use({
+	-- 	"kevinhwang91/nvim-hlslens",
+	-- })
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -222,6 +222,11 @@ return packer.startup(function(use)
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+
+	use({
+		"williamboman/mason.nvim",
+		"jay-babu/mason-nvim-dap.nvim",
+	})
 
 	-- indent
 	use("lukas-reineke/indent-blankline.nvim")
