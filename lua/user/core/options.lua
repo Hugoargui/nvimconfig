@@ -99,18 +99,21 @@ opt.shiftwidth = 4 -- N spaces on syntax tabs (tabs in python, after {<CR> in C+
 
 opt.wrap = false -- do not wrap long lines
 
-opt.foldmethod = "indent"
+-- FOLDING
 opt.foldlevel = 99 -- 0-> Start all folded, 99 start all unfolded
--- opt.foldmethod = "expr"
--- opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- opt.foldmethod = "indent"
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
 function _G.custom_fold_text()
-	local line = vim.fn.getline(vim.v.foldstart)
+	local lineText = vim.fn.getline(vim.v.foldstart)
+	local numOfLines = vim.v.foldend - vim.v.foldstart + 1
+	local fillCount = vim.fn.winwidth("%") - vim.fn.len(lineText) - vim.fn.len(numOfLines) - 17
 
-	local line_count = vim.v.foldend - vim.v.foldstart + 1
-
-	return "[" .. line_count .. "] lines folded: " .. line
+	-- return "[" .. numOfLines .. "] lines folded: " .. lineText
+	return "+ " .. lineText .. " ... " .. "[" .. numOfLines .. " lines folded] "
 end
--- vim.opt.foldtext = 'v:lua.custom_fold_text()'
+vim.opt.foldtext = "v:lua.custom_fold_text()"
+-- vim.opt.fillchars:append({fold = " "}) -- Remove trailing whitespaces
 
 -- split windows below and right, more intutitive than the default
 opt.splitright = true

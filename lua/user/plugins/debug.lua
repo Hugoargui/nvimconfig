@@ -61,17 +61,6 @@ keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.run_to_cursor()<cr>", { des
 keymap.set("n", "<leader>dk", '<cmd>:lua require"dap".up()<CR>zz', { desc = "Jump DOWN the callstack" })
 keymap.set("n", "<leader>dj", '<cmd>:lua require"dap".down()<CR>zz', { desc = "Jump UP the callstack" })
 
--- keymap.set("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", { desc = "Toggle Breakpoint" })
--- keymap.set(
--- 	"n",
--- 	"<leader>dc",
--- 	":lua require'set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
--- 	{ desc = "Conditional Breakpoint" }
--- )
--- keymap.set("n", "<leader>dR", function()
--- 	require("dap").clear_breakpoints()
--- end, { desc = "Clear All Breakpoints" })
-
 keymap.set(
 	"n",
 	"<leader>db",
@@ -86,12 +75,12 @@ keymap.set(
 )
 keymap.set(
 	"n",
-	"<leader>dR",
+	"<leader>dC",
 	"<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>",
 	{ desc = "Clear All Breakpoints" }
 )
 
-keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", { desc = "Open DAP REPL" })
+keymap.set("n", "<leader>dR", "<cmd>lua require'dap'.repl.open()<CR>", { desc = "Open DAP REPL" })
 
 keymap.set("n", "<leader>dh", function()
 	require("dap.ui.widgets").hover()
