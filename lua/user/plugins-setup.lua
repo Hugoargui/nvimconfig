@@ -223,10 +223,11 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
-	use({
-		"williamboman/mason.nvim",
-		"jay-babu/mason-nvim-dap.nvim",
-	})
+	use("mfussenegger/nvim-dap")
+	use("jay-babu/mason-nvim-dap.nvim")
+	use("nvim-telescope/telescope-dap.nvim")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({ "Weissle/persistent-breakpoints.nvim" })
 
 	-- indent
 	use("lukas-reineke/indent-blankline.nvim")
