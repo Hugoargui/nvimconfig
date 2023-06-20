@@ -3,7 +3,7 @@ require 'user.core.options'
 require 'plugins-setup'
 --require 'impatient'
 
-require 'user.plugins.whichkey'
+-- require 'user.plugins.whichkey'
 require 'user.core.keymaps'
 
 require 'user.plugins.telescope'

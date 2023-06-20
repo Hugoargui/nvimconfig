@@ -171,6 +171,6 @@ return {
   -- compiler plugins
   'cdelledonne/vim-cmake',
 
-  'folke/which-key.nvim',
+  -- 'folke/which-key.nvim',
   'anuvyklack/hydra.nvim',
 }
