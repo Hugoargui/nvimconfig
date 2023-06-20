@@ -1,2 +1,3 @@
 plugin/
 test.o
+lazy-lock.json

@@ -1,4 +1,5 @@
 vim.opt.shadafile = "NONE" -- Disable this while loading will make it faster
+vim.opt.termguicolors = true
 require("user.plugins-setup")
 require("impatient")
 
