@@ -14,41 +14,7 @@ opt.timeoutlen = 300
 -- Startup
 -----------------------------------------------------------
 -- Disable nvim intro
-opt.shortmess:append 'sI'
-
--- A lot of useless builitn plugins are bloat and slow down our startup,
--- Make a list plugins to disable.
-local disabled_built_ins = {
-  '2html_plugin',
-  'getscript',
-  'getscriptPlugin',
-  'gzip',
-  'logipat',
-  'netrw',
-  'netrwPlugin',
-  'netrwSettings',
-  'netrwFileHandlers',
-  'matchit',
-  'tar',
-  'tarPlugin',
-  'rrhelper',
-  'spellfile_plugin',
-  'vimball',
-  'vimballPlugin',
-  'zip',
-  'zipPlugin',
-  'tutor',
-  'rplugin',
-  'synmenu',
-  'optwin',
-  'compiler',
-  'bugreport',
-  'ftplugin',
-}
--- LOOP trough all the builtin plugins we don't want and disable them
-for _, plugin in pairs(disabled_built_ins) do
-  vim.g['loaded_' .. plugin] = 1
-end
+opt.shortmess:append('sI')
 
 vim.g.loaded_ruby_provider = 0 -- Don't needed, also suppresses not found warning
 vim.g.loaded_perl_provider = 0 -- Don't needed, also suppresses not found warning
@@ -87,10 +53,10 @@ opt.fillchars = {
   vertright = '├',
   verthoriz = '┼',
 }
-vim.cmd [[ highlight VertSplit ctermbg=none  guibg=none ]]
-vim.cmd [[ highlight StatusLineNc ctermbg=none  guibg=none ]]
+vim.cmd([[ highlight VertSplit ctermbg=none  guibg=none ]])
+vim.cmd([[ highlight StatusLineNc ctermbg=none  guibg=none ]])
 
-vim.cmd [[ highlight NonText ctermfg=none  guifg=bg ]] -- can't set bg in cterm
+vim.cmd([[ highlight NonText ctermfg=none  guifg=bg ]]) -- can't set bg in cterm
 
 -- tabs & indentation
 opt.expandtab = true -- Transform tab key to spaces in insert mode
@@ -108,7 +74,7 @@ opt.foldexpr = 'nvim_treesitter#foldexpr()'
 function _G.custom_fold_text()
   local lineText = vim.fn.getline(vim.v.foldstart)
   local numOfLines = vim.v.foldend - vim.v.foldstart + 1
-  local fillCount = vim.fn.winwidth '%' - vim.fn.len(lineText) - vim.fn.len(numOfLines) - 17
+  local fillCount = vim.fn.winwidth('%') - vim.fn.len(lineText) - vim.fn.len(numOfLines) - 17
 
   -- return "[" .. numOfLines .. "] lines folded: " .. lineText
   return '+ ' .. lineText .. ' ... ' .. '[' .. numOfLines .. ' lines folded] '
@@ -126,7 +92,7 @@ opt.smartcase = true -- if ignorecase=TRUE, writting BigCase will turn search in
 
 ------------------------------------------------------------------------
 -- TECHNICAL STUFF
-opt.clipboard:append 'unnamedplus' -- Use system clipboard
+opt.clipboard:append('unnamedplus') -- Use system clipboard
 opt.backspace = 'indent,eol,start' -- Make <BACKSPACE> behave like you expect
 
-opt.iskeyword:append '-' -- make this-word count as a single word
+opt.iskeyword:append('-') -- make this-word count as a single word

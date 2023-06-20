@@ -30,7 +30,7 @@ require 'user.plugins.toggleterm'
 
 require 'user.plugins.markdown-preview'
 
-require 'user.plugins.indent-blankline'
+-- require 'user.plugins.indent-blankline'
 require 'user.plugins.eyeliner'
 
 require 'user.plugins.autopairs'

@@ -146,8 +146,8 @@ return {
   { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
   'Weissle/persistent-breakpoints.nvim',
 
-  -- indent
-  'lukas-reineke/indent-blankline.nvim',
+  -- -- indent
+  -- 'lukas-reineke/indent-blankline.nvim',
 
   -- treesitter configuration
   {
