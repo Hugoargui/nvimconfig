@@ -26,9 +26,7 @@
 
 # LONGER TERM GOALS
 - lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
-- debugger + DAP UI
 
-- migrate to LAZY plugin management, simplify config by merging plugin config files by purpose to reduce number of lua files
 - improve window management (now it works, consider if it's enough after some usage). Ideas: 
 -- extra plugin: buffresize to keep proportions while resizing
 -- reenable the autoresizing window plugin anuvyklack/windows.nvim
