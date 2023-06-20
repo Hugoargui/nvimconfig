@@ -4,7 +4,7 @@ if not saga_status then
   return
 end
 
-saga.setup {
+saga.setup({
   preview = {
     lines_above = 0,
     lines_below = 10,
@@ -76,4 +76,4 @@ saga.setup {
     respect_root = false,
     color_mode = true,
   },
-}
+})

@@ -1,4 +1,4 @@
-require('colorful-winsep').setup {
+require('colorful-winsep').setup({
   -- highlight for Window separator
   -- highlight = {
   -- guifg = "#1f3442",
@@ -17,4 +17,4 @@ require('colorful-winsep').setup {
   create_event = function()
     -- Executed after creating the window separator
   end,
-}
+})

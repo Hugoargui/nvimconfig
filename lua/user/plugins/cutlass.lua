@@ -1,4 +1,4 @@
-require('cutlass').setup {
+require('cutlass').setup({
   cut_key = 'm', -- the key that acts as move/cut
   override_del = 'false', -- "<DEL> key also to blackole register"
   registers = {
@@ -6,9 +6,9 @@ require('cutlass').setup {
     delete = '_', -- put into register "d" or whatever
     change = '_', -- put into register "c" or whatever
   },
-}
+})
 
-require('yanky').setup {
+require('yanky').setup({
   ring = {
     history_length = 100,
     storage = 'shada', -- shada, sqlite or memory
@@ -18,12 +18,12 @@ require('yanky').setup {
   system_clipboard = {
     sync_with_ring = true,
   },
-}
+})
 
 -- To enable gbprod/substitute.nvim swap when performing a substitution, you can add this to your setup:
-require('substitute').setup {
+require('substitute').setup({
   on_substitute = require('yanky.integration').substitute(),
-}
+})
 --
 vim.keymap.set({ 'n', 'x' }, 'p', '<Plug>(YankyPutAfter)')
 vim.keymap.set({ 'n', 'x' }, 'P', '<Plug>(YankyPutBefore)')

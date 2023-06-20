@@ -118,7 +118,7 @@ end
 -- From a helpful user in the thread, I took this code snippet which suppresses the warning:
 local notify = vim.notify
 vim.notify = function(msg, ...)
-  if msg:match 'warning: multiple different client offset_encodings' then
+  if msg:match('warning: multiple different client offset_encodings') then
     return
   end
   notify(msg, ...)
@@ -135,7 +135,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
-lspconfig['clangd'].setup {
+lspconfig['clangd'].setup({
   -- filetypes = { "hpp", "h", "c", "cpp", "objc", "objcpp" },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   capabilities = capabilities,
@@ -148,16 +148,16 @@ lspconfig['clangd'].setup {
     '--query-driver=/usr/bin/x86_64-w64-mingw32-g++',
     -- "--compile-commands-dir=/home/localuser/test/build",
   },
-}
+})
 
-lspconfig['cmake'].setup {
+lspconfig['cmake'].setup({
   -- filetypes = { "camake" },
   capabilities = capabilities,
   on_attach = on_attach,
-}
+})
 
 -- configure lua server (with special settings)
-lspconfig['lua_ls'].setup {
+lspconfig['lua_ls'].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = { -- custom settings for lua
@@ -169,12 +169,12 @@ lspconfig['lua_ls'].setup {
       workspace = {
         -- make language server aware of runtime files
         library = {
-          [vim.fn.expand '$VIMRUNTIME/lua'] = true,
-          [vim.fn.stdpath 'config' .. '/lua'] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.stdpath('config') .. '/lua'] = true,
         },
       },
     },
   },
-}
+})
 
 --require("nvim_context_vt").setup()

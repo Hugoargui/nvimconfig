@@ -18,8 +18,8 @@ return {
     'rmagatti/session-lens',
     dependencies = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
     config = function()
-      require('session-lens').setup {--[[your custom config--]]
-      }
+      require('session-lens').setup({--[[your custom config--]]
+      })
     end,
   },
 
@@ -93,7 +93,7 @@ return {
   {
     'gbprod/substitute.nvim',
     config = function()
-      require('substitute').setup {}
+      require('substitute').setup({})
     end,
   },
   -- There is also johmsalas/text-case.nvim, but after a couple minutes I gave up on setting it up
@@ -153,7 +153,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = function()
-      local ts_update = require('nvim-treesitter.install').update { with_sync = true }
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end,
   },

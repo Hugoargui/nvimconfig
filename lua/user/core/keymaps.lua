@@ -17,18 +17,18 @@ keymap.set('n', '<leader>mg', ':CMakeGenerate<cr>', { desc = 'Cmake Generate' })
 keymap.set('n', '<leader>mb', ':CMakeBuild<cr>', { desc = 'Cmake Build' })
 keymap.set('n', '<leader>mq', ':CMakeClose<cr>', { desc = 'Cmake Close' })
 keymap.set('n', '<leader>mc', ':CMakeClean<cr>', { desc = 'Cmake Clean' })
-vim.cmd [[let g:cmake_link_compile_commands = 1]]
+vim.cmd([[let g:cmake_link_compile_commands = 1]])
 
 -- delete single character without  into register
 keymap.set('n', 'x', '"_x')
 
 -- This is a vim builting plugin, it shows up anyways on [] whichkey
 -- with the <plug> name, so may as well document it
-local wk = require 'which-key'
-wk.register {
+local wk = require('which-key')
+wk.register({
   ['[%'] = 'which_key_ignore',
   [']%'] = 'which_key_ignore',
-}
+})
 
 -- Move visual selection up and down
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

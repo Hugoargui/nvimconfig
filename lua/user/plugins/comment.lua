@@ -7,19 +7,19 @@
 -- -- enable comment
 -- comment.setup()
 
-require('nvim_comment').setup {
+require('nvim_comment').setup({
   line_mapping = '<CR><CR>',
   operator_mapping = '<CR>c',
   comment_chunk_text_object = 'ic',
-}
+})
 
 -- This is a vim builting plugin, it shows up anyways on [] whichkey
 -- with the <plug> name, so may as well document it
-local wk = require 'which-key'
-wk.register {
+local wk = require('which-key')
+wk.register({
   ['<CR><CR>'] = 'Comment LINE toggle',
   ['<CR>c'] = 'Comment toggle',
-}
+})
 
 local visual_opt = {
   mode = 'x',

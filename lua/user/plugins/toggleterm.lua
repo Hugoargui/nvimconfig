@@ -13,7 +13,7 @@ vim.keymap.set('t', '<c-t>', [[<C-\><C-n>:ToggleTerm<cr>]], opts) -- this assume
 -- From reddit example:
 -- nnoremap <silent> <Leader>t   :FloatermToggle<CR>
 -- tnoremap <silent> <Leader>t   <C-\><C-n>:FloatermToggle<CR>
-toggleterm.setup {
+toggleterm.setup({
   -- size = function(term)
   -- if term.direction == "horizontal" then
   -- return 40
@@ -39,7 +39,7 @@ toggleterm.setup {
   -- 			background = "Normal",
   -- 		},
   -- 	},
-}
+})
 
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
@@ -49,14 +49,14 @@ function _G.set_terminal_keymaps()
   -- vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd 'autocmd! TermOpen term://* lua set_terminal_keymaps()'
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new {
+local lazygit = Terminal:new({
   cmd = 'lazygit',
   hidden = true,
   direction = 'float',
-}
+})
 
 function _LAZYGIT_TOGGLE()
   lazygit:toggle()

@@ -7,7 +7,7 @@ end
 -- vim.cmd([[ autocmd FileType * highlight rainbowcol1 guifg=#FF7B72 gui=bold ]])
 
 -- configure treesitter
-treesitter.setup {
+treesitter.setup({
   -- enable syntax highlighting
   highlight = {
     enable = true,
@@ -55,9 +55,9 @@ treesitter.setup {
   },
   -- auto install above language parsers
   auto_install = true,
-}
+})
 
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.configs').setup({
   rainbow = {
     enable = true,
     -- list of languages you want to disable the plugin for
@@ -79,4 +79,4 @@ require('nvim-treesitter.configs').setup {
       'TSRainbowYellow',
     },
   },
-}
+})

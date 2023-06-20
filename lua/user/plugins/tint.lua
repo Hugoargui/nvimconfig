@@ -1,4 +1,4 @@
-require('tint').setup {
+require('tint').setup({
   tint = -60, -- Darquen colors, use a positive value to brighten
   saturation = 0.9, -- Saturation to preserve
   highlight_ignore_patterns = {
@@ -14,4 +14,4 @@ require('tint').setup {
     'IndentBlanklineIndent5',
     'IndentBlanklineIndent6',
   }, -- Highlight group patterns to ignore, see `string.find`
-}
+})

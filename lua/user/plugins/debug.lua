@@ -1,17 +1,17 @@
 require('dapui').setup()
-require('persistent-breakpoints').setup {
+require('persistent-breakpoints').setup({
   load_breakpoints_event = { 'BufReadPost' },
-}
-require('mason-nvim-dap').setup {
+})
+require('mason-nvim-dap').setup({
   ensure_installed = { 'codelldb' },
   automatic_setup = true,
   handlers = {}, -- sets up dap in the predefined manner
-}
+})
 
-local dap = require 'dap'
+local dap = require('dap')
 dap.adapters.executable = {
   type = 'executable',
-  command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
+  command = vim.fn.stdpath('data') .. '/mason/bin/codelldb',
   name = 'lldb1',
   host = '127.0.0.1',
   port = 13000,
@@ -21,7 +21,7 @@ dap.adapters.lldb = {
   type = 'server',
   port = '${port}',
   executable = {
-    command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
+    command = vim.fn.stdpath('data') .. '/mason/bin/codelldb',
     args = { '--port', '${port}' },
   },
 }
@@ -86,11 +86,11 @@ keymap.set('n', '<leader>dh', function()
   require('dap.ui.widgets').hover()
 end, { desc = 'Symbol hover info' })
 keymap.set('n', '<leader>ds', function()
-  local widgets = require 'dap.ui.widgets'
+  local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.scopes)
 end, { desc = 'Scopes and Variables' })
 keymap.set('n', '<leader>df', function()
-  local widgets = require 'dap.ui.widgets'
+  local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.frames)
 end, { desc = 'Threads and Stack Frames' })
 -- keymap.set("v", "<leader>dh", "<cmd>lua require('dap.ui.variables').visual_hover()<CR>", { desc = "Symbol hover info" })
@@ -107,7 +107,7 @@ end, { desc = 'Threads and Stack Frames' })
 
 -- Telescope DAP extensions:
 
-require('telescope').load_extension 'dap'
+require('telescope').load_extension('dap')
 keymap.set('n', '<leader>dB', '<cmd>Telescope dap list_breakpoints<CR>', { desc = 'Breakpoint list' })
 keymap.set('n', '<leader>dF', '<cmd>Telescope dap frames<CR>', { desc = 'Frames List' })
 

@@ -1,5 +1,5 @@
-require('headlines').setup {
+require('headlines').setup({
   markdown = {
     headline_highlights = true,
   },
-}
+})

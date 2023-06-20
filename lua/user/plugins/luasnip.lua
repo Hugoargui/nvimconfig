@@ -1,8 +1,8 @@
-local ls = require 'luasnip'
+local ls = require('luasnip')
 -- local fmt = require("luasnip.extras.fmt").fmt
 -- local rep = require("luasnip.extras").rep
 
-ls.config.set_config {
+ls.config.set_config({
   history = true, -- keep around last snippet local to jump back
   updateevents = 'TextChanged,TextChangedI', -- update changes as you tupe
   enable_autosnippets = true,
@@ -13,7 +13,7 @@ ls.config.set_config {
       },
     },
   },
-}
+})
 
 -- SNIPPETS THEMSELVES are setup in nvim-cmp.lua
 --

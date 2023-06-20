@@ -6,7 +6,7 @@
 -- 	return
 -- end
 
-require('catppuccin').setup {
+require('catppuccin').setup({
   dim_inactive = {
     enabled = false,
     shade = 'dark',
@@ -91,4 +91,4 @@ require('catppuccin').setup {
       custom_bg = 'NONE',
     },
   },
-}
+})

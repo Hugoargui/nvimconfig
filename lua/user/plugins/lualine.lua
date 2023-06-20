@@ -5,7 +5,7 @@ if not status then
 end
 
 -- get lualine nightfly theme
-local lualine_nightfly = require 'lualine.themes.nightfly'
+local lualine_nightfly = require('lualine.themes.nightfly')
 
 -- new colors for theme
 local new_colors = {
@@ -29,7 +29,7 @@ lualine_nightfly.command = {
 }
 
 -- configure lualine with modified theme
-lualine.setup {
+lualine.setup({
   options = {
     theme = 'auto',
     section_separators = { left = '', right = '' },
@@ -60,7 +60,7 @@ lualine.setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {},
-}
+})
 -- lualine.setup({
 -- 	options = {
 -- 		theme = lualine_nightfly,

@@ -12,7 +12,7 @@ end
 
 -- configure telescope
 -- require'telescope'.setup{
-telescope.setup {
+telescope.setup({
   pickers = {
     colorscheme = {
       enable_preview = true,
@@ -74,7 +74,7 @@ telescope.setup {
       horizontal = { prompt_position = 'top' },
     },
   }, -- defaults
-} --setup
+}) --setup
 
 -- telescope.load_extension("fzf")
 --

@@ -1,4 +1,4 @@
-local autolist = require 'autolist'
+local autolist = require('autolist')
 autolist.setup()
 autolist.create_mapping_hook('i', '<CR>', autolist.new)
 autolist.create_mapping_hook('i', '<Tab>', autolist.indent)

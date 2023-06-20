@@ -1,4 +1,4 @@
-local Hydra = require 'hydra'
+local Hydra = require('hydra')
 
 local markdownPreview = function()
   if vim.g.mkdp_auto_start == 1 then
@@ -22,7 +22,7 @@ local hint = [[
 ]]
 -- _m_ %{md} Markdown Preview  ^^
 
-Hydra {
+Hydra({
   name = 'Toggle Options',
   hint = hint,
   config = {
@@ -146,4 +146,4 @@ Hydra {
     { '<Esc>', nil, { exit = true } },
     { '~', nil, { exit = true } },
   },
-}
+})

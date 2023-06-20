@@ -1,6 +1,6 @@
 local get_hex = require('cokeline/utils').get_hex
 
-local wk = require 'which-key'
+local wk = require('which-key')
 wk.register({
   b = {
     name = 'Buffers',
@@ -26,10 +26,10 @@ wk.register({
 vim.api.nvim_set_keymap('n', '<Left>', '<Plug>(cokeline-focus-prev)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', '<Right>', '<Plug>(cokeline-focus-next)', { noremap = false, silent = true })
 
-wk.register {
+wk.register({
   ['[b'] = { '<Plug>(cokeline-focus-prev)', 'Previous Buffer' },
   [']b'] = { '<Plug>(cokeline-focus-next)', 'Next Buffer' },
-}
+})
 
 -- vim.api.nvim_set_keymap(k"n", "<space>q", "<Plug>(cokeline-focus-next)", { noremap = false, silent = true })
 
@@ -37,7 +37,7 @@ local red = vim.g.terminal_color_1
 local green = vim.g.terminal_color_2
 local yellow = vim.g.terminal_color_3
 
-require('cokeline').setup {
+require('cokeline').setup({
   default_hl = {
     fg = function(buffer)
       if buffer.is_focused then
@@ -128,4 +128,4 @@ require('cokeline').setup {
     -- 	text = " ",
     -- },
   },
-}
+})

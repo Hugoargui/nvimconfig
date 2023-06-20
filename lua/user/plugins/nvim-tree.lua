@@ -14,7 +14,7 @@ vim.g.nvim_tree_respect_buf_cwd = 1
 -- vim.api.nvim_create_autocmd({ "BufEnter" }, { command = "lcd %:p:h" })
 
 -- configure nvim-tree
-nvimtree.setup {
+nvimtree.setup({
   -- Close if it's the last window
   -- autoclose = true, -- It says option doesnt exists
   -- open_on_setup = true,
@@ -52,4 +52,4 @@ nvimtree.setup {
   -- 	git = {
   -- 		ignore = false,
   -- 	},
-}
+})

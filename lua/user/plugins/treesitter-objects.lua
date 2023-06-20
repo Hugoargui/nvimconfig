@@ -1,4 +1,4 @@
-require('various-textobjs').setup {
+require('various-textobjs').setup({
   -- lines to seek forwards for "small" textobjs (mostly characterwise textobjs)
   -- set to 0 to only look in the current line
   lookForwardSmall = 15,
@@ -11,9 +11,9 @@ require('various-textobjs').setup {
 
   -- disable some default keymaps. E:g { 'ai', 'ii' }
   disabledKeymaps = {},
-}
+})
 
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.configs').setup({
   textobjects = {
     select = {
       enable = true,
@@ -67,7 +67,7 @@ require('nvim-treesitter.configs').setup {
       },
     }, -- textobjects::move
   }, -- textobjects
-}
+})
 
 -- Custom camecalse and smartword text objects:
 -- Don't see a difference between aw and iw, just make it directly cw, yw, dw, ...

@@ -4,12 +4,12 @@ if not status then
   return
 end
 
-minialign.setup {
+minialign.setup({
   mappings = {
     start = '<CR>a',
     start_with_preview = '<CR>A',
   },
-}
+})
 
 -- mini.align seemed too overcomplicated for my usecase, I just want one operator
 -- vim.api.nvim_set_keymap("n", "<CR>a", "<Plug>(EasyAlign)", { noremap = false, silent = true, desc = "Align" })

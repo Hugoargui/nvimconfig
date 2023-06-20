@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local wk = require 'which-key'
+local wk = require('which-key')
 wk.register({
   b = {
     name = 'Buffers',
@@ -29,14 +29,14 @@ wk.register({
   prefix = '<Leader>',
 })
 
-wk.register {
+wk.register({
   ['[b'] = { ':BufferLineCyclePrev<Cr>', 'Previous Buffer' },
   [']b'] = { ':BufferLineCycleNext<Cr>', 'Next Buffer' },
-}
+})
 
 -- Bufferline Config {{{*/
 -- Simple config found online
-bufferline.setup {
+bufferline.setup({
   options = {
     show_close_icon = false,
     show_buffer_close_icons = false,
@@ -84,7 +84,7 @@ bufferline.setup {
       },
     },
   }, -- options
-} --setup
+}) --setup
 
 -- complex config from video
 -- bufferline.setup {

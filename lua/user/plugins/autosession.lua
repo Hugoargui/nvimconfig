@@ -1,4 +1,4 @@
-require('auto-session').setup {
+require('auto-session').setup({
   auto_restore_enabled = true,
 
   -- presave_cmds = {
@@ -11,7 +11,7 @@ require('auto-session').setup {
   --   restore_upcoming_session = true, -- boolean: restore session for upcoming cwd on cwd change
   --   pre_cwd_changed_hook = nil, -- function: This is called after auto_session code runs for the `DirChangedPre` autocmd
   --   post_cwd_changed_hook = nil, -- function: This is called after auto_session code runs for the `DirChanged` autocmd
-}
+})
 
 -- local au_ft = vim.api.nvim_create_augroup("ft", { clear = true })
 -- vim.api.nvim_create_autocmd("FileType", {

@@ -1,5 +1,5 @@
 -- we can call colorschemes directly, or with pcall
-vim.cmd.colorscheme 'rose-pine'
+vim.cmd.colorscheme('rose-pine')
 -- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("nightfly")
 
@@ -20,8 +20,8 @@ vim.opt.fillchars = {
 -- vim.cmd([[ highlight link WinSeparator border  ]])
 -- vim.cmd([[ highlight link NvimTreeWinSeparator border  ]])
 
-vim.cmd [[ highlight link WinSeparator TelescopeBorder  ]]
-vim.cmd [[ highlight link NvimTreeWinSeparator TelescopeBorder  ]]
+vim.cmd([[ highlight link WinSeparator TelescopeBorder  ]])
+vim.cmd([[ highlight link NvimTreeWinSeparator TelescopeBorder  ]])
 
 -- vim.cmd([[ highlight link TelescopeBorder border  ]])
 -- vim.cmd([[ highlight link TelescopePromptBorder border  ]])
@@ -34,10 +34,10 @@ vim.cmd [[ highlight link NvimTreeWinSeparator TelescopeBorder  ]]
 -- vim.cmd([[ highlight link TelescopeResultsLineNr border  ]])
 -- vim.cmd([[ highlight link TelescopePromptCounter border  ]])
 --
-vim.cmd [[ highlight StatusLineNc guibg=none ]]
+vim.cmd([[ highlight StatusLineNc guibg=none ]])
 
 -- Hide tildes
-vim.cmd [[ highlight NonText guifg=bg ]] -- can't set bg in cterm
+vim.cmd([[ highlight NonText guifg=bg ]]) -- can't set bg in cterm
 
 -- change color for arrows in tree to light blue
 -- vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])

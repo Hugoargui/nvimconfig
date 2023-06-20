@@ -1,5 +1,5 @@
-local Hydra = require 'hydra'
-local splits = require 'smart-splits'
+local Hydra = require('hydra')
+local splits = require('smart-splits')
 
 local cmd = require('hydra.keymap-util').cmd
 local pcmd = require('hydra.keymap-util').pcmd
@@ -93,7 +93,7 @@ local pcmd = require('hydra.keymap-util').pcmd
 -- })
 
 local function choose_buffer()
-  if #vim.fn.getbufinfo { buflisted = true } > 1 then
+  if #vim.fn.getbufinfo({ buflisted = true }) > 1 then
     buffer_hydra:activate()
   end
 end
@@ -114,7 +114,7 @@ local window_hint = [[
 --  _b_: choose buffer
 --  which gives a barbar buffer mode... consider porting it to cockeline
 
-Hydra {
+Hydra({
   name = 'Windows',
   hint = window_hint,
   config = {
@@ -132,10 +132,10 @@ Hydra {
     { 'k', pcmd('wincmd k', 'E11', 'close') },
     { 'l', '<C-w>l' },
 
-    { 'H', cmd 'WinShift left' },
-    { 'J', cmd 'WinShift down' },
-    { 'K', cmd 'WinShift up' },
-    { 'L', cmd 'WinShift right' },
+    { 'H', cmd('WinShift left') },
+    { 'J', cmd('WinShift down') },
+    { 'K', cmd('WinShift up') },
+    { 'L', cmd('WinShift right') },
 
     {
       '<C-h>',
@@ -171,8 +171,8 @@ Hydra {
     { 'w', '<C-w>w', { exit = true, desc = false } },
     { '<C-w>', '<C-w>w', { exit = true, desc = false } },
 
-    { 'z', cmd 'WindowsMaximaze', { exit = true, desc = 'maximize' } },
-    { '<C-z>', cmd 'WindowsMaximaze', { exit = true, desc = false } },
+    { 'z', cmd('WindowsMaximaze'), { exit = true, desc = 'maximize' } },
+    { '<C-z>', cmd('WindowsMaximaze'), { exit = true, desc = false } },
 
     { 'o', '<C-w>o', { exit = true, desc = 'remain only' } },
     { '<C-o>', '<C-w>o', { exit = true, desc = false } },
@@ -186,4 +186,4 @@ Hydra {
 
     { '<Esc>', nil, { exit = true, desc = false } },
   },
-}
+})

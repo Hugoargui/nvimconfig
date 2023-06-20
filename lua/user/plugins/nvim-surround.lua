@@ -6,7 +6,7 @@
 -- { noremap = false, silent = true, desc = "Align" }
 -- )
 -- this breaks
-require('nvim-surround').setup {
+require('nvim-surround').setup({
   keymaps = { -- If i do them here, I can't set the description and the default is too verbose for which-key
     normal = false,
     normal_line = false,
@@ -20,7 +20,7 @@ require('nvim-surround').setup {
     visual_line = false, --"gS",
   },
   -- For them to show properly in whichkey we define them ourselves
-}
+})
 vim.api.nvim_set_keymap(
   'n',
   '<CR>s',
@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap(
 
 -- Case switcing commands
 vim.g.caser_prefix = '<CR>k'
-local wk = require 'which-key'
+local wk = require('which-key')
 local wk_opt = {
   mode = 'n',
   prefix = '<CR>',
