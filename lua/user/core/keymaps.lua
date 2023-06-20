@@ -1,5 +1,4 @@
 local keymap = vim.keymap --for conciseness
-vim.g.mapleader = ' '
 
 -- window management
 -- I'm not using <Control-hjkl> because I'm too used to press ctrl-l when inside toggleterm.

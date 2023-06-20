@@ -1,7 +1,7 @@
 vim.opt.shadafile = 'NONE' -- Disable this while loading will make it faster
 require 'user.core.options'
-require 'user.plugins-setup'
-require 'impatient'
+require 'plugins-setup'
+--require 'impatient'
 
 require 'user.plugins.whichkey'
 require 'user.core.keymaps'

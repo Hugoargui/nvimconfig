@@ -1,19 +1,5 @@
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
-
 -- add list of plugins to install
-require('lazy').setup {
-
+return {
   'nvim-lua/plenary.nvim', -- lua functions that many plugins use
   'lewis6991/impatient.nvim',
 
@@ -92,7 +78,6 @@ require('lazy').setup {
   -- snippets
   'L3MON4D3/LuaSnip', -- snippet engine
   'saadparwaiz1/cmp_luasnip', -- for autocompletion
-  -- "rafamadriz/friendly-snippets" -- useful snippets
 
   -- Todo features
   'folke/todo-comments.nvim',
@@ -188,4 +173,4 @@ require('lazy').setup {
 
   'folke/which-key.nvim',
   'anuvyklack/hydra.nvim',
-} -- function
+}

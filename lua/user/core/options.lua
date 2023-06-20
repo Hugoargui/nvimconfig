@@ -1,4 +1,5 @@
 local opt = vim.opt -- for conciseness
+vim.g.mapleader = ' ' -- it would be better on keymaps, but we want to load this before lazy.nvim
 
 -----------------------------------------------------------
 -- Memory, CPU
