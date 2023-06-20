@@ -1,19 +1,19 @@
-local ls = require("luasnip")
+local ls = require 'luasnip'
 -- local fmt = require("luasnip.extras.fmt").fmt
 -- local rep = require("luasnip.extras").rep
 
-ls.config.set_config({
-	history = true, -- keep around last snippet local to jump back
-	updateevents = "TextChanged,TextChangedI", -- update changes as you tupe
-	enable_autosnippets = true,
-	ext_opts = {
-		[require("luasnip.util.types").choiceNode] = {
-			active = {
-				virt_text = { { "⬤", "white" } },
-			},
-		},
-	},
-})
+ls.config.set_config {
+  history = true, -- keep around last snippet local to jump back
+  updateevents = 'TextChanged,TextChangedI', -- update changes as you tupe
+  enable_autosnippets = true,
+  ext_opts = {
+    [require('luasnip.util.types').choiceNode] = {
+      active = {
+        virt_text = { { '⬤', 'white' } },
+      },
+    },
+  },
+}
 
 -- SNIPPETS THEMSELVES are setup in nvim-cmp.lua
 --
@@ -21,18 +21,18 @@ ls.config.set_config({
 -- TODO: shold this be part of nvim-cmp.lua?
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.
-vim.keymap.set({ "i", "s" }, "<c-l>", function()
-	if ls.expand_or_jumpable() then
-		ls.expand_or_jump()
-	end
+vim.keymap.set({ 'i', 's' }, '<c-l>', function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
 end, { silent = true })
 
 -- <c-j> is my jump backwards key.
 -- this always moves to the previous item within the snippet
-vim.keymap.set({ "i", "s" }, "<c-h>", function()
-	if ls.jumpable() then
-		ls.jump(-1)
-	end
+vim.keymap.set({ 'i', 's' }, '<c-h>', function()
+  if ls.jumpable() then
+    ls.jump(-1)
+  end
 end, { silent = true })
 
 -- -- This is selecting between a list of options

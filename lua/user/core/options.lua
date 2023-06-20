@@ -13,40 +13,40 @@ opt.timeoutlen = 300
 -- Startup
 -----------------------------------------------------------
 -- Disable nvim intro
-opt.shortmess:append("sI")
+opt.shortmess:append 'sI'
 
 -- A lot of useless builitn plugins are bloat and slow down our startup,
 -- Make a list plugins to disable.
 local disabled_built_ins = {
-	"2html_plugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"matchit",
-	"tar",
-	"tarPlugin",
-	"rrhelper",
-	"spellfile_plugin",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
-	"tutor",
-	"rplugin",
-	"synmenu",
-	"optwin",
-	"compiler",
-	"bugreport",
-	"ftplugin",
+  '2html_plugin',
+  'getscript',
+  'getscriptPlugin',
+  'gzip',
+  'logipat',
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
+  'matchit',
+  'tar',
+  'tarPlugin',
+  'rrhelper',
+  'spellfile_plugin',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
+  'tutor',
+  'rplugin',
+  'synmenu',
+  'optwin',
+  'compiler',
+  'bugreport',
+  'ftplugin',
 }
 -- LOOP trough all the builtin plugins we don't want and disable them
 for _, plugin in pairs(disabled_built_ins) do
-	vim.g["loaded_" .. plugin] = 1
+  vim.g['loaded_' .. plugin] = 1
 end
 
 vim.g.loaded_ruby_provider = 0 -- Don't needed, also suppresses not found warning
@@ -55,9 +55,9 @@ vim.g.loaded_perl_provider = 0 -- Don't needed, also suppresses not found warnin
 --
 -- APPEARANCE
 opt.termguicolors = true -- use guifg and guibg everywhere instead of ctermfg and ctermbg
-opt.background = "dark"
+opt.background = 'dark'
 opt.number = true
-opt.signcolumn = "yes" -- Needed for plugins that dispaly stuff in left column (git status, diagnostics...)
+opt.signcolumn = 'yes' -- Needed for plugins that dispaly stuff in left column (git status, diagnostics...)
 opt.cursorline = true -- Line on the line whe're at, you can set it's style with highlights
 
 -- LastStatus means when to show status bar at the bottom of each window:
@@ -78,18 +78,18 @@ opt.showmode = false
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
 opt.fillchars = {
-	horiz = "─",
-	horizup = "┴",
-	horizdown = "┬",
-	vert = "│",
-	vertleft = "┤",
-	vertright = "├",
-	verthoriz = "┼",
+  horiz = '─',
+  horizup = '┴',
+  horizdown = '┬',
+  vert = '│',
+  vertleft = '┤',
+  vertright = '├',
+  verthoriz = '┼',
 }
-vim.cmd([[ highlight VertSplit ctermbg=none  guibg=none ]])
-vim.cmd([[ highlight StatusLineNc ctermbg=none  guibg=none ]])
+vim.cmd [[ highlight VertSplit ctermbg=none  guibg=none ]]
+vim.cmd [[ highlight StatusLineNc ctermbg=none  guibg=none ]]
 
-vim.cmd([[ highlight NonText ctermfg=none  guifg=bg ]]) -- can't set bg in cterm
+vim.cmd [[ highlight NonText ctermfg=none  guifg=bg ]] -- can't set bg in cterm
 
 -- tabs & indentation
 opt.expandtab = true -- Transform tab key to spaces in insert mode
@@ -102,17 +102,17 @@ opt.wrap = false -- do not wrap long lines
 -- FOLDING
 opt.foldlevel = 99 -- 0-> Start all folded, 99 start all unfolded
 -- opt.foldmethod = "indent"
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 function _G.custom_fold_text()
-	local lineText = vim.fn.getline(vim.v.foldstart)
-	local numOfLines = vim.v.foldend - vim.v.foldstart + 1
-	local fillCount = vim.fn.winwidth("%") - vim.fn.len(lineText) - vim.fn.len(numOfLines) - 17
+  local lineText = vim.fn.getline(vim.v.foldstart)
+  local numOfLines = vim.v.foldend - vim.v.foldstart + 1
+  local fillCount = vim.fn.winwidth '%' - vim.fn.len(lineText) - vim.fn.len(numOfLines) - 17
 
-	-- return "[" .. numOfLines .. "] lines folded: " .. lineText
-	return "+ " .. lineText .. " ... " .. "[" .. numOfLines .. " lines folded] "
+  -- return "[" .. numOfLines .. "] lines folded: " .. lineText
+  return '+ ' .. lineText .. ' ... ' .. '[' .. numOfLines .. ' lines folded] '
 end
-vim.opt.foldtext = "v:lua.custom_fold_text()"
+vim.opt.foldtext = 'v:lua.custom_fold_text()'
 -- vim.opt.fillchars:append({fold = " "}) -- Remove trailing whitespaces
 
 -- split windows below and right, more intutitive than the default
@@ -125,7 +125,7 @@ opt.smartcase = true -- if ignorecase=TRUE, writting BigCase will turn search in
 
 ------------------------------------------------------------------------
 -- TECHNICAL STUFF
-opt.clipboard:append("unnamedplus") -- Use system clipboard
-opt.backspace = "indent,eol,start" -- Make <BACKSPACE> behave like you expect
+opt.clipboard:append 'unnamedplus' -- Use system clipboard
+opt.backspace = 'indent,eol,start' -- Make <BACKSPACE> behave like you expect
 
-opt.iskeyword:append("-") -- make this-word count as a single word
+opt.iskeyword:append '-' -- make this-word count as a single word

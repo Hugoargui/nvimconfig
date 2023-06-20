@@ -1,18 +1,18 @@
 -- we can call colorschemes directly, or with pcall
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme 'rose-pine'
 -- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("nightfly")
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
 vim.opt.fillchars = {
-	-- horiz = "─",
-	horiz = "━",
-	horizup = "┴",
-	horizdown = "┬",
-	vert = "│",
-	vertleft = "┤",
-	vertright = "├",
-	verthoriz = "┼",
+  -- horiz = "─",
+  horiz = '━',
+  horizup = '┴',
+  horizdown = '┬',
+  vert = '│',
+  vertleft = '┤',
+  vertright = '├',
+  verthoriz = '┼',
 }
 
 -- Attempt at doint it more flexible
@@ -20,8 +20,8 @@ vim.opt.fillchars = {
 -- vim.cmd([[ highlight link WinSeparator border  ]])
 -- vim.cmd([[ highlight link NvimTreeWinSeparator border  ]])
 
-vim.cmd([[ highlight link WinSeparator TelescopeBorder  ]])
-vim.cmd([[ highlight link NvimTreeWinSeparator TelescopeBorder  ]])
+vim.cmd [[ highlight link WinSeparator TelescopeBorder  ]]
+vim.cmd [[ highlight link NvimTreeWinSeparator TelescopeBorder  ]]
 
 -- vim.cmd([[ highlight link TelescopeBorder border  ]])
 -- vim.cmd([[ highlight link TelescopePromptBorder border  ]])
@@ -34,10 +34,10 @@ vim.cmd([[ highlight link NvimTreeWinSeparator TelescopeBorder  ]])
 -- vim.cmd([[ highlight link TelescopeResultsLineNr border  ]])
 -- vim.cmd([[ highlight link TelescopePromptCounter border  ]])
 --
-vim.cmd([[ highlight StatusLineNc guibg=none ]])
+vim.cmd [[ highlight StatusLineNc guibg=none ]]
 
 -- Hide tildes
-vim.cmd([[ highlight NonText guifg=bg ]]) -- can't set bg in cterm
+vim.cmd [[ highlight NonText guifg=bg ]] -- can't set bg in cterm
 
 -- change color for arrows in tree to light blue
 -- vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
@@ -47,8 +47,8 @@ vim.cmd([[ highlight NonText guifg=bg ]]) -- can't set bg in cterm
 
 -- Use vim illuminate.
 -- Use highlight set by by LSP instead of the default 'underline'
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "LspReferenceRead" })
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceWrite" })
+vim.api.nvim_set_hl(0, 'IlluminatedWordText', { link = 'LspReferenceText' })
+vim.api.nvim_set_hl(0, 'IlluminatedWordRead', { link = 'LspReferenceRead' })
+vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'LspReferenceWrite' })
 
-vim.api.nvim_set_hl(0, "CurSearch", { link = "IncSearch" })
+vim.api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
