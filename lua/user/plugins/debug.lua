@@ -105,12 +105,6 @@ end, { desc = 'Threads and Stack Frames' })
 -- 	require("debugHelper").attachToRemote()
 -- end)
 
--- Telescope DAP extensions:
-
-require('telescope').load_extension('dap')
-keymap.set('n', '<leader>dB', '<cmd>Telescope dap list_breakpoints<CR>', { desc = 'Breakpoint list' })
-keymap.set('n', '<leader>dF', '<cmd>Telescope dap frames<CR>', { desc = 'Frames List' })
-
 -- DEBUG ICONS AND HIGHLIGHTS'
 
 -- vim.fn.sign_define("DapBreakpoint", { text = "•", texthl = "red", linehl = "", numhl = "" })
@@ -135,3 +129,8 @@ vim.fn.sign_define(
   { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' }
 )
 vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+
+-- Telescope DAP extensions:
+require('telescope').load_extension('dap')
+keymap.set('n', '<leader>dB', '<cmd>Telescope dap list_breakpoints<CR>', { desc = 'Breakpoint list' })
+keymap.set('n', '<leader>dF', '<cmd>Telescope dap frames<CR>', { desc = 'Frames List' })
