@@ -47,7 +47,7 @@ require('user.core.colorscheme')
 require('user.plugins.tint')
 require('user.plugins.hydra_menus.toggle_options')
 require('user.plugins.hydra_menus.window_manager')
-require('user.plugins.hydra')
+require('user.plugins.hydra_menus.folds')
 vim.opt.shadafile = ''
 
 require('user.plugins.debug')
