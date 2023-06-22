@@ -1,7 +1,6 @@
 -- add list of plugins to install
 return {
   'nvim-lua/plenary.nvim', -- lua functions that many plugins use
-  'lewis6991/impatient.nvim',
 
   -- COLORSCHEMES
   -- "rktjmp/lush.nvim", -- used by some colorschemes
