@@ -4,20 +4,20 @@ local wk = require('which-key')
 wk.register({
   b = {
     name = 'Buffers',
-    g = { '<Plug>(cokeline-pick-focus)', 'Pick Buffer' },
-    x = { '<Plug>(cokeline-pick-close)', 'Pick and Close Buffer' },
+    -- g = { '<Plug>(cokeline-pick-focus)', 'Pick Buffer' },
+    -- x = { '<Plug>(cokeline-pick-close)', 'Pick and Close Buffer' },
     -- h = { '<Cmd>BufferLineCloseLeft<Cr>', 'Close Buffers to the Left' },
     -- l = { '<Cmd>BufferLineCloseRight<Cr>', 'Close Buffers to the Right' },
     ['['] = { '<Cmd>(cokeline-switch-prev)<Cr>', 'Move Buffer Left' },
     [']'] = { '<Cmd>(cokeline-switch-next)<Cr>', 'Move Buffer Right' },
-    o = { [[<Plug>%bd|e#|bd#<Cr>|'"<Cr>]], 'Close All Other Buffers' },
+    o = { '<Cmd>%bd|e#|bd#<Cr>', 'Close All Other Buffers' },
     b = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       'Buffers',
     },
-    d = { '<Cmd>bd<Cr>', 'Delete Current Buffer' },
+    x = { '<Cmd>bd<Cr>', 'Delete Current Buffer' },
     -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-    D = { '<Cmd>bd!<Cr>', 'Delete Current Buffer (Ignore Unsaved Changes)' },
+    X = { '<Cmd>bd!<Cr>', 'Delete Current Buffer (Ignore Unsaved Changes)' },
   },
 }, {
   prefix = '<Leader>',

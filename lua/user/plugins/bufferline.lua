@@ -15,9 +15,9 @@ wk.register({
       l = { '<Cmd>BufferLineCloseRight<Cr>', 'Close Buffers to the Right' },
       o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], 'Close All Other Buffers' },
     },
-    d = { '<Cmd>bd<Cr>', 'Delete Current Buffer' },
-    D = { '<Cmd>bd!<Cr>', 'Delete Current Buffer (Ignore Unsaved Changes)' },
-    o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], 'Close All Other Buffers' },
+    x = { '<Cmd>bd<Cr>', 'Delete Current Buffer' },
+    X = { '<Cmd>bd!<Cr>', 'Delete Current Buffer (Ignore Unsaved Changes)' },
+    o = { '<Cmd>%bd|e#|bd#<Cr>', 'Close All Other Buffers' },
     b = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       'Buffers',

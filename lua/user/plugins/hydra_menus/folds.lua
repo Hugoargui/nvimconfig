@@ -23,6 +23,10 @@ Hydra({
       border = 'rounded',
       position = 'middle',
     },
+    on_enter = function()
+      print('Hydra enter')
+      -- vim.bo.modifiable = false -- temporary set `nomodifiable` while Hydra is active
+    end,
   },
   mode = 'n',
   body = 'z',
