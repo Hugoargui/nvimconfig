@@ -56,9 +56,9 @@ return {
   'anuvyklack/vim-smartword',
 
   -- fuzzy finding w/ telescope
-  'nvim-lualine/lualine.nvim',
-  'archibate/lualine-time',
-  'meuter/lualine-so-fancy.nvim',
+  -- 'nvim-lualine/lualine.nvim',
+  -- 'archibate/lualine-time',
+  -- 'meuter/lualine-so-fancy.nvim',
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',

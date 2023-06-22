@@ -24,7 +24,7 @@ require('user.plugins.treesiter')
 require('user.plugins.headerswitch')
 
 require('user.plugins.gitsigns')
-require('user.plugins.lualine')
+-- require('user.plugins.lualine')
 require('user.plugins.cokeline')
 
 require('user.plugins.toggleterm')

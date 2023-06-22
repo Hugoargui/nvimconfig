@@ -67,18 +67,18 @@ require('cokeline').setup({
     end,
   },
 
-  -- sidebar = {
-  -- filetype = "NvimTree",
-  -- components = {
-  -- 	{
-  -- 		-- text = " File Explorer",
-  -- 		text = "",
-  -- 		-- fg = yellow,
-  -- 		bg = get_hex("NvimTreeNormal", "bg"),
-  -- 		style = "bold",
-  -- 	},
-  -- },
-  -- },
+  sidebar = {
+    filetype = 'NvimTree',
+    components = {
+      {
+        -- text = " File Explorer",
+        text = '',
+        -- fg = yellow,
+        bg = get_hex('NvimTreeNormal', 'bg'),
+        style = 'bold',
+      },
+    },
+  },
 
   components = {
 
