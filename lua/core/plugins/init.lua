@@ -1,4 +1,4 @@
--- add list of plugins to install
+-- add list of plugins to installinit.lua
 return {
   'nvim-lua/plenary.nvim', -- lua functions that many plugins use
 
@@ -9,7 +9,7 @@ return {
   { 'rose-pine/neovim', name = 'rose-pine' },
 
   -- fancy notification windows
-  'rcarriga/nvim-notify',
+  -- 'rcarriga/nvim-notify',
 
   -- autosession
   'rmagatti/auto-session',
@@ -116,8 +116,6 @@ return {
   {
     'neovim/nvim-lspconfig', -- easily configure language servers
     dependencies = {
-      'williamboman/mason.nvim', -- in charge of managing lsp servers, linters & formatters
-      'williamboman/mason-lspconfig.nvim', -- bridges gap b/w mason & lspconfig
       'folke/neodev.nvim', -- adds a bunch of vim/lua annotations/completion/etc for easier config/plugin dev
     },
   },

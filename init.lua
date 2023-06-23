@@ -15,7 +15,6 @@ require('user.plugins.autosession')
 require('user.plugins.nvim-cmp')
 require('user.plugins.luasnip')
 
-require('user.plugins.lsp.mason')
 require('user.plugins.lsp.lspsaga')
 require('user.plugins.lsp.lspconfig')
 require('user.plugins.lsp.null-ls')
