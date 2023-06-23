@@ -7,7 +7,7 @@ local M = {
     -- 'hrsh7th/cmp-cmdline',
     -- 'hrsh7th/cmp-calc',
     -- 'lukas-reineke/cmp-rg',
-    -- 'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/cmp-nvim-lua',
     'saadparwaiz1/cmp_luasnip',
   },
@@ -108,6 +108,7 @@ local M = {
         end, { 'i', 's' }),
       }),
       sources = cmp.config.sources({
+        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' }, -- neovim and Lua extra API, it only enables itself in .lua files
         { name = 'nvim_lsp' }, -- lsp
         { name = 'path' }, -- file system paths
