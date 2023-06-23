@@ -6,7 +6,7 @@ vim.g.mapleader = ' ' -- it would be better on keymaps, but we want to load this
 -----------------------------------------------------------
 opt.hidden = true -- Enable background buffers
 opt.history = 100 -- Remember N lines in history
-opt.lazyredraw = true -- Faster scrolling
+opt.lazyredraw = false -- true should give faster scrolling
 opt.synmaxcol = 240 -- Max column for syntax highlight
 opt.updatetime = 250 -- ms to wait for trigger an event
 opt.timeoutlen = 100
@@ -38,7 +38,7 @@ opt.laststatus = 3
 -- 0 : No Command Line (will need plugins to display messages and enter commands)
 -- 1 : Only one line, enough for command input, but messages may display the annoying "press ENTER to continue"
 -- 2 : To avoid messages like press ENTER to continue, but you waste one line of space
-opt.cmdheight = 1
+opt.cmdheight = 0
 
 -- showmode, if vim should display [INSERT], [NORMAL], etc on the command bar, not necesary with most statusline plugins
 opt.showmode = false

@@ -38,33 +38,13 @@ local M = {
               return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
             end,
           },
-        },
-        lualine_x = {
           {
-            function()
-              return require('noice').api.status.command.get()
-            end,
-            cond = function()
-              return package.loaded['noice'] and require('noice').api.status.command.has()
-            end,
-          },
-          {
-            function()
-              return require('noice').api.status.mode.get()
-            end,
-            cond = function()
-              return package.loaded['noice'] and require('noice').api.status.mode.has()
-            end,
-          },
-          {
-            function()
-              return '  ' .. require('dap').status()
-            end,
-            cond = function()
-              return package.loaded['dap'] and require('dap').status() ~= ''
-            end,
+            require('noice').api.statusline.mode.get,
+            cond = require('noice').api.statusline.mode.has,
+            color = { fg = '#ff9e64' },
           },
         },
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {
           function()
