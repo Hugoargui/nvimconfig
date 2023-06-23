@@ -1,10 +1,10 @@
 # NEAR FUTURE 
 - better N
-- optimize command line workflow try fine-cmd-line wilder...
-- add folds toggle options
 - try themery colorswitcher
 
 # MEDIUM TERM IDEAS
+- harpoon
+- trouble
 - tabout plugin
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
@@ -16,7 +16,7 @@
 - terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 
 # LONG TIME IDEAS, NOT URGENT
-- harpoon
+- try a hop/leap/ similar jump plugin
 - dial
 - still not totally happy with yank interface
 - try the moonicipal task runner
@@ -35,7 +35,6 @@
 
 # CHANGES IN workflow
 this are pretty big changes that I'd like to explore someday, but are not critical right now
-- try a hop/leap/ similar jump plugin
 - try structural search and replace
 - try yode-nvim
 - try multicursors

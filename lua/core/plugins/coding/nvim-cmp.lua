@@ -11,10 +11,10 @@ local M = {
     'hrsh7th/cmp-nvim-lua',
     'saadparwaiz1/cmp_luasnip',
   },
+  event = 'InsertEnter',
   opts = function()
     vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
     local cmp = require('cmp')
-    local lspkind = require('lspkind')
     local luasnip = require('luasnip')
     vim.opt.completeopt = 'menu,menuone,noselect'
 
