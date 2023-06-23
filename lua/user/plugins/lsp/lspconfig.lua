@@ -147,6 +147,7 @@ lspconfig['clangd'].setup({
     '--suggest-missing-includes',
     '--query-driver=/usr/bin/x86_64-w64-mingw32-g++',
     -- "--compile-commands-dir=/home/localuser/test/build",
+    '--offset-encoding=utf-16',
   },
 })
 

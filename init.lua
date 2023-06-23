@@ -12,7 +12,6 @@ require('user.plugins.nvim-tree')
 
 require('user.plugins.autosession')
 
-require('user.plugins.nvim-cmp')
 require('user.plugins.luasnip')
 
 require('user.plugins.lsp.lspsaga')
@@ -29,7 +28,6 @@ require('user.plugins.toggleterm')
 
 require('user.plugins.markdown-preview')
 
--- require 'user.plugins.indent-blankline'
 require('user.plugins.eyeliner')
 
 require('user.plugins.autopairs')

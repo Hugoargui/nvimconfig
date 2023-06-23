@@ -65,18 +65,8 @@ return {
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
-  -- autocompletion
-  {
-    'hrsh7th/nvim-cmp', -- completion plugin
-    dependencies = {
-      'hrsh7th/cmp-buffer', -- source for text in buffer
-      'hrsh7th/cmp-path', -- source for file system paths
-    },
-  },
-
   -- snippets
   'L3MON4D3/LuaSnip', -- snippet engine
-  'saadparwaiz1/cmp_luasnip', -- for autocompletion
 
   -- Todo features
   'folke/todo-comments.nvim',
@@ -130,7 +120,6 @@ return {
   'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
   'haringsrob/nvim_context_vt', -- Add virtual text at end of brackts and so on
 
-  'hrsh7th/cmp-nvim-lsp', -- for autocompletion
   'onsails/lspkind.nvim', -- vs-code like icons for autocompletion
 
   -- formatting & linting

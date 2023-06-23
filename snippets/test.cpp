@@ -18,6 +18,5 @@ int main() {
       std::cout << " Hello World " << i << std::endl;
     }
   }
-
   return 0;
 }
