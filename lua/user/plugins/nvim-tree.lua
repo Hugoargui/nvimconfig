@@ -133,3 +133,19 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     end,
     group = nt_au_group,
 })
+
+-- STARTED PLAYING WITH HIDDING CURSOR IN NVIMTRE, but gave up, not so important
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = 'NvimTree',
+--     group = 'NvimTree',
+--     callback = function()
+--         --         -- vim.api.nvim_set_hl(0, 'NoiceHiddenCursor', { link = 'CursorLine' })
+--         vim.go.guicursor = 'a:NoiceHiddenCursor/NoiceHiddenCursor'
+--         --         -- vim.go.guicursor = ''
+--     end,
+-- })
+-- -- vim.api.nvim_create_autocmd('Filetype', {
+-- -- pattern = '*',
+-- -- group = 'NvimTreeExit',
+-- -- command = [[ if &ft != NvimTre | echo "do something" | endif]],
+-- -- })

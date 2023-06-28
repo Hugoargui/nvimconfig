@@ -50,5 +50,5 @@ vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'LspReferenceWrite' })
 
 vim.api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
 
-vim.cmd([[ highlight IndentBlanklineContextStart  guifg=#7d3c98 ]]) -- can't set bg in cterm
-vim.cmd([[ highlight IndentBlanklineContextSpaceChar   guifg=Red ]]) -- can't set bg in cterm
+-- vim.cmd([[ highlight IndentBlanklineContextStart  guifg=#7d3c98 ]]) -- can't set bg in cterm
+-- vim.cmd([[ highlight IndentBlanklineContextSpaceChar   guifg=Red ]]) -- can't set bg in cterm
