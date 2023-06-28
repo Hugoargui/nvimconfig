@@ -6,6 +6,10 @@ return {
     livePreview = true, -- Apply theme while browsing. Default to true.
     themes = {
       {
+        name = 'Ayu',
+        colorscheme = 'ayu',
+      },
+      {
         name = 'Catppuccin',
         colorscheme = 'catppuccin',
       },
@@ -32,6 +36,10 @@ return {
       {
         name = 'NightFly',
         colorscheme = 'nightfly',
+      },
+      {
+        name = 'OneDark',
+        colorscheme = 'onedark',
       },
       {
         name = 'OxoCarbon',
