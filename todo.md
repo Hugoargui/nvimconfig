@@ -1,5 +1,4 @@
 # NEAR FUTURE 
-- better N
 - harpoon (see mappings from ThePrimagen)
 - CMP mappings not so good, get inspiration from TJdevies mappings
 
