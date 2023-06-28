@@ -22,6 +22,7 @@ require('lazy').setup({
     { import = 'core.plugins.ui' },
     { import = 'core.plugins.LSP' },
     { import = 'core.plugins.coding' },
+    { import = 'core.plugins.theme' },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -44,6 +45,31 @@ require('lazy').setup({
     -- automatically check for config file changes and reload the ui
     enabled = true,
     notify = false, -- get a notification when changes are found
+  },
+  ui = {
+    icons = {
+      cmd = ' ',
+      config = '',
+      event = '',
+      ft = ' ',
+      init = ' ',
+      import = ' ',
+      keys = ' ',
+      lazy = '󰒲 ',
+      loaded = '●',
+      not_loaded = '○',
+      plugin = ' ',
+      runtime = ' ',
+      source = ' ',
+      start = '',
+      task = '✔ ',
+      list = {
+        '●',
+        '➜',
+        '★',
+        '‒',
+      },
+    },
   },
   performance = {
     rtp = {

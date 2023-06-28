@@ -2,15 +2,6 @@
 return {
   'nvim-lua/plenary.nvim', -- lua functions that many plugins use
 
-  -- COLORSCHEMES
-  -- "rktjmp/lush.nvim", -- used by some colorschemes
-  --"bluz71/vim-nightfly-colors", as = "nightfly",
-  { 'catppuccin/nvim', name = 'catppuccin' },
-  { 'rose-pine/neovim', name = 'rose-pine' },
-
-  -- fancy notification windows
-  -- 'rcarriga/nvim-notify',
-
   -- autosession
   'rmagatti/auto-session',
   {

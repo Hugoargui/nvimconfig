@@ -1,7 +1,4 @@
--- we can call colorschemes directly, or with pcall
--- vim.cmd.colorscheme('rose-pine')
-vim.cmd.colorscheme('catppuccin')
--- vim.cmd.colorscheme("nightfly")
+require('core.themeConfigFile')
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
 vim.opt.fillchars = {
@@ -52,3 +49,6 @@ vim.api.nvim_set_hl(0, 'IlluminatedWordRead', { link = 'LspReferenceRead' })
 vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'LspReferenceWrite' })
 
 vim.api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
+
+vim.cmd([[ highlight IndentBlanklineContextStart  guifg=#7d3c98 ]]) -- can't set bg in cterm
+vim.cmd([[ highlight IndentBlanklineContextSpaceChar   guifg=Red ]]) -- can't set bg in cterm

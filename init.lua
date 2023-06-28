@@ -33,10 +33,9 @@ require('user.plugins.comment')
 require('user.plugins.nvim-surround')
 require('user.plugins.todo-comments')
 require('user.plugins.cutlass')
-require('user.plugins.autolist')
+-- require('user.plugins.autolist') -- gives readme warning on startup, shut up
 require('user.plugins.treesitter-objects')
 
-require('user.plugins.colorschemes.catppuccin')
 require('user.core.colorscheme')
 require('user.plugins.tint')
 require('user.plugins.hydra_menus.toggle_options')
