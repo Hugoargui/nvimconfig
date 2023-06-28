@@ -1,89 +1,89 @@
 local status_ok, bufferline = pcall(require, 'bufferline')
 if not status_ok then
-  return
+    return
 end
 
 local wk = require('which-key')
 wk.register({
-  b = {
-    name = 'Buffers',
-    g = { '<Cmd>BufferLinePick<Cr>', 'Pick Buffer' },
-    x = {
-      name = 'Close Buffers',
-      x = { '<Cmd>BufferLinePickClose<Cr>', 'Pick and Close Buffer' },
-      h = { '<Cmd>BufferLineCloseLeft<Cr>', 'Close Buffers to the Left' },
-      l = { '<Cmd>BufferLineCloseRight<Cr>', 'Close Buffers to the Right' },
-      o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], 'Close All Other Buffers' },
-    },
-    x = { '<Cmd>bd<Cr>', 'Delete Current Buffer' },
-    X = { '<Cmd>bd!<Cr>', 'Delete Current Buffer (Ignore Unsaved Changes)' },
-    o = { '<Cmd>%bd|e#|bd#<Cr>', 'Close All Other Buffers' },
     b = {
-      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-      'Buffers',
+        name = 'Buffers',
+        g = { '<Cmd>BufferLinePick<Cr>', 'Pick Buffer' },
+        x = {
+            name = 'Close Buffers',
+            x = { '<Cmd>BufferLinePickClose<Cr>', 'Pick and Close Buffer' },
+            h = { '<Cmd>BufferLineCloseLeft<Cr>', 'Close Buffers to the Left' },
+            l = { '<Cmd>BufferLineCloseRight<Cr>', 'Close Buffers to the Right' },
+            o = { [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], 'Close All Other Buffers' },
+        },
+        x = { '<Cmd>bd<Cr>', 'Delete Current Buffer' },
+        X = { '<Cmd>bd!<Cr>', 'Delete Current Buffer (Ignore Unsaved Changes)' },
+        o = { '<Cmd>%bd|e#|bd#<Cr>', 'Close All Other Buffers' },
+        b = {
+            "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            'Buffers',
+        },
+        ['['] = { '<Cmd>BufferLineMovePrev<Cr>', 'Move Buffer Left' },
+        [']'] = { '<Cmd>BufferLineMoveNext<Cr>', 'Move Buffer Right' },
     },
-    ['['] = { '<Cmd>BufferLineMovePrev<Cr>', 'Move Buffer Left' },
-    [']'] = { '<Cmd>BufferLineMoveNext<Cr>', 'Move Buffer Right' },
-  },
 }, {
-  prefix = '<Leader>',
+    prefix = '<Leader>',
 })
 
 wk.register({
-  ['[b'] = { ':BufferLineCyclePrev<Cr>', 'Previous Buffer' },
-  [']b'] = { ':BufferLineCycleNext<Cr>', 'Next Buffer' },
+    ['[b'] = { ':BufferLineCyclePrev<Cr>', 'Previous Buffer' },
+    [']b'] = { ':BufferLineCycleNext<Cr>', 'Next Buffer' },
 })
 
 -- Bufferline Config {{{*/
 -- Simple config found online
 bufferline.setup({
-  options = {
-    show_close_icon = false,
-    show_buffer_close_icons = false,
-    diagnostics = false, --'nvim_lsp',
-    -- adding a separator different that default is ugly when telescope is launched
-    -- separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
-    -- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-    offsets = {
-      {
-        filetype = 'NvimTree',
-        text = 'File Explorer',
-        padding = 0,
-        separator = true,
-        highlight = 'Directory',
-        text_align = 'center',
-      },
-    },
+    options = {
+        show_close_icon = false,
+        show_buffer_close_icons = false,
+        diagnostics = false, --'nvim_lsp',
+        -- adding a separator different that default is ugly when telescope is launched
+        -- separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
+        -- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = {
+            {
+                filetype = 'NvimTree',
+                text = 'File Explorer',
+                padding = 0,
+                separator = true,
+                highlight = 'Directory',
+                text_align = 'center',
+            },
+        },
 
-    custom_filter = function(buf_number)
-      -- don't show DAP REPL in bufferline
-      if vim.bo[buf_number].filetype ~= 'dap-repl' then
-        return true
-      end
-    end,
+        custom_filter = function(buf_number)
+            -- don't show DAP REPL in bufferline
+            if vim.bo[buf_number].filetype ~= 'dap-repl' then
+                return true
+            end
+        end,
 
-    highlights = {
-      -- separator = {
-      --   fg = '#073642',
-      --   bg = '#002b36',
-      -- },
-      -- separator_selected = {
-      --   fg = '#073642',
-      -- },
-      background = {
-        fg = '#657b83',
-        bg = '#002b36',
-      },
-      buffer_selected = {
-        fg = '#fdf6e3',
-        bold = true,
-        italic = false,
-      },
-      fill = {
-        bg = '#073642',
-      },
-    },
-  }, -- options
+        highlights = {
+            -- separator = {
+            --   fg = '#073642',
+            --   bg = '#002b36',
+            -- },
+            -- separator_selected = {
+            --   fg = '#073642',
+            -- },
+            background = {
+                fg = '#657b83',
+                bg = '#002b36',
+            },
+            buffer_selected = {
+                fg = '#fdf6e3',
+                bold = true,
+                italic = false,
+            },
+            fill = {
+                bg = '#073642',
+            },
+        },
+    }, -- options
 }) --setup
 
 -- complex config from video

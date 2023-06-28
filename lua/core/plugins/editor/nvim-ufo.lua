@@ -28,49 +28,49 @@ vim.o.foldenable = true
 -- --
 --
 local foldTextFormatter = function(virtText, lnum, endLnum, width, truncate)
-  local newVirtText = {}
-  local suffix = ('...[%d lines folded]'):format(endLnum - lnum)
-  local sufWidth = vim.fn.strdisplaywidth(suffix)
-  local targetWidth = width - sufWidth
-  local curWidth = 0
-  for _, chunk in ipairs(virtText) do
-    local chunkText = chunk[1]
-    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-    if targetWidth > curWidth + chunkWidth then
-      table.insert(newVirtText, chunk)
-    else
-      chunkText = truncate(chunkText, targetWidth - curWidth)
-      local hlGroup = chunk[2]
-      table.insert(newVirtText, { chunkText, hlGroup })
-      chunkWidth = vim.fn.strdisplaywidth(chunkText)
-      -- str width returned from truncate() may less than 2nd argument, need padding
-      if curWidth + chunkWidth < targetWidth then
-        suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
-      end
-      break
+    local newVirtText = {}
+    local suffix = ('...[%d lines folded]'):format(endLnum - lnum)
+    local sufWidth = vim.fn.strdisplaywidth(suffix)
+    local targetWidth = width - sufWidth
+    local curWidth = 0
+    for _, chunk in ipairs(virtText) do
+        local chunkText = chunk[1]
+        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+        if targetWidth > curWidth + chunkWidth then
+            table.insert(newVirtText, chunk)
+        else
+            chunkText = truncate(chunkText, targetWidth - curWidth)
+            local hlGroup = chunk[2]
+            table.insert(newVirtText, { chunkText, hlGroup })
+            chunkWidth = vim.fn.strdisplaywidth(chunkText)
+            -- str width returned from truncate() may less than 2nd argument, need padding
+            if curWidth + chunkWidth < targetWidth then
+                suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+            end
+            break
+        end
+        curWidth = curWidth + chunkWidth
     end
-    curWidth = curWidth + chunkWidth
-  end
-  table.insert(newVirtText, { suffix, 'MoreMsg' })
-  return newVirtText
+    table.insert(newVirtText, { suffix, 'MoreMsg' })
+    return newVirtText
 end
 
 return {
-  'kevinhwang91/nvim-ufo',
-  dependencies = 'kevinhwang91/promise-async',
-  event = 'BufReadPost',
-  -- keys = {
-  --   { 'zR', 'require('ufo').openAllFolds', desc = 'Open All Folds' },
-  --   { 'zR', 'require('ufo').closeAllFolds', desc = 'Close All Folds' },
-  -- },
-  opts = {
-    provider_selector = function()
-      return { 'treesitter', 'indent' }
-    end,
-    -- open opening the buffer, close these fold kinds
-    -- use `:UfoInspect` to get available fold kinds from the LSP
-    close_fold_kinds = { 'imports' },
-    open_fold_hl_timeout = 500,
-    fold_virt_text_handler = foldTextFormatter,
-  },
+    'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
+    event = 'BufReadPost',
+    -- keys = {
+    --   { 'zR', 'require('ufo').openAllFolds', desc = 'Open All Folds' },
+    --   { 'zR', 'require('ufo').closeAllFolds', desc = 'Close All Folds' },
+    -- },
+    opts = {
+        provider_selector = function()
+            return { 'treesitter', 'indent' }
+        end,
+        -- open opening the buffer, close these fold kinds
+        -- use `:UfoInspect` to get available fold kinds from the LSP
+        close_fold_kinds = { 'imports' },
+        open_fold_hl_timeout = 500,
+        fold_virt_text_handler = foldTextFormatter,
+    },
 }

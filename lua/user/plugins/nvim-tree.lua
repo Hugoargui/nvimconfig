@@ -1,7 +1,7 @@
 -- import nvim-tree plugin safely
 local setup, nvimtree = pcall(require, 'nvim-tree')
 if not setup then
-  return
+    return
 end
 -- recommended settings from nvim-tree documentation
 vim.g.loaded_netrw = 1
@@ -15,43 +15,43 @@ vim.g.nvim_tree_respect_buf_cwd = 1
 
 -- configure nvim-tree
 nvimtree.setup({
-  -- Close if it's the last window
-  -- autoclose = true, -- It says option doesnt exists
-  -- open_on_setup = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
-  view = {
-    side = 'left',
-    width = 40,
-    -- auto_resize = true, -- nvim says this is an unknown option
-  },
-  -- change folder arrow icons
-  renderer = {
-    indent_markers = {
-      enable = true,
+    -- Close if it's the last window
+    -- autoclose = true, -- It says option doesnt exists
+    -- open_on_setup = true,
+    update_focused_file = {
+        enable = true,
+        update_cwd = true,
     },
-    icons = {
-      glyphs = {
-        folder = {
-          arrow_closed = '⮞', -- arrow when folder is closed
-          arrow_open = '⮟', -- arrow when folder is open
+    view = {
+        side = 'left',
+        width = 40,
+        -- auto_resize = true, -- nvim says this is an unknown option
+    },
+    -- change folder arrow icons
+    renderer = {
+        indent_markers = {
+            enable = true,
         },
-      },
+        icons = {
+            glyphs = {
+                folder = {
+                    arrow_closed = '⮞', -- arrow when folder is closed
+                    arrow_open = '⮟', -- arrow when folder is open
+                },
+            },
+        },
     },
-  },
-  -- disable window_picker for explorer to work well with window splits
-  actions = {
-    open_file = {
-      window_picker = {
-        enable = false,
-      },
+    -- disable window_picker for explorer to work well with window splits
+    actions = {
+        open_file = {
+            window_picker = {
+                enable = false,
+            },
+        },
     },
-  },
-  -- 	git = {
-  -- 		ignore = false,
-  -- 	},
+    -- 	git = {
+    -- 		ignore = false,
+    -- 	},
 })
 
 -- auto show hydra on nvimtree focus
@@ -60,9 +60,9 @@ local api = require('nvim-tree.api')
 -- local view = require('nvim-tree.view')
 
 local function change_root_to_global_cwd()
-  local global_cwd = vim.fn.getcwd()
-  -- local global_cwd = vim.fn.getcwd(-1, -1)
-  api.tree.change_root(global_cwd)
+    local global_cwd = vim.fn.getcwd()
+    -- local global_cwd = vim.fn.getcwd(-1, -1)
+    api.tree.change_root(global_cwd)
 end
 
 local hint = [[
@@ -80,56 +80,56 @@ local nt_au_group = vim.api.nvim_create_augroup('NvimTreeHydraAu', { clear = tru
 
 local Hydra = require('hydra')
 local function spawn_nvim_tree_hydra()
-  nvim_tree_hydra = Hydra({
-    name = 'NvimTree',
-    hint = hint,
-    config = {
-      color = 'pink',
-      invoke_on_body = true,
-      buffer = 0, -- only for active buffer
-      hint = {
-        position = 'bottom',
-        border = 'rounded',
-      },
-    },
-    mode = 'n',
-    body = 'H',
-    heads = {
-      { 'y', api.fs.copy.filename, { silent = true } },
-      { 'Y', api.fs.copy.relative_path, { silent = true } },
-      { '/', api.live_filter.start, { silent = true } },
-      { 'c', api.fs.copy.node, { silent = true } },
-      { 'x', api.fs.cut, { exit = true, silent = true } },
-      { 'p', api.fs.paste, { exit = true, silent = true } },
-      { 'r', api.fs.rename, { silent = true } },
-      { 'd', api.fs.remove, { silent = true } },
-      { 'a', api.fs.create, { silent = true } },
-      { 'e', api.fs.rename_basename, { silent = true } },
-      { 'H', api.tree.toggle_hidden_filter, { silent = true } },
-      { '?', api.tree.toggle_help, { silent = true } },
-      { 'P', api.node.navigate.parent, { silent = true } },
-      { 'J', api.node.navigate.sibling.last, { silent = true } },
-      { 'K', api.node.navigate.sibling.first, { silent = true } },
-      { 'E', api.tree.expand_all, { silent = true } },
-      { 'W', api.tree.collapse_all, { silent = true } },
-    },
-  })
-  nvim_tree_hydra:activate()
+    nvim_tree_hydra = Hydra({
+        name = 'NvimTree',
+        hint = hint,
+        config = {
+            color = 'pink',
+            invoke_on_body = true,
+            buffer = 0, -- only for active buffer
+            hint = {
+                position = 'bottom',
+                border = 'rounded',
+            },
+        },
+        mode = 'n',
+        body = 'H',
+        heads = {
+            { 'y', api.fs.copy.filename, { silent = true } },
+            { 'Y', api.fs.copy.relative_path, { silent = true } },
+            { '/', api.live_filter.start, { silent = true } },
+            { 'c', api.fs.copy.node, { silent = true } },
+            { 'x', api.fs.cut, { exit = true, silent = true } },
+            { 'p', api.fs.paste, { exit = true, silent = true } },
+            { 'r', api.fs.rename, { silent = true } },
+            { 'd', api.fs.remove, { silent = true } },
+            { 'a', api.fs.create, { silent = true } },
+            { 'e', api.fs.rename_basename, { silent = true } },
+            { 'H', api.tree.toggle_hidden_filter, { silent = true } },
+            { '?', api.tree.toggle_help, { silent = true } },
+            { 'P', api.node.navigate.parent, { silent = true } },
+            { 'J', api.node.navigate.sibling.last, { silent = true } },
+            { 'K', api.node.navigate.sibling.first, { silent = true } },
+            { 'E', api.tree.expand_all, { silent = true } },
+            { 'W', api.tree.collapse_all, { silent = true } },
+        },
+    })
+    nvim_tree_hydra:activate()
 end
 
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  pattern = '*',
-  callback = function(opts)
-    -- print("leave: ft "..vim.bo[opts.buf].filetype)
-    if vim.bo[opts.buf].filetype == 'NvimTree' then
-      spawn_nvim_tree_hydra()
-    else
-      -- print("au close hydra")
-      if nvim_tree_hydra then
-        nvim_tree_hydra:exit()
-      end
-      -- return true -- removes autocmd
-    end
-  end,
-  group = nt_au_group,
+    pattern = '*',
+    callback = function(opts)
+        -- print("leave: ft "..vim.bo[opts.buf].filetype)
+        if vim.bo[opts.buf].filetype == 'NvimTree' then
+            spawn_nvim_tree_hydra()
+        else
+            -- print("au close hydra")
+            if nvim_tree_hydra then
+                nvim_tree_hydra:exit()
+            end
+            -- return true -- removes autocmd
+        end
+    end,
+    group = nt_au_group,
 })

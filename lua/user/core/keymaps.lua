@@ -26,8 +26,8 @@ keymap.set('n', 'x', '"_x')
 -- with the <plug> name, so may as well document it
 local wk = require('which-key')
 wk.register({
-  ['[%'] = 'which_key_ignore',
-  [']%'] = 'which_key_ignore',
+    ['[%'] = 'which_key_ignore',
+    [']%'] = 'which_key_ignore',
 })
 
 -- Move visual selection up and down
@@ -41,28 +41,28 @@ vim.keymap.set('n', 'ss', require('substitute').line, { noremap = true })
 vim.keymap.set('x', 's', require('substitute').visual, { noremap = true })
 vim.keymap.set('n', 'S', require('substitute').eol, { noremap = true })
 vim.keymap.set(
-  'n',
-  '<CR>x',
-  require('substitute.exchange').operator,
-  { noremap = true, silent = true, desc = 'Exchange' }
+    'n',
+    '<CR>x',
+    require('substitute.exchange').operator,
+    { noremap = true, silent = true, desc = 'Exchange' }
 )
 vim.keymap.set(
-  'n',
-  '<CR>X',
-  require('substitute.exchange').line,
-  { noremap = true, silent = true, desc = 'Exchange Line' }
+    'n',
+    '<CR>X',
+    require('substitute.exchange').line,
+    { noremap = true, silent = true, desc = 'Exchange Line' }
 )
 vim.keymap.set(
-  'x',
-  '<CR>x',
-  require('substitute.exchange').visual,
-  { noremap = true, silent = true, desc = 'Exchange' }
+    'x',
+    '<CR>x',
+    require('substitute.exchange').visual,
+    { noremap = true, silent = true, desc = 'Exchange' }
 )
 vim.keymap.set(
-  'n',
-  '<CR>c',
-  require('substitute.exchange').cancel,
-  { noremap = true, silent = true, desc = 'Exchange Cancel' }
+    'n',
+    '<CR>c',
+    require('substitute.exchange').cancel,
+    { noremap = true, silent = true, desc = 'Exchange Cancel' }
 )
 
 -- ----------------------------------------------------

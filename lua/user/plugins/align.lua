@@ -1,14 +1,14 @@
 -- import lualine plugin safely
 local status, minialign = pcall(require, 'mini.align')
 if not status then
-  return
+    return
 end
 
 minialign.setup({
-  mappings = {
-    start = '<CR>a',
-    start_with_preview = '<CR>A',
-  },
+    mappings = {
+        start = '<CR>a',
+        start_with_preview = '<CR>A',
+    },
 })
 
 -- mini.align seemed too overcomplicated for my usecase, I just want one operator

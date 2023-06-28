@@ -2,14 +2,14 @@ require('core.themeConfigFile')
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
 vim.opt.fillchars = {
-  -- horiz = "─",
-  horiz = '━',
-  horizup = '┴',
-  horizdown = '┬',
-  vert = '│',
-  vertleft = '┤',
-  vertright = '├',
-  verthoriz = '┼',
+    -- horiz = "─",
+    horiz = '━',
+    horizup = '┴',
+    horizdown = '┬',
+    vert = '│',
+    vertleft = '┤',
+    vertright = '├',
+    verthoriz = '┼',
 }
 
 -- Attempt at doint it more flexible

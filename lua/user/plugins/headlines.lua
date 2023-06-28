@@ -1,5 +1,5 @@
 require('headlines').setup({
-  markdown = {
-    headline_highlights = true,
-  },
+    markdown = {
+        headline_highlights = true,
+    },
 })

@@ -45,13 +45,13 @@ opt.showmode = false
 
 -- Improve splits with thiner lines than default and avoid colors from colorschemes
 opt.fillchars = {
-  horiz = '─',
-  horizup = '┴',
-  horizdown = '┬',
-  vert = '│',
-  vertleft = '┤',
-  vertright = '├',
-  verthoriz = '┼',
+    horiz = '─',
+    horizup = '┴',
+    horizdown = '┬',
+    vert = '│',
+    vertleft = '┤',
+    vertright = '├',
+    verthoriz = '┼',
 }
 vim.cmd([[ highlight VertSplit ctermbg=none  guibg=none ]])
 vim.cmd([[ highlight StatusLineNc ctermbg=none  guibg=none ]])

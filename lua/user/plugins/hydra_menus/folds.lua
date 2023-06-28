@@ -14,44 +14,44 @@ local hint = [[
 ]]
 
 Hydra({
-  name = 'Folds',
-  hint = hint,
-  config = {
-    color = 'teal',
-    invoke_on_body = true,
-    hint = {
-      border = 'rounded',
-      position = 'middle',
+    name = 'Folds',
+    hint = hint,
+    config = {
+        color = 'teal',
+        invoke_on_body = true,
+        hint = {
+            border = 'rounded',
+            position = 'middle',
+        },
+        on_enter = function()
+            print('Hydra enter')
+            -- vim.bo.modifiable = false -- temporary set `nomodifiable` while Hydra is active
+        end,
     },
-    on_enter = function()
-      print('Hydra enter')
-      -- vim.bo.modifiable = false -- temporary set `nomodifiable` while Hydra is active
-    end,
-  },
-  mode = 'n',
-  body = 'z',
-  heads = {
-    { 'a', 'za', { exit = true, silent = true } },
-    { 'A', 'zA', { exit = true, silent = true } },
-    { 'C', 'zC', { exit = true, silent = true } },
-    { 'c', 'zc', { exit = true, silent = true } },
+    mode = 'n',
+    body = 'z',
+    heads = {
+        { 'a', 'za', { exit = true, silent = true } },
+        { 'A', 'zA', { exit = true, silent = true } },
+        { 'C', 'zC', { exit = true, silent = true } },
+        { 'c', 'zc', { exit = true, silent = true } },
 
-    { 'M', 'zM', { exit = true, silent = true } },
-    { 'm', 'zm', { exit = true, silent = true } },
-    { 'o', 'zo', { exit = true, silent = true } },
-    { 'O', 'zO', { exit = true, silent = true } },
-    { 'r', 'zr', { exit = true, silent = true } },
-    { 'R', 'zR', { exit = true, silent = true } },
+        { 'M', 'zM', { exit = true, silent = true } },
+        { 'm', 'zm', { exit = true, silent = true } },
+        { 'o', 'zo', { exit = true, silent = true } },
+        { 'O', 'zO', { exit = true, silent = true } },
+        { 'r', 'zr', { exit = true, silent = true } },
+        { 'R', 'zR', { exit = true, silent = true } },
 
-    { 'z', 'zz', { exit = true, silent = true } },
-    { 'b', 'zb', { exit = true, silent = true } },
-    { 't', 'zt', { exit = true, silent = true } },
+        { 'z', 'zz', { exit = true, silent = true } },
+        { 'b', 'zb', { exit = true, silent = true } },
+        { 't', 'zt', { exit = true, silent = true } },
 
-    { '<Esc>', nil, { exit = true } },
+        { '<Esc>', nil, { exit = true } },
 
-    -- zx and zX do Undo manually opened and closed folds: re-apply 'foldlevel'.
-    -- zi to enable/disable folds
-    -- zn zN Fold none/normal...
-    -- zF, zd, zD, zE crreate/eliminate folds manually
-  }, -- Heads
+        -- zx and zX do Undo manually opened and closed folds: re-apply 'foldlevel'.
+        -- zi to enable/disable folds
+        -- zn zN Fold none/normal...
+        -- zF, zd, zD, zE crreate/eliminate folds manually
+    }, -- Heads
 })

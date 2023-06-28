@@ -93,9 +93,9 @@ local pcmd = require('hydra.keymap-util').pcmd
 -- })
 
 local function choose_buffer()
-  if #vim.fn.getbufinfo({ buflisted = true }) > 1 then
-    buffer_hydra:activate()
-  end
+    if #vim.fn.getbufinfo({ buflisted = true }) > 1 then
+        buffer_hydra:activate()
+    end
 end
 
 vim.keymap.set('n', 'gb', choose_buffer)
@@ -115,75 +115,75 @@ local window_hint = [[
 --  which gives a barbar buffer mode... consider porting it to cockeline
 
 Hydra({
-  name = 'Windows',
-  hint = window_hint,
-  config = {
-    invoke_on_body = true,
-    hint = {
-      border = 'rounded',
-      offset = -1,
+    name = 'Windows',
+    hint = window_hint,
+    config = {
+        invoke_on_body = true,
+        hint = {
+            border = 'rounded',
+            offset = -1,
+        },
     },
-  },
-  mode = 'n',
-  body = '<C-w>',
-  heads = {
-    { 'h', '<C-w>h' },
-    { 'j', '<C-w>j' },
-    { 'k', pcmd('wincmd k', 'E11', 'close') },
-    { 'l', '<C-w>l' },
+    mode = 'n',
+    body = '<C-w>',
+    heads = {
+        { 'h', '<C-w>h' },
+        { 'j', '<C-w>j' },
+        { 'k', pcmd('wincmd k', 'E11', 'close') },
+        { 'l', '<C-w>l' },
 
-    { 'H', cmd('WinShift left') },
-    { 'J', cmd('WinShift down') },
-    { 'K', cmd('WinShift up') },
-    { 'L', cmd('WinShift right') },
+        { 'H', cmd('WinShift left') },
+        { 'J', cmd('WinShift down') },
+        { 'K', cmd('WinShift up') },
+        { 'L', cmd('WinShift right') },
 
-    {
-      '<C-h>',
-      function()
-        splits.resize_left(2)
-      end,
+        {
+            '<C-h>',
+            function()
+                splits.resize_left(2)
+            end,
+        },
+        {
+            '<C-j>',
+            function()
+                splits.resize_down(2)
+            end,
+        },
+        {
+            '<C-k>',
+            function()
+                splits.resize_up(2)
+            end,
+        },
+        {
+            '<C-l>',
+            function()
+                splits.resize_right(2)
+            end,
+        },
+        { '=', '<C-w>=', { desc = 'equalize' } },
+
+        { 's', pcmd('split', 'E36') },
+        { '<C-s>', pcmd('split', 'E36'), { desc = false } },
+        { 'v', pcmd('vsplit', 'E36') },
+        { '<C-v>', pcmd('vsplit', 'E36'), { desc = false } },
+
+        { 'w', '<C-w>w', { exit = true, desc = false } },
+        { '<C-w>', '<C-w>w', { exit = true, desc = false } },
+
+        { 'z', cmd('WindowsMaximaze'), { exit = true, desc = 'maximize' } },
+        { '<C-z>', cmd('WindowsMaximaze'), { exit = true, desc = false } },
+
+        { 'o', '<C-w>o', { exit = true, desc = 'remain only' } },
+        { '<C-o>', '<C-w>o', { exit = true, desc = false } },
+
+        -- { "b", choose_buffer, { exit = true, desc = "choose buffer" } },
+
+        { 'c', pcmd('close', 'E444') },
+        { 'q', pcmd('close', 'E444'), { desc = 'close window' } },
+        { '<C-c>', pcmd('close', 'E444'), { desc = false } },
+        { '<C-q>', pcmd('close', 'E444'), { desc = false } },
+
+        { '<Esc>', nil, { exit = true, desc = false } },
     },
-    {
-      '<C-j>',
-      function()
-        splits.resize_down(2)
-      end,
-    },
-    {
-      '<C-k>',
-      function()
-        splits.resize_up(2)
-      end,
-    },
-    {
-      '<C-l>',
-      function()
-        splits.resize_right(2)
-      end,
-    },
-    { '=', '<C-w>=', { desc = 'equalize' } },
-
-    { 's', pcmd('split', 'E36') },
-    { '<C-s>', pcmd('split', 'E36'), { desc = false } },
-    { 'v', pcmd('vsplit', 'E36') },
-    { '<C-v>', pcmd('vsplit', 'E36'), { desc = false } },
-
-    { 'w', '<C-w>w', { exit = true, desc = false } },
-    { '<C-w>', '<C-w>w', { exit = true, desc = false } },
-
-    { 'z', cmd('WindowsMaximaze'), { exit = true, desc = 'maximize' } },
-    { '<C-z>', cmd('WindowsMaximaze'), { exit = true, desc = false } },
-
-    { 'o', '<C-w>o', { exit = true, desc = 'remain only' } },
-    { '<C-o>', '<C-w>o', { exit = true, desc = false } },
-
-    -- { "b", choose_buffer, { exit = true, desc = "choose buffer" } },
-
-    { 'c', pcmd('close', 'E444') },
-    { 'q', pcmd('close', 'E444'), { desc = 'close window' } },
-    { '<C-c>', pcmd('close', 'E444'), { desc = false } },
-    { '<C-q>', pcmd('close', 'E444'), { desc = false } },
-
-    { '<Esc>', nil, { exit = true, desc = false } },
-  },
 })
