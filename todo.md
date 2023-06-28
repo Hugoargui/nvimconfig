@@ -1,9 +1,9 @@
 # NEAR FUTURE 
 - better N
-- try themery colorswitcher
+- harpoon (see mappings from ThePrimagen)
+- CMP mappings not so good, get inspiration from TJdevies mappings
 
 # MEDIUM TERM IDEAS
-- harpoon
 - trouble
 - tabout plugin
 - incremental selection

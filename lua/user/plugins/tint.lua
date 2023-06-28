@@ -13,10 +13,12 @@ require('tint').setup({
         'Telescope*',
         'WinSeparator',
         'NvimTreeWinSeparator',
+        'NvimTreeIndentMarker',
         'IndentBlanklineChar',
         'IndentBlanklineSpaceChar',
         'IndentBlanklineSpaceCharBlankline',
         'LineNr',
         'NonText',
+        'EndOfBuffer',
     }, -- Highlight group patterns to ignore, see `string.find`
 })

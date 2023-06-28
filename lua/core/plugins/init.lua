@@ -45,19 +45,12 @@ return {
     'jinh0/eyeliner.nvim',
     'anuvyklack/vim-smartword',
 
-    -- fuzzy finding w/ telescope
-    -- 'nvim-lualine/lualine.nvim',
-    -- 'archibate/lualine-time',
-    -- 'meuter/lualine-so-fancy.nvim',
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
         dependencies = { { 'nvim-lua/plenary.nvim' } },
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
-    -- snippets
-    'L3MON4D3/LuaSnip', -- snippet engine
 
     -- Todo features
     'folke/todo-comments.nvim',
@@ -137,10 +130,10 @@ return {
     'HiPhish/nvim-ts-rainbow2',
 
     -- auto closing
-    'windwp/nvim-autopairs', -- autoclose parens, brackets, quotes, etc...
+    -- 'windwp/nvim-autopairs', -- autoclose parens, brackets, quotes, etc...
 
     -- Auto lists
-    'gaoDean/autolist.nvim',
+    -- 'gaoDean/autolist.nvim',
 
     -- git integration
     'lewis6991/gitsigns.nvim', -- show line modifications on left hand side

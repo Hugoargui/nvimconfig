@@ -11,7 +11,7 @@ require('user.plugins.nvim-tree')
 
 require('user.plugins.autosession')
 
-require('user.plugins.luasnip')
+-- require('user.plugins.luasnip')
 
 require('user.plugins.lsp.lspsaga')
 require('user.plugins.lsp.lspconfig')
@@ -28,7 +28,7 @@ require('user.plugins.markdown-preview')
 
 require('user.plugins.eyeliner')
 
-require('user.plugins.autopairs')
+-- require('user.plugins.autopairs')
 require('user.plugins.comment')
 require('user.plugins.nvim-surround')
 require('user.plugins.todo-comments')

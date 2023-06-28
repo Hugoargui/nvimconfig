@@ -9,7 +9,7 @@ opt.history = 100 -- Remember N lines in history
 opt.lazyredraw = false -- true should give faster scrolling
 opt.synmaxcol = 240 -- Max column for syntax highlight
 opt.updatetime = 250 -- ms to wait for trigger an event
-opt.timeoutlen = 100
+opt.timeoutlen = 300
 ----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
