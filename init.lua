@@ -1,17 +1,14 @@
 vim.opt.shadafile = 'NONE' -- Disable this while loading will make it faster
-require('user.core.options')
-require('user.core.statuscolumn')
+require('core.options')
+require('core.statuscolumn')
 require('plugins-setup')
 
-require('user.core.keymaps')
-
+require('core.keymaps') -- must be after plugins setup for whichkey to work, mayb eit will change after lazy
 require('user.plugins.telescope')
 -- require("user.plugins.nvim-hlslens") -- a bit annoying, maybe add toggle
 require('user.plugins.nvim-tree')
 
 require('user.plugins.autosession')
-
--- require('user.plugins.luasnip')
 
 require('user.plugins.lsp.lspsaga')
 require('user.plugins.lsp.lspconfig')
@@ -28,15 +25,12 @@ require('user.plugins.markdown-preview')
 
 require('user.plugins.eyeliner')
 
--- require('user.plugins.autopairs')
-require('user.plugins.comment')
-require('user.plugins.nvim-surround')
 require('user.plugins.todo-comments')
 require('user.plugins.cutlass')
 -- require('user.plugins.autolist') -- gives readme warning on startup, shut up
 require('user.plugins.treesitter-objects')
 
-require('user.core.colorscheme')
+require('core.colorscheme')
 require('user.plugins.tint')
 require('user.plugins.hydra_menus.toggle_options')
 require('user.plugins.hydra_menus.window_manager')
@@ -44,6 +38,5 @@ require('user.plugins.hydra_menus.folds')
 vim.opt.shadafile = ''
 
 require('user.plugins.debug')
--- require("user.plugins.bufferline")
 -- require("user.plugins.incline")
 -- require("user.plugins.colorful-winsep")
