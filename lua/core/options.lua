@@ -11,15 +11,17 @@ opt.synmaxcol = 240 -- Max column for syntax highlight
 opt.updatetime = 250 -- ms to wait for trigger an event
 opt.timeoutlen = 300
 ----------------------------------------------------------
--- Startup
------------------------------------------------------------
+-- Disable built in autocompletion
+vim.opt.complete = ''
+
+----------------------------------------------------------
 -- Disable nvim intro
 opt.shortmess:append('sI')
 
 vim.g.loaded_ruby_provider = 0 -- Don't needed, also suppresses not found warning
 vim.g.loaded_perl_provider = 0 -- Don't needed, also suppresses not found warning
+
 ------------------------------------------------------------------------
---
 -- APPEARANCE
 opt.termguicolors = true -- use guifg and guibg everywhere instead of ctermfg and ctermbg
 opt.background = 'dark'

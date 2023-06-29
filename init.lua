@@ -26,6 +26,7 @@ require('user.plugins.markdown-preview')
 require('user.plugins.eyeliner')
 
 require('user.plugins.todo-comments')
+require('user.plugins.comment')
 require('user.plugins.cutlass')
 -- require('user.plugins.autolist') -- gives readme warning on startup, shut up
 require('user.plugins.treesitter-objects')
@@ -40,3 +41,5 @@ vim.opt.shadafile = ''
 require('user.plugins.debug')
 -- require("user.plugins.incline")
 -- require("user.plugins.colorful-winsep")
+-- Disable built in autocompletion
+vim.opt.complete = ''

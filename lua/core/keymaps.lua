@@ -1,5 +1,8 @@
 local keymap = vim.keymap --for conciseness
 
+-- keymap.set('i', '<c-p>', '<nop>')
+-- keymap.set('i', '<c-n>', '<nop>')
+
 -- window management
 -- I'm not using <Control-hjkl> because I'm too used to press ctrl-l when inside toggleterm.
 keymap.set('n', '<Left>', '<C-w>h') -- navigate window faster
@@ -7,10 +10,10 @@ keymap.set('n', '<Down>', '<C-w>j') -- navigate window faster
 keymap.set('n', '<Up>', '<C-w>k') -- navigate window faster
 keymap.set('n', '<Right>', '<C-w>l') -- navigate window faster
 
-keymap.set('n', '<C-Up>', ':resize -2<CR>')
-keymap.set('n', '<C-Down>', ':resize +2<CR>')
-keymap.set('n', '<C-Left>', ':vertical resize -2<CR>')
-keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
+keymap.set('n', '<C-Up>', ':resize -2<CR>', { silent = true })
+keymap.set('n', '<C-Down>', ':resize +2<CR>', { silent = true })
+keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { silent = true })
+keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true })
 
 -- tab management
 -- keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "Open New Tab" }) -- open new tab

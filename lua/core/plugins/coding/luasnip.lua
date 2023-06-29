@@ -14,9 +14,20 @@ return {
         --     },
         -- },
     },
-    -- stylua: ignore
     keys = {
-      { "<c-l>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<c-h>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+        {
+            '<c-n>',
+            function()
+                require('luasnip').jump(1)
+            end,
+            mode = { 'i', 's' },
+        },
+        {
+            '<c-p>',
+            function()
+                require('luasnip').jump(-1)
+            end,
+            mode = { 'i', 's' },
+        },
     },
 }

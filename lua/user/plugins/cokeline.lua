@@ -23,8 +23,8 @@ wk.register({
     prefix = '<Leader>',
 })
 
-vim.api.nvim_set_keymap('n', '<Left>', '<Plug>(cokeline-focus-prev)', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', '<Right>', '<Plug>(cokeline-focus-next)', { noremap = false, silent = true })
+-- vim.api.nvim_set_keymap('n', '<Left>', '<Plug>(cokeline-focus-prev)', { noremap = false, silent = true })
+-- vim.api.nvim_set_keymap('n', '<Right>', '<Plug>(cokeline-focus-next)', { noremap = false, silent = true })
 
 wk.register({
     ['[b'] = { '<Plug>(cokeline-focus-prev)', 'Previous Buffer' },
