@@ -6,7 +6,6 @@ require('plugins-setup')
 require('core.keymaps') -- must be after plugins setup for whichkey to work, mayb eit will change after lazy
 require('user.plugins.telescope')
 -- require("user.plugins.nvim-hlslens") -- a bit annoying, maybe add toggle
-require('user.plugins.nvim-tree')
 
 require('user.plugins.autosession')
 

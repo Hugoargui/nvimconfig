@@ -10,6 +10,7 @@ local M = {
         'hrsh7th/cmp-nvim-lsp-signature-help',
         'hrsh7th/cmp-nvim-lua',
         'saadparwaiz1/cmp_luasnip',
+        'onsails/lspkind.nvim',
     },
     event = 'InsertEnter',
     opts = function()

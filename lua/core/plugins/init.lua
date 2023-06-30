@@ -1,8 +1,5 @@
 -- add list of plugins to installinit.lua
 return {
-    'nvim-lua/plenary.nvim', -- lua functions that many plugins use
-
-    -- autosession
     'rmagatti/auto-session',
     {
         'rmagatti/session-lens',
@@ -20,28 +17,14 @@ return {
         end,
     },
 
-    -- bufferline
-    -- { "akinsho/bufferline.nvim", tag = "v3.*", dependencies = "nvim-tree/nvim-web-devicons" }
     'noib3/nvim-cokeline',
-
-    -- floating term
     'akinsho/toggleterm.nvim',
-
-    -- Window manager
     'szw/vim-maximizer', -- maximizes and restores current window
     'moll/vim-bbye', -- close buffer but leave pane there
-
-    -- Window appearance
     'levouh/tint.nvim', -- more recent version than shade
     'b0o/incline.nvim', -- Add file to every split
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     'sindrets/winshift.nvim', -- used by hydra window=manager
-
-    -- File navigation
-    'nvim-tree/nvim-tree.lua',
-    'nvim-tree/nvim-web-devicons',
-
-    -- Buffer navigation
     'jinh0/eyeliner.nvim',
     'anuvyklack/vim-smartword',
 
@@ -75,7 +58,6 @@ return {
     'chrisgrieser/nvim-spider',
     'kylechui/nvim-surround',
     'echasnovski/mini.align',
-    -- { "junegunn/vim-easy-align" },
     'gbprod/cutlass.nvim',
     'gbprod/yanky.nvim',
 
@@ -104,22 +86,15 @@ return {
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
     'haringsrob/nvim_context_vt', -- Add virtual text at end of brackts and so on
 
-    'onsails/lspkind.nvim', -- vs-code like icons for autocompletion
-
     -- formatting & linting
     'jose-elias-alvarez/null-ls.nvim', -- configure formatters & linters
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
-
     'mfussenegger/nvim-dap',
     'jay-babu/mason-nvim-dap.nvim',
     'nvim-telescope/telescope-dap.nvim',
     { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
     'Weissle/persistent-breakpoints.nvim',
 
-    -- -- indent
-    -- 'lukas-reineke/indent-blankline.nvim',
-
-    -- treesitter configuration
     {
         'nvim-treesitter/nvim-treesitter',
         build = function()
@@ -129,18 +104,9 @@ return {
     },
     'HiPhish/nvim-ts-rainbow2',
 
-    -- auto closing
-    -- 'windwp/nvim-autopairs', -- autoclose parens, brackets, quotes, etc...
-
-    -- Auto lists
     -- 'gaoDean/autolist.nvim',
 
-    -- git integration
     'lewis6991/gitsigns.nvim', -- show line modifications on left hand side
-
-    -- compiler plugins
     'cdelledonne/vim-cmake',
-
-    -- 'folke/which-key.nvim',
     'anuvyklack/hydra.nvim',
 }
