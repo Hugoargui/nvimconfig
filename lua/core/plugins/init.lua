@@ -95,17 +95,6 @@ return {
     { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
     'Weissle/persistent-breakpoints.nvim',
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-    },
-    'HiPhish/nvim-ts-rainbow2',
-
-    -- 'gaoDean/autolist.nvim',
-
     'lewis6991/gitsigns.nvim', -- show line modifications on left hand side
     'cdelledonne/vim-cmake',
     'anuvyklack/hydra.nvim',

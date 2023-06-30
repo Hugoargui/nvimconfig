@@ -12,7 +12,7 @@ require('user.plugins.autosession')
 require('user.plugins.lsp.lspsaga')
 require('user.plugins.lsp.lspconfig')
 require('user.plugins.lsp.null-ls')
-require('user.plugins.treesiter')
+
 require('user.plugins.headerswitch')
 
 require('user.plugins.gitsigns')
@@ -39,6 +39,3 @@ vim.opt.shadafile = ''
 
 require('user.plugins.debug')
 -- require("user.plugins.incline")
--- require("user.plugins.colorful-winsep")
--- Disable built in autocompletion
-vim.opt.complete = ''
