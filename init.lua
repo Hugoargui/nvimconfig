@@ -19,8 +19,6 @@ require('user.plugins.cokeline')
 
 require('user.plugins.toggleterm')
 
-require('user.plugins.markdown-preview')
-
 require('user.plugins.eyeliner')
 
 -- require('user.plugins.todo-comments')

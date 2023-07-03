@@ -10,13 +10,6 @@ return {
         end,
     },
 
-    {
-        'iamcco/markdown-preview.nvim',
-        build = function()
-            vim.fn['mkdp#util#install']()
-        end,
-    },
-
     'noib3/nvim-cokeline',
     'akinsho/toggleterm.nvim',
     'szw/vim-maximizer', -- maximizes and restores current window
