@@ -13,6 +13,12 @@ return {
                 name = 'Catppuccin',
                 colorscheme = 'catppuccin',
             },
+            -- -- with colorbuddy and so on it's very slow to load and gives too much trouble
+            -- {
+            --     name = 'Cobalt2',
+            --     colorscheme = 'cobalt2',
+            --     before = [[require('colorbuddy').colorscheme('cobalt2')]],
+            -- },
             {
                 name = 'Everforest',
                 colorscheme = 'everforest',
@@ -36,6 +42,14 @@ return {
             {
                 name = 'NightFly',
                 colorscheme = 'nightfly',
+            },
+            {
+                name = 'Night Fox',
+                colorscheme = 'nightfox',
+            },
+            {
+                name = 'Nord',
+                colorscheme = 'nord',
             },
             {
                 name = 'OneDark',

@@ -10,6 +10,7 @@ opt.lazyredraw = false -- true should give faster scrolling
 opt.synmaxcol = 240 -- Max column for syntax highlight
 opt.updatetime = 250 -- ms to wait for trigger an event
 opt.timeoutlen = 300
+
 ----------------------------------------------------------
 -- Disable built in autocompletion
 vim.opt.complete = ''
@@ -18,6 +19,7 @@ vim.opt.complete = ''
 -- Disable nvim intro
 opt.shortmess:append('sI')
 
+-- Providers: either specify path or disable, as otherwise nvim will look for them at startup which can be slow.
 vim.g.loaded_ruby_provider = 0 -- Don't needed, also suppresses not found warning
 vim.g.loaded_perl_provider = 0 -- Don't needed, also suppresses not found warning
 
