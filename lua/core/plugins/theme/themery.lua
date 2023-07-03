@@ -36,6 +36,10 @@ return {
                 colorscheme = 'kanagawa',
             },
             {
+                name = 'Mellow',
+                colorscheme = 'mellow',
+            },
+            {
                 name = 'MoonFly',
                 colorscheme = 'moonfly',
             },
@@ -66,6 +70,10 @@ return {
             {
                 name = 'Tokyo Night',
                 colorscheme = 'tokyonight',
+            },
+            {
+                name = 'Tundra',
+                colorscheme = 'tundra',
             },
         },
     },

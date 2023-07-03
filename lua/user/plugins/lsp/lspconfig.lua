@@ -1,4 +1,5 @@
 -- ADD A BORDER AROUND LSPCONFIG WINDOW TO MAKE IT MORE READABLE
+
 require('lspconfig.ui.windows').default_options.border = 'single'
 
 -- import lspconfig plugin safely

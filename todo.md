@@ -1,5 +1,4 @@
 # NEAR FUTURE 
-- harpoon (see mappings from ThePrimagen)
 
 # MEDIUM TERM IDEAS
 - trouble
@@ -14,6 +13,7 @@
 - terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 
 # LONG TIME IDEAS, NOT URGENT
+- make markdown preview work
 - try a hop/leap/ similar jump plugin
 - dial
 - still not totally happy with yank interface
