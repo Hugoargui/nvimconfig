@@ -58,13 +58,6 @@ return {
     'gbprod/cutlass.nvim',
     'gbprod/yanky.nvim',
 
-    {
-        'norcalli/nvim-colorizer.lua',
-        config = function()
-            require('colorizer').setup()
-        end,
-    },
-
     -- managing & installing lsp servers, linters & formatters
     {
         'neovim/nvim-lspconfig', -- easily configure language servers
