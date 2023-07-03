@@ -8,23 +8,22 @@ opt.hidden = true -- Enable background buffers
 opt.history = 100 -- Remember N lines in history
 opt.lazyredraw = false -- true should give faster scrolling
 opt.synmaxcol = 240 -- Max column for syntax highlight
-opt.updatetime = 250 -- ms to wait for trigger an event
+opt.updatetime = 100 -- faster completion (4000ms default)
 opt.timeoutlen = 300
-
-----------------------------------------------------------
--- Disable built in autocompletion
-vim.opt.complete = ''
-
-----------------------------------------------------------
--- Disable nvim intro
-opt.shortmess:append('sI')
-
 -- Providers: either specify path or disable, as otherwise nvim will look for them at startup which can be slow.
 vim.g.loaded_ruby_provider = 0 -- Don't needed, also suppresses not found warning
 vim.g.loaded_perl_provider = 0 -- Don't needed, also suppresses not found warning
 
-------------------------------------------------------------------------
+-----------------------------------------------------------
+-- Backup/swap/undo files storage
+-----------------------------------------------------------
+opt.backup = false -- create a backup file
+opt.swapfile = false -- create a swapfile file
+opt.undofile = true -- store undo history between nvim sessions
+
+-----------------------------------------------------------
 -- APPEARANCE
+-----------------------------------------------------------
 opt.termguicolors = true -- use guifg and guibg everywhere instead of ctermfg and ctermbg
 opt.background = 'dark'
 opt.number = true
@@ -47,11 +46,8 @@ opt.cmdheight = 0
 -- showmode, if vim should display [INSERT], [NORMAL], etc on the command bar, not necesary with most statusline plugins
 opt.showmode = false
 
--- tabs & indentation
-opt.expandtab = true -- Transform tab key to spaces in insert mode
-opt.tabstop = 4 -- How many spaces pressing <TAB> inserts if "expandtab" is set
-opt.autoindent = true -- Copying indent from current line when starting a new line
-opt.shiftwidth = 4 -- N spaces on syntax tabs (tabs in python, after {<CR> in C++...)
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 
 opt.wrap = false -- do not wrap long lines
 
@@ -59,13 +55,29 @@ opt.wrap = false -- do not wrap long lines
 opt.splitright = true
 opt.splitbelow = true
 
--- search settings
+-----------------------------------------------------------
+-- Tabs & Indentation
+-----------------------------------------------------------
+opt.expandtab = true -- Transform tab key to spaces in insert mode
+opt.tabstop = 4 -- How many spaces pressing <TAB> inserts if "expandtab" is set
+opt.autoindent = true -- Copying indent from current line when starting a new line
+opt.shiftwidth = 4 -- N spaces on syntax tabs (tabs in python, after {<CR> in C++...)
+
+-----------------------------------------------------------
+-- SEARCH
+-----------------------------------------------------------
 opt.ignorecase = true -- Search is case Insensitive
 opt.smartcase = true -- if ignorecase=TRUE, writting BigCase will turn search into sensitive
 
-------------------------------------------------------------------------
--- TECHNICAL STUFF
+-----------------------------------------------------------
+-- TEHCNICAL STUFF
+-----------------------------------------------------------
+opt.fileencoding = 'utf-8'
 opt.clipboard:append('unnamedplus') -- Use system clipboard
 opt.backspace = 'indent,eol,start' -- Make <BACKSPACE> behave like you expect
 
 opt.iskeyword:append('-') -- make this-word count as a single word
+
+opt.complete = '' -- Disable built in autocompletion
+
+opt.shortmess:append('sI') -- Disable nvim intro
