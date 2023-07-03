@@ -131,6 +131,6 @@ vim.fn.sign_define(
 )
 
 -- Telescope DAP extensions:
-require('telescope').load_extension('dap')
+-- require('telescope').load_extension('dap')
 keymap.set('n', '<leader>dB', '<cmd>Telescope dap list_breakpoints<CR>', { desc = 'Breakpoint list' })
 keymap.set('n', '<leader>dF', '<cmd>Telescope dap frames<CR>', { desc = 'Frames List' })

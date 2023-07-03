@@ -114,23 +114,12 @@ local on_attach = function()
     -- end
 end
 
---  https://old.reddit.com/r/neovim/comments/wmj8kb/i_have_nullls_and_clangd_attached_to_a_buffer_c/
---  For now, I stumbled upon this Github issue, and it seems to be a problem that Neovim itself must eventually fix.
--- From a helpful user in the thread, I took this code snippet which suppresses the warning:
-local notify = vim.notify
-vim.notify = function(msg, ...)
-    if msg:match('warning: multiple different client offset_encodings') then
-        return
-    end
-    notify(msg, ...)
-end
-
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
-local signs = { Error = ' ', Warn = ' ', Hint = 'ﴞ ', Info = ' ' }
+local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })

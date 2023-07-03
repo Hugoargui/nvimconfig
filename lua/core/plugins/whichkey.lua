@@ -91,7 +91,7 @@ local M = {
         }
 
         local leader_mappings = {
-            -- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+            ['a'] = { name = 'Switch To Alternate .h/.cpp File' },
             ['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
             ['c'] = { '<cmd>Themery<cr>', 'Colorshemes' },
             -- ["w"] = { "<cmd>w!<CR>", "Save" },

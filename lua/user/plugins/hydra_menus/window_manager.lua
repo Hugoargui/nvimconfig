@@ -92,14 +92,6 @@ local pcmd = require('hydra.keymap-util').pcmd
 -- 	},
 -- })
 
-local function choose_buffer()
-    if #vim.fn.getbufinfo({ buflisted = true }) > 1 then
-        buffer_hydra:activate()
-    end
-end
-
-vim.keymap.set('n', 'gb', choose_buffer)
-
 local window_hint = [[
  ^^^^^^^^^^^^     Move      ^^    Size   ^^   ^^     Split
  ^^^^^^^^^^^^-------------  ^^-----------^^   ^^---------------
@@ -113,6 +105,12 @@ local window_hint = [[
 -- TODO: the docs add this line
 --  _b_: choose buffer
 --  which gives a barbar buffer mode... consider porting it to cockeline
+-- local function choose_buffer()
+--     if #vim.fn.getbufinfo({ buflisted = true }) > 1 then
+--         buffer_hydra:activate()
+--     end
+-- end
+-- vim.keymap.set('n', 'gb', choose_buffer)
 
 Hydra({
     name = 'Windows',
