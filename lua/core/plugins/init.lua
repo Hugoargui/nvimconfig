@@ -48,7 +48,6 @@ return {
     'echasnovski/mini.align',
     'gbprod/cutlass.nvim',
     'gbprod/yanky.nvim',
-    'cdelledonne/vim-cmake',
     'anuvyklack/hydra.nvim',
 
     -- managing & installing lsp servers, linters & formatters
