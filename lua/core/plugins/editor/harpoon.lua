@@ -10,6 +10,13 @@ return {
             desc = 'Add File To Harpoon',
         },
         {
+            "'x",
+            ":lua require('harpoon.mark').rm_file()<CR>",
+            silent = true,
+            remap = false,
+            desc = 'Remove File From Harpoon',
+        },
+        {
             "''",
             ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
             silent = true,
