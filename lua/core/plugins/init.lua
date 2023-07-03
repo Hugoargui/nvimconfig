@@ -69,7 +69,6 @@ return {
     'haringsrob/nvim_context_vt', -- Add virtual text at end of brackts and so on
 
     -- formatting & linting
-    'jose-elias-alvarez/null-ls.nvim', -- configure formatters & linters
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
 
     'mfussenegger/nvim-dap',
