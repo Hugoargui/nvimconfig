@@ -15,7 +15,6 @@ require('user.plugins.lsp.null-ls')
 
 require('user.plugins.headerswitch')
 
-require('user.plugins.gitsigns')
 require('user.plugins.cokeline')
 
 require('user.plugins.toggleterm')

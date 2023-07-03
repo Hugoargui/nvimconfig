@@ -57,6 +57,8 @@ return {
     'echasnovski/mini.align',
     'gbprod/cutlass.nvim',
     'gbprod/yanky.nvim',
+    'cdelledonne/vim-cmake',
+    'anuvyklack/hydra.nvim',
 
     -- managing & installing lsp servers, linters & formatters
     {
@@ -79,13 +81,10 @@ return {
     -- formatting & linting
     'jose-elias-alvarez/null-ls.nvim', -- configure formatters & linters
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
+
     'mfussenegger/nvim-dap',
-    'jay-babu/mason-nvim-dap.nvim',
     'nvim-telescope/telescope-dap.nvim',
     { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
+    'jay-babu/mason-nvim-dap.nvim',
     'Weissle/persistent-breakpoints.nvim',
-
-    'lewis6991/gitsigns.nvim', -- show line modifications on left hand side
-    'cdelledonne/vim-cmake',
-    'anuvyklack/hydra.nvim',
 }
