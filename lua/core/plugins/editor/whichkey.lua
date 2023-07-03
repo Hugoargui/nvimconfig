@@ -104,15 +104,12 @@ local M = {
                 ['w'] = { '<cmd>wq<CR>', '"wq" -> Save this buffer and quit' },
                 ['W'] = { '<cmd>wqa<CR>', '"wqa" -> Save all buffers and quit' },
             },
-            -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-            ['h'] = { '<cmd>Telescope highlights<CR>', 'Search Highligts' },
             ['r'] = { '<cmd>Telescope resume<CR>', 'RESUME last search' },
             ['f'] = {
                 "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
                 'Find files',
             },
             ['F'] = { '<cmd>Telescope find_files<cr>', 'Find Files with preview' },
-            ['s'] = { '<cmd>Telescope live_grep<cr>', 'Find Text' },
 
             x = {
                 name = 'Session Management',
@@ -178,16 +175,17 @@ local M = {
             d = {
                 name = 'Debugger',
             },
-            S = {
+            s = {
                 name = 'Search',
+                s = { '<cmd>Telescope live_grep<cr>', 'Find Text' },
+                h = { '<cmd>Telescope highlights<CR>', 'Search Highligts' },
                 b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
-                c = { '<cmd>Telescope colorscheme<cr>', 'Colorscheme' },
-                h = { '<cmd>Telescope help_tags<cr>', 'Find Help' },
+                H = { '<cmd>Telescope help_tags<cr>', 'Find Help' },
                 M = { '<cmd>Telescope man_pages<cr>', 'Man Pages' },
                 r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
                 R = { '<cmd>Telescope registers<cr>', 'Registers' },
                 k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
-                C = { '<cmd>Telescope commands<cr>', 'Commands' },
+                c = { '<cmd>Telescope commands<cr>', 'Commands' },
             },
 
             -- t = {

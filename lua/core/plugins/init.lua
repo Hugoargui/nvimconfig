@@ -19,13 +19,6 @@ return {
     'jinh0/eyeliner.nvim',
     'anuvyklack/vim-smartword',
 
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.0',
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
-    },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
     -- Text objects
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',

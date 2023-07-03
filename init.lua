@@ -4,8 +4,6 @@ require('core.statuscolumn')
 require('plugins-setup')
 
 require('core.keymaps') -- must be after plugins setup for whichkey to work, mayb eit will change after lazy
-require('user.plugins.telescope')
--- require("user.plugins.nvim-hlslens") -- a bit annoying, maybe add toggle
 
 require('user.plugins.autosession')
 
@@ -20,10 +18,10 @@ require('user.plugins.toggleterm')
 
 require('user.plugins.eyeliner')
 
--- require('user.plugins.todo-comments')
 require('user.plugins.comment')
 require('user.plugins.cutlass')
 -- require('user.plugins.autolist') -- gives readme warning on startup, shut up
+-- require("user.plugins.nvim-hlslens") -- a bit annoying, maybe add toggle
 require('user.plugins.treesitter-objects')
 
 require('core.colorscheme')

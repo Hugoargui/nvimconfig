@@ -3,7 +3,7 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'TodoLocList', 'TodoTelescope', 'TodoQuickFix', 'TodoTrouble' },
     keys = {
-        { '<leader>T', '<cmd>TodoTelescope<cr>', desc = 'Search TODOs' },
+        { '<leader>st', '<cmd>TodoTelescope<cr>', desc = 'Search TODOs' },
     },
     opts = {
         signs = true, -- show icons in the signs column
