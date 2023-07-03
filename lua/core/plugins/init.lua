@@ -12,8 +12,6 @@ return {
 
     'noib3/nvim-cokeline',
     'akinsho/toggleterm.nvim',
-    'szw/vim-maximizer', -- maximizes and restores current window
-    'moll/vim-bbye', -- close buffer but leave pane there
     'levouh/tint.nvim', -- more recent version than shade
     'b0o/incline.nvim', -- Add file to every split
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
