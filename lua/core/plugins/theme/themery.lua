@@ -36,6 +36,10 @@ return {
                 colorscheme = 'kanagawa',
             },
             {
+                name = 'Melange',
+                colorscheme = 'melange',
+            },
+            {
                 name = 'Mellow',
                 colorscheme = 'mellow',
             },
@@ -74,6 +78,10 @@ return {
             {
                 name = 'Tundra',
                 colorscheme = 'tundra',
+            },
+            {
+                name = 'Zephyr',
+                colorscheme = 'zephyr',
             },
         },
     },
