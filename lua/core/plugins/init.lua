@@ -23,10 +23,6 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',
 
-    -- Plugins to speed up editing
-    -- TODO: decide between this two, which one has best features.
-    -- "numToStr/Comment.nvim"
-    'terrortylor/nvim-comment',
     {
         'gbprod/substitute.nvim',
         config = function()

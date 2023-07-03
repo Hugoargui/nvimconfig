@@ -1,6 +1,20 @@
 local opt = vim.opt -- for conciseness
 vim.g.mapleader = ' ' -- it would be better on keymaps, but we want to load this before lazy.nvim
 
+vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '*',
+    callback = function()
+        opt.formatoptions:remove({ 'c', 'r', 'o' }) -- don't continue comments on next line
+    end,
+    desc = "Don't continue comments on new line",
+})
+-- We need aun autocommand as otherwise ft-plugin lua overwrites this setting
+-- Letter  meaning when present in 'formatoptions'
+-- t       Auto-wrap text using textwidth
+-- c       Auto-wrap comments using textwidth, inserting the current comment leader automatically.
+-- r       Automatically insert the current comment leader after hitting <Enter> in Insert mode.
+-- o       Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
