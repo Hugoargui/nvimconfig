@@ -35,8 +35,6 @@ return {
     'chrisgrieser/nvim-spider',
     'kylechui/nvim-surround',
     'echasnovski/mini.align',
-    'gbprod/cutlass.nvim',
-    'gbprod/yanky.nvim',
     'anuvyklack/hydra.nvim',
 
     -- managing & installing lsp servers, linters & formatters
