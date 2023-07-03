@@ -35,9 +35,6 @@ return {
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
-    -- Todo features
-    'folke/todo-comments.nvim',
-
     -- Text objects
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',

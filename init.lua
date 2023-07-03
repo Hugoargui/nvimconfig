@@ -24,7 +24,7 @@ require('user.plugins.markdown-preview')
 
 require('user.plugins.eyeliner')
 
-require('user.plugins.todo-comments')
+-- require('user.plugins.todo-comments')
 require('user.plugins.comment')
 require('user.plugins.cutlass')
 -- require('user.plugins.autolist') -- gives readme warning on startup, shut up
