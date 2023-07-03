@@ -47,21 +47,6 @@ opt.cmdheight = 0
 -- showmode, if vim should display [INSERT], [NORMAL], etc on the command bar, not necesary with most statusline plugins
 opt.showmode = false
 
--- Improve splits with thiner lines than default and avoid colors from colorschemes
-opt.fillchars = {
-    horiz = '─',
-    horizup = '┴',
-    horizdown = '┬',
-    vert = '│',
-    vertleft = '┤',
-    vertright = '├',
-    verthoriz = '┼',
-}
-vim.cmd([[ highlight VertSplit ctermbg=none  guibg=none ]])
-vim.cmd([[ highlight StatusLineNc ctermbg=none  guibg=none ]])
-
-vim.cmd([[ highlight NonText ctermfg=none  guifg=bg ]]) -- can't set bg in cterm
-
 -- tabs & indentation
 opt.expandtab = true -- Transform tab key to spaces in insert mode
 opt.tabstop = 4 -- How many spaces pressing <TAB> inserts if "expandtab" is set

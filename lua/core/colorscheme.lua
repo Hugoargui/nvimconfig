@@ -1,54 +1,44 @@
+vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
+    pattern = '*',
+    callback = function()
+        -- Improve splits with thiner lines than default and avoid colors from colorschemes
+        vim.opt.fillchars = {
+            -- horiz = "─",
+            horiz = '━',
+            --     horiz = '─',
+            horizup = '┴',
+            horizdown = '┬',
+            vert = '│',
+            vertleft = '┤',
+            vertright = '├',
+            verthoriz = '┼',
+        }
+        -- vim.cmd([[ highlight VertSplit   guibg=none ]])
+        vim.api.nvim_set_hl(0, 'StatusLineNc', { bg = 'none' })
+
+        vim.opt.fillchars:append({ eob = ' ' }) -- hide ~ in empty lines
+
+        vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'TelescopeBorder' })
+        vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { link = 'TelescopeBorder' })
+
+        -- Use vim illuminate.
+        -- Use highlight set by by LSP instead of the default 'underline'
+        vim.api.nvim_set_hl(0, 'IlluminatedWordText', { link = 'LspReferenceText' })
+        vim.api.nvim_set_hl(0, 'IlluminatedWordRead', { link = 'LspReferenceRead' })
+        vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'LspReferenceWrite' })
+
+        vim.api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
+
+        vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#993939' })
+        vim.api.nvim_set_hl(0, 'DapLogPoint', { fg = '#61afef', bg = '#31353f' })
+        vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#98c379', bg = '#31353f' })
+        -- Is this refresh even doing anything?
+        -- require('lualine').refresh({
+        --     scope = 'all', -- scope of refresh all/tabpage/window
+        --     place = { 'statusline' }, -- lualine segment ro refresh.
+        -- })
+    end, -- end of autocommand callback
+}) -- end of colorscheme autocommand
+
+-- This colorscheme is set by the ColorScheme Picker
 require('core.themeConfigFile')
-
--- Improve splits with thiner lines than default and avoid colors from colorschemes
-vim.opt.fillchars = {
-    -- horiz = "─",
-    horiz = '━',
-    horizup = '┴',
-    horizdown = '┬',
-    vert = '│',
-    vertleft = '┤',
-    vertright = '├',
-    verthoriz = '┼',
-}
-
--- Attempt at doint it more flexible
--- vim.cmd([[ highlight border guifg=#7d3c98 ]]) -- can't set bg in cterm
--- vim.cmd([[ highlight link WinSeparator border  ]])
--- vim.cmd([[ highlight link NvimTreeWinSeparator border  ]])
-
-vim.cmd([[ highlight link WinSeparator TelescopeBorder  ]])
-vim.cmd([[ highlight link NvimTreeWinSeparator TelescopeBorder  ]])
-
--- vim.cmd([[ highlight link TelescopeBorder border  ]])
--- vim.cmd([[ highlight link TelescopePromptBorder border  ]])
--- vim.cmd([[ highlight link TelescopePreviewBorder border  ]])
--- vim.cmd([[ highlight link TelescopeResultsBorder border  ]])
---
--- vim.cmd([[ highlight link TelescopePromptTitle border  ]])
--- vim.cmd([[ highlight link TelescopeResultsTitle border  ]])
--- vim.cmd([[ highlight link TelescopePreviewTitle border  ]])
--- vim.cmd([[ highlight link TelescopeResultsLineNr border  ]])
--- vim.cmd([[ highlight link TelescopePromptCounter border  ]])
---
-vim.cmd([[ highlight StatusLineNc guibg=none ]])
-
--- Hide tildes
-vim.cmd([[ highlight NonText guifg=bg ]]) -- can't set bg in cterm
-
--- change color for arrows in tree to light blue
--- vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
-
--- To show the file on each split with a nice highlihgt
--- vim.cmd([[ highlight link InclineColor Todo  ]])
-
--- Use vim illuminate.
--- Use highlight set by by LSP instead of the default 'underline'
-vim.api.nvim_set_hl(0, 'IlluminatedWordText', { link = 'LspReferenceText' })
-vim.api.nvim_set_hl(0, 'IlluminatedWordRead', { link = 'LspReferenceRead' })
-vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'LspReferenceWrite' })
-
-vim.api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
-
--- vim.cmd([[ highlight IndentBlanklineContextStart  guifg=#7d3c98 ]]) -- can't set bg in cterm
--- vim.cmd([[ highlight IndentBlanklineContextSpaceChar   guifg=Red ]]) -- can't set bg in cterm

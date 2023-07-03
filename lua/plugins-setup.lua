@@ -1,5 +1,6 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
+    vim.notify('Installing Lazy plugin manager, please wait...')
     vim.fn.system({
         'git',
         'clone',
@@ -70,6 +71,8 @@ require('lazy').setup({
                 '‒',
             },
         },
+        border = 'rounded',
+        title = 'Lazy Plugin Manager UI',
     },
     performance = {
         rtp = {
