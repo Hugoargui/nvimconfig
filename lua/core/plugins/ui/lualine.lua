@@ -113,11 +113,6 @@ local M = {
                             return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
                         end,
                     },
-                    {
-                        require('noice').api.statusline.mode.get,
-                        cond = require('noice').api.statusline.mode.has,
-                        color = { fg = '#ff9e64' },
-                    },
                 },
                 lualine_x = {
                     {
