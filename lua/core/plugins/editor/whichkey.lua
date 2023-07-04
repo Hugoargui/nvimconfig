@@ -114,7 +114,7 @@ local M = {
             x = {
                 name = 'Session Management',
                 ['x'] = { '<cmd>SearchSession<cr>', 'Search Session' },
-                ['s'] = { '<cmd>SaveSession<cr>', 'Save or Create session' },
+                ['s'] = { '<cmd>SessionSave<cr>', 'Save or Create session' },
                 ['d'] = { '<cmd>Autosession delete<cr>', 'Delete Sessions' },
                 ['c'] = { '<cmd>cd %:p:h <cr>', 'Change working directory to the location of the current file' },
             },

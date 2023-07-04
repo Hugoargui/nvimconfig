@@ -11,7 +11,6 @@
 - improve search and replace workflow, by example by using Spectre
 - cokeline fix chose buffer to jump or close
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
-- terminal: there is a nice plugin called kwkarlwang/bufresize to preserve window size when opening/closing, consider it (this is not only related to terminal)
 
 # LONG TIME IDEAS, NOT URGENT
 - make markdown preview work
@@ -23,14 +22,6 @@
 
 # LONGER TERM GOALS
 - lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
-
-- improve window management (now it works, consider if it's enough after some usage). Ideas: 
--- extra plugin: buffresize to keep proportions while resizing
--- reenable the autoresizing window plugin anuvyklack/windows.nvim
--- hydra window example comes with barbar integration, consider porting to cokeline
--- jump to any window mapping
-- add window rotation and swaping (now it just moves to bottom/sides, no swaping with existing windows)
-
 
 # CHANGES IN workflow
 this are pretty big changes that I'd like to explore someday, but are not critical right now

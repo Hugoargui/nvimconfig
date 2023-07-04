@@ -12,8 +12,6 @@ return {
 
     'noib3/nvim-cokeline',
     'akinsho/toggleterm.nvim',
-    'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
-    'sindrets/winshift.nvim', -- used by hydra window=manager
 
     -- Text objects
     'nvim-treesitter/nvim-treesitter-textobjects',

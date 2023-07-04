@@ -5,15 +5,25 @@ local keymap = vim.keymap --for conciseness
 
 -- window management
 -- I'm not using <Control-hjkl> because I'm too used to press ctrl-l when inside toggleterm.
-keymap.set('n', '<Left>', '<C-w>h') -- navigate window faster
-keymap.set('n', '<Down>', '<C-w>j') -- navigate window faster
-keymap.set('n', '<Up>', '<C-w>k') -- navigate window faster
-keymap.set('n', '<Right>', '<C-w>l') -- navigate window faster
+-- keymap.set('n', '<Left>', '<C-w>h') -- navigate window faster
+-- keymap.set('n', '<Down>', '<C-w>j') -- navigate window faster
+-- keymap.set('n', '<Up>', '<C-w>k') -- navigate window faster
+-- keymap.set('n', '<Right>', '<C-w>l') -- navigate window faster
 
-keymap.set('n', '<C-Up>', ':resize -2<CR>', { silent = true })
-keymap.set('n', '<C-Down>', ':resize +2<CR>', { silent = true })
-keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { silent = true })
-keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true })
+keymap.set('n', '<Left>', require('smart-splits').move_cursor_left)
+keymap.set('n', '<Down>', require('smart-splits').move_cursor_down)
+keymap.set('n', '<Up>', require('smart-splits').move_cursor_up)
+keymap.set('n', '<Right>', require('smart-splits').move_cursor_right)
+
+keymap.set('n', '<M-Left>', require('smart-splits').swap_buf_left)
+keymap.set('n', '<M-Down>', require('smart-splits').swap_buf_down)
+keymap.set('n', '<M-Up>', require('smart-splits').swap_buf_up)
+keymap.set('n', '<M-Right>', require('smart-splits').swap_buf_right)
+
+keymap.set('n', '<C-Left>', require('smart-splits').resize_left, { silent = true })
+keymap.set('n', '<C-Up>', require('smart-splits').resize_up, { silent = true })
+keymap.set('n', '<C-Down>', require('smart-splits').resize_down, { silent = true })
+keymap.set('n', '<C-Right>', require('smart-splits').resize_right, { silent = true })
 
 -- tab management
 -- keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "Open New Tab" }) -- open new tab

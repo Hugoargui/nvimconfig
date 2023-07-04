@@ -1,5 +1,4 @@
 local Hydra = require('hydra')
-local splits = require('smart-splits')
 
 local cmd = require('hydra.keymap-util').cmd
 local pcmd = require('hydra.keymap-util').pcmd
@@ -112,6 +111,8 @@ local window_hint = [[
 -- end
 -- vim.keymap.set('n', 'gb', choose_buffer)
 
+local splits = require('smart-splits')
+
 Hydra({
     name = 'Windows',
     hint = window_hint,
@@ -125,15 +126,56 @@ Hydra({
     mode = 'n',
     body = '<C-w>',
     heads = {
-        { 'h', '<C-w>h' },
-        { 'j', '<C-w>j' },
-        { 'k', pcmd('wincmd k', 'E11', 'close') },
-        { 'l', '<C-w>l' },
 
-        { 'H', cmd('WinShift left') },
-        { 'J', cmd('WinShift down') },
-        { 'K', cmd('WinShift up') },
-        { 'L', cmd('WinShift right') },
+        {
+            'h',
+            function()
+                splits.move_cursor_left()
+            end,
+        },
+        {
+            'j',
+            function()
+                splits.move_cursor_down()
+            end,
+        },
+        {
+            'k',
+            function()
+                splits.move_cursor_down()
+            end,
+        },
+        {
+            'l',
+            function()
+                splits.move_cursor_right()
+            end,
+        },
+
+        {
+            'H',
+            function()
+                splits.swap_buf_left()
+            end,
+        },
+        {
+            'J',
+            function()
+                splits.swap_buf_down()
+            end,
+        },
+        {
+            'K',
+            function()
+                splits.swap_buf_up()
+            end,
+        },
+        {
+            'L',
+            function()
+                splits.swap_buf_right()
+            end,
+        },
 
         {
             '<C-h>',
@@ -159,6 +201,7 @@ Hydra({
                 splits.resize_right(2)
             end,
         },
+
         { '=', '<C-w>=', { desc = 'equalize' } },
 
         { 's', pcmd('split', 'E36') },
