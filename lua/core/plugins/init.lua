@@ -13,7 +13,6 @@ return {
     'noib3/nvim-cokeline',
     'akinsho/toggleterm.nvim',
 
-    -- Text objects
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',
 
@@ -38,8 +37,6 @@ return {
     'nvimdev/lspsaga.nvim', -- enhanced LSP UI
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
     'haringsrob/nvim_context_vt', -- Add virtual text at end of brackts and so on
-
-    -- formatting & linting
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
 
     'mfussenegger/nvim-dap',

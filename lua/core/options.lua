@@ -69,6 +69,13 @@ opt.wrap = false -- do not wrap long lines
 opt.splitright = true
 opt.splitbelow = true
 
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
 -----------------------------------------------------------
 -- Tabs & Indentation
 -----------------------------------------------------------
