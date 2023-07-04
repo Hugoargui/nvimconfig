@@ -19,8 +19,6 @@ require('user.plugins.cokeline')
 
 require('user.plugins.toggleterm')
 
-require('user.plugins.headerswitch')
--- require('user.plugins.autolist') -- gives readme warning on startup, shut up
 require('user.plugins.treesitter-objects')
 
 require('user.plugins.debug')

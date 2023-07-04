@@ -14,7 +14,6 @@ return {
     'akinsho/toggleterm.nvim',
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     'sindrets/winshift.nvim', -- used by hydra window=manager
-    -- 'jinh0/eyeliner.nvim',
     'anuvyklack/vim-smartword',
 
     -- Text objects
@@ -43,11 +42,6 @@ return {
         },
     },
 
-    -- TODO: couldn't get clang builting to work, and anyways I don't want to depend on one LSP. BUt consider if there is a bettter solution
-    {
-        'jakemason/ouroboros',
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
-    },
     'nvimdev/lspsaga.nvim', -- enhanced LSP UI
     'weilbith/nvim-code-action-menu',
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor

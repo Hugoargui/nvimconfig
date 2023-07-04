@@ -13,7 +13,13 @@ local M = {
         { '<leader>ot', '<cmd>Noice telescope<CR>', silent = true, remap = false, desc = 'Noice Telescope' },
         { '<leader>od', '<cmd>Noice disable<CR>', silent = true, remap = false, desc = 'Disable Noice' },
         { '<leader>oD', '<cmd>Noice enable<CR>', silent = true, remap = false, desc = 'Enable Noice' },
-        { '<leader>o0', '<cmd>Noice dismiss<CR>', silent = true, remap = false, desc = 'Dismiss all visible messages' },
+        {
+            '<leader>o<leader>',
+            '<cmd>Noice dismiss<CR>',
+            silent = true,
+            remap = false,
+            desc = 'Dismiss all visible messages',
+        },
     },
 
     opts = {
