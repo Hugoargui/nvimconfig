@@ -14,7 +14,6 @@ return {
     'akinsho/toggleterm.nvim',
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     'sindrets/winshift.nvim', -- used by hydra window=manager
-    'anuvyklack/vim-smartword',
 
     -- Text objects
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -24,6 +23,8 @@ return {
     -- it Doesn't seeem to be operator pending, just word under cursor, and that breaks with spiderMotion anyways
     'arthurxavierx/vim-caser',
     'chrisgrieser/nvim-spider',
+    'anuvyklack/vim-smartword',
+
     'kylechui/nvim-surround',
     'echasnovski/mini.align',
     'anuvyklack/hydra.nvim',
@@ -37,7 +38,6 @@ return {
     },
 
     'nvimdev/lspsaga.nvim', -- enhanced LSP UI
-    'weilbith/nvim-code-action-menu',
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
     'haringsrob/nvim_context_vt', -- Add virtual text at end of brackts and so on
 

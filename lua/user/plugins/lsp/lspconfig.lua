@@ -99,9 +99,6 @@ local on_attach = function()
     -- ------------------------------------------------------------------------------------------------------------
     -- CODE ACTIONS
 
-    vim.g.code_action_menu_show_details = false
-    vim.g.code_action_menu_show_diff = false -- doesn't seem to work
-    vim.g.code_action_menu_show_action_kind = true
     keymap.set('n', '<leader>la', '<cmd>CodeActionMenu<CR>', { desc = 'Code Actions' }) -- see available code actions
     -- keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Actions" }) -- see available code actions
     keymap.set('n', '<leader>lA', vim.lsp.codelens.run, { desc = 'CodeLens Actions' }) -- see available code actions
