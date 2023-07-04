@@ -16,7 +16,7 @@ return {
     'b0o/incline.nvim', -- Add file to every split
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     'sindrets/winshift.nvim', -- used by hydra window=manager
-    'jinh0/eyeliner.nvim',
+    -- 'jinh0/eyeliner.nvim',
     'anuvyklack/vim-smartword',
 
     -- Text objects
