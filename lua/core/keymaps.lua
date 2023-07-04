@@ -43,37 +43,6 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- ----------------------------------------------------
--- For the substitute plugin
-vim.keymap.set('n', 's', require('substitute').operator, { noremap = true })
-vim.keymap.set('n', 'ss', require('substitute').line, { noremap = true })
-vim.keymap.set('x', 's', require('substitute').visual, { noremap = true })
-vim.keymap.set('n', 'S', require('substitute').eol, { noremap = true })
-vim.keymap.set(
-    'n',
-    '<CR>x',
-    require('substitute.exchange').operator,
-    { noremap = true, silent = true, desc = 'Exchange' }
-)
-vim.keymap.set(
-    'n',
-    '<CR>X',
-    require('substitute.exchange').line,
-    { noremap = true, silent = true, desc = 'Exchange Line' }
-)
-vim.keymap.set(
-    'x',
-    '<CR>x',
-    require('substitute.exchange').visual,
-    { noremap = true, silent = true, desc = 'Exchange' }
-)
-vim.keymap.set(
-    'n',
-    '<CR>c',
-    require('substitute.exchange').cancel,
-    { noremap = true, silent = true, desc = 'Exchange Cancel' }
-)
-
--- ----------------------------------------------------
 vim.keymap.set('n', '<bs>', 'q', { noremap = true })
 
 -- ----------------------------------------------------
