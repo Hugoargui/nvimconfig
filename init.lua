@@ -21,12 +21,9 @@ require('user.plugins.toggleterm')
 
 require('user.plugins.headerswitch')
 -- require('user.plugins.autolist') -- gives readme warning on startup, shut up
--- require("user.plugins.nvim-hlslens") -- a bit annoying, maybe add toggle
-require('user.plugins.incline')
 require('user.plugins.treesitter-objects')
 
 require('user.plugins.debug')
-require('user.plugins.tint')
 require('user.plugins.hydra_menus.toggle_options')
 require('user.plugins.hydra_menus.window_manager')
 require('user.plugins.hydra_menus.folds')

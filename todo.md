@@ -1,6 +1,7 @@
 # NEAR FUTURE 
 
 # MEDIUM TERM IDEAS
+- Make markdown embedded code work... headlines plugin... 
 - trouble
 - tabout plugin
 - incremental selection

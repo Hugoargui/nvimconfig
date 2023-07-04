@@ -12,8 +12,6 @@ return {
 
     'noib3/nvim-cokeline',
     'akinsho/toggleterm.nvim',
-    'levouh/tint.nvim', -- more recent version than shade
-    'b0o/incline.nvim', -- Add file to every split
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     'sindrets/winshift.nvim', -- used by hydra window=manager
     -- 'jinh0/eyeliner.nvim',
