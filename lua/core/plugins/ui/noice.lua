@@ -7,10 +7,13 @@ local M = {
         'rcarriga/nvim-notify',
     },
     keys = {
-        { 'oo', '<cmd>Noice<CR>', silent = true, remap = false, desc = 'Noice History' },
-        { 'oe', '<cmd>Noice errors<CR>', silent = true, remap = false, desc = 'Noice Errors' },
-        { 'ol', '<cmd>Noice last<CR>', silent = true, remap = false, desc = 'Noice Last' },
-        { 'ot', '<cmd>Noice telescope<CR>', silent = true, remap = false, desc = 'Noice Telescope' },
+        { '<leader>oo', '<cmd>Noice<CR>', silent = true, remap = false, desc = 'Noice History' },
+        { '<leader>oe', '<cmd>Noice errors<CR>', silent = true, remap = false, desc = 'Noice Errors' },
+        { '<leader>ol', '<cmd>Noice last<CR>', silent = true, remap = false, desc = 'Noice Last' },
+        { '<leader>ot', '<cmd>Noice telescope<CR>', silent = true, remap = false, desc = 'Noice Telescope' },
+        { '<leader>od', '<cmd>Noice disable<CR>', silent = true, remap = false, desc = 'Disable Noice' },
+        { '<leader>oD', '<cmd>Noice enable<CR>', silent = true, remap = false, desc = 'Enable Noice' },
+        { '<leader>o0', '<cmd>Noice dismiss<CR>', silent = true, remap = false, desc = 'Dismiss all visible messages' },
     },
 
     opts = {

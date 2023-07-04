@@ -1,3 +1,4 @@
+local icons = require('core.icons').icons
 return {
     'nvim-tree/nvim-tree.lua',
     cmd = 'NvimTreeToggle',
@@ -39,6 +40,7 @@ return {
                             arrow_closed = '⮞', -- arrow when folder is closed
                             arrow_open = '⮟', -- arrow when folder is open
                         },
+                        git = icons.gitFiles,
                     },
                 },
             },

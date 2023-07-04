@@ -1,5 +1,18 @@
+local icons = require('core.icons').icons
+
 local function simplifiedMode(str)
-    return '  ' .. (str == 'V-LINE' and 'VL' or (str == 'V-BLOCK' and 'VB' or str:sub(1, 1)))
+    local icon = '  '
+    if str == 'INSERT' then
+        icon = '  '
+    elseif str == 'NORMAL' then
+        icon = '  '
+    elseif str == 'V-LINE' or str == 'V-BLOCK' or str == 'VISUAL' then
+        icon = '  '
+    elseif str == 'COMMAND' then
+        icon = '  '
+    end
+    --   return icons.diagnostics.Error
+    return icon .. (str == 'V-LINE' and 'VL' or (str == 'V-BLOCK' and 'VB' or str:sub(1, 1)))
 end
 
 local function show_macro_recording()
@@ -75,7 +88,7 @@ local M = {
             options = {
                 theme = 'auto',
                 globalstatus = true,
-                disabled_filetypes = { statusline = { 'dashboard', 'alpha', 'nvimtree' } },
+                -- disabled_filetypes = { 'NvimTree' },
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
             },
@@ -91,9 +104,9 @@ local M = {
                     {
                         'diff',
                         symbols = {
-                            added = '+',
-                            modified = '~',
-                            removed = '-',
+                            added = icons.git.added,
+                            modified = icons.git.modified,
+                            removed = icons.git.removed,
                         },
                     },
                 },
