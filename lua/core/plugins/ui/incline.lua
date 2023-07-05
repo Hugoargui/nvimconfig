@@ -1,6 +1,7 @@
 return {
     'b0o/incline.nvim',
     event = 'VeryLazy',
+    enabled = false,
 
     opts = {
         debounce_threshold = {
@@ -22,7 +23,7 @@ return {
             groups = {
                 InclineNormal = {
                     default = true,
-                    group = 'Identifier',
+                    group = 'lualine_a_normal',
                 },
                 InclineNormalNC = {
                     default = true,
@@ -41,7 +42,7 @@ return {
         render = 'basic',
         window = {
             margin = {
-                horizontal = 1,
+                horizontal = 0,
                 vertical = 1,
             },
             options = {

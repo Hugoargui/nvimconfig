@@ -92,7 +92,15 @@ return {
                 -- Show separator between buffertabs:
                 {
                     text = function(buffer)
-                        return (buffer.index ~= 1) and '▏' or ' ' -- Space for first buffer, | for the rest
+                        if buffer.index ~= 1 then
+                            return '▏'
+                        else
+                            if buffer.is_focused then
+                                return ' '
+                            else
+                                return '│ '
+                            end
+                        end
                     end,
                     fg = get_hex('Comment', 'fg'),
                 },
