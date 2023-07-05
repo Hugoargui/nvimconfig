@@ -1,21 +1,20 @@
 # NEAR FUTURE 
-
-# MEDIUM TERM IDEAS
-- Make markdown embedded code work... headlines plugin... add back autolist plugin...
 - trouble
 - tabout plugin
+
+# MEDIUM TERM IDEAS
+- dial
+- Make markdown embedded code work... headlines plugin... add back autolist plugin...
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
 - remove cursor when navigating nerdtree
 - improve search and replace workflow, by example by using Spectre
-- cokeline fix chose buffer to jump or close
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 
 # LONG TIME IDEAS, NOT URGENT
 - make markdown preview work
 - try a hop/leap/ similar jump plugin
-- dial
 - still not totally happy with yank interface
 - try the moonicipal task runner
 - tabs (viewports) workflow. Switching, and unique buffers per tab.

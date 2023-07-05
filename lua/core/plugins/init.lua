@@ -10,7 +10,6 @@ return {
         end,
     },
 
-    'noib3/nvim-cokeline',
     'akinsho/toggleterm.nvim',
 
     'nvim-treesitter/nvim-treesitter-textobjects',

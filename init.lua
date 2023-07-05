@@ -15,8 +15,6 @@ require('user.plugins.autosession')
 require('user.plugins.lsp.lspsaga')
 require('user.plugins.lsp.lspconfig')
 
-require('user.plugins.cokeline')
-
 require('user.plugins.toggleterm')
 
 require('user.plugins.treesitter-objects')
