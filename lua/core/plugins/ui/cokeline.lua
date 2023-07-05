@@ -50,7 +50,8 @@ return {
                         if buffer.is_modified then
                             return get_hex('DiagnosticError', 'bg') -- Highlighted buffer, modified. Light Text red FG
                         else
-                            return get_hex('IncSearch', 'fg') -- Highlighted buffer, not modified. Grey text, normal bg
+                            -- return get_hex('IncSearch', 'fg') -- Highlighted buffer, not modified. Grey text, normal bg
+                            return get_hex('lualine_a_normal', 'fg') -- Highlighted buffer, not modified. Grey text, normal bg
                         end
                     else
                         if buffer.is_modified then
@@ -65,7 +66,8 @@ return {
                         if buffer.is_modified then
                             return get_hex('DiagnosticError', 'fg')
                         else
-                            return get_hex('IncSearch', 'bg')
+                            -- return get_hex('IncSearch', 'bg')
+                            return get_hex('lualine_a_normal', 'bg') -- Highlighted buffer, not modified. Grey text, normal bg
                         end
                     else
                         return get_hex('ColorColumn', 'bg') -- Not focused and not modified, standard background.

@@ -4,6 +4,8 @@ return {
     dependencies = { 'hrsh7th/nvim-cmp' },
     opts = {
         check_ts = true, -- enable treesitter
+        -- map_cr is true by default, but interfeeres with autolist plugin for markdown mapping for <CR>
+        map_cr = false,
     },
     -- TODO: this makes it to stop workingk, but is it even necessary
     -- config = function()
