@@ -1,6 +1,6 @@
 return {
     'numToStr/Comment.nvim',
-    keys = { { 'gc' }, { 'gb' } },
+    keys = { { 'gc' }, { 'gb' }, { 'gc', mode = 'v' } },
     config = function()
         local comment = require('Comment')
 

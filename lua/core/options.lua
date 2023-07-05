@@ -70,11 +70,13 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
+ vim.api.nvim_create_autocmd('TextYankPost', {
+     callback = function()
+     --    vim.highlight.on_yank()
+       vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 500 })
+     end,
+ })
+
 
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ 'VimResized' }, {

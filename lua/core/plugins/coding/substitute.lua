@@ -28,7 +28,6 @@ return {
         },
         -- Plugin also comes with exchange operators.
         {
-            -- TODO: not working for this mapping
             'X',
             ":lua require('substitute.exchange').operator()<CR>",
             desc = 'eXchange Operator',
@@ -57,6 +56,11 @@ return {
         },
     },
     config = function()
-        require('substitute').setup({})
+        require('substitute').setup({
+            highlight_substituted_text = {
+                enabled = true,
+                timer = 500,
+            },
+        })
     end,
 }

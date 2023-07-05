@@ -33,6 +33,11 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         vim.api.nvim_set_hl(0, 'DapLogPoint', { fg = '#61afef', bg = '#31353f' })
         vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#98c379', bg = '#31353f' })
 
+        vim.api.nvim_set_hl(0, 'SubstituteSubstituted', { link = 'lualine_a_insert' })
+        -- Doesn't seem to work
+        vim.api.nvim_set_hl(0, 'SubstituteRange', { link = 'lualine_a_normal' })
+        vim.api.nvim_set_hl(0, 'SubstituteExchange', { link = 'lualine_a_normal' })
+
         -- vim.api.nvim_set_hl(0, 'UfoFoldedBg', { link = 'Folded.background' })
         -- vim.api.nvim_set_hl(0, 'UfoFoldedFg', { link = 'Folded.foreground' })
         -- Is this refresh even doing anything?
