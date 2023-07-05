@@ -10,8 +10,6 @@ return {
         end,
     },
 
-    'akinsho/toggleterm.nvim',
-
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',
 

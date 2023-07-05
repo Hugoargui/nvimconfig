@@ -187,19 +187,6 @@ local M = {
                 k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
                 c = { '<cmd>Telescope commands<cr>', 'Commands' },
             },
-
-            -- t = {
-            -- name = "Tabs and Terminals",
-            -- name = "Tabs / Window Layouts",
-            -- terminals with learder keys cause problems (not so easy to toggle as with ctrl. For now try to have them on ctrl)
-            -- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-            -- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-            -- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-            -- p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-            -- f = { "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" },
-            -- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal Terminal" },
-            -- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical Terminal" },
-            -- },
         }
 
         require('which-key').setup(setup)
