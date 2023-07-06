@@ -35,7 +35,5 @@ return {
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
 
     'mfussenegger/nvim-dap',
-    'nvim-telescope/telescope-dap.nvim',
-    { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
     'jay-babu/mason-nvim-dap.nvim',
 }

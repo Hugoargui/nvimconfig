@@ -1,5 +1,3 @@
-require('dapui').setup()
-
 require('mason-nvim-dap').setup({
     ensure_installed = { 'codelldb' },
     automatic_setup = true,
@@ -14,6 +12,14 @@ dap.adapters.executable = {
     host = '127.0.0.1',
     port = 13000,
 }
+
+dap.listeners.before.event_exited['dapui_config'] = function()
+    require('dapui').close()
+end
+dap.listeners.before.event_terminated['dapui_config'] = function()
+    require('dapui').close()
+end
+
 dap.adapters.lldb = {
     name = 'codelldb server',
     type = 'server',
@@ -104,6 +110,14 @@ end, { desc = 'Threads and Stack Frames' })
 -- end)
 
 -- DEBUG ICONS AND HIGHLIGHTS'
+
+vim.api.nvim_create_autocmd('VimLeavePre', {
+    pattern = '*',
+    callback = function()
+        require('dapui').close()
+    end,
+    desc = "Don't leave it open, or it will have ugly buffers when reopening",
+})
 
 vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#993939' })
 -- vim.fn.sign_define("DapBreakpoint", { text = "•", texthl = "red", linehl = "", numhl = "" })

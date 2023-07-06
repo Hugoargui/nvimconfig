@@ -5,6 +5,7 @@ local M = {
     dependencies = {
         'MunifTanjim/nui.nvim',
         'rcarriga/nvim-notify',
+        'stevearc/dressing.nvim',
     },
     keys = {
         { '<leader>oo', '<cmd>Noice<CR>', silent = true, remap = false, desc = 'Noice History' },

@@ -124,10 +124,9 @@ local M = {
                 ['v'] = { '<c-w>v<cr>', 'Split vertically' },
                 ['h'] = { '<C-w>s>', 'Split horizontally' },
                 ['e'] = { '<C-w> =<CR>', 'Make splits equal size' },
-                ['x'] = { '<cmd>close<CR>', 'Close current window' },
-                ['s'] = { '<C-q>', 'Toggle Shade' },
+                ['q'] = { '<cmd>close<CR>', 'Close current window' },
                 ['o'] = { '<cmd>only<CR>', 'Close all other windows' },
-                ['f'] = { '<cmd>MaximizerToggle<CR>', 'Maximizer Toggle' },
+                ['z'] = { '<cmd>MaximizerToggle<CR>', 'Window Zoom' },
             },
 
             v = {
