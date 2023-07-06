@@ -1,7 +1,7 @@
 require('dapui').setup()
-require('persistent-breakpoints').setup({
-    load_breakpoints_event = { 'BufReadPost' },
-})
+-- require('persistent-breakpoints').setup({
+--     load_breakpoints_event = { 'BufReadPost' },
+-- })
 require('mason-nvim-dap').setup({
     ensure_installed = { 'codelldb' },
     automatic_setup = true,

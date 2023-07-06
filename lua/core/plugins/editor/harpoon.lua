@@ -29,4 +29,7 @@ return {
         { "'f", ":lua require('harpoon.ui').nav_file(4)<CR>", silent = true, remap = false, desc = 'Harpoon File 4' },
         { "'t", '<cmd>Telescope harpoon marks<cr>', silent = true, remap = false, desc = 'Harpoon with preview' },
     },
+    config = function()
+        require('telescope').load_extension('harpoon')
+    end,
 }

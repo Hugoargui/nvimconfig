@@ -40,5 +40,5 @@ return {
     'nvim-telescope/telescope-dap.nvim',
     { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
     'jay-babu/mason-nvim-dap.nvim',
-    'Weissle/persistent-breakpoints.nvim',
+    -- 'Weissle/persistent-breakpoints.nvim',
 }
