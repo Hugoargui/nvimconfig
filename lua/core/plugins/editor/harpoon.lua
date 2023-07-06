@@ -27,5 +27,6 @@ return {
         { "'s", ":lua require('harpoon.ui').nav_file(2)<CR>", silent = true, remap = false, desc = 'Harpoon File 2' },
         { "'d", ":lua require('harpoon.ui').nav_file(3)<CR>", silent = true, remap = false, desc = 'Harpoon File 3' },
         { "'f", ":lua require('harpoon.ui').nav_file(4)<CR>", silent = true, remap = false, desc = 'Harpoon File 4' },
+        { "'t", '<cmd>Telescope harpoon marks<cr>', silent = true, remap = false, desc = 'Harpoon with preview' },
     },
 }
