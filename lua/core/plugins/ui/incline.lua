@@ -32,13 +32,13 @@ return {
             },
         },
 
-        ignore = {
-            buftypes = 'special',
-            filetypes = {},
-            floating_wins = true,
-            unlisted_buffers = true,
-            wintypes = 'special',
-        },
+        -- ignore = {
+        --     buftypes = 'special',
+        --     filetypes = {},
+        --     floating_wins = true,
+        --     unlisted_buffers = true,
+        --     wintypes = 'special',
+        -- },
         render = 'basic',
         window = {
             margin = {
