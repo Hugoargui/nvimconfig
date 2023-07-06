@@ -33,12 +33,10 @@ return {
 
     'nvimdev/lspsaga.nvim', -- enhanced LSP UI
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
-    'haringsrob/nvim_context_vt', -- Add virtual text at end of brackts and so on
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
 
     'mfussenegger/nvim-dap',
     'nvim-telescope/telescope-dap.nvim',
     { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
     'jay-babu/mason-nvim-dap.nvim',
-    -- 'Weissle/persistent-breakpoints.nvim',
 }
