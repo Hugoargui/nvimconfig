@@ -18,6 +18,7 @@
 - still not totally happy with yank interface
 - try the moonicipal task runner
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
+- consider readding nvim_context_vt with more lines, once i see if I miss it
 
 # LONGER TERM GOALS
 - lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions

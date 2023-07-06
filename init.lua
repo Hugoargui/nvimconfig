@@ -12,7 +12,6 @@ vim.opt.shadafile = ''
 -- TODO: Move all this to Lazy
 require('user.plugins.autosession')
 
-require('user.plugins.lsp.lspsaga')
 require('user.plugins.lsp.lspconfig')
 
 require('user.plugins.treesitter-objects')

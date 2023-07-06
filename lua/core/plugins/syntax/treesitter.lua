@@ -2,42 +2,52 @@ return {
     {
         'nvim-treesitter/nvim-treesitter',
         dependencies = { 'HiPhish/nvim-ts-rainbow2' },
-        build = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-        event = 'BufReadPost',
-        opts = {
-            highlight = { enable = true },
-            indent = { enable = true },
-            context_commentstring = { enable = true, enable_autocmd = false },
-            autotag = { enable = true }, -- if nvim-ts-autotag plugin is installed
-            ensure_installed = {
-                'json',
-                'javascript',
-                'typescript',
-                'tsx',
-                'yaml',
-                'html',
-                'c',
-                'cmake',
-                'cpp',
-                'css',
-                'make',
-                'markdown',
-                'markdown_inline',
-                'svelte',
-                'graphql',
-                'bash',
-                'lua',
-                'vim',
-                'dockerfile',
-                'gitignore',
-                'python',
-            },
-            auto_install = true,
+        -- build = ':TSUpdate',
+        -- event = { 'BufReadPost', 'BufNewFile' },
+        cmd = {
+            'TSInstall',
+            'TSBufEnable',
+            'TSBufDisable',
+            'TSEnable',
+            'TSDisable',
+            'TSModuleInfo',
         },
+
         config = function()
+            require('nvim-treesitter.configs').setup({
+                highlight = { enable = true },
+                indent = { enable = true },
+                context_commentstring = { enable = true, enable_autocmd = false },
+                autotag = { enable = true }, -- if nvim-ts-autotag plugin is installed
+                ensure_installed = {
+                    'bash',
+                    'c',
+                    'cmake',
+                    'comment', -- nested language for the comments of many programming languages
+                    'cpp',
+                    'css',
+                    'dockerfile',
+                    'gitcommit',
+                    'gitignore',
+                    'graphql',
+                    'html',
+                    'javascript',
+                    'json',
+                    'lua',
+                    'make',
+                    'markdown',
+                    'markdown_inline',
+                    'python',
+                    'regex',
+                    'svelte',
+                    'tsx',
+                    'typescript',
+                    'vim',
+                    'yaml',
+                },
+                auto_install = true,
+            })
+
             require('nvim-treesitter.configs').setup({
                 rainbow = {
                     enable = true,
