@@ -8,12 +8,11 @@
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
-- remove cursor when navigating nerdtree
 - improve search and replace workflow, by example by using Spectre
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 
 # LONG TIME IDEAS, NOT URGENT
-- make markdown preview work
+- remove cursor when navigating nerdtree
 - try a hop/leap/ similar jump plugin
 - still not totally happy with yank interface
 - try the moonicipal task runner
