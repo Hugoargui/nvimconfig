@@ -14,6 +14,7 @@
 - improve search and replace workflow, by example by using Spectre
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
+- vim fugitive
 
 # LONG TIME IDEAS, NOT URGENT
 - remove cursor when navigating nerdtree
