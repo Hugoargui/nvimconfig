@@ -20,7 +20,6 @@ return {
     'anuvyklack/vim-smartword',
 
     'kylechui/nvim-surround',
-    'echasnovski/mini.align',
     'anuvyklack/hydra.nvim',
 
     -- managing & installing lsp servers, linters & formatters

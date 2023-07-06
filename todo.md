@@ -1,22 +1,25 @@
 # NEAR FUTURE 
 - trouble
 - tabout plugin
+- navbuddy
 
 # MEDIUM TERM IDEAS
 - dial
-- Make markdown embedded code work... headlines plugin... add back autolist plugin...
+- fix folding hydra
+- spellchecker
+- Make markdown embedded code work... headlines plugin... nvim-feMaco.lua
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
 - improve search and replace workflow, by example by using Spectre
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
+- tabs (viewports) workflow. Switching, and unique buffers per tab.
 
 # LONG TIME IDEAS, NOT URGENT
 - remove cursor when navigating nerdtree
 - try a hop/leap/ similar jump plugin
 - still not totally happy with yank interface
 - try the moonicipal task runner
-- tabs (viewports) workflow. Switching, and unique buffers per tab.
 - consider readding nvim_context_vt with more lines, once i see if I miss it
 
 # LONGER TERM GOALS
