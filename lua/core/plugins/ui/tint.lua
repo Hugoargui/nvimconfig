@@ -1,10 +1,11 @@
 return {
     'levouh/tint.nvim',
     event = 'VeryLazy',
+    enabled = true,
 
     opts = {
-        tint = -40, -- Darquen colors, use a positive value to brighten
-        saturation = 0.9, -- Saturation to preserve
+        tint = -80, -- Darquen colors, use a positive value to brighten
+        saturation = 0.4, -- Saturation to preserve
         window_ignore_function = function(winid)
             local bufid = vim.api.nvim_win_get_buf(winid)
             local buftype = vim.api.nvim_buf_get_option(bufid, 'buftype')
@@ -24,6 +25,7 @@ return {
             'LineNr',
             'NonText',
             'EndOfBuffer',
+            'Comment',
         }, -- Highlight group patterns to ignore, see `string.find`
     },
 }
