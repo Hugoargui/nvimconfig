@@ -23,12 +23,5 @@ return {
     'kylechui/nvim-surround',
     'anuvyklack/hydra.nvim',
 
-    {
-        'neovim/nvim-lspconfig', -- easily configure language servers
-        dependencies = {
-            'folke/neodev.nvim', -- adds a bunch of vim/lua annotations/completion/etc for easier config/plugin dev
-        },
-    },
-
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
 }

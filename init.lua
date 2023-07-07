@@ -7,13 +7,13 @@ require('plugins-setup')
 require('core.colorscheme')
 require('core.keymaps') -- must be after plugins setup for whichkey to work, mayb eit will change after lazy
 
+require('core.plugins.LSP.configs.lspconfig')
+
 vim.opt.shadafile = ''
 
 -- TODO: Move all this to Lazy
 
 require('user.plugins.autosession')
-
-require('user.plugins.lsp.lspconfig')
 
 require('user.plugins.treesitter-objects')
 

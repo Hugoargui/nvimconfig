@@ -70,6 +70,14 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
             'DapBreakpointRejected',
             { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' }
         )
+
+        -- Change the Diagnostic symbols in the sign column (gutter)
+        -- (not in youtube nvim video)
+        local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+        for type, icon in pairs(signs) do
+            local hl = 'DiagnosticSign' .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+        end
     end, -- end of autocommand callback
 }) -- end of colorscheme autocommand
 
