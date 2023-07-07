@@ -31,5 +31,4 @@ return {
     },
 
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
-    'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
 }

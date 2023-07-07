@@ -4,8 +4,8 @@ require('core.statuscolumn')
 
 require('plugins-setup')
 
-require('core.keymaps') -- must be after plugins setup for whichkey to work, mayb eit will change after lazy
 require('core.colorscheme')
+require('core.keymaps') -- must be after plugins setup for whichkey to work, mayb eit will change after lazy
 
 vim.opt.shadafile = ''
 

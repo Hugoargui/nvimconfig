@@ -3,6 +3,7 @@ local M = {
     event = 'VeryLazy',
     dependencies = {
         { 'williamboman/mason-lspconfig.nvim', module = 'mason' },
+        { 'jayp0521/mason-null-ls.nvim' }, -- bridges gap b/w mason & null-ls
     },
     config = function()
         local mason = require('mason')
