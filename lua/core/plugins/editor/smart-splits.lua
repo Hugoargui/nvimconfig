@@ -26,5 +26,23 @@ return {
                 },
             },
         })
+
+        local keymap = vim.keymap --for conciseness
+
+        -- I'm not using <Control-hjkl> because I'm too used to press ctrl-l when inside toggleterm.
+        keymap.set('n', '<Left>', require('smart-splits').move_cursor_left)
+        keymap.set('n', '<Down>', require('smart-splits').move_cursor_down)
+        keymap.set('n', '<Up>', require('smart-splits').move_cursor_up)
+        keymap.set('n', '<Right>', require('smart-splits').move_cursor_right)
+
+        keymap.set('n', '<M-Left>', require('smart-splits').swap_buf_left)
+        keymap.set('n', '<M-Down>', require('smart-splits').swap_buf_down)
+        keymap.set('n', '<M-Up>', require('smart-splits').swap_buf_up)
+        keymap.set('n', '<M-Right>', require('smart-splits').swap_buf_right)
+
+        keymap.set('n', '<C-Left>', require('smart-splits').resize_left, { silent = true })
+        keymap.set('n', '<C-Up>', require('smart-splits').resize_up, { silent = true })
+        keymap.set('n', '<C-Down>', require('smart-splits').resize_down, { silent = true })
+        keymap.set('n', '<C-Right>', require('smart-splits').resize_right, { silent = true })
     end,
 }
