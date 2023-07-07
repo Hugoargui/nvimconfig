@@ -23,7 +23,6 @@ return {
     'kylechui/nvim-surround',
     'anuvyklack/hydra.nvim',
 
-    -- managing & installing lsp servers, linters & formatters
     {
         'neovim/nvim-lspconfig', -- easily configure language servers
         dependencies = {
@@ -33,7 +32,4 @@ return {
 
     'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
     'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls
-
-    'mfussenegger/nvim-dap',
-    'jay-babu/mason-nvim-dap.nvim',
 }

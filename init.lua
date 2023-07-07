@@ -17,7 +17,6 @@ require('user.plugins.lsp.lspconfig')
 
 require('user.plugins.treesitter-objects')
 
-require('user.plugins.debug')
 require('user.plugins.hydra_menus.toggle_options')
 require('user.plugins.hydra_menus.window_manager')
 require('user.plugins.hydra_menus.folds')

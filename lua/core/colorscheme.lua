@@ -40,11 +40,36 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 
         -- vim.api.nvim_set_hl(0, 'UfoFoldedBg', { link = 'Folded.background' })
         -- vim.api.nvim_set_hl(0, 'UfoFoldedFg', { link = 'Folded.foreground' })
-        -- Is this refresh even doing anything?
-        -- require('lualine').refresh({
-        --     scope = 'all', -- scope of refresh all/tabpage/window
-        --     place = { 'statusline' }, -- lualine segment ro refresh.
-        -- })
+
+        -- DEBUG ICONS AND HIGHLIGHTS'
+        vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#993939' })
+        -- vim.fn.sign_define("DapBreakpoint", { text = "•", texthl = "red", linehl = "", numhl = "" })
+        -- vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+        -- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+
+        vim.api.nvim_set_hl(0, 'DapLogPoint', { fg = '#61afef', bg = '#31353f' })
+        vim.fn.sign_define(
+            'DapLogPoint',
+            { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' }
+        )
+
+        vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#98c379', bg = '#31353f' })
+        vim.fn.sign_define(
+            'DapStopped',
+            { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' }
+        )
+        -- vim.fn.sign_define("DapStopped", { text = "▶️", texthl = "", linehl = "", numhl = "" })
+        -- vim.fn.sign_define("DapStopped", { text = "🞂", texthl = "green", linehl = "green" })
+
+        vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
+        vim.fn.sign_define(
+            'DapBreakpointCondition',
+            { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' }
+        )
+        vim.fn.sign_define(
+            'DapBreakpointRejected',
+            { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' }
+        )
     end, -- end of autocommand callback
 }) -- end of colorscheme autocommand
 
