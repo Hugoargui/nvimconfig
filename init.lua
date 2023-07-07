@@ -10,6 +10,7 @@ require('core.colorscheme')
 vim.opt.shadafile = ''
 
 -- TODO: Move all this to Lazy
+
 require('user.plugins.autosession')
 
 require('user.plugins.lsp.lspconfig')

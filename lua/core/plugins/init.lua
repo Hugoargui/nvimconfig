@@ -1,5 +1,6 @@
 -- add list of plugins to installinit.lua
 return {
+
     'rmagatti/auto-session',
     {
         'rmagatti/session-lens',
