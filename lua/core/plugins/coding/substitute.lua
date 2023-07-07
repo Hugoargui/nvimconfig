@@ -21,8 +21,8 @@ return {
         },
         {
             's',
-            ":lua require('substitute').visual()<CR>,",
-            mode = 'v',
+            'P', -- at the end the builtin works better
+            mode = 'x',
             desc = 'Substitute Visual Selection',
             silent = true,
         },
@@ -43,7 +43,7 @@ return {
         },
         {
             'X',
-            mode = 'v',
+            mode = 'x',
             ":lua require('substitute.exchange').visual()<CR>,",
             desc = 'eXchange Line',
             silent = true,
