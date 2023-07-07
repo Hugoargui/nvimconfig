@@ -25,7 +25,7 @@ keymap.set('n', 'gI', native.implementation, { desc = 'GO TO Implementation' }) 
 keymap.set('n', 'gt', native.type_definition, { desc = 'GO TO Type' }) -- go to type definition
 
 -- ------------------------------------------------------------------------------------------------------------
-keymap.set('n', '<leader>lx', 'native.format{async=true}', { desc = 'Auto-Format' }) -- see available code actions
+keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'Auto-Format' }) -- see available code actions
 
 -- ------------------------------------------------------------------------------------------------------------
 -- LSP OUTLINE
@@ -34,12 +34,17 @@ keymap.set('n', '<leader>lo', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outli
 -- LSP SEARCH SYMBOLS
 keymap.set('n', '<leader>ld', '<cmd>Telescope lsp_document_symbols<CR>', { desc = 'Document Symbols' })
 keymap.set('n', '<leader>lw', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', { desc = 'Workspace Symbols' })
-keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', { desc = 'LSP finder' }) -- show definition, references
+-- stopped working
+-- keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', { desc = 'LSP finder' }) -- show definition, references
+
+-- Call hierarchy
+keymap.set('n', '<Leader>li', '<cmd>Lspsaga incoming_calls<CR>', { desc = 'Incoming Calls' })
+keymap.set('n', '<Leader>lo', '<cmd>Lspsaga outgoing_calls<CR>', { desc = 'Outgoing Calls' })
 
 -- ------------------------------------------------------------------------------------------------------------
 -- HOVER
 -- keymap.set("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" }) -- show documentation for what is under cursor
-keymap.set('n', '<leader>lh', native.hover, { desc = 'Hover Documentation' }) -- show documentation for what is under cursor
+keymap.set('n', '<leader>lh', "<cmd>lua require('pretty_hover').hover()<CR>", { desc = 'Hover Documentation' }) -- show documentation for what is under cursor
 
 -- SIGNATURE HELP
 keymap.set('n', '<leader>ls', native.signature_help, { desc = 'Signature' }) -- show documentation for what is under cursor

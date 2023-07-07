@@ -2,7 +2,6 @@ return {
     {
         'neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile' },
-        'neovim/nvim-lspconfig', -- easily configure language servers
         dependencies = {
             'folke/neodev.nvim', -- adds a bunch of vim/lua annotations/completion/etc for easier config/plugin dev
         },
