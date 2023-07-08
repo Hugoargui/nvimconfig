@@ -32,7 +32,7 @@ int faa(int input, int dummy) {
   }
 }
 
-int bar(int year, int day, int hour, int minute, std::string name) {
+int myBarFunction(int year, int day, int hour, int minute, std::string name) {
   const int unused = 0;
   return 0;
 }
@@ -44,6 +44,7 @@ int main() {
       int b = foo(i);
       int c = faa(i, 0);
       int d = faa(i, 0);
+      int x = myBarFunction(0, 0, 0, 0, "Nameee");
       std::cout << " Hello World " << i << std::endl;
     }
   }

@@ -25,14 +25,11 @@ local M = {
             },
             -- add operators that will trigger motion and text object completion
             -- to enable all native operators, set the preset / operators plugin above
-            -- operators = { gc = "Comment", ys = "Surround", yr = "Replace surround", yd = "Delete Surround", ya = "Align" },
-            -- operators = {
-            --     gc = 'Comment',
-            --     ys = 'Surround',
-            --     yr = 'Replace surround',
-            --     yd = 'Delete Surround',
-            --     -- ya = 'Align',
-            -- },
+            operators = {
+                gc = 'Comment',
+                ys = 'Surround',
+                ga = 'Change Case',
+            },
             show_keys = true,
 
             key_labels = {
