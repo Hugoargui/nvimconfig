@@ -10,7 +10,3 @@ require('core.keymaps') -- must be after plugins setup for whichkey to work, may
 require('core.plugins.LSP.configs.lspconfig')
 
 vim.opt.shadafile = ''
-
--- TODO: Move all this to Lazy
-
-require('user.plugins.treesitter-objects')

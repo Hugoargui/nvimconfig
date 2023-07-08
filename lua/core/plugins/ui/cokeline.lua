@@ -4,6 +4,7 @@ return {
     config = function()
         local get_hex = require('cokeline/utils').get_hex
 
+        -- TODO we shouldn't be calling whcihkey from here
         local wk = require('which-key')
         wk.register({
             b = {
