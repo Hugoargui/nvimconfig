@@ -1,5 +1,19 @@
 local keymap = vim.keymap --for conciseness
 
+keymap.set(
+    -- TO DEBUG LUA FILES WITH ONE-SMALL-STEP-FOR-VIMKIND:
+    -- Launch the server in the debuggee using <leader>dl
+    -- Open another Neovim instance with the source file
+    -- Place breakpoint with <leader>db
+    -- Connect using the DAP client with dap_continue <leader>dd
+    -- Run your script/plugin in the debuggee
+
+    'n',
+    '<leader>dl',
+    [[:lua require"osv".launch({port = 8086})<CR>]],
+    { desc = 'Launch server', noremap = true }
+)
+
 keymap.set('n', '<leader>du', "<cmd>lua require'dapui'.toggle()<cr>", { desc = 'Toggle UI' })
 
 keymap.set('n', '<leader>dd', "<cmd>lua require'dap'.continue()<cr>", { desc = 'Launch/Continue' })
