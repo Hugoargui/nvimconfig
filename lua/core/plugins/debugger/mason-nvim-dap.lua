@@ -1,5 +1,8 @@
+-- PERF: this plugin is very slow to load >500ms and significantly slows down neovim startup
+-- I don't realy need it unless I'm installing new DAP adapters, so just enable it on demand.
 return {
     'jay-babu/mason-nvim-dap.nvim',
+    enabled = false,
     lazy = true,
     config = function()
         require('mason-nvim-dap').setup({

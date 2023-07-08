@@ -3,7 +3,4 @@ return {
 
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',
-
-    'chrisgrieser/nvim-spider',
-    'anuvyklack/vim-smartword',
 }

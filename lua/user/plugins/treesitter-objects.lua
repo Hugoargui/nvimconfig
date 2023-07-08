@@ -29,15 +29,8 @@ require('nvim-treesitter.configs').setup({
                 ['az'] = { query = '@conditional.outer', desc = 'Conditional' },
                 ['ix'] = { query = '@loop.inner', desc = 'Loop' },
                 ['ax'] = { query = '@loop.outer', desc = 'Loop' },
-            }, -- textobjectes::select::keymaps
-            -- selection_modes = { -- default selection modes
-            -- 	["@parameter.outer"] = "v", -- charwise
-            -- 	["@function.outer"] = "V", -- linewise
-            -- 	["@class.outer"] = "<c-v>", -- blockwise
-            -- },
-            -- include_surrounding_whitespace = false,
-            -- },
-        }, -- Select
+            },
+        },
 
         -- Overwrite default [[ (class) and M(function) mappings
         move = {
@@ -69,7 +62,6 @@ require('nvim-treesitter.configs').setup({
     }, -- textobjects
 })
 
--- Custom camecalse and smartword text objects:
 -- Don't see a difference between aw and iw, just make it directly cw, yw, dw, ...
 -- vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
 -- vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
@@ -79,11 +71,7 @@ vim.keymap.set({ 'o', 'x' }, 'w', '<cmd>lua require("various-textobjs").subword(
 -- uint_type exampleTestFoo() = '<cmd>lua this("always-gives").problems(always)'
 -- camelCaseWord()
 
--- -- TODO: For now iW needs to be  at beginning of word, find a way to make it jump to beginning automatically
-vim.keymap.set({ 'o', 'x' }, 'W', '<Plug>(smartword-e)')
--- vim.keymap.set({ "o", "x" }, "aa", ":<c-u>normal! BvW<CRvim.keymap.set({ "o", "x" }, "ia", ":s/<Plug>(smartword-e)")")
-
-vim.keymap.set({ 'o', 'x' }, 'i<CR>', ':<c-u>normal! ggVG<CR>') -- vi<ENTER> selects whole buffer
+vim.keymap.set({ 'o', 'x' }, 'i<CR>', ':<c-u>normal! ggVG<CR>', { desc = 'Whole Document' }) -- vi<ENTER> selects whole buffer
 
 vim.keymap.set({ 'o', 'x' }, 'il', ':<c-u>normal! $v^<CR>', { desc = 'Line' }) -- in line
 vim.keymap.set({ 'o', 'x' }, 'al', ':<c-u>normal! $v0<CR>', { desc = 'Line' }) -- around line

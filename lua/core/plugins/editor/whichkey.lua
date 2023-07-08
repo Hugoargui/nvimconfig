@@ -188,6 +188,14 @@ local M = {
 
         require('which-key').setup(setup)
         require('which-key').register(leader_mappings, leader_opts)
+
+        -- [% and ]% come from vim builting plugin, it shows up if we anable []  in whichkey
+        -- with the <plug> name, so may as well document it
+        require('which-key').register({
+            ['[%'] = 'which_key_ignore',
+            [']%'] = 'which_key_ignore',
+        })
+
         --}}}
     end,
 }
