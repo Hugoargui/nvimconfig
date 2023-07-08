@@ -47,6 +47,18 @@ local M = {
                 view = 'popup', -- :Noice error
             },
         },
+        routes = {
+            {
+                filter = {
+                    -- HIde written message
+
+                    event = 'msg_show',
+                    kind = '',
+                    find = 'written',
+                },
+                opts = { skip = true },
+            },
+        },
         -- USING NOICE FOR LSP STUFF
         lsp = {
             override = {
