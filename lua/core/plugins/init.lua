@@ -22,6 +22,4 @@ return {
 
     'kylechui/nvim-surround',
     'anuvyklack/hydra.nvim',
-
-    'RRethy/vim-illuminate', -- use lsp/treesitter/regex to highlight word under cursor
 }
