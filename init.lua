@@ -13,8 +13,6 @@ vim.opt.shadafile = ''
 
 -- TODO: Move all this to Lazy
 
-require('user.plugins.autosession')
-
 require('user.plugins.treesitter-objects')
 
 require('user.plugins.hydra_menus.toggle_options')
