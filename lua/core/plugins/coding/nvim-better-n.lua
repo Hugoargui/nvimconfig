@@ -2,6 +2,14 @@ local M = {
     'jonatan-branting/nvim-better-n',
 
     keys = {
+        { '/' },
+        { '?' },
+        { '*' },
+        { '#' },
+        { 'f' },
+        { 'F' },
+        { 't' },
+        { 'T' },
         {
             'n',
             function()
@@ -15,7 +23,12 @@ local M = {
             end,
         },
         { ',' },
-        { ';' },
+        {
+            ''',
+            function()
+                require('better-n').()
+            end,
+        },
     },
     config = function()
         require('better-n').setup({
@@ -27,18 +40,18 @@ local M = {
                 end,
             },
             mappings = {
-                -- I want `n` to always go forward, and `<s-n>` to always go backwards
-                ['*'] = { previous = '<s-n>', next = 'n' },
-                -- TODO: can't get it to work
-                ['#'] = { previous = 'n', next = '<s-n>' },
-                ['F'] = { previous = ',', next = ';' },
-                ['T'] = { previous = ',', next = ';' },
 
+                -- I want `n` to always go forward, and `<s-n>` to always go backwards
                 -- Setting `cmdline = true` ensures that `n` will only be
                 -- overwritten if the search command is succesfully executed
-                ['/'] = { previous = '<s-n>', next = 'n', cmdline = true },
                 ['?'] = { previous = 'n', next = '<s-n>', cmdline = true },
+                ['#'] = { previous = 'n', next = '<s-n>' },
 
+                -- FIXME: can't get this mappings to work
+                ['F'] = { previous = ';', next = ',' },
+                ['T'] = { previous = ';', next = ',' },
+
+                -- TODO: add [ mappings]
                 -- -- I have <leader>hn/hp bound to git-hunk-next/prev
                 -- ['<leader>hn'] = { previous = '<leader>hp', next = '<leader>hn' },
                 -- ['<leader>hp'] = { previous = '<leader>hp', next = '<leader>hn' },

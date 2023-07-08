@@ -1,4 +1,5 @@
 # NEAR FUTURE 
+- vim fugitive
 - trouble
 - tabout plugin
 - navbuddy
@@ -15,7 +16,6 @@
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
 - better qf list, and learn to use it
-- vim fugitive
 -     'jceb/blinds.nvim', and vim.g.blinds_guibg = '#450341' gives nices results. consider this alternative 
 
 # LONG TIME IDEAS, NOT URGENT
