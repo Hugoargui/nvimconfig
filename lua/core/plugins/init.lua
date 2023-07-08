@@ -1,16 +1,6 @@
 -- add list of plugins to installinit.lua
 return {
 
-    'rmagatti/auto-session',
-    {
-        'rmagatti/session-lens',
-        dependencies = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
-        config = function()
-            require('session-lens').setup({--[[your custom config--]]
-            })
-        end,
-    },
-
     'nvim-treesitter/nvim-treesitter-textobjects',
     'chrisgrieser/nvim-various-textobjs',
 
@@ -21,5 +11,4 @@ return {
     'anuvyklack/vim-smartword',
 
     'kylechui/nvim-surround',
-    'anuvyklack/hydra.nvim',
 }
