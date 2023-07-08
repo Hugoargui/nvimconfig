@@ -9,6 +9,4 @@ return {
     'arthurxavierx/vim-caser',
     'chrisgrieser/nvim-spider',
     'anuvyklack/vim-smartword',
-
-    'kylechui/nvim-surround',
 }
