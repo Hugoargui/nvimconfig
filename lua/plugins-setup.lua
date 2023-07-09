@@ -26,6 +26,7 @@ require('lazy').setup({
         { import = 'core.plugins.sessions' },
         { import = 'core.plugins.syntax' },
         { import = 'core.plugins.theme' },
+        { import = 'core.plugins.theme.colorschemes' },
         { import = 'core.plugins.ui' },
         { import = 'core.plugins.ui.hydra' },
     },
