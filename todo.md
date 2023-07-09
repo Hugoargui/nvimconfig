@@ -1,6 +1,5 @@
 # NEAR FUTURE 
 - vim fugitive
-- trouble
 - tabout plugin
 - navbuddy
 - dial
