@@ -6,10 +6,10 @@ local M = {
         { '?' },
         { '*' },
         { '#' },
-        { 'f' },
-        { 'F' },
-        { 't' },
-        { 'T' },
+        -- { 'f' },
+        -- { 'F' },
+        -- { 't' },
+        -- { 'T' },
         {
             'n',
             function()
@@ -20,13 +20,6 @@ local M = {
             'N',
             function()
                 require('better-n').shift_n()
-            end,
-        },
-        { ',' },
-        {
-            ''',
-            function()
-                require('better-n').()
             end,
         },
     },
@@ -48,8 +41,8 @@ local M = {
                 ['#'] = { previous = 'n', next = '<s-n>' },
 
                 -- FIXME: can't get this mappings to work
-                ['F'] = { previous = ';', next = ',' },
-                ['T'] = { previous = ';', next = ',' },
+                -- ['F'] = { previous = ';', next = ',' },
+                -- ['T'] = { previous = ';', next = ',' },
 
                 -- TODO: add [ mappings]
                 -- -- I have <leader>hn/hp bound to git-hunk-next/prev

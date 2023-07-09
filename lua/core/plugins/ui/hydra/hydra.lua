@@ -1,7 +1,7 @@
 return {
     'anuvyklack/hydra.nvim',
     lazy = true,
-    keys = { '<leader>e', '~', 'z' },
+    keys = { '<leader>e', '~', 'z', '<leader>w' },
     dependencies = {
         'anuvyklack/keymap-layer.nvim',
     },

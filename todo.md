@@ -3,9 +3,9 @@
 - trouble
 - tabout plugin
 - navbuddy
+- dial
 
 # MEDIUM TERM IDEAS
-- dial
 - fix folding hydra
 - spellchecker
 - Make markdown embedded code work... headlines plugin... nvim-feMaco.lua
@@ -16,7 +16,13 @@
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
 - better qf list, and learn to use it
--     'jceb/blinds.nvim', and vim.g.blinds_guibg = '#450341' gives nices results. consider this alternative 
+- 'jceb/blinds.nvim', and vim.g.blinds_guibg = '#450341' gives nices results. consider this alternative
+- git integration:
+    - git mergetool 
+        - https://www.youtube.com/watch?v=57x4ZzzCr2Y&pp=ygUdaW50ZWdyYXRpbiBnaXQgdmltIGFuZCBuZW92aW0%3D
+        - https://gist.github.com/karenyyng/f19ff75c60f18b4b8149
+        - compare to mergetool, other plugins
+    - lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
 
 # LONG TIME IDEAS, NOT URGENT
 - remove cursor when navigating nerdtree
@@ -26,7 +32,6 @@
 - consider readding nvim_context_vt with more lines, once i see if I miss it
 
 # LONGER TERM GOALS
-- lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
 
 # CHANGES IN workflow
 this are pretty big changes that I'd like to explore someday, but are not critical right now

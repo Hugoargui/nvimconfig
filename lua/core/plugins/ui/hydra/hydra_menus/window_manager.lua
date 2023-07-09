@@ -124,7 +124,7 @@ Hydra({
         },
     },
     mode = 'n',
-    body = '<C-w>',
+    body = '<leader>w',
     heads = {
 
         {
