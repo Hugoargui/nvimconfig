@@ -6,6 +6,7 @@ sudo apt-get update
 sudo apt install zsh
 chsh -s $(which zsh)
 
+
 # Exit and open, it may trigger the new user prompt, just accept
 # now let's make it look into .config/zsh/.zshrc instead of in ~
 sudo vim /etc/zsh/zshenv
@@ -105,13 +106,9 @@ sudo apt-get install python3.10-venv , yes you need it for mason, pip is not eno
 or maybe sudo apt install python3-venv
 
 
-
-sudo npm install -g neovim
 sudo apt install clang-format
 sudo apt install cmake
 sudo apt install clangd
-
-
 sudo apt install ripgrep
 sudo apt install fd-find
 

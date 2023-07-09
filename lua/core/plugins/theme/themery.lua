@@ -6,12 +6,24 @@ return {
         livePreview = true, -- Apply theme while browsing. Default to true.
         themes = {
             {
+                name = 'AstroTheme',
+                colorscheme = 'astrotheme',
+            },
+            {
                 name = 'Ayu',
                 colorscheme = 'ayu',
             },
             {
+                name = 'Bluloco',
+                colorscheme = 'bluloco',
+            },
+            {
                 name = 'Catppuccin',
                 colorscheme = 'catppuccin',
+            },
+            {
+                name = 'Decay',
+                colorscheme = 'decay',
             },
             -- -- with colorbuddy and so on it's very slow to load and gives too much trouble
             -- {
@@ -42,6 +54,14 @@ return {
             {
                 name = 'Mellow',
                 colorscheme = 'mellow',
+            },
+            {
+                name = 'Midnight',
+                colorscheme = 'midnight',
+            },
+            {
+                name = 'Mine Shaft',
+                colorscheme = 'mine-shaft',
             },
             {
                 name = 'MoonFly',
