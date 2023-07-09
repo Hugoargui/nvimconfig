@@ -82,4 +82,8 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 }) -- end of colorscheme autocommand
 
 -- This colorscheme is set by the ColorScheme Picker
-require('core.themeConfigFile')
+-- Themery block
+-- This block will be replaced by Themery.
+vim.cmd("colorscheme nightfly")
+-- end themery block
+--

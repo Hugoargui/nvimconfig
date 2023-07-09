@@ -2,7 +2,7 @@ return {
     'zaldih/themery.nvim',
     cmd = { 'Themery' },
     opts = {
-        themeConfigFile = '~/.config/nvim/lua/core/themeConfigFile.lua', -- Described below
+        themeConfigFile = '~/.config/nvim/lua/core/colorscheme.lua',
         livePreview = true, -- Apply theme while browsing. Default to true.
         themes = {
             {
