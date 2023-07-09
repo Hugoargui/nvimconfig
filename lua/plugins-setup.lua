@@ -22,6 +22,7 @@ require('lazy').setup({
         { import = 'core.plugins.coding' },
         { import = 'core.plugins.debugger' },
         { import = 'core.plugins.editor' },
+        { import = 'core.plugins.git' },
         { import = 'core.plugins.sessions' },
         { import = 'core.plugins.syntax' },
         { import = 'core.plugins.theme' },
