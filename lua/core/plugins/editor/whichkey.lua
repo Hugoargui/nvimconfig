@@ -90,9 +90,7 @@ local M = {
         local leader_mappings = {
             ['a'] = { name = 'Switch To Alternate .h/.cpp File' },
             ['o'] = { name = 'Notifications' },
-            ['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
             ['c'] = { '<cmd>Themery<cr>', 'Colorshemes' },
-            -- ["w"] = { "<cmd>w!<CR>", "Save" },
             q = {
                 name = 'Quit nVim',
                 ['q'] = { '<cmd>q<CR>', '"q" -> Quit only if no changes have been made' },

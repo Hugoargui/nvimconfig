@@ -71,6 +71,14 @@ return {
                     },
                 },
             })
+            require('nvim-treesitter.parsers').get_parser_configs().asm = {
+                -- Will need to manually install :TSInstall asm
+                install_info = {
+                    url = 'https://github.com/rush-rs/tree-sitter-asm.git',
+                    files = { 'src/parser.c' },
+                    branch = 'main',
+                },
+            }
         end,
     },
 }

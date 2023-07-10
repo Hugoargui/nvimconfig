@@ -1,12 +1,20 @@
 local icons = require('core.icons').icons
 return {
     'nvim-tree/nvim-tree.lua',
-    cmd = 'NvimTreeToggle',
+    keys = { '<leader>e' },
+    -- keys = {
+    --     '<leader>e',
+    --     '<cmd>NvimTreeToggle<cr>',
+    --     desc = 'Toggle File Explorer',
+    --     silent = true,
+    -- },
+
     dependencies = {
         'nvim-tree/nvim-web-devicons',
     },
-    opts = function()
+    config = function()
         -- recommended settings from nvim-tree documentation
+        vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', { desc = 'Toggle File Explorer' }) -- got to declaration
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         vim.g.nvim_tree_auto_close = 1 -- Doesn't do anything
@@ -16,7 +24,8 @@ return {
         -- autocmd BufEnter * silent! lcd %:p:h
         -- vim.api.nvim_create_autocmd({ "BufEnter" }, { command = "lcd %:p:h" })
 
-        local config = {
+        require('nvim-tree').setup({
+
             -- Close if it's the last window
             -- autoclose = true, -- It says option doesnt exists
             -- open_on_setup = true,
@@ -55,7 +64,7 @@ return {
             -- 	git = {
             -- 		ignore = false,
             -- 	},
-        } -- end of the config we want to return to Lazy
+        })
 
         -- auto show hydra on nvimtree focus
         local api = require('nvim-tree.api')
@@ -152,7 +161,5 @@ return {
         -- -- group = 'NvimTreeExit',
         -- -- command = [[ if &ft != NvimTre | echo "do something" | endif]],
         -- -- })
-
-        return config
     end,
 }
