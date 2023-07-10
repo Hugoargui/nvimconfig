@@ -135,3 +135,8 @@ sudo apt-key add llvm-snapshot.gpg.key
 sudo apt-install clang-format
 If you run into problems with libffi6 isntall the older libffi6 manually 
 https://stackoverflow.com/questions/61875869/ubuntu-20-04-upgrade-python-missing-libffi-so-6
+
+
+# IF cant install assembly lsp, do it manually: 
+sudo apt-get install pkg-config libssl-dev
+cargo install asm-lsp

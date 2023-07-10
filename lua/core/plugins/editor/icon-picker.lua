@@ -5,7 +5,7 @@ return {
     keys = {
         { '<leader>I', '<cmd>IconPickerNormal<cr>', desc = 'Insert Icon/Emoji', mode = 'n' },
         -- There is alsy icon picker yank, see GitHub
-        { '<c-I>', '<cmd>IconPickerInsert<cr>', desc = 'Insert Icon/Emoji', mode = 'i' },
+        { '<a-I>', '<cmd>IconPickerInsert<cr>', desc = 'Insert Icon/Emoji', mode = 'i' },
     },
     config = function()
         require('icon-picker').setup({

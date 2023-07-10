@@ -6,6 +6,7 @@ local lspconfig = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- enable keybinds only for when lsp server available
+vim.keymap.set('n', '<leader>ll', '<cmd>LspInfo<CR>', { desc = 'Lsp INFO' }) -- peek definition and make edits in window
 local on_attach = function()
     require('core.plugins.LSP.configs.lsp_keymaps')
 end
@@ -54,4 +55,10 @@ lspconfig['lua_ls'].setup({
             },
         },
     },
+})
+
+lspconfig['asm_lsp'].setup({
+    -- filetypes = { "camake" },
+    capabilities = capabilities,
+    on_attach = on_attach,
 })
