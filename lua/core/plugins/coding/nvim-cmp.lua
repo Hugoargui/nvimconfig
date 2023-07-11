@@ -94,11 +94,12 @@ local M = {
                     return vim_item
                 end,
             },
-            experimental = {
-                ghost_text = {
-                    hl_group = 'CmpGhostText',
-                },
-            },
+            -- it's annoying it doesn't move text right when ghost text shows
+            -- experimental = {
+            --     ghost_text = {
+            --         hl_group = 'CmpGhostText',
+            --     },
+            -- },
 
             window = {
                 completion = cmp.config.window.bordered({

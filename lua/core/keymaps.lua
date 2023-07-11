@@ -7,6 +7,7 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'L', '$', { desc = 'To end of line' })
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'H', '^', { desc = 'To begining of line' })
 
+vim.keymap.set('n', 'U', '<c-r>', { noremap = true })
 -- ----------------------------------------------------
 vim.keymap.set('n', '<bs>', 'q', { noremap = true })
 
