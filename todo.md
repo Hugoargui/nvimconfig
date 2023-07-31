@@ -2,11 +2,12 @@
 - tabout plugin
 - navbuddy
 - dial
+- mappings to add newlines above/bellow in normal/insert mode
+- mapping to "isolate the line", space above and bellow
 
 # MEDIUM TERM IDEAS
 - fix folding hydra
 - spellchecker
-- Make markdown embedded code work... headlines plugin... nvim-feMaco.lua
 - incremental selection
 - move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
@@ -14,7 +15,7 @@
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
 - better qf list, and learn to use it
-- 'jceb/blinds.nvim', and vim.g.blinds_guibg = '#450341' gives nices results. consider this alternative
+- 'jceb/blinds.nvim', and vim.g.blinds_guibg = '#450341' gives nice results. Consider this alternative
 - git integration:
     - git mergetool 
         - https://www.youtube.com/watch?v=57x4ZzzCr2Y&pp=ygUdaW50ZWdyYXRpbiBnaXQgdmltIGFuZCBuZW92aW0%3D
@@ -27,7 +28,7 @@
 - try a hop/leap/ similar jump plugin
 - still not totally happy with yank interface
 - try the moonicipal task runner
-- consider readding nvim_context_vt with more lines, once i see if I miss it
+- consider reading nvim_context_vt with more lines, once i see if I miss it
 
 # LONGER TERM GOALS
 
