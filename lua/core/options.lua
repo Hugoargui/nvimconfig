@@ -8,12 +8,16 @@ vim.api.nvim_create_autocmd('BufEnter', {
     end,
     desc = "Don't continue comments on new line",
 })
--- We need aun autocommand as otherwise ft-plugin lua overwrites this setting
--- Letter  meaning when present in 'formatoptions'
--- t       Auto-wrap text using textwidth
--- c       Auto-wrap comments using textwidth, inserting the current comment leader automatically.
+-- We need an autocommand as otherwise ft-plugin lua overwrites this setting
+-- Letter  meaning when present in 'formatOptions'
+-- t       Auto-wrap text using textWidth
+-- c       Auto-wrap comments using textWidth, inserting the current comment leader automatically.
 -- r       Automatically insert the current comment leader after hitting <Enter> in Insert mode.
 -- o       Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+vim.opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -42,7 +46,7 @@ opt.termguicolors = true -- use guifg and guibg everywhere instead of ctermfg an
 opt.background = 'dark'
 opt.number = true
 opt.signcolumn = 'yes' -- Needed for plugins that dispaly stuff in left column (git status, diagnostics...)
-opt.cursorline = true -- Line on the line whe're at, you can set it's style with highlights
+opt.cursorline = true -- Line on the line we're at, you can set it's style with highlights
 
 -- LastStatus means when to show status bar at the bottom of each window:
 -- 0 : No status bar

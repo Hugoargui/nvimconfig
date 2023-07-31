@@ -77,7 +77,7 @@ local M = {
         --}}}
 
         -----------------------------------------------------------------------------------------------------------------
-        -- Lader mappings {{{*/
+        -- Leader mappings {{{*/
         local leader_opts = {
             mode = 'n', -- NORMAL mode
             prefix = '<leader>',
@@ -90,7 +90,7 @@ local M = {
         local leader_mappings = {
             ['a'] = { name = 'Switch To Alternate .h/.cpp File' },
             ['o'] = { name = 'Notifications' },
-            ['c'] = { '<cmd>Themery<cr>', 'Colorshemes' },
+            ['c'] = { '<cmd>Themery<cr>', 'ColorSchemes' },
             q = {
                 name = 'Quit nVim',
                 ['q'] = { '<cmd>q<CR>', '"q" -> Quit only if no changes have been made' },
@@ -111,7 +111,7 @@ local M = {
                 name = 'Session Management',
                 ['x'] = { '<cmd>SearchSession<cr>', 'Search Session' },
                 ['s'] = { '<cmd>SessionSave<cr>', 'Save or Create session' },
-                ['d'] = { '<cmd>Autosession delete<cr>', 'Delete Sessions' },
+                ['d'] = { '<cmd>AutoSession delete<cr>', 'Delete Sessions' },
                 ['c'] = { '<cmd>cd %:p:h <cr>', 'Change working directory to the location of the current file' },
             },
 

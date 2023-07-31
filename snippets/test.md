@@ -4,7 +4,7 @@
 
 ### Heading 3
 
-```C++
+```c++
 class dada : public
 {
 public:

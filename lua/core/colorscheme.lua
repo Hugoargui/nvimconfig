@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
     pattern = '*',
     callback = function()
-        -- Improve splits with thiner lines than default and avoid colors from colorschemes
+        -- Improve splits with thinner lines than default and avoid colors from colorschemes
         vim.opt.fillchars = {
             -- horiz = "─",
             horiz = '━',
@@ -13,6 +13,12 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
             vertright = '├',
             verthoriz = '┼',
         }
+
+        vim.api.nvim_set_hl(0, 'SpellBad', { fg = '#ff0000', underline = true })
+        vim.api.nvim_set_hl(0, 'SpellCap', { fg = '#00FFFF', underline = true })
+        vim.api.nvim_set_hl(0, 'SpellRare', { fg = '#FFBF00', underline = true })
+        vim.api.nvim_set_hl(0, 'SpellLocal', { fg = '#FFBF00', underline = true })
+
         -- vim.cmd([[ highlight VertSplit   guibg=none ]])
         vim.api.nvim_set_hl(0, 'StatusLineNc', { bg = 'none' })
 
@@ -84,6 +90,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme tokyonight")
+vim.cmd('colorscheme bluloco')
 -- end themery block
 --

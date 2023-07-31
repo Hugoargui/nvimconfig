@@ -43,7 +43,9 @@ return {
                     'tsx',
                     'typescript',
                     'vim',
+                    'vimdoc',
                     'yaml',
+                    'query', -- should always be installed
                 },
                 auto_install = true,
             })

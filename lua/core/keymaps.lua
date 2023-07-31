@@ -19,3 +19,7 @@ function Save_file()
     end
 end
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<Cmd>lua Save_file()<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>z', function()
+    require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))
+end, { desc = 'Spelling Suggestions' })

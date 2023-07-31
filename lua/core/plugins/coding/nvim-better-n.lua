@@ -1,5 +1,6 @@
 return {
     'jonatan-branting/nvim-better-n',
+    enabled = false,
 
     keys = {
         { '/' },

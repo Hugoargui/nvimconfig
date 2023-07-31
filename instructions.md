@@ -54,6 +54,12 @@ if [[ -n $existing_expansion ]]; then
  
  install nvim from appimage to get the latest (apt-get is not always up to date)
  https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
+
+or with script: 
+    apt-get remove -y neovim
+    curl https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage \
+      -Lo ~/.local/bin/nvim --create-dirs
+    chmod u+x ~/.local/bin/nvim
  
  clone the config into .config/nvim
  
