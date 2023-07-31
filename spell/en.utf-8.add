@@ -89,3 +89,5 @@ codesmell
 ok
 ctror
 globals
+Breakpoint
+deleter
