@@ -4,7 +4,7 @@ return {
     event = 'InsertEnter',
     opts = {
         history = true, -- keep around last snippet local to jump back
-        updateevents = 'TextChanged,TextChangedI', -- update changes as you tupe
+        updateevents = 'TextChanged,TextChangedI', -- update changes as you type
         enable_autosnippets = true,
         -- ext_opts = {
         --     [require('luasnip.util.types').choiceNode] = {

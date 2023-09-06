@@ -5,6 +5,10 @@ local nativediag = vim.diagnostic -- for conciseness
 -- TODO: maybe pass {buffer=0} to keymaps set so mappings only apply to current buffer that has LSP attached
 -- See TJdevies Neovim Builtin LSP Setup GUide around minute 31 for more info
 
+vim.keymap.set({ 'n' }, '<C-k>', function()
+    require('lsp_signature').toggle_float_win()
+end, { silent = true, noremap = true, desc = 'toggle signature' })
+
 -- ------------------------------------------------------------------------------------------------------------
 -- GO TO DEFINITION
 keymap.set('n', 'gd', native.definition, { desc = 'GO TO Definition' }) -- go to definition

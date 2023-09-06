@@ -7,7 +7,7 @@ local M = {
         -- 'hrsh7th/cmp-cmdline',
         -- 'hrsh7th/cmp-calc',
         -- 'lukas-reineke/cmp-rg',
-        'hrsh7th/cmp-nvim-lsp-signature-help',
+        -- 'hrsh7th/cmp-nvim-lsp-signature-help',
         'hrsh7th/cmp-nvim-lua',
         'saadparwaiz1/cmp_luasnip',
         'onsails/lspkind.nvim',
@@ -71,7 +71,7 @@ local M = {
             },
 
             sources = cmp.config.sources({
-                { name = 'nvim_lsp_signature_help' },
+                -- { name = 'nvim_lsp_signature_help' },
                 { name = 'nvim_lua' }, -- neovim and Lua extra API, it only enables itself in .lua files
                 { name = 'nvim_lsp' }, -- lsp
                 { name = 'path' }, -- file system paths
@@ -81,7 +81,9 @@ local M = {
             -- configure lspkind for vs-code like icons
             formatting = {
                 format = function(entry, vim_item)
-                    vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+                    -- TODO: check if length limit works properly
+                    vim_item.abbr = string.sub(vim_item.abbr, 1, 50) -- Concatenate to maximum size
+                    vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
 
                     vim_item.menu = ' '
                         .. ({

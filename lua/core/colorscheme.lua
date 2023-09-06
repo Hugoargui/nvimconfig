@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
             vertright = '├',
             verthoriz = '┼',
         }
+        vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { link = 'TodoBgTODO' })
 
         vim.api.nvim_set_hl(0, 'SpellBad', { fg = '#ff0000', underline = true })
         vim.api.nvim_set_hl(0, 'SpellCap', { fg = '#00FFFF', underline = true })
@@ -90,6 +91,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd('colorscheme bluloco')
+vim.cmd('colorscheme catppuccin')
 -- end themery block
 --

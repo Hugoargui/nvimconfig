@@ -9,6 +9,13 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 vim.keymap.set('n', '<leader>ll', '<cmd>LspInfo<CR>', { desc = 'Lsp INFO' }) -- peek definition and make edits in window
 local on_attach = function()
     require('core.plugins.LSP.configs.lsp_keymaps')
+    local lsp_signature_config = {
+        hint_enable = false, -- virtual hint enable
+        hint_prefix = '🐼',
+        hint_scheme = 'String',
+    } -- add your config here
+
+    require('lsp_signature').on_attach(lsp_signature_config, _)
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -30,8 +37,51 @@ lspconfig['clangd'].setup({
     },
 })
 
+lspconfig.pyright.setup({
+    on_attach = function(bufnr)
+        on_attach()
+        -- 'Organize imports' keymap for pyright only
+        vim.keymap.set('n', '<Leader>lm', '<cmd>PyrightOrganizeImports<CR>', {
+            buffer = bufnr,
+            silent = true,
+            noremap = true,
+        })
+    end,
+    settings = {
+        pyright = {
+            disableOrganizeImports = false,
+            analysis = {
+                useLibraryCodeForTypes = true,
+                autoSearchPaths = true,
+                diagnosticMode = 'workspace',
+                autoImportCompletions = true,
+            },
+        },
+    },
+})
+
+-- lspconfig['pyright'].setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     filetypes = { 'python' },
+--     -- cmd = { 'pyright-langserver', '--stdio' },
+--     --root_dir = function(startpath)
+--     --       return M.search_ancestors(startpath, matcher)
+--     --  end,
+--     settings = {
+--         python = {
+--             analysis = {
+--                 autoSearchPaths = true,
+--                 diagnosticMode = 'workspace',
+--                 useLibraryCodeForTypes = true,
+--             },
+--         },
+--     },
+--     single_file_support = true,
+-- })
+
 lspconfig['cmake'].setup({
-    -- filetypes = { "camake" },
+    -- filetypes = { "cmake" },
     capabilities = capabilities,
     on_attach = on_attach,
 })
@@ -58,7 +108,7 @@ lspconfig['lua_ls'].setup({
 })
 
 lspconfig['asm_lsp'].setup({
-    -- filetypes = { "camake" },
+    filetypes = { 'asm' },
     capabilities = capabilities,
     on_attach = on_attach,
 })

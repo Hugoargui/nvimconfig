@@ -6,6 +6,7 @@ return {
         -- 'jay-babu/mason-nvim-dap.nvim',
 
         'jbyuki/one-small-step-for-vimkind',
+        'mfussenegger/nvim-dap-python',
     },
     keys = { '<leader>d' },
     config = function()
@@ -59,6 +60,8 @@ return {
                 name = 'Attach to running Neovim instance',
             },
         }
+
+        require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
         require('core.plugins.debugger.debug_mappings')
     end,
