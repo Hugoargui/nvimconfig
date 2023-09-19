@@ -16,7 +16,7 @@ int foo(int input) {
 }
 
 /**
- * @brief Does nothing
+ * @brief Does nothing but has a typo dadadfa
  *
  * This function is stupid and does nothing.
  *

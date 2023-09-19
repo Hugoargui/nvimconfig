@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 -- o       Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
 
 vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+vim.opt.spell = false -- for now, we enable it only for specific filetypes
 vim.opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 
 -----------------------------------------------------------
