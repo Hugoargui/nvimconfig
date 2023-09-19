@@ -53,8 +53,28 @@ return {
             '<cmd>lua require("various-textobjs").restOfIndentation(false)<CR>',
             { desc = 'Rest of Indentation' }
         )
+        -- Create Delete Surrounding Indentation mapping as in the documentation
+        vim.keymap.set('n', 'dsi', function()
+            -- select inner indentation
+            require('various-textobjs').indentation(true, true)
 
-        -- i and a do kind of the same.. think about reuses
+            -- plugin only switches to visual mode when a textobj has been found
+            local notOnIndentedLine = vim.fn.mode():find('V') == nil
+            if notOnIndentedLine then
+                return
+            end
+
+            -- dedent indentation
+            vim.cmd.normal({ '<', bang = true })
+
+            -- delete surrounding lines
+            local endBorderLn = vim.api.nvim_buf_get_mark(0, '>')[1] + 1
+            local startBorderLn = vim.api.nvim_buf_get_mark(0, '<')[1] - 1
+            vim.cmd(tostring(endBorderLn) .. ' delete') -- delete end first so line index is not shifted
+            vim.cmd(tostring(startBorderLn) .. ' delete')
+        end, { desc = 'Delete surrounding indentation' })
+
+        -- i and a do kind of the same.. Think about reuses
         vim.keymap.set({ 'o', 'x' }, 'ak', '<cmd>lua require("various-textobjs").key(false)<CR>', { desc = 'Key' })
         vim.keymap.set({ 'o', 'x' }, 'ik', '<cmd>lua require("various-textobjs").key(true)<CR>', { desc = 'Key' })
         vim.keymap.set({ 'o', 'x' }, 'av', '<cmd>lua require("various-textobjs").value(false)<CR>', { desc = 'Value' })

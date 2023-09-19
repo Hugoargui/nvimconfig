@@ -1,5 +1,6 @@
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    -- TODO: [] movements don't work if you just entered vim and didnt' change mode
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best
     config = function()
         require('nvim-treesitter.configs').setup({
@@ -20,6 +21,8 @@ return {
                         ['ax'] = { query = '@loop.outer', desc = 'Loop' },
                         ['id'] = { query = '@number.inner', desc = 'Number' },
                         ['ad'] = { query = '@number.inner', desc = 'Number' },
+                        ['ia'] = { query = '@parameter.inner', desc = 'Argument' },
+                        ['aa'] = { query = '@parameter.outer', desc = 'Argument' },
                     },
                 },
 
@@ -34,18 +37,22 @@ return {
                         [']z'] = { query = '@conditional.outer', desc = 'Next Conditional' },
                         [']x'] = { query = '@loop.outer', desc = 'Next Loop' },
                         [']d'] = { query = '@number.inner', desc = 'Next Number' },
+                        [']a'] = { query = '@Parameter.inner', desc = 'Next Parameter' },
+                        [']]'] = '@parameter.inner',
                     },
                     goto_next_end = {
                         [']F'] = { query = '@function.outer', desc = 'Next Function End' },
                         [']O'] = { query = '@class.outer', desc = 'Next Class End' },
                     },
                     goto_previous_start = {
+                        ['[['] = '@parameter.inner',
                         ['[f'] = { query = '@function.outer', desc = 'Previous Function Start' },
                         ['[o'] = { query = '@class.outer', desc = 'Previous Class Start' },
                         ['[c'] = { query = '@comment.outer', desc = 'Previous Comment' },
                         ['[z'] = { query = '@conditional.outer', desc = 'Previous Conditional' },
                         ['[x'] = { query = '@loop.outer', desc = 'Previous Loop' },
                         ['[d'] = { query = '@number.inner', desc = 'Previous Number' },
+                        ['[a'] = { query = '@parameter.inner', desc = 'Previous Parameter' },
                     },
                     goto_previous_end = {
                         ['[F'] = { query = '@function.outer', desc = 'Previous Function End' },

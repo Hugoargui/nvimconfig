@@ -89,7 +89,9 @@ local M = {
 
         local leader_mappings = {
             ['a'] = { name = 'Switch To Alternate .h/.cpp File' },
+            ['e'] = { name = 'File Explorer' },
             ['o'] = { name = 'Notifications' },
+            ['t'] = { name = 'Trouble Diagnostics' },
             ['c'] = { '<cmd>Themery<cr>', 'ColorSchemes' },
             q = {
                 name = 'Quit nVim',

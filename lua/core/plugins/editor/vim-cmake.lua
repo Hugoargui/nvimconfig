@@ -1,5 +1,8 @@
 return {
     {
+
+        -- TOOD: not very lazy, add keys here
+        event = 'VeryLazy',
         'cdelledonne/vim-cmake',
         cmd = { 'CMakeGenerate', 'CMakeBuild', 'CMakeClose', 'CMakeClean' },
         config = function()
