@@ -1,4 +1,4 @@
--- Plugin to sestup linters/formatters for any language server
+-- Plugin to setup linters/formatters for any language server
 return {
     'jose-elias-alvarez/null-ls.nvim',
     event = { 'BufReadPost', 'BufNewFile' },

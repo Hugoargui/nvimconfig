@@ -1,4 +1,5 @@
 return {
+    enable = false,
     'chrisgrieser/nvim-various-textobjs',
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best
     config = function()

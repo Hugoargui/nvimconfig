@@ -21,7 +21,7 @@ int foo(int input) {
  * This function is stupid and does nothing.
  *
  * @param input THe first input.
- * @param dummy SOme useless data.
+ * @param dummy Some useless data.
  * @return Nothing useful
  */
 int faa(int input, int dummy) {

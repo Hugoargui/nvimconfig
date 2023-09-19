@@ -1,9 +1,9 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        dependencies = { 'HiPhish/nvim-ts-rainbow2' },
-        -- build = ':TSUpdate',
-        -- event = { 'BufReadPost', 'BufNewFile' },
+        -- dependencies = { 'HiPhish/rainbow-delimiters.nvim' },
+        build = ':TSUpdate',
+        event = { 'BufReadPost', 'BufNewFile' },
         cmd = {
             'TSInstall',
             'TSBufEnable',
@@ -50,29 +50,6 @@ return {
                 auto_install = true,
             })
 
-            require('nvim-treesitter.configs').setup({
-                rainbow = {
-                    enable = true,
-                    -- list of languages you want to disable the plugin for
-                    -- disable = { "jsx", "cpp" },
-                    -- Which query to use for finding delimiters
-                    query = {
-                        'rainbow-parens',
-                        html = 'rainbow-tags',
-                    },
-                    -- Highlight the entire buffer all at once
-                    strategy = require('ts-rainbow').strategy.global,
-                    hlgroups = {
-                        'TSRainbowOrange',
-                        'TSRainbowBlue',
-                        'TSRainbowRed',
-                        'TSRainbowGreen',
-                        'TSRainbowViolet',
-                        'TSRainbowCyan',
-                        'TSRainbowYellow',
-                    },
-                },
-            })
             require('nvim-treesitter.parsers').get_parser_configs().asm = {
                 -- Will need to manually install :TSInstall asm
                 install_info = {

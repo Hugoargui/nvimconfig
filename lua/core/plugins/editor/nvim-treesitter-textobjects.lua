@@ -1,7 +1,9 @@
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     -- TODO: [] movements don't work if you just entered vim and didnt' change mode
+
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best
+
     config = function()
         require('nvim-treesitter.configs').setup({
             textobjects = {
