@@ -15,6 +15,17 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         }
         vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { link = 'TodoBgTODO' })
 
+        vim.api.nvim_set_hl(0, '@lsp.typemod.variable.globalScope.cpp', { link = 'DiagnosticError' })
+        vim.api.nvim_set_hl(0, '@lsp.typemod.variable.global', { link = 'DiagnosticError' })
+
+        vim.api.nvim_set_hl(0, '@lsp.typemod.variable.static.cpp', { link = 'DiagnosticWarn' })
+        vim.api.nvim_set_hl(0, '@lsp.type.method', { link = 'DiagnosticWarn' })
+
+        vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { link = 'DiagnosticOk' })
+        vim.api.nvim_set_hl(0, '@lsp.mod.readonly.cpp', { link = 'DiagnosticOk' })
+
+        vim.api.nvim_set_hl(0, '@string.cpp', { link = '@text.diff.add' })
+
         vim.api.nvim_set_hl(0, 'SpellBad', { fg = '#ff0000', underline = true })
         vim.api.nvim_set_hl(0, 'SpellCap', { fg = '#00FFFF', underline = true })
         vim.api.nvim_set_hl(0, 'SpellRare', { fg = '#FFBF00', underline = true })
@@ -91,7 +102,7 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme nightfox")
-vim.g.theme_id = 16
+vim.cmd('colorscheme nightfly')
+vim.g.theme_id = 15
 -- end themery block
 --

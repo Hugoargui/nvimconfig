@@ -23,6 +23,7 @@ return {
                 },
             },
         })
-        vim.keymap.set('n', '<leader>lt', '<cmd>TSHighlightCapturesUnderCursor<cr>', { desc = 'Cursor Treesitter HL ' })
+        -- vim.keymap.set('n', '<leader>lt', '<cmd>TSHighlightCapturesUnderCursor<cr>', { desc = 'Cursor Treesitter HL ' })
+        vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = 'Cursor Treesitter HL ' })
     end,
 }

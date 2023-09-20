@@ -4,14 +4,14 @@ return {
     event = 'LspAttach',
     config = function()
         require('neodim').setup({
-            refresh_delay = 75,
-            alpha = 0.75,
+            refresh_delay = 50,
+            alpha = 0.5,
             blend_color = '#FF0000',
             -- blend_color = '#000000',
             hide = {
-                underline = true,
-                virtual_text = true,
-                signs = true,
+                underline = false,
+                virtual_text = false,
+                signs = false,
             },
             regex = {
                 '[uU]nused',
