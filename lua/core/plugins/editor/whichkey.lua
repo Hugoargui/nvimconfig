@@ -166,6 +166,7 @@ local M = {
             },
             l = {
                 name = 'LSP',
+                k = { name = 'LSP change symbol Case' },
             },
             i = {
                 name = 'Diagnostics',

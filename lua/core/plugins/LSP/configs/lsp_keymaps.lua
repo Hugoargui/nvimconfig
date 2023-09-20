@@ -33,8 +33,8 @@ keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'Auto-Format
 
 -- ------------------------------------------------------------------------------------------------------------
 -- LSP OUTLINE
--- keymap.set('n', '<leader>lo', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
-keymap.set('n', '<leader>lo', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
+-- keymap.set('n', '<leader>ll', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
+keymap.set('n', '<leader>ll', '<cmd>SymbolsOutline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
 
 -- LSP SEARCH SYMBOLS
 keymap.set('n', '<leader>ld', '<cmd>Telescope lsp_document_symbols<CR>', { desc = 'Document Symbols' })

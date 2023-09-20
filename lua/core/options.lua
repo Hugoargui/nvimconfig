@@ -1,20 +1,6 @@
 local opt = vim.opt -- for conciseness
 vim.g.mapleader = ' ' -- it would be better on keymaps, but we want to load this before lazy.nvim
 
-vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = '*',
-    callback = function()
-        opt.formatoptions:remove({ 'c', 'r', 'o' }) -- don't continue comments on next line
-    end,
-    desc = "Don't continue comments on new line",
-})
--- We need an autocommand as otherwise ft-plugin lua overwrites this setting
--- Letter  meaning when present in 'formatOptions'
--- t       Auto-wrap text using textWidth
--- c       Auto-wrap comments using textWidth, inserting the current comment leader automatically.
--- r       Automatically insert the current comment leader after hitting <Enter> in Insert mode.
--- o       Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false -- for now, we enable it only for specific filetypes
 vim.opt.spelloptions:append({ 'camel', 'noplainbuffer' })
@@ -72,21 +58,6 @@ opt.wrap = false -- do not wrap long lines
 -- split windows below and right, more intutitive than the default
 opt.splitright = true
 opt.splitbelow = true
-
--- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        --    vim.highlight.on_yank()
-        vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 500 })
-    end,
-})
-
--- resize splits if window got resized
-vim.api.nvim_create_autocmd({ 'VimResized' }, {
-    callback = function()
-        vim.cmd('tabdo wincmd =')
-    end,
-})
 
 -----------------------------------------------------------
 -- Tabs & Indentation

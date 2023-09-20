@@ -52,12 +52,5 @@ return {
         dap.listeners.before.event_terminated['dapui_config'] = function()
             require('dapui').close()
         end
-        vim.api.nvim_create_autocmd('VimLeavePre', {
-            pattern = '*',
-            callback = function()
-                require('dapui').close()
-            end,
-            desc = "Don't leave it open, or it will have ugly buffers when reopening",
-        })
     end,
 }
