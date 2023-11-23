@@ -1,54 +1,10 @@
 return {
+    -- TODO: make lazy again
+    -- See previous commits with fullconfig
+    -- It stoped working for some reason
     'numToStr/Comment.nvim',
-    keys = { { 'gc' }, { 'gb' }, { 'gc', mode = 'v' } },
-    config = function()
-        local comment = require('Comment')
-
-        comment.setup({
-            pre_hook = function(ctx)
-                local U = require('Comment.utils')
-
-                -- Determine whether to use linewise or blockwise commentstring
-                local type = ctx.ctype == U.ctype.linewise and '__default' or '__multiline'
-
-                -- Determine the location where to calculate commentstring from
-                local location = nil
-                if ctx.ctype == U.ctype.blockwise then
-                    location = require('ts_context_commentstring.utils').get_cursor_location()
-                elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-                    location = require('ts_context_commentstring.utils').get_visual_start_location()
-                end
-
-                return require('ts_context_commentstring.internal').calculate_commentstring({
-                    key = type,
-                    location = location,
-                })
-            end,
-
-            padding = true, -- Add a space b/w comment and the line
-            sticky = true, -- Whether the cursor should stay at its position
-            ignore = '^$', -- Lines to be ignored while (un)comment
-            toggler = {
-                line = 'gcc', -- Line-comment toggle keymap
-                block = 'gbc', -- Block-comment toggle keymap
-            },
-            opleader = {
-                line = 'gc', --Line-comment keymap
-                block = 'gb', --Block-comment keymap
-            },
-            extra = {
-                above = 'gcO', --Add comment on the line above
-                below = 'gco', --Add comment on the line below
-                eol = 'gcA', --Add comment at the end of line
-            },
-            mappings = { -- If given `false` then the plugin won't create any mappings
-                --Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-                basic = true,
-                --Extra mapping; `gco`, `gcO`, `gcA`
-                extra = true,
-                --Extended mapping; `g>` `g<` `g>[count]{motion}` `g<[count]{motion}`
-                extended = false,
-            },
-        })
-    end,
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
 }

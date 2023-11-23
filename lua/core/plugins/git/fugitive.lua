@@ -1,5 +1,6 @@
 return {
     'tpope/vim-fugitive',
+    enabled = require('core.enable_plugins').fugitive,
     cmd = {
         'G',
         'Git',

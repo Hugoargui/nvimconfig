@@ -1,5 +1,6 @@
 return {
     'Badhi/nvim-treesitter-cpp-tools',
+    enabled = require('core.enable_plugins').cpptools,
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
         require('nt-cpp-tools').setup({

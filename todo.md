@@ -2,8 +2,11 @@
 - tabout plugin
 - navbuddy
 - dial
+- readline plugin github does not exist... replace by custom maps
 - mappings to add newlines above/bellow in normal/insert mode
 - mapping to "isolate the line", space above and bellow
+- check this take on word movement vs spider/smartword: 
+https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
 
 # MEDIUM TERM IDEAS
 - fix folding hydra

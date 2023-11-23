@@ -2,6 +2,7 @@
 
 return {
     'jakemason/ouroboros',
+    enabled = require('core.enable_plugins').ouroboros,
     dependencies = { { 'nvim-lua/plenary.nvim' } },
     ft = { 'cpp', 'c' },
     config = function()

@@ -1,7 +1,7 @@
 return {
     'levouh/tint.nvim',
+    enabled = require('core.enable_plugins').tint,
     event = 'VeryLazy',
-    enabled = true,
 
     opts = {
         tint = -80, -- Darquen colors, use a positive value to brighten

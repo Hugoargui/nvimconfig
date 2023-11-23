@@ -1,8 +1,8 @@
 return {
+    enabled = false, -- doesnt' work so good anymore, half lines
     'nvim-zh/colorful-winsep.nvim',
     config = true,
     event = { 'WinNew' },
-    enabled = false, -- doesnt' work so good anymore, half lines
 
     opts = {
         --     -- highlight for Window separator

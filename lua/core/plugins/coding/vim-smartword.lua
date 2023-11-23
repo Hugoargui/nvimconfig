@@ -1,5 +1,6 @@
 return {
     'anuvyklack/vim-smartword',
+    enabled = require('core.enable_plugins').smartword,
     keys = { 'W', 'E', 'B', 'Q' },
     config = function()
         -- ----------------------------------------------------

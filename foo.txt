@@ -1,0 +1,9 @@
+
+
+Error detected while processing VimLeavePre Autocommands for "*":
+E492: Not an editor command: NvimTreeClose
+Error executing lua callback: vim/_editor.lua:0: VimLeavePre Autocommands for "*"..script nvim_exec2() called at VimLeavePre Autocommands for "*":0: Vim:E492: Not an editor command: SymbolsOutlineClose
+stack traceback:
+	[C]: in function 'nvim_exec2'
+	vim/_editor.lua: in function 'cmd'
+	/home/harguinariz/.config/nvim/lua/core/autocommands.lua:48: in function </home/harguinariz/.config/nvim/lua/core/autocommands.lua:46>

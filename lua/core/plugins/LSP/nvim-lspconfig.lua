@@ -1,6 +1,7 @@
 return {
     {
         'neovim/nvim-lspconfig',
+        enabled = require('core.enable_plugins').lspconfig,
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             'folke/neodev.nvim', -- adds a bunch of vim/lua annotations/completion/etc for easier config/plugin dev

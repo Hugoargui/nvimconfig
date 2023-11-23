@@ -1,6 +1,7 @@
 return {
     {
         'gaoDean/autolist.nvim',
+        enabled = require('core.enable_plugins').autolist,
         ft = {
             'markdown',
             'text',

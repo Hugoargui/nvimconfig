@@ -1,6 +1,7 @@
 -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
 return {
     'zbirenbaum/neodim',
+    enabled = require('core.enable_plugins').neodim,
     event = 'LspAttach',
     config = function()
         require('neodim').setup({

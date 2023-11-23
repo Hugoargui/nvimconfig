@@ -1,5 +1,6 @@
 return {
     'L3MON4D3/LuaSnip',
+    enabled = require('core.enable_plugins').luasnip,
     build = 'make install_jsregexp', -- install jsregexp (optional!).
     event = 'InsertEnter',
     opts = {

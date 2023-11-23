@@ -1,6 +1,6 @@
 return {
     'jonatan-branting/nvim-better-n',
-    enabled = false,
+    enabled = require('core.enable_plugins').bettern,
 
     keys = {
         { '/' },

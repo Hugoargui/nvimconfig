@@ -1,5 +1,6 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.uv.fs_stat(lazypath) then
+-- if not vim.uv.fs_stat(lazypath) then
+if not vim.loop.fs_stat(lazypath) then
     vim.notify('Installing Lazy plugin manager, please wait...')
     vim.fn.system({
         'git',
@@ -28,7 +29,7 @@ require('lazy').setup({
         { import = 'core.plugins.theme' },
         { import = 'core.plugins.theme.colorschemes' },
         { import = 'core.plugins.ui' },
-        { import = 'core.plugins.ui.hydra' },
+        --    { import = 'core.plugins.ui.hydra' },
     },
     defaults = {
         -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

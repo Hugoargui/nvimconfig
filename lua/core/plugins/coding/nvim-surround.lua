@@ -1,6 +1,6 @@
 return {
     'kylechui/nvim-surround',
-    enabled = true,
+    enabled = require('core.enable_plugins').mini_surround,
     keys = {
         {
             'ys',

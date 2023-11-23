@@ -1,5 +1,6 @@
 return {
     'chrisgrieser/nvim-spider',
+    enabled = require('core.enable_plugins').spider,
     keys = { 'w', 'e', 'b', 'q' },
     config = function()
         require('spider').setup({

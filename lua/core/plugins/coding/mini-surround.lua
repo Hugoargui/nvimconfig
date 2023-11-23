@@ -1,6 +1,6 @@
 return {
     'echasnovski/mini.surround',
-    enabled = false,
+    enabled = require('core.enable_plugins').mini_surround,
     keys = {
         {
             'ys',

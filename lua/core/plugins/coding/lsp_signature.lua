@@ -1,7 +1,7 @@
 return {
     'ray-x/lsp_signature.nvim',
+    enabled = require('core.enable_plugins').lsp_signature,
     event = 'VeryLazy',
-    enabled = false, -- todo this gives many errors since update
 
     opts = {}, -- Real options set during on attach
     config = function(_, opts)

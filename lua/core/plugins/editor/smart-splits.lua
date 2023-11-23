@@ -1,5 +1,6 @@
 -- Better resize than default
 return {
+	enabled = false,
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     dependencies = { 'kwkarlwang/bufresize.nvim' },
     keys = {

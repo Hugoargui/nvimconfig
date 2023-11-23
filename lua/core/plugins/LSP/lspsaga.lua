@@ -1,6 +1,7 @@
 -- enhanced LSP UI
 return {
     'nvimdev/lspsaga.nvim',
+    enabled = require('core.enable_plugins').lspsaga,
     cmd = 'Lspsaga',
     opts = {
         preview = {

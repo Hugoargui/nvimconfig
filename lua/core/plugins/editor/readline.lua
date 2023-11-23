@@ -30,6 +30,6 @@ return {
         vim.keymap.set('!', '<C-u>', readline.backward_kill_line)
 
         -- vim.keymap.set('!', '<C-d>', '<esc>yypgi') -- Duplicate current line bellow -- but C-d removes one level of indention
-        vim.keymap.set('!', '<C-l>', '<C-o>dd') -- delete current line
+        -- vim.keymap.set('!', '<C-l>', '<C-o>dd') -- delete current line
     end,
 }

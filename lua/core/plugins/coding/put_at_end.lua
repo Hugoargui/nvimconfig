@@ -1,8 +1,8 @@
 -- Small Neovim plugin that provides keymaps for putting certain characters (or strings)
 -- at the end of the current line (but before the comment if the line has one) without moving your cursor.
 return {
-    enabled = true, -- would love this plugin, but can't clone it
     'rareitems/put_at_end.nvim',
+    enabled = require('core.enable_plugins').put_at_end,
     keys = {
         {
             '<leader>;',

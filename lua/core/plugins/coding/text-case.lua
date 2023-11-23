@@ -1,5 +1,6 @@
 return {
     'johmsalas/text-case.nvim',
+    enabled = require('core.enable_plugins').text_case,
     keys = {
 
         { 'ga', desc = 'Caseh Changing' },

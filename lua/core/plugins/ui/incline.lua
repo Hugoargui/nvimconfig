@@ -1,7 +1,7 @@
 return {
     'b0o/incline.nvim',
+    enabled = require('core.enable_plugins').incline,
     event = 'VeryLazy',
-    enabled = false,
 
     opts = {
         debounce_threshold = {

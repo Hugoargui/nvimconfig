@@ -1,4 +1,5 @@
 return {
+    enabled = require('core.enable_plugins').cokeline,
     'noib3/nvim-cokeline',
     event = 'VeryLazy',
     config = function()

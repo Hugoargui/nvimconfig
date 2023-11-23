@@ -1,5 +1,6 @@
 return {
     'lewis6991/gitsigns.nvim',
+    enabled = require('core.enable_plugins').gitsigns,
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
         local gitsigns = require('gitsigns')

@@ -1,5 +1,6 @@
 return {
     'gbprod/substitute.nvim',
+    enabled = require('core.enable_plugins').substitute,
     keys = {
         {
             's',

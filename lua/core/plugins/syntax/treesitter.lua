@@ -1,7 +1,7 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        -- dependencies = { 'HiPhish/rainbow-delimiters.nvim' },
+        enabled = require('core.enable_plugins').treesitter,
         build = ':TSUpdate',
         event = { 'BufReadPost', 'BufNewFile' },
         cmd = {

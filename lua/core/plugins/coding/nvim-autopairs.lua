@@ -1,5 +1,6 @@
 return {
     'windwp/nvim-autopairs',
+    enabled = require('core.enable_plugins').autopairs,
     event = 'InsertEnter',
     dependencies = { 'hrsh7th/nvim-cmp' },
     opts = {

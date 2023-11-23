@@ -3,7 +3,8 @@
 require('lspconfig.ui.windows').default_options.border = 'single'
 
 local lspconfig = require('lspconfig')
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
+-- TODO::reenable when I fix issues
+-- local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = 'Lsp INFO' })
 vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = 'Cursor Treesitter HL ' })
@@ -22,7 +23,8 @@ local on_attach = function()
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
+-- TODO::reenable when I fix issues
+-- local capabilities = cmp_nvim_lsp.default_capabilities()
 
 lspconfig['clangd'].setup({
     -- filetypes = { "hpp", "h", "c", "cpp", "objc", "objcpp" },

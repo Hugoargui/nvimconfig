@@ -1,5 +1,6 @@
 local M = {
     'hrsh7th/nvim-cmp',
+    enabled = require('core.enable_plugins').nvim_cmp,
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',

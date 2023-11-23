@@ -1,5 +1,6 @@
 return {
     'gbprod/cutlass.nvim',
+    enabled = require('core.enable_plugins').cutlass,
     -- all keys  must be here, not just m/M,  otherwise if I press d before cutlass has been loaded, it will work as without cutlass.
     keys = {
         'd',

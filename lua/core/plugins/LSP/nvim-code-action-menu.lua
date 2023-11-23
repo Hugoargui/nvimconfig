@@ -1,6 +1,7 @@
 -- Better looking code actions menu than default
 return {
     'weilbith/nvim-code-action-menu',
+    enabled = require('core.enable_plugins').code_action_menu,
 
     cmd = { 'CodeActionMenu' },
     keys = {

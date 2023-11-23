@@ -65,6 +65,8 @@ end
 
 local M = {
     'nvim-lualine/lualine.nvim',
+    -- enabled = require('core.enable_plugins').lualine,
+    enabled = true,
     event = 'VeryLazy',
     opts = function()
         local macro_refresh_places = { 'statusline', 'winbar' }

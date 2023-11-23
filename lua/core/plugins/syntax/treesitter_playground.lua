@@ -2,6 +2,7 @@ return {
 
     'nvim-treesitter/playground',
     -- TODO don't always load
+    enabled = require('core.enable_plugins').treesitter_playground,
     config = function()
         require('nvim-treesitter.configs').setup({
             playground = {

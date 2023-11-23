@@ -1,5 +1,6 @@
 return {
     'akinsho/toggleterm.nvim',
+    enabled = require('core.enable_plugins').toggleterm,
     keys = { '<c-f>', '<m-t>', '<c-t>' },
     config = function()
         local toggleterm = require('toggleterm')
