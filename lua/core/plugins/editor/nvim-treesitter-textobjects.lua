@@ -1,5 +1,6 @@
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    enabled = require('core.enable_plugins').treesitter_textobjects,
     -- TODO: [] movements don't work if you just entered vim and didnt' change mode
 
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best

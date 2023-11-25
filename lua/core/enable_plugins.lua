@@ -29,7 +29,7 @@ return {
     fugitive = true,
 
     -- LSP
-    lspsaga = false,
+    lspsaga = true,
     mason = true,
     neodim = false,
     code_action_menu = false,
@@ -53,9 +53,9 @@ return {
 
     -- UI
     cokeline = false,
-    winsep = false,
+    winsep = true,
     incline = false,
     lualine = true,
     noice = true,
-    tint = false,
+    tint = true,
 }

@@ -2,7 +2,7 @@
 -- I don't realy need it unless I'm installing new DAP adapters, so just enable it on demand.
 return {
     'jay-babu/mason-nvim-dap.nvim',
-    enabled = false,
+    enabled = require('core.enable_plugins').mason_dap,
     lazy = true,
     config = function()
         require('mason-nvim-dap').setup({

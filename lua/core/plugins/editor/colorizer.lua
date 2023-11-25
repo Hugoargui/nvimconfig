@@ -1,5 +1,6 @@
 return {
     'norcalli/nvim-colorizer.lua',
+    enabled = require('core.enable_plugins').colorizer,
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
         local colorizer = require('colorizer')

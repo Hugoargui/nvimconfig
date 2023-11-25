@@ -1,5 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
+    enabled = require('core.enable_plugins').telescope,
     module = true,
     cmd = 'Telescope',
     dependencies = {

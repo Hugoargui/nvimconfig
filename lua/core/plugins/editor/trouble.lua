@@ -1,5 +1,6 @@
 return {
     'folke/trouble.nvim',
+    enabled = require('core.enable_plugins').trouble,
     config = true,
     keys = {
         { '<leader>tt', '<cmd>TroubleToggle<CR>', { desc = 'Trouble Toggle' } },

@@ -1,6 +1,7 @@
 return {
     'linty-org/readline.nvim',
     event = 'InsertEnter',
+    enabled = require('core.enable_plugins').readline,
     config = function()
         local readline = require('readline')
 

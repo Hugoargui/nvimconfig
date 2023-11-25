@@ -2,6 +2,7 @@ return {
     'Badhi/nvim-treesitter-cpp-tools',
     enabled = require('core.enable_plugins').cpptools,
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    ft = { 'cpp', 'c' },
     config = function()
         require('nt-cpp-tools').setup({
             preview = {
@@ -26,12 +27,12 @@ return {
         })
         vim.keymap.set(
             { 'n', 'v' },
-            '<leader>af',
+            '<leader>+f',
             '<cmd>TSCppDefineClassFunc<cr>',
-            { desc = 'Implement Class Functions' }
+            { desc = '💻 Implement Class Functions' }
         )
-        vim.keymap.set({ 'n', 'v' }, '<leader>av', '<cmd>TSCppMakeConcreteClass<cr>', { desc = 'Concrete Class' })
-        vim.keymap.set({ 'n', 'v' }, '<leader>a3', '<cmd>TSCppRuleOf3<cr>', { desc = 'Rule of 3' })
-        vim.keymap.set({ 'n', 'v' }, '<leader>a5', '<cmd>TSCppRuleOf5<cr>', { desc = 'Rule of 5' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>+v', '<cmd>TSCppMakeConcreteClass<cr>', { desc = ' Concrete Class' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>+3', '<cmd>TSCppRuleOf3<cr>', { desc = ' Rule of 3' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>+5', '<cmd>TSCppRuleOf5<cr>', { desc = ' Rule of 5' })
     end,
 }

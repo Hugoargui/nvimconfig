@@ -12,7 +12,6 @@ https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
 - fix folding hydra
 - spellchecker
 - incremental selection
-- move shortcuts to open files from <leader> mappings to \ mappings (\is file, \\ is folders). Maybe add a permanent todo
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
 - improve search and replace workflow, by example by using Spectre
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.

@@ -1,5 +1,6 @@
 return {
     'ThePrimeagen/harpoon',
+    enabled = require('core.enable_plugins').harpoon,
     dependencies = 'nvim-lua/plenary.nvim',
     keys = {
         {

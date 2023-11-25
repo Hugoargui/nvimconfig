@@ -1,6 +1,6 @@
 return {
-    enabled = false,
     'chrisgrieser/nvim-various-textobjs',
+    enabled = require('core.enable_plugins').various_textobjects,
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best
     config = function()
         require('various-textobjs').setup({

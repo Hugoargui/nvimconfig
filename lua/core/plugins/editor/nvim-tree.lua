@@ -1,5 +1,6 @@
 local icons = require('core.icons').icons
 return {
+    enabled = require('core.enable_plugins').nvim_tree,
     'nvim-tree/nvim-tree.lua',
     keys = { '<leader>e' },
     -- keys = {

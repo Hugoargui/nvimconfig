@@ -1,6 +1,7 @@
 -- Plugin to setup linters/formatters for any language server
 return {
     'jose-elias-alvarez/null-ls.nvim',
+    enabled = require('core.enable_plugins').null_ls,
     event = { 'BufReadPost', 'BufNewFile' },
     dependencies = {
         'jayp0521/mason-null-ls.nvim', -- bridges gap b/w mason & null-ls

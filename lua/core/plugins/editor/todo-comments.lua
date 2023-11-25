@@ -1,5 +1,6 @@
 return {
     'folke/todo-comments.nvim',
+    enabled = require('core.enable_plugins').todo_comments,
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'TodoLocList', 'TodoTelescope', 'TodoQuickFix', 'TodoTrouble' },
     keys = {

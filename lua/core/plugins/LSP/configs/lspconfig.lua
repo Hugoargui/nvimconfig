@@ -3,11 +3,10 @@
 require('lspconfig.ui.windows').default_options.border = 'single'
 
 local lspconfig = require('lspconfig')
--- TODO::reenable when I fix issues
--- local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
-vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = 'Lsp INFO' })
-vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = 'Cursor Treesitter HL ' })
+vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
+vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨Cursor Treesitter HL ' })
 
 local on_attach = function()
     -- enable keybinds only for when lsp server available

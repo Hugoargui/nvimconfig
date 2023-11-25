@@ -1,5 +1,6 @@
 return {
     'iamcco/markdown-preview.nvim',
+    enabled = require('core.enable_plugins').markdown_preview,
     build = function()
         vim.fn['mkdp#util#install']()
     end,
@@ -14,19 +15,17 @@ return {
         -- default: 1
         vim.g.mkdp_auto_close = 1
 
-        -- TODO: consider a way to make the mapping show up only in markdown files, can't be botthered to investigate autocommands now
-        -- local function registerKeymap()
-        vim.keymap.set(
-            'n',
-            '<leader>p',
-            '<cmd>MarkdownPreview<CR>',
-            { noremap = false, silent = true, desc = 'Launch Markdown Preview' }
-        )
-
         vim.cmd(
             "let g:markdown_fenced_languages = ['cpp', 'c', 'python', 'html', 'javascript', 'typescript', 'vim', 'lua', 'css']"
         )
-        -- end
-        -- vim.cmd("autocmd FileType markdown lua registerKeymap()")
+
+        local wkl = require('which-key')
+
+        vim.cmd('autocmd FileType markdown lua RegisterKeyMap()')
+        function RegisterKeyMap()
+            wkl.register({
+                ['p'] = { '<cmd>MarkdownPreview<CR>', '👁️ Launch Markdown Preview' },
+            }, { prefix = '<leader>', buffer = 0 })
+        end
     end,
 }

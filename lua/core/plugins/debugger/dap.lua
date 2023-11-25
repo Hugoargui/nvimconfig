@@ -1,5 +1,6 @@
 return {
     'mfussenegger/nvim-dap',
+    enabled = require('core.enable_plugins').dap,
     dependencies = {
         -- PERF: this plugin is very slow to load >500ms and significantly slows down neovim startup
         -- I don't realy need it unless I'm installing new DAP adapters, so just enable it on demand.

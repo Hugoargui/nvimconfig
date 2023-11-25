@@ -1,5 +1,6 @@
 return {
     'AntonVanAssche/md-headers.nvim',
+    enabled = require('core.enable_plugins').md_headers,
     dependencies = {
         'nvim-lua/plenary.nvim',
     },

@@ -1,5 +1,6 @@
 return {
     'rcarriga/nvim-dap-ui',
+    enabled = require('core.enable_plugins').dap_ui,
     dependencies = { 'mfussenegger/nvim-dap' },
     keys = { '<lader>du' },
     config = function()

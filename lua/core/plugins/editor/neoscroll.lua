@@ -1,5 +1,6 @@
 return {
     'karb94/neoscroll.nvim',
+    enabled = require('core.enable_plugins').neoscroll,
     event = { 'BufReadPost', 'BufNewFile' },
     opts = {
         mappings = { '<C-u>', '<C-d>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
