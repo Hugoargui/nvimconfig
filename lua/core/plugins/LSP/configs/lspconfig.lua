@@ -6,7 +6,7 @@ local lspconfig = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
-vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨Cursor Treesitter HL ' })
+vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨 Cursor Treesitter HL ' })
 
 local on_attach = function()
     -- enable keybinds only for when lsp server available

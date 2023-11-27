@@ -158,7 +158,10 @@ local M = {
             },
             l = {
                 name = '   LSP',
+                -- TODO: this don't show
                 k = { name = ' LSP change symbol Case' },
+                n = { name = 'LSP swap with next' },
+                l = { name = 'LSP swap with previous' },
             },
             i = {
                 name = '   Diagnostics',

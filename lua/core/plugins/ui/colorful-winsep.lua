@@ -4,10 +4,10 @@ return {
     event = { 'WinNew' },
     config = function()
         require('colorful-winsep').setup({
-            highlight = {
-                guifg = '#1f3442',
-                guibg = '#1F3442',
-            },
+            -- highlight = {
+            --     guifg = '#1f3442',
+            --     guibg = '#1F3442',
+            -- },
             -- timer refresh rate
             interval = 30,
             --     -- This plugin will not be activated for filetype in the following table.
