@@ -27,7 +27,7 @@ return {
         })
         vim.keymap.set(
             { 'n', 'v' },
-            '<leader>+f',
+            '<leader>af',
             '<cmd>TSCppDefineClassFunc<cr>',
             { desc = '💻 Implement Class Functions' }
         )

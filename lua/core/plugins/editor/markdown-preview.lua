@@ -21,11 +21,12 @@ return {
 
         local wkl = require('which-key')
 
-        vim.cmd('autocmd FileType markdown lua RegisterKeyMap()')
-        function RegisterKeyMap()
+        vim.cmd('autocmd FileType markdown lua RegisterPreviewKeymap()')
+        function RegisterPreviewKeymap()
             wkl.register({
+                name = '   Markdown specific actions',
                 ['p'] = { '<cmd>MarkdownPreview<CR>', '👁️ Launch Markdown Preview' },
-            }, { prefix = '<leader>', buffer = 0 })
+            }, { prefix = '<leader>a', buffer = 0 })
         end
     end,
 }
