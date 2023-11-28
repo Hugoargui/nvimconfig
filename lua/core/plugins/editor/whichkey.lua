@@ -89,7 +89,7 @@ local M = {
         }
 
         local leader_mappings = {
-            ['+'] = { name = '   CPP specific options' },
+            ['a'] = { name = '   CPP specific options' },
             ['e'] = { name = '   File Explorer' },
             ['c'] = { '<cmd>Themery<cr>', '🎨 ColorSchemes' },
 

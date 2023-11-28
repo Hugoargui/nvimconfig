@@ -11,9 +11,9 @@ return {
     nvim_cmp = true,
     spider = true,
     surround = false,
-    cpptools = false,
+    cpptools = true,
     ts_context_comments = false,
-    ouroboros = false,
+    ouroboros = true,
     put_at_end = false,
     substitute = true,
     text_case = false,
@@ -23,6 +23,19 @@ return {
     -- DEBUGGER
 
     -- EDITOR
+    colorizer = false,
+    eyeliner = true,
+    harpoon = true,
+    headlines = false,
+    icon_picker = true,
+    markdown_preview = true,
+    md_headers = true,
+    neoscroll = true,
+    null_ls = true,
+    nvim_tree = true,
+    treesitter_textobjects = true,
+    ufo = true,
+    -- TODO: the rest, and check the names match
 
     -- GIT
     gitsigns = true,

@@ -1,13 +1,14 @@
 -- ADD A BORDER AROUND LSPCONFIG WINDOW TO MAKE IT MORE READABLE
-
 require('lspconfig.ui.windows').default_options.border = 'single'
 
 local lspconfig = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
+-- Outside of attach as we want this to be available even when no LSP is attached.
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
 vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨 Cursor Treesitter HL ' })
 
+-- TODO: See how Josean does to make this buffer dependent
 local on_attach = function()
     -- enable keybinds only for when lsp server available
     require('core.plugins.LSP.configs.lsp_keymaps')
@@ -22,8 +23,8 @@ local on_attach = function()
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
--- TODO::reenable when I fix issues
--- local capabilities = cmp_nvim_lsp.default_capabilities()
+-- TODO:: Does enabling this cause lag or problems?
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 lspconfig['clangd'].setup({
     -- filetypes = { "hpp", "h", "c", "cpp", "objc", "objcpp" },
@@ -40,29 +41,6 @@ lspconfig['clangd'].setup({
         '--offset-encoding=utf-16',
     },
 })
-
--- lspconfig.pyright.setup({
---     on_attach = function(bufnr)
---         on_attach()
---         -- 'Organize imports' keymap for pyright only
---         vim.keymap.set('n', '<Leader>lm', '<cmd>PyrightOrganizeImports<CR>', {
---             buffer = bufnr,
---             silent = true,
---             noremap = true,
---         })
---     end,
---     settings = {
---         pyright = {
---             disableOrganizeImports = false,
---             analysis = {
---                 useLibraryCodeForTypes = true,
---                 autoSearchPaths = true,
---                 diagnosticMode = 'workspace',
---                 autoImportCompletions = true,
---             },
---         },
---     },
--- })
 
 lspconfig['pyright'].setup({
     on_attach = on_attach,
@@ -85,12 +63,12 @@ lspconfig['pyright'].setup({
 })
 
 lspconfig['cmake'].setup({
-    -- filetypes = { "cmake" },
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 -- configure lua server (with special settings)
+--TODO: LSP lua doesn't connect on open vim, only on jumping to lua buffer
 lspconfig['lua_ls'].setup({
     capabilities = capabilities,
     on_attach = on_attach,
@@ -110,9 +88,3 @@ lspconfig['lua_ls'].setup({
         },
     },
 })
-
--- lspconfig['asm_lsp'].setup({
---     filetypes = { 'asm' },
---     capabilities = capabilities,
---     on_attach = on_attach,
--- })

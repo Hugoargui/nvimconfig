@@ -31,8 +31,8 @@ return {
             '<cmd>TSCppDefineClassFunc<cr>',
             { desc = '💻 Implement Class Functions' }
         )
-        vim.keymap.set({ 'n', 'v' }, '<leader>+v', '<cmd>TSCppMakeConcreteClass<cr>', { desc = ' Concrete Class' })
-        vim.keymap.set({ 'n', 'v' }, '<leader>+3', '<cmd>TSCppRuleOf3<cr>', { desc = ' Rule of 3' })
-        vim.keymap.set({ 'n', 'v' }, '<leader>+5', '<cmd>TSCppRuleOf5<cr>', { desc = ' Rule of 5' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>ac', '<cmd>TSCppMakeConcreteClass<cr>', { desc = ' Concrete Class' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>at', '<cmd>TSCppRuleOf3<cr>', { desc = ' Rule of 3' })
+        vim.keymap.set({ 'n', 'v' }, '<leader>af', '<cmd>TSCppRuleOf5<cr>', { desc = ' Rule of 5' })
     end,
 }
