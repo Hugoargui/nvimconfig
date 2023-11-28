@@ -1,5 +1,6 @@
 return {
     'anuvyklack/hydra.nvim',
+    enabled = require('core.enable_plugins').hydra,
     lazy = true,
     keys = { '<leader>e', '~', 'z', '<leader>w' },
     dependencies = {

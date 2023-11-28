@@ -1,4 +1,5 @@
 return {
+    hydra = false,
     -- CODING
     autolist = false,
     comment = true,

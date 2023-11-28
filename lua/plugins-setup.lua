@@ -29,7 +29,7 @@ require('lazy').setup({
         { import = 'core.plugins.theme' },
         { import = 'core.plugins.theme.colorschemes' },
         { import = 'core.plugins.ui' },
-        --    { import = 'core.plugins.ui.hydra' },
+        { import = 'core.plugins.ui.hydra' },
     },
     defaults = {
         -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
