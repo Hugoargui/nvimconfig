@@ -25,7 +25,7 @@ return {
     -- DEBUGGER
 
     -- EDITOR
-    colorizer = false,
+    colorizer = true,
     eyeliner = true,
     harpoon = true,
     headlines = false,
@@ -45,7 +45,7 @@ return {
 
     -- LSP
     lspsaga = true,
-    mason = true,
+    mason = true, -- Not so long to load, but why waste time when I don't install stuff so often
     neodim = false,
     code_action_menu = false,
     lspconfig = true,

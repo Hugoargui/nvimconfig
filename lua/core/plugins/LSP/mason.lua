@@ -2,6 +2,7 @@ local M = {
     'williamboman/mason.nvim',
     enabled = require('core.enable_plugins').mason,
     event = 'VeryLazy',
+
     dependencies = {
         { 'williamboman/mason-lspconfig.nvim', module = 'mason' },
         { 'jayp0521/mason-null-ls.nvim' }, -- bridges gap b/w mason & null-ls

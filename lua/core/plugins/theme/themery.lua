@@ -6,23 +6,23 @@ return {
         livePreview = true, -- Apply theme while browsing. Default to true.
         themes = {
             {
-                name = 'AstroTheme',
+                name = '🚀 AstroTheme',
                 colorscheme = 'astrotheme',
             },
             {
-                name = 'Ayu',
+                name = '🥋 Ayu',
                 colorscheme = 'ayu',
             },
             {
-                name = 'Bluloco',
+                name = '🤡 Bluloco',
                 colorscheme = 'bluloco',
             },
             {
-                name = 'Catppuccin',
+                name = '😺 Catppuccin',
                 colorscheme = 'catppuccin',
             },
             {
-                name = 'Decay',
+                name = '  Decay',
                 colorscheme = 'decay',
             },
             -- -- with colorbuddy and so on it's very slow to load and gives too much trouble
@@ -32,75 +32,71 @@ return {
             --     before = [[require('colorbuddy').colorscheme('cobalt2')]],
             -- },
             {
-                name = 'Everforest',
+                name = '🌲 Everforest',
                 colorscheme = 'everforest',
             },
             {
-                name = 'Dracula',
+                name = '🧛 Dracula',
                 colorscheme = 'dracula',
             },
             {
-                name = 'Gruvbox',
+                name = '🤎 Gruvbox',
                 colorscheme = 'gruvbox',
             },
             {
-                name = 'Kanagawa',
+                name = '㊗️ Kanagawa',
                 colorscheme = 'kanagawa',
             },
             {
-                name = 'Melange',
+                name = '理  Melange',
                 colorscheme = 'melange',
             },
             {
-                name = 'Mellow',
+                name = '🛌 Mellow',
                 colorscheme = 'mellow',
             },
             {
-                name = 'Midnight',
+                name = '  Midnight',
                 colorscheme = 'midnight',
             },
             {
-                name = 'Mine Shaft',
-                colorscheme = 'mine-shaft',
-            },
-            {
-                name = 'MoonFly',
+                name = '🌕 MoonFly',
                 colorscheme = 'moonfly',
             },
             {
-                name = 'NightFly',
+                name = '🌙 NightFly',
                 colorscheme = 'nightfly',
             },
             {
-                name = 'Night Fox',
+                name = '🦊 Night Fox',
                 colorscheme = 'nightfox',
             },
             {
-                name = 'Nord',
+                name = '  Nord',
                 colorscheme = 'nord',
             },
             {
-                name = 'OneDark',
+                name = '⧫  OneDark',
                 colorscheme = 'onedark',
             },
             {
-                name = 'OxoCarbon',
+                name = '  OxoCarbon',
                 colorscheme = 'oxocarbon',
             },
             {
-                name = 'Rose Pine',
+                name = '🍷 Rose Pine',
                 colorscheme = 'rose-pine',
             },
             {
-                name = 'Tokyo Night',
+                name = '🗼 Tokyo Night',
                 colorscheme = 'tokyonight',
             },
             {
-                name = 'Tundra',
+                name = '  Tundra',
                 colorscheme = 'tundra',
             },
             {
-                name = 'Zephyr',
+                name = '  Zephyr',
                 colorscheme = 'zephyr',
             },
         },

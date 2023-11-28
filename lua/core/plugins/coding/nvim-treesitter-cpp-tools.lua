@@ -41,7 +41,6 @@ return {
                 }, { prefix = '<leader>a', buffer = 0 })
             end
         else
-            -- If not whichkey, this wil lbe available for all filetypes
             vim.keymap.set(
                 { 'n', 'v' },
                 '<leader>ai',

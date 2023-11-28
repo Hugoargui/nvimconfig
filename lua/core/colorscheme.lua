@@ -13,6 +13,12 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
             vertright = '├',
             verthoriz = '┼',
         }
+        vim.api.nvim_set_hl(0, 'WhichKey', { link = 'Function' }) -- They key
+        vim.api.nvim_set_hl(0, 'WhichKeySeparator', { link = 'WhichKey' }) -- The separator between the key and its label
+        vim.api.nvim_set_hl(0, 'WhichKeyDesc', { link = 'WhichKey' }) -- The key description
+        vim.api.nvim_set_hl(0, 'WhichkeyGroup', { link = 'WhichKey' }) -- A group description
+        vim.api.nvim_set_hl(0, 'WhichKeyValue', { link = 'WhichKey' }) -- Used by plugins that provide values
+
         vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { link = 'TodoBgTODO' })
 
         vim.api.nvim_set_hl(0, '@lsp.typemod.variable.globalScope.cpp', { link = 'DiagnosticError' })
@@ -103,7 +109,7 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme catppuccin")
-vim.g.theme_id = 4
+vim.cmd('colorscheme tokyonight')
+vim.g.theme_id = 20
 -- end themery block
 --
