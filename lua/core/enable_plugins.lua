@@ -1,5 +1,6 @@
 return {
     hydra = false,
+    whichkey = true,
     -- CODING
     autolist = false,
     comment = true,

@@ -19,14 +19,19 @@ return {
             "let g:markdown_fenced_languages = ['cpp', 'c', 'python', 'html', 'javascript', 'typescript', 'vim', 'lua', 'css']"
         )
 
-        local wkl = require('which-key')
+        local wk_enabled = require('core.enable_plugins').whichkey
+        if wk_enabled then
+            local wkl = require('which-key')
 
-        vim.cmd('autocmd FileType markdown lua RegisterPreviewKeymap()')
-        function RegisterPreviewKeymap()
-            wkl.register({
-                name = '   Markdown specific actions',
-                ['p'] = { '<cmd>MarkdownPreview<CR>', '👁️ Launch Markdown Preview' },
-            }, { prefix = '<leader>a', buffer = 0 })
+            vim.cmd('autocmd FileType markdown lua RegisterPreviewKeymap()')
+            function RegisterPreviewKeymap()
+                wkl.register({
+                    name = '   Markdown specific actions',
+                    ['p'] = { '<cmd>MarkdownPreview<CR>', '👁️ Launch Markdown Preview' },
+                }, { prefix = '<leader>a', buffer = 0 })
+            end
+        else
+            vim.keymap.set('n', '<leader>ap', '<cmd>MarkdownPreview<CR>', '👁️ Launch Markdown Preview')
         end
     end,
 }

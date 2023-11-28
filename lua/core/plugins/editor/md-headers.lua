@@ -12,22 +12,19 @@ return {
             borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         })
 
-        -- -- TODO:  make it appear only in markdown files
-        -- vim.keymap.set(
-        --     'n',
-        --     '<leader>sm',
-        --     '<cmd>MarkdownHeadersClosest<CR>', -- there is the option without "closest" that goes to the first item
-        --     { noremap = false, silent = true, desc = 'Navigate Markdown Headers' }
-        -- )
+        local wk_enabled = require('core.enable_plugins').whichkey
+        if wk_enabled then
+            local wkl = require('which-key')
 
-        local wkl = require('which-key')
-
-        vim.cmd('autocmd FileType markdown lua RegisterHeaderKeymap()')
-        function RegisterHeaderKeymap()
-            wkl.register({
-                name = '   Markdown specific actions',
-                ['a'] = { '<cmd>MarkdownHeadersClosest<CR>', '⛵Navigate Markdown Headers' },
-            }, { prefix = '<leader>a', buffer = 0 })
+            vim.cmd('autocmd FileType markdown lua RegisterHeaderKeymap()')
+            function RegisterHeaderKeymap()
+                wkl.register({
+                    name = '   Markdown specific actions',
+                    ['a'] = { '<cmd>MarkdownHeadersClosest<CR>', '⛵Navigate Markdown Headers' },
+                }, { prefix = '<leader>a', buffer = 0 })
+            end
+        else
+            vim.keymap.set('n', '<leader>aa', '<cmd>MarkdownHeadersClosest<CR>', '⛵Navigate Markdown Headers')
         end
     end,
 }

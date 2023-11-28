@@ -20,7 +20,7 @@ int foo(int input) {
  *
  * This function is stupid and does nothing.
  *
- * @param input THe first input.
+ * @param input The first input.
  * @param dummy Some useless data.
  * @return Nothing useful
  */
