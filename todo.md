@@ -1,12 +1,9 @@
 # NEAR FUTURE 
-- readline plugin github does not exist... Replace by custom maps
 - tabout plugin
 - navbuddy
 - dial
-- mappings to add newlines above/bellow in normal/insert mode
-- mapping to "isolate the line", space above and bellow in one go
 - check this take on word movement vs spider/smartword: 
-https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
+    https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
 
 # MEDIUM TERM IDEAS
 - incremental selection
@@ -39,3 +36,4 @@ this are pretty big changes that I'd like to explore someday, but are not critic
 - try multicursors
 - try ideas from this video https://www.youtube.com/watch?v=U420QymHjlA
 - AI (copilot or similar)
+

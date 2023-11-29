@@ -182,6 +182,10 @@ local M = {
                 k = { '<cmd>Telescope keymaps<cr>', '  Keymaps' },
                 c = { '<cmd>Telescope commands<cr>', 'ﯯ  Commands' },
             },
+            -- TODO: maybe only enable this if spellchecking is enabled in this buffer
+            z = {
+                name = '了  Spell Checking',
+            },
         }
 
         require('which-key').setup(setup)

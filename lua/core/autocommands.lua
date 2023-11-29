@@ -1,13 +1,7 @@
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'txt', 'md', 'c', 'cpp', 'h', 'markdown' },
+    pattern = { 'html', 'markdown', 'text', 'c', 'cpp', 'h' },
     callback = function()
-        vim.opt.spell = true
-    end,
-})
-vim.api.nvim_create_autocmd('WinLeave', {
-    pattern = '*',
-    callback = function()
-        vim.opt.spell = false
+        vim.opt_local.spell = true
     end,
 })
 

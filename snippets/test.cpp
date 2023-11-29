@@ -24,6 +24,7 @@ int foo(int input) {
  * @param dummy Some useless data.
  * @return Nothing useful
  */
+/// faaa
 int faa(int input, int dummy) {
   if (input > 0) {
     return 100;
