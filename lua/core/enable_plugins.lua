@@ -2,7 +2,7 @@ return {
     hydra = false,
     whichkey = true,
     -- CODING
-    autolist = false,
+    autolist = true,
     comment = true,
     cutlass = true,
     lsp_signature = false, -- many errors since update
@@ -28,7 +28,7 @@ return {
     colorizer = true,
     eyeliner = true,
     harpoon = true,
-    headlines = false,
+    headlines = false, -- Highlights for markdown, orgmode etc
     icon_picker = true,
     markdown_preview = true,
     md_headers = true,
@@ -37,7 +37,15 @@ return {
     nvim_tree = true,
     treesitter_textobjects = true,
     ufo = true,
-    -- TODO: the rest, and check the names match
+    smart_splits = true,
+    telescope = true,
+    todo_comments = true,
+    trouble = true,
+    various_textobjects = true,
+    bbye = true,
+    vim_cmake = true,
+    vim_maximizer = true,
+    winshift = true,
 
     -- GIT
     gitsigns = true,
