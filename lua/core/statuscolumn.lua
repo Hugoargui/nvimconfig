@@ -27,6 +27,18 @@ function M.column()
     return table.concat(components, '')
 end
 
-vim.opt.statuscolumn = [[%!v:lua.Status.column()]]
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+-- vim.o.statuscolumn = '%=%l%s%C'
+-- vim.opt.statuscolumn = [[%!v:lua.Status.column()]]
+vim.o.statuscolumn =
+    -- '%=%l%s%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? " " : " ") : "  " }'
+    -- '%=%s%l%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "  " : "  ") : "   " }'
+    '%=%s%l%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "  " : "  ") : "   " }'
 
+-- vim.opt.fillchars:append({ fold = ' ' })
+-- vim.opt.fillchars:append({ foldopen = '' })
+-- vim.opt.fillchars:append({ foldclose = '' })
 return M

@@ -1,4 +1,7 @@
 # NEAR FUTURE 
+- Signcolum with which I'm happy
+- Arpeggio -> jf=escape... asdf for page scrolling, hjkl for window
+- Arpeggio for number motions (w+k = 5w for example)
 - tabout plugin
 - navbuddy
 - dial
@@ -8,7 +11,6 @@
 # MEDIUM TERM IDEAS
 - incremental selection
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
-- improve search and replace workflow, by example by using Spectre
 - terminal is more usable now but: escape inside lazygit goes into insert mode instead of closing commit window, fix this.
 - tabs (viewports) workflow. Switching, and unique buffers per tab.
 - better qf list, and learn to use it
@@ -20,6 +22,7 @@
     - lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
 
 # LONG TIME IDEAS, NOT URGENT
+- improve search and replace workflow, by example by using Spectre
 - remove cursor when navigating nerdtree
 - FLASH jump plugin
 - still not totally happy with yank interface

@@ -3,9 +3,7 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
     callback = function()
         -- Improve splits with thinner lines than default and avoid colors from colorschemes
         vim.opt.fillchars = {
-            -- horiz = "─",
             horiz = '━',
-            --     horiz = '─',
             horizup = '┴',
             horizdown = '┬',
             vert = '│',
@@ -13,6 +11,13 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
             vertright = '├',
             verthoriz = '┼',
         }
+
+        -- -- with what we're doin in statuscolun not needed
+        -- vim.opt.fillchars:append({ fold = ' ' })
+        -- vim.opt.fillchars:append({ foldopen = '' })
+        -- vim.opt.fillchars:append({ foldclose = '' })
+        -- vim.opt.fillchars:append({ foldsep = '│' })
+
         vim.api.nvim_set_hl(0, 'WhichKey', { link = 'Function' }) -- They key
         vim.api.nvim_set_hl(0, 'WhichKeySeparator', { link = 'WhichKey' }) -- The separator between the key and its label
         vim.api.nvim_set_hl(0, 'WhichKeyDesc', { link = 'WhichKey' }) -- The key description
@@ -40,8 +45,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 
         -- vim.cmd([[ highlight VertSplit   guibg=none ]])
         vim.api.nvim_set_hl(0, 'StatusLineNc', { bg = 'none' })
-
-        vim.opt.fillchars:append({ eob = ' ' }) -- hide ~ in empty lines
 
         vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'TelescopeBorder' })
         vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { link = 'TelescopeBorder' })
@@ -109,7 +112,7 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd('colorscheme tokyonight')
-vim.g.theme_id = 20
+vim.cmd("colorscheme gruvbox")
+vim.g.theme_id = 8
 -- end themery block
 --
