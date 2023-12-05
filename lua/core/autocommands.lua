@@ -38,8 +38,14 @@ vim.api.nvim_create_autocmd({ 'VimResized' }, {
 vim.api.nvim_create_autocmd('VimLeavePre', {
     pattern = '*',
     callback = function()
-        require('dapui').close()
-        vim.cmd('SymbolsOutlineClose')
+        DapEnabled = require('core.enable_plugins').dap
+        if DapEnabled then
+            require('dapui').close()
+        end
+        SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
+        if SymbolsOutlineEnabled then
+            vim.cmd('SymbolsOutlineClose')
+        end
     end,
     desc = "Don't leave it open, or it will have ugly buffers when reopening",
 })

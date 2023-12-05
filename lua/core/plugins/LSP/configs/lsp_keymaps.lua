@@ -33,8 +33,13 @@ keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'ﯔ Auto-Fo
 
 -- ------------------------------------------------------------------------------------------------------------
 -- LSP OUTLINE
--- keymap.set('n', '<leader>ll', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
-keymap.set('n', '<leader>ll', '<cmd>SymbolsOutline<CR>', { desc = 'ﯻ Toggle Outline' }) -- see outline on right hand side
+-- keymap.set('n', '<leader>lx', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
+-- FIXME: why can't i set <leader>ll for this?
+-- It does nothing, and when I search keymap with telescope I see an empty keymap
+SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
+if SymbolsOutlineEnabled then
+    keymap.set('n', '<leader>lx', '<cmd>SymbolsOutline<CR>', { desc = 'ﯻ Toggle Outline' }) -- see outline on right hand side
+end
 
 -- LSP SEARCH SYMBOLS
 keymap.set('n', '<leader>ld', '<cmd>Telescope lsp_document_symbols<CR>', { desc = ' Document Symbols' })
@@ -95,6 +100,18 @@ keymap.set('n', '<leader>iq', 'nativediag.setloclist', { desc = ' Send Diagno
 -- ------------------------------------------------------------------------------------------------------------
 -- CODE ACTIONS
 
-keymap.set('n', '<leader>la', '<cmd>CodeActionMenu<CR>', { desc = 'Code Actions' }) -- see available code actions
--- keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Actions" }) -- see available code actions
-keymap.set('n', '<leader>lA', vim.lsp.codelens.run, { desc = 'CodeLens Actions' }) -- see available code actions
+-- TODO: telescope seems like a better solution :
+-- https://github.com/aznhe21/actions-preview.nvim
+-- vim.keymap.set({ "v", "n" }, '<leader>la', require("actions-preview").code_actions)
+CodeActionsDescription = ' Code Actions'
+CodeActionMenuEnabled = require('core.enable_plugins').code_action_menu
+LspSagaEnabled = require('core.enable_plugins').lspsaga
+if CodeActionMenuEnabled then
+    keymap.set('n', '<leader>la', '<cmd>CodeActionMenu<CR>', { desc = 'com' .. CodeActionsDescription }) -- see available code actions
+    keymap.set('n', '<leader>lA', '<cmd>CodeActionMenu<CR>', { desc = 'builtin' .. CodeActionsDescription }) -- see available code actions
+elseif LspSagaEnabled then
+    keymap.set('n', '<leader>la', '<cmd>Lspsaga code_action<CR>', { desc = 'LspSaga' .. CodeActionsDescription }) -- see available code actions
+    keymap.set('n', '<leader>lA', '<cmd>Lspsaga code_action<CR>', { desc = 'builtin' .. CodeActionsDescription }) -- see available code actions
+else
+    keymap.set('n', '<leader>la', vim.lsp.codelens.run, { desc = CodeActionsDescription }) -- see available code actions
+end

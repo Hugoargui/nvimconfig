@@ -23,6 +23,8 @@ return {
     smartword = true,
 
     -- DEBUGGER
+    dap = true,
+    dapui = true,
 
     -- EDITOR
     colorizer = true,
@@ -33,7 +35,7 @@ return {
     markdown_preview = true,
     md_headers = true,
     neoscroll = true,
-    null_ls = true,
+    null_ls = true, --TODO: replace by something maintained
     nvim_tree = true,
     treesitter_textobjects = true,
     ufo = true,
@@ -54,12 +56,12 @@ return {
     -- LSP
     lspsaga = true,
     mason = true, -- Not so long to load, but why waste time when I don't install stuff so often
-    neodim = false,
-    code_action_menu = false,
+    neodim = false, -- Highlihgt unused symbols
+    code_action_menu = true, -- Pop up menu for code actions
     lspconfig = true,
-    pretty_hover = false,
-    symbol_outline = false,
-    symbol_usage = false,
+    pretty_hover = true, --parses the hover message before opening the popup window
+    symbols_outline = true, -- symbol outline sidebar
+    symbol_usage = true, -- virtual text for symbol reference count
 
     -- SESSIONS
 

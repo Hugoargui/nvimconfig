@@ -3,7 +3,29 @@ local M = {
     enabled = require('core.enable_plugins').whickhey,
     event = 'VeryLazy',
     config = function()
-        -- Setup {{{*/
+        if require('core.enable_plugins').ufo then
+            vim.keymap.set('n', 'za', 'za', { desc = '  Toggle fold under cursor' })
+            vim.keymap.set('n', 'zA', 'zA', { desc = '  Toggle all folds under cursor ' })
+            vim.keymap.set('n', 'zc', 'zc', { desc = '  Close fold under cursor ' })
+            vim.keymap.set('n', 'zC', 'zC', { desc = '  Close all folds under cursor ' })
+            vim.keymap.set('n', 'zo', 'zo', { desc = '  Open fold under cursor' })
+            vim.keymap.set('n', 'zO', 'zO', { desc = '  Open all folds under cursor ' })
+            vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '  Open all folds in document' })
+            vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = '  Close all folds in document' })
+            vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds, { desc = '  Decrease fold level' })
+            vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith, { desc = '  Increase fold level' }) -- closeAllFolds == closeFoldsWith(0)
+        else
+            vim.keymap.set('n', 'za', 'za', { desc = 'Toggle fold under cursor' })
+            vim.keymap.set('n', 'zA', 'zA', { desc = 'Toggle all folds under cursor' })
+            vim.keymap.set('n', 'zc', 'zc', { desc = 'Close fold under cursor' })
+            vim.keymap.set('n', 'zC', 'zC', { desc = 'Close all folds under cursor' })
+            vim.keymap.set('n', 'zo', 'zo', { desc = 'Open fold under cursor' })
+            vim.keymap.set('n', 'zO', 'zO', { desc = 'Open all folds under cursor' })
+            vim.keymap.set('n', 'zR', 'zR', { desc = 'Open all folds in document' })
+            vim.keymap.set('n', 'zM', 'zM', { desc = 'Close all folds in document' })
+            vim.keymap.set('n', 'zr', 'zr', { desc = 'Decrease fold level' })
+            vim.keymap.set('n', 'zm', 'zm', { desc = 'Increase fold level' })
+        end
         local setup = {
             plugins = {
                 marks = false, -- shows a list of your marks on ' and `
@@ -33,13 +55,6 @@ local M = {
             },
             show_keys = true,
 
-            key_labels = {
-                -- override the label used to display some keys. It doesn't effect WK in any other way.
-                -- For example:
-                -- ["<space>"] = "SPC",
-                -- ["<cr>"] = "RET",
-                -- ["<tab>"] = "TAB",
-            },
             icons = {
                 breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
                 separator = '>', -- symbol used between a key and it's label
@@ -75,10 +90,8 @@ local M = {
                 v = { 'j', 'k' },
             },
         }
-        --}}}
 
         -----------------------------------------------------------------------------------------------------------------
-        -- Leader mappings {{{*/
         local leader_opts = {
             mode = 'n', -- NORMAL mode
             prefix = '<leader>',
@@ -89,7 +102,6 @@ local M = {
         }
 
         local leader_mappings = {
-            -- ['a'] = { name = '   CPP specific options' },
             ['e'] = { name = '   File Explorer' },
             ['c'] = { '<cmd>Themery<cr>', '🎨 ColorSchemes' },
 
@@ -98,7 +110,7 @@ local M = {
                 '  Find files',
             },
             ['F'] = { '<cmd>Telescope find_files<cr>', '  Find Files with preview' },
-            ['r'] = { '<cmd>Telescope resume<CR>', '  RESUME last search' },
+            ['r'] = { '<cmd>Telescope resume<CR>', '屢 RESUME last search' },
 
             q = {
                 name = ' ❌ Quit nVim',
@@ -184,7 +196,7 @@ local M = {
             },
             -- TODO: maybe only enable this if spellchecking is enabled in this buffer
             z = {
-                name = '了  Spell Checking',
+                name = ' 了  Spell Checking',
             },
         }
 
@@ -196,9 +208,10 @@ local M = {
         require('which-key').register({
             ['[%'] = 'which_key_ignore',
             [']%'] = 'which_key_ignore',
+            ['zz'] = 'which_key_ignore',
+            ['zb'] = 'which_key_ignore',
+            ['zt'] = 'which_key_ignore',
         })
-
-        --}}}
     end,
 }
 

@@ -10,7 +10,6 @@ local M = {
     config = function()
         local mason = require('mason')
         local mason_lspconfig = require('mason-lspconfig')
-        local mason_null_ls = require('mason-null-ls')
 
         -- enable mason
         mason.setup()
@@ -23,22 +22,24 @@ local M = {
                 'cmake',
                 'asm_lsp',
                 'pyright',
-                -- 'python-lsp-server',
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
         })
-
-        mason_null_ls.setup({
-            -- list of formatters & linters for mason to install
-            ensure_installed = {
-                'stylua', -- lua formatter
-                'cmakelang',
-                'clang_format',
-            },
-            -- auto-install configured formatters & linters (with null-ls)
-            automatic_installation = true,
-        })
+        if (require('core.enable_plugins').null_ls)
+        then
+            local mason_null_ls = require('mason-null-ls')
+            mason_null_ls.setup({
+                -- list of formatters & linters for mason to install
+                ensure_installed = {
+                    'stylua', -- lua formatter
+                    'cmakelang',
+                    'clang_format',
+                },
+                -- auto-install configured formatters & linters (with null-ls)
+                automatic_installation = true,
+            })
+        end
     end,
 }
 

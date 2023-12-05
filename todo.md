@@ -1,5 +1,7 @@
 # NEAR FUTURE 
 - Signcolum with which I'm happy
+- try tabtree navigation mapped to { and }
+https://github.com/roobert/tabtree.nvim
 - Arpeggio -> jf=escape... asdf for page scrolling, hjkl for window
 - Arpeggio for number motions (w+k = 5w for example)
 - tabout plugin
