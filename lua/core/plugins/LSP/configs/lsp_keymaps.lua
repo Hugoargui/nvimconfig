@@ -38,7 +38,7 @@ keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'ﯔ Auto-Fo
 -- It does nothing, and when I search keymap with telescope I see an empty keymap
 SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
 if SymbolsOutlineEnabled then
-    keymap.set('n', '<leader>lx', '<cmd>SymbolsOutline<CR>', { desc = 'ﯻ Toggle Outline' }) -- see outline on right hand side
+    keymap.set('n', '<leader>le', '<cmd>SymbolsOutline<CR>', { desc = 'ﯻ Toggle Symbol Explorer' }) -- see outline on right hand side
 end
 
 -- LSP SEARCH SYMBOLS
@@ -97,6 +97,12 @@ keymap.set(
 
 -- Quickfix List
 keymap.set('n', '<leader>iq', 'nativediag.setloclist', { desc = ' Send Diagnostics to LocList' }) -- show diagnostics for cursor
+
+-- NAVIGATION
+if require('core.enable_plugins').navbuddy then
+    keymap.set('n', '<leader>lx', '<cmd>Navbuddy<CR>', { desc = ' Symbol Browser' }) -- show  diagnostics for line
+end
+
 -- ------------------------------------------------------------------------------------------------------------
 -- CODE ACTIONS
 

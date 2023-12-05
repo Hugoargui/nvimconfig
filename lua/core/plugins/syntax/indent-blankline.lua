@@ -4,7 +4,6 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     opts = { space_char_blankline = ' ', show_current_context = true, show_current_context_start = false },
 
-    -- TODO: GitHub page has rainbow delimiters integration to make scope same color as the delimiter color
     config = function(_, opts)
         require('illuminate').configure(opts)
         require('ibl').setup()

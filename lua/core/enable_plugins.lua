@@ -62,6 +62,7 @@ return {
     pretty_hover = true, --parses the hover message before opening the popup window
     symbols_outline = true, -- symbol outline sidebar
     symbol_usage = true, -- virtual text for symbol reference count
+    navbuddy = true, -- Nice ranger like symbol navigator
 
     -- SESSIONS
 

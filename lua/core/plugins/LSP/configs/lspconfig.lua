@@ -23,7 +23,6 @@ local on_attach = function()
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
--- TODO:: Does enabling this cause lag or problems?
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 lspconfig['clangd'].setup({
