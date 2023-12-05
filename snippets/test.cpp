@@ -25,7 +25,6 @@ int foo(int input) {
  * @return Nothing useful
 
  */
-/// faaa
 int faa(int input, int dummy) {
   if (input > 0) {
     return 100;

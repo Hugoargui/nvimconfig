@@ -21,10 +21,20 @@ return {
             create_event = function()
                 -- Executed after creating the window separator
                 -- Don't dispaly if there are only 2 windows (it's an ugly up-down split)
+                -- This works on ly on window creation, not on vim enter, we need extra autocmd.
                 if vim.fn.winnr('$') == 3 then
                     require('colorful-winsep').NvimSeparatorDel()
                 end
             end,
+            vim.api.nvim_create_autocmd('VimEnter', {
+                pattern = '*',
+                callback = function()
+                    if vim.fn.winnr('$') == 3 then
+                        require('colorful-winsep').NvimSeparatorDel()
+                    end
+                end,
+                desc = "If on entering there are two windows only, don't highlight",
+            }),
         })
     end,
 }
