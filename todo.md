@@ -1,4 +1,4 @@
-# NEAR FUTURE 
+na NEAR FUTURE 
 - Signcolum with which I'm happy
 - try tabtree navigation mapped to { and }
 https://github.com/roobert/tabtree.nvim
