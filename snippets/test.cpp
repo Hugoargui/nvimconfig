@@ -25,7 +25,8 @@ int foo(int input) {
  * @return Nothing useful
 
  */
-int faa(int input, int dummy) {
+
+int faaaa(int input, int dummy) {
   if (input > 0) {
     return 100;
   } else {
@@ -43,8 +44,9 @@ int main() {
     if (i != 3) {
       int a = foo(i);
       int b = foo(i);
-      int c = faa(i, 0);
-      int d = faa(i, 0);
+      int c = faaaa(i, 0);
+      int d = faaaa(i, 0);
+      int f = faaaa(4, 0);
       int x = myBarFunction(0, 0, 0, 0, "Nameee");
       std::cout << " Hello World " << i << std::endl;
     }

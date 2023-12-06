@@ -8,18 +8,19 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
 vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨 Cursor Treesitter HL ' })
 
--- TODO: See how Josean does to make this buffer dependent
-local on_attach = function()
+local on_attach = function(client, bufnr)
     -- enable keybinds only for when lsp server available
-    require('core.plugins.LSP.configs.lsp_keymaps')
+    require('core.plugins.LSP.configs.lsp_keymaps').registerKeymaps(client, bufnr)
 
-    -- local lsp_signature_config = {
-    --     hint_enable = false, -- virtual hint enable
-    --     hint_prefix = '🐼',
-    --     hint_scheme = 'String',
-    -- } -- add your config here
+    if require('core.enable_plugins').lsp_signature then
+        local lsp_signature_config = {
+            hint_enable = false, -- virtual hint enable
+            hint_prefix = '🐼',
+            hint_scheme = 'String',
+        }
 
-    -- require('lsp_signature').on_attach(lsp_signature_config, _)
+        require('lsp_signature').on_attach(lsp_signature_config, _)
+    end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)

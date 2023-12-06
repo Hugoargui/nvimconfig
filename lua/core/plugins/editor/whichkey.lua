@@ -168,13 +168,13 @@ local M = {
             m = {
                 name = ' 🟢 Make/Build',
             },
-            l = {
-                name = '   LSP',
-                -- TODO: this don't show
-                k = { name = ' LSP change symbol Case' },
-                n = { name = 'LSP swap with next' },
-                l = { name = 'LSP swap with previous' },
-            },
+            -- l = {
+            --     name = '   LSP',
+            --     -- TODO: this don't show
+            --     k = { name = ' LSP change symbol Case' },
+            --     n = { name = 'LSP swap with next' },
+            --     p = { name = 'LSP swap with previous' },
+            -- },
             i = {
                 name = '   Diagnostics',
             },

@@ -1,9 +1,9 @@
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     enabled = require('core.enable_plugins').treesitter_textobjects,
-    -- TODO: [] movements don't work if you just entered vim and didnt' change mode
 
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best
+    keys = { '[', ']', '<leader>l' },
 
     config = function()
         require('nvim-treesitter.configs').setup({
@@ -86,15 +86,29 @@ return {
                 swap = {
                     enable = true,
                     swap_next = {
-                        ['<leader>lna'] = { query = '@parameter.inner', desc = 'swap this argument/param with next' },
-                        ['<leader>lnf'] = { query = '@function.outer', desc = 'swap this function with next' },
+                        ['<leader>lna'] = {
+                            query = '@parameter.inner',
+                            desc = '易 swap this argument/param with next',
+                        },
+                        ['<leader>lnf'] = { query = '@function.outer', desc = '李 swap this function with next' },
                     },
                     swap_previous = {
-                        ['<leader>lpa'] = { query = '@parameter.inner', desc = 'swap this argument/param with prev' },
-                        ['<leader>lpf'] = { query = '@function.outer', desc = 'swap function with prev' },
+                        ['<leader>lpa'] = {
+                            query = '@parameter.inner',
+                            desc = '易 swap this argument/param with prev',
+                        },
+                        ['<leader>lpf'] = { query = '@function.outer', desc = '李 swap function with prev' },
                     },
                 },
             }, -- textobjects
         })
+        local wk_enabled = require('core.enable_plugins').whichkey
+        if wk_enabled then
+            local wk = require('which-key')
+            wk.register({
+                ['n'] = { { desc = '  Swap element with next' } },
+                ['p'] = { { desc = '  Swap element with previous' } },
+            }, { prefix = '<leader>l' })
+        end
     end,
 }

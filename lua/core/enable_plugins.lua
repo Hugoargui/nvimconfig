@@ -5,7 +5,7 @@ return {
     autolist = true,
     comment = true,
     cutlass = true,
-    lsp_signature = false, -- many errors since update
+    lsp_signature = true,
     luasnip = true,
     mini_surround = false,
     autopairs = true,
@@ -35,7 +35,7 @@ return {
     markdown_preview = true,
     md_headers = true,
     neoscroll = true,
-    null_ls = true, --TODO: replace by something maintained
+    null_ls = true, -- TODO: replace by something maintained
     nvim_tree = true,
     treesitter_textobjects = true,
     ufo = true,

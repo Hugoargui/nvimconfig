@@ -1,13 +1,14 @@
 # NEAR FUTURE 
+- add noice filters
+- why can't i map <leader>ll for navbuddy?
 - Signcolum with which I'm happy
 - try tabtree navigation mapped to { and }
 https://github.com/roobert/tabtree.nvim
 - Arpeggio -> jf=escape... asdf for page scrolling, hjkl for window
 - Arpeggio for number motions (w+k = 5w for example)
 - tabout plugin
-- navbuddy
 - dial
-- check this take on word movement vs spider/smartword: 
+- check this take on word movement vs spider/smartword:
     https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
 
 # MEDIUM TERM IDEAS

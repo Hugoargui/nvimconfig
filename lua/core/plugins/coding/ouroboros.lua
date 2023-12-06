@@ -15,7 +15,7 @@ return {
                     name = '   CPP specific options',
                     ['a'] = { '<cmd>Ouroboros<CR>', ' in place ALTERNATE FILE' },
                     ['v'] = { '<cmd>vsplit | Ouroboros<CR>', ' Vertical ALTERNATE FILE' },
-                    ['h'] = { '<cmd>TSCppMakeConcreteClass<cr>', ' Horizontal ALTERNATE FILE' },
+                    ['h'] = { '<cmd>split | Ouroboros<CR>', ' Horizontal ALTERNATE FILE' },
                 }, { prefix = '<leader>a', buffer = 0 })
             end
         else

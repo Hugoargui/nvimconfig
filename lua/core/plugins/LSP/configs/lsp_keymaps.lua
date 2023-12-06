@@ -2,122 +2,186 @@ local keymap = vim.keymap -- for conciseness
 local native = vim.lsp.buf -- for conciseness
 local nativediag = vim.diagnostic -- for conciseness
 
--- TODO: maybe pass {buffer=0} to keymaps set so mappings only apply to current buffer that has LSP attached
--- See TJdevies Neovim Builtin LSP Setup GUide around minute 31 for more info
+return {
+    registerKeymaps = function(client, bufnr)
+        SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
+        if require('core.enable_plugins').lsp_signature then
+            vim.keymap.set('n', '<leader>lk', function()
+                require('lsp_signature').toggle_float_win()
+            end, { desc = ' Toggle signature', buffer = bufnr })
+        else
+            keymap.set('n', '<leader>ls', native.signature_help, { desc = ' Signature help', buffer = bufnr }) -- show documentation for what is under cursor
+        end
 
-vim.keymap.set({ 'n' }, '<C-k>', function()
-    require('lsp_signature').toggle_float_win()
-end, { silent = true, noremap = true, desc = 'toggle signature' })
+        -- ------------------------------------------------------------------------------------------------------------
+        -- GO TO DEFINITION
+        keymap.set('n', 'gd', native.definition, { desc = 'λ GO TO Definition', buffer = bufnr, buffer = bufnr }) -- go to definition
 
--- ------------------------------------------------------------------------------------------------------------
--- GO TO DEFINITION
-keymap.set('n', 'gd', native.definition, { desc = 'GO TO Definition' }) -- go to definition
+        -- PPEK DEFINITION
+        keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition', buffer = bufnr }) -- peek definition and make edits in window
 
--- PPEK DEFINITION
-keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition' }) -- peek definition and make edits in window
+        -- GO TO DECLARATION
+        keymap.set('n', 'gD', native.declaration, { desc = 'α GO TO Declaration', buffer = bufnr }) -- got to declaration
 
--- GO TO DECLARATION
-keymap.set('n', 'gD', native.declaration, { desc = 'GO TO Declaration' }) -- got to declaration
+        -- GO TO REFERENCES
+        keymap.set('n', 'gr', native.references, { desc = 'Λ GO TO References', buffer = bufnr }) -- go to definition
 
--- GO TO REFERENCES
-keymap.set('n', 'gr', native.references, { desc = 'GO TO References' }) -- go to definition
+        -- GO TO IMPLEMENTATION
+        keymap.set('n', 'gI', native.implementation, { desc = 'β GO TO Implementation', buffer = bufnr }) -- go to implementation
 
--- GO TO IMPLEMENTATION
-keymap.set('n', 'gI', native.implementation, { desc = 'GO TO Implementation' }) -- go to implementation
+        -- GO TO IMPLEMENTATION
+        keymap.set('n', 'gt', native.type_definition, { desc = '𝖉 GO TO Type', buffer = bufnr }) -- go to type definition
 
--- GO TO IMPLEMENTATION
-keymap.set('n', 'gt', native.type_definition, { desc = 'GO TO Type' }) -- go to type definition
+        -- ------------------------------------------------------------------------------------------------------------
+        keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'ﯔ Auto-Format', buffer = bufnr }) -- see available code actions
+        -- ------------------------------------------------------------------------------------------------------------
 
--- ------------------------------------------------------------------------------------------------------------
-keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'ﯔ Auto-Format' }) -- see available code actions
+        -- NAVIGATION
+        if require('core.enable_plugins').navbuddy then
+            keymap.set('n', '<leader>ll', '<cmd>Navbuddy<CR>', { desc = ' Symbol Browser', buffer = bufnr }) -- show  diagnostics for line
+        end
+        -- FIXME:if we enable only on LSP, outline window doesn't see <leader>e itself
+        -- Maybe add autocomand
+        if require('core.enable_plugins').symbols_outline then
+            keymap.set(
+                'n',
+                '<leader>le',
+                '<cmd>SymbolsOutline<CR>',
+                { desc = 'ﯻ Toggle Symbol Explorer', buffer = bufnr }
+            ) -- see outline on right hand side
+        end
 
--- ------------------------------------------------------------------------------------------------------------
--- LSP OUTLINE
--- keymap.set('n', '<leader>lx', '<cmd>Lspsaga outline<CR>', { desc = 'Toggle Outline' }) -- see outline on right hand side
--- FIXME: why can't i set <leader>ll for this?
--- It does nothing, and when I search keymap with telescope I see an empty keymap
-SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
-if SymbolsOutlineEnabled then
-    keymap.set('n', '<leader>le', '<cmd>SymbolsOutline<CR>', { desc = 'ﯻ Toggle Symbol Explorer' }) -- see outline on right hand side
-end
+        -- LSP SEARCH SYMBOLS
+        keymap.set(
+            'n',
+            '<leader>ld',
+            '<cmd>Telescope lsp_document_symbols<CR>',
+            { desc = ' Document Symbols', buffer = bufnr }
+        )
+        keymap.set(
+            'n',
+            '<leader>lw',
+            '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>',
+            { desc = '冷 Workspace Symbols', buffer = bufnr }
+        )
+        -- stopped working
+        -- keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', { desc = 'LSP finder' }) -- show definition, references
 
--- LSP SEARCH SYMBOLS
-keymap.set('n', '<leader>ld', '<cmd>Telescope lsp_document_symbols<CR>', { desc = ' Document Symbols' })
-keymap.set('n', '<leader>lw', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', { desc = '冷 Workspace Symbols' })
--- stopped working
--- keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', { desc = 'LSP finder' }) -- show definition, references
+        -- Call hierarchy
+        -- Not very useful, never finds anything
+        -- keymap.set(
+        --     'n',
+        --     '<Leader>li',
+        --     '<cmd>Lspsaga incoming_calls<CR>',
+        --     { desc = '↳ Incoming Calls', buffer = bufnr }
+        -- )
+        -- keymap.set(
+        --     'n',
+        --     '<Leader>lo',
+        --     '<cmd>Lspsaga outgoing_calls<CR>',
+        --     { desc = '↱ Outgoing Calls', buffer = bufnr }
+        -- )
 
--- Call hierarchy
-keymap.set('n', '<Leader>li', '<cmd>Lspsaga incoming_calls<CR>', { desc = '↳ Incoming Calls' })
-keymap.set('n', '<Leader>lo', '<cmd>Lspsaga outgoing_calls<CR>', { desc = '↱ Outgoing Calls' })
+        -- ------------------------------------------------------------------------------------------------------------
+        -- HOVER
+        -- LSPAGA NOT SO NICE LOOKING ONCE WE HAVE
+        -- keymap.set('n', '<leader>lH', '<cmd>Lspsaga hover_doc<CR>', { desc = 'saga Hover Documentation' }) -- show documentation for what is under cursor
+        keymap.set(
+            'n',
+            '<leader>lh',
+            "<cmd>lua require('pretty_hover').hover()<CR>",
+            { desc = ' Hover Documentation', buffer = bufnr }
+        )
 
--- ------------------------------------------------------------------------------------------------------------
--- HOVER
--- keymap.set("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" }) -- show documentation for what is under cursor
-keymap.set('n', '<leader>lh', "<cmd>lua require('pretty_hover').hover()<CR>", { desc = ' Hover Documentation' }) -- show documentation for what is under cursor
+        -- ------------------------------------------------------------------------------------------------------------
+        -- RENAME
+        if require('core.enable_plugins').lspsaga then
+            keymap.set('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', { desc = '牢Rename Symbol', buffer = bufnr }) -- smart rename
+        else
+            keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = '牢Rename Symbol', buffer = bufnr }) -- smart rename
+        end
 
--- SIGNATURE HELP
-keymap.set('n', '<leader>ls', native.signature_help, { desc = ' Signature' }) -- show documentation for what is under cursor
+        -- ------------------------------------------------------------------------------------------------------------
+        -- DIAGNOSTICS STUFF
 
--- RENAME
--- keymap.set('n', '<leader>lr', native.rename, { desc = 'Native Rename' }) -- show documentation for what is under cursor
-keymap.set('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', { desc = '牢 Rename Symbol' }) -- smart rename
+        -- DIAGNOSTICS JUMPING
+        keymap.set('n', '<leader>ip', nativediag.goto_prev, { desc = '⬅ Previous Diagnostics', buffer = bufnr })
+        keymap.set('n', '<leader>in', nativediag.goto_next, { desc = '➡ Next Diagnostics', buffer = bufnr })
+        -- keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostics" }) -- jump to previous diagnostic in buffer
+        -- keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostics" }) -- jump to next diagnostic in buffer
 
--- ------------------------------------------------------------------------------------------------------------
--- DIAGNOSTICS STUFF
+        -- Diagnostics search
+        keymap.set(
+            'n',
+            '<leader>id',
+            '<cmd>Telescope diagnostics bufnr=0<CR>',
+            { desc = ' Document Diagnostics', buffer = bufnr }
+        )
+        keymap.set(
+            'n',
+            '<leader>iD',
+            '<cmd>Telescope diagnostics<CR>',
+            { desc = '❌Workspace Diagnostics', buffer = bufnr }
+        )
 
--- DIAGNOSTICS JUMPING
-keymap.set('n', '[d', nativediag.goto_prev, { desc = 'Previous Diagnostics' })
-keymap.set('n', ']d', nativediag.goto_next, { desc = 'Next Diagnostics' })
-keymap.set('n', '<leader>ip', nativediag.goto_prev, { desc = '⬅ Previous Diagnostics' })
-keymap.set('n', '<leader>in', nativediag.goto_next, { desc = '➡ Next Diagnostics' })
--- keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostics" }) -- jump to previous diagnostic in buffer
--- keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostics" }) -- jump to next diagnostic in buffer
+        -- CURSOR DIAGNOSTICS
+        if require('core.enable_plugins').lspsaga then
+            keymap.set(
+                'n',
+                '<leader>ii',
+                '<cmd>Lspsaga show_cursor_diagnostics<CR>',
+                { desc = ' Diagnostics under cursor', buffer = bufnr }
+            )
+            keymap.set(
+                'n',
+                '<leader>il',
+                '<cmd>Lspsaga show_line_diagnostics<CR>',
+                { desc = '林 Diagnostics under line', buffer = bufnr }
+            )
+        else
+            keymap.set(
+                'n',
+                '<leader>ii',
+                nativediag.open_float,
+                { desc = ' Diagnostic under cursor', buffer = bufnr }
+            )
+        end
 
--- Diagnostics search
-keymap.set('n', '<leader>id', '<cmd>Telescope diagnostics bufnr=0<CR>', { desc = ' Document Diagnostics' })
-keymap.set('n', '<leader>iD', '<cmd>Telescope diagnostics<CR>', { desc = '❌Workspace Diagnostics' })
+        -- -- Quickfix List
+        -- -- TODO: DOES THIS EVEN WORK?
+        -- keymap.set(
+        --     'n',
+        --     '<leader>iq',
+        --     'nativediag.setloclist',
+        --     { desc = ' Send Diagnostics to LocList', buffer = bufnr }
+        -- )
 
--- LINE DIAGNOSTICS
-keymap.set(
-    'n',
-    '<leader>il',
-    '<cmd>Lspsaga show_line_diagnostics<CR>',
-    { desc = '林 Diagnostics under cursor (saga) ' }
-) -- show  diagnostics for line
+        -- ------------------------------------------------------------------------------------------------------------
+        -- CODE ACTIONS
 
--- CURSOR DIAGNOSTICS
-keymap.set('n', '<leader>ic', nativediag.open_float, { desc = ' Diagnostic under cursor (nat)' })
-keymap.set(
-    'n',
-    '<leader>ia',
-    '<cmd>Lspsaga show_cursor_diagnostics<CR>',
-    { desc = ' Diagnostics under cursor (SAGA)' }
-) -- show diagnostics for cursor
-
--- Quickfix List
-keymap.set('n', '<leader>iq', 'nativediag.setloclist', { desc = ' Send Diagnostics to LocList' }) -- show diagnostics for cursor
-
--- NAVIGATION
-if require('core.enable_plugins').navbuddy then
-    keymap.set('n', '<leader>lx', '<cmd>Navbuddy<CR>', { desc = ' Symbol Browser' }) -- show  diagnostics for line
-end
-
--- ------------------------------------------------------------------------------------------------------------
--- CODE ACTIONS
-
--- TODO: telescope seems like a better solution :
--- https://github.com/aznhe21/actions-preview.nvim
--- vim.keymap.set({ "v", "n" }, '<leader>la', require("actions-preview").code_actions)
-CodeActionsDescription = ' Code Actions'
-CodeActionMenuEnabled = require('core.enable_plugins').code_action_menu
-LspSagaEnabled = require('core.enable_plugins').lspsaga
-if CodeActionMenuEnabled then
-    keymap.set('n', '<leader>la', '<cmd>CodeActionMenu<CR>', { desc = 'com' .. CodeActionsDescription }) -- see available code actions
-    keymap.set('n', '<leader>lA', '<cmd>CodeActionMenu<CR>', { desc = 'builtin' .. CodeActionsDescription }) -- see available code actions
-elseif LspSagaEnabled then
-    keymap.set('n', '<leader>la', '<cmd>Lspsaga code_action<CR>', { desc = 'LspSaga' .. CodeActionsDescription }) -- see available code actions
-    keymap.set('n', '<leader>lA', '<cmd>Lspsaga code_action<CR>', { desc = 'builtin' .. CodeActionsDescription }) -- see available code actions
-else
-    keymap.set('n', '<leader>la', vim.lsp.codelens.run, { desc = CodeActionsDescription }) -- see available code actions
-end
+        -- TODO: telescope seems like a better solution :
+        -- https://github.com/aznhe21/actions-preview.nvim
+        -- vim.keymap.set({ "v", "n" }, '<leader>la', require("actions-preview").code_actions)
+        CodeActionsDescription = ' Code Actions'
+        CodeActionMenuEnabled = require('core.enable_plugins').code_action_menu
+        LspSagaEnabled = require('core.enable_plugins').lspsaga
+        if CodeActionMenuEnabled then
+            keymap.set('n', '<leader>la', '<cmd>CodeActionMenu<CR>', { desc = CodeActionsDescription, buffer = bufnr }) -- see available code actions
+        elseif LspSagaEnabled then
+            keymap.set(
+                'n',
+                '<leader>la',
+                '<cmd>Lspsaga code_action<CR>',
+                { desc = CodeActionsDescription, buffer = bufnr }
+            ) -- see available code actions
+            keymap.set(
+                'n',
+                '<leader>lA',
+                '<cmd>Lspsaga code_action<CR>',
+                { desc = CodeActionsDescription, buffer = bufnr }
+            )
+        else
+            keymap.set('n', '<leader>la', vim.lsp.codelens.run, { desc = CodeActionsDescription, buffer = bufnr }) -- see available code actions
+        end
+    end,
+}
