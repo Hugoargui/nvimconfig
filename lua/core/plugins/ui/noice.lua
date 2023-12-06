@@ -1,3 +1,66 @@
+-- DOCS https://github.com/folke/noice.nvim#-routes
+local routes = {
+    -- redirect to popup
+    { filter = { min_height = 10 }, view = 'popup' },
+
+    -- write/deletion messages
+    { filter = { event = 'msg_show', find = '%d+B written$' }, skip = 'true' },
+    { filter = { event = 'msg_show', find = '%d+L, %d+B$' }, view = 'mini' },
+    { filter = { event = 'msg_show', find = '%-%-No lines in buffer%-%-' }, view = 'mini' },
+    { filter = { event = 'msg_show', find = 'more line' }, skip = 'true' }, -- when undoing a line delet
+    { filter = { event = 'msg_show', find = 'line less' }, skip = 'true' }, -- wne deleting line with dd
+
+    -- unneeded info on search patterns
+    { filter = { event = 'msg_show', find = '^[/?].' }, skip = true },
+    { filter = { event = 'msg_show', find = '^E486: Pattern not found' }, view = 'mini' },
+
+    -- Word added to spellfile via
+    { filter = { event = 'msg_show', find = '^Word .*%.add$' }, view = 'mini' },
+
+    -- Diagnostics
+    {
+        filter = { event = 'msg_show', find = 'No more valid diagnostics to move to' },
+        view = 'mini',
+    },
+
+    -- :make
+    { filter = { event = 'msg_show', find = '^:!make' }, skip = true },
+    { filter = { event = 'msg_show', find = '^%(%d+ of %d+%):' }, skip = true },
+
+    -- when changing whole project, don't show that you deleted NNN buffers.
+    { filter = { event = 'msg_show', find = 'buffers deleted$' }, skip = true },
+
+    -- -----------------------------------------------------------------------------
+    -- { -- nvim-early-retirement
+    --     filter = {
+    --         event = 'notify',
+    --         cond = function(msg)
+    --             return msg.opts and msg.opts.title == 'Auto-Closing Buffer'
+    --         end,
+    --     },
+    --     view = 'mini',
+    -- },
+
+    -- nvim-treesitter
+    { filter = { event = 'msg_show', find = '^%[nvim%-treesitter%]' }, view = 'mini' },
+    { filter = { event = 'notify', find = 'All parsers are up%-to%-date' }, view = 'mini' },
+
+    -- Mason
+    { filter = { event = 'notify', find = '%[mason%-tool%-installer%]' }, view = 'mini' },
+    {
+        filter = {
+            event = 'notify',
+            cond = function(msg)
+                return msg.opts and msg.opts.title and msg.opts.title:find('mason.*.nvim')
+            end,
+        },
+        view = 'mini',
+    },
+
+    -- DAP
+    { filter = { event = 'notify', find = '^Session terminated$' }, view = 'mini' },
+}
+
 local M = {
     'folke/noice.nvim',
     enabled = require('core.enable_plugins').noice,
@@ -47,18 +110,9 @@ local M = {
                 view = 'popup', -- :Noice error
             },
         },
-        routes = {
-            {
-                filter = {
-                    -- HIde written message
 
-                    event = 'msg_show',
-                    kind = '',
-                    find = 'written',
-                },
-                opts = { skip = true },
-            },
-        },
+        routes = routes,
+
         -- USING NOICE FOR LSP STUFF
         lsp = {
             override = {
@@ -105,8 +159,5 @@ local M = {
         },
     },
 }
-
-vim.keymap.set('c', '<c-j>', '<c-n>')
-vim.keymap.set('c', '<c-k>', '<c-p>')
 
 return M

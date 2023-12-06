@@ -1,4 +1,5 @@
-local keymap = vim.keymap --for conciseness
+vim.keymap.set('c', '<c-j>', '<c-n>')
+vim.keymap.set('c', '<c-k>', '<c-p>')
 
 -- Move visual selection up and down
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
