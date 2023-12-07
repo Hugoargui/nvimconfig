@@ -4,8 +4,9 @@ return {
         diagnostics = {
             Error = ' ',
             Warn = ' ',
-            Hint = '',
+            Hint = ' ',
             Info = ' ',
+            Ok = ' ',
         },
         gitColumn = {
             add = { text = '│' }, --" ","▎"

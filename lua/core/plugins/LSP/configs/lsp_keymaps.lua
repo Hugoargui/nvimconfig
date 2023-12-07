@@ -15,7 +15,7 @@ return {
 
         -- ------------------------------------------------------------------------------------------------------------
         -- GO TO DEFINITION
-        keymap.set('n', 'gd', native.definition, { desc = 'λ GO TO Definition', buffer = bufnr, buffer = bufnr }) -- go to definition
+        keymap.set('n', 'gd', native.definition, { desc = 'λ GO TO Definition', buffer = bufnr }) -- go to definition
 
         -- PPEK DEFINITION
         keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition', buffer = bufnr }) -- peek definition and make edits in window
@@ -96,9 +96,19 @@ return {
         -- ------------------------------------------------------------------------------------------------------------
         -- RENAME
         if require('core.enable_plugins').lspsaga then
-            keymap.set('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', { desc = '牢Rename Symbol', buffer = bufnr }) -- smart rename
+            keymap.set(
+                'n',
+                '<leader>lr',
+                '<cmd>Lspsaga rename<CR>',
+                { desc = '牢Rename Symbol under cursor', buffer = bufnr }
+            ) -- smart rename
         else
-            keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = '牢Rename Symbol', buffer = bufnr }) -- smart rename
+            keymap.set(
+                'n',
+                '<leader>lr',
+                vim.lsp.buf.rename,
+                { desc = '牢Rename Symbol under cursor', buffer = bufnr }
+            ) -- smart rename
         end
 
         -- ------------------------------------------------------------------------------------------------------------

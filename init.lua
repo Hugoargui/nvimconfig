@@ -1,8 +1,7 @@
 vim.opt.shadafile = 'NONE' -- Disable this while loading will make it faster
 require('core.options')
 
-require('core.statuscolumn')
-
+require('core.signcolumn')
 require('plugins-setup')
 
 require('core.colorscheme')

@@ -5,7 +5,7 @@ return {
     autolist = true,
     comment = true,
     cutlass = true,
-    lsp_signature = true,
+    lsp_signature = false,
     luasnip = true,
     mini_surround = false,
     autopairs = true,
@@ -30,7 +30,7 @@ return {
     colorizer = true,
     eyeliner = true,
     harpoon = true,
-    headlines = false, -- Highlights for markdown, orgmode etc
+    headlines = true, -- Highlights for markdown, orgmode etc
     icon_picker = true,
     markdown_preview = true,
     md_headers = true,
@@ -42,9 +42,9 @@ return {
     smart_splits = true,
     telescope = true,
     todo_comments = true,
-    trouble = true,
+    trouble = false,
     various_textobjects = true,
-    bbye = true,
+    bbye = false,
     vim_cmake = true,
     vim_maximizer = true,
     winshift = true,
@@ -56,7 +56,7 @@ return {
     -- LSP
     lspsaga = true,
     mason = true, -- Not so long to load, but why waste time when I don't install stuff so often
-    neodim = false, -- Highlihgt unused symbols
+    neodim = true, -- Highlihgt unused symbols
     code_action_menu = true, -- Pop up menu for code actions
     lspconfig = true,
     pretty_hover = true, --parses the hover message before opening the popup window

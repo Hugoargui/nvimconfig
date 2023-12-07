@@ -6,7 +6,7 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Outside of attach as we want this to be available even when no LSP is attached.
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
-vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨 Cursor Treesitter HL ' })
+vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨Show TS HL under cursor' })
 
 local on_attach = function(client, bufnr)
     -- enable keybinds only for when lsp server available
@@ -67,24 +67,24 @@ lspconfig['cmake'].setup({
     on_attach = on_attach,
 })
 
--- configure lua server (with special settings)
---TODO: LSP lua doesn't connect on open vim, only on jumping to lua buffer
-lspconfig['lua_ls'].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = { -- custom settings for lua
-        Lua = {
-            -- make the language server recognize "vim" global
-            diagnostics = {
-                globals = { 'vim' },
-            },
-            workspace = {
-                -- make language server aware of runtime files
-                library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.stdpath('config') .. '/lua'] = true,
-                },
-            },
-        },
-    },
-})
+-- -- configure lua server (with special settings)
+-- --TODO: LSP lua doesn't connect on open vim, only on jumping to lua buffer
+-- lspconfig['lua_ls'].setup({
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     settings = { -- custom settings for lua
+--         Lua = {
+--             -- make the language server recognize "vim" global
+--             diagnostics = {
+--                 globals = { 'vim' },
+--             },
+--             workspace = {
+--                 -- make language server aware of runtime files
+--                 library = {
+--                     [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+--                     [vim.fn.stdpath('config') .. '/lua'] = true,
+--                 },
+--             },
+--         },
+--     },
+-- })

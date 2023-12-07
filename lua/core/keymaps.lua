@@ -16,7 +16,7 @@ vim.keymap.set('n', '<bs>', 'q', { noremap = true })
 vim.keymap.set('n', '<C-j>', 'mojdd`o') -- Delete line bellow
 vim.keymap.set('n', '<C-k>', 'mokdd`o') -- Delete line above
 vim.keymap.set('n', '<A-j>', 'moo<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases
-vim.keymap.set('n', '<A-k>', 'moO<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases
+vim.keymap.set('n', '<A-k>', 'moO<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases:
 
 -- Save like normal people
 function Save_file()
@@ -38,40 +38,45 @@ vim.keymap.set('n', '<leader>zg', 'zg', { desc = ' Good: add word to dictiona
 -- ------------------------------------------------
 -- Insert mode readline mappings
 -- ------------------------------------------------
+-- TODO: command mode is hard, use plugin
+-- https://github.com/ryvnf/readline.vim/blob/main/doc/readline.txt
 
 -- Lines bellow/above
-vim.keymap.set('!', '<M-o>', '<Esc>o') -- LINE BELLOW
-vim.keymap.set('!', '<M-O>', '<Esc>O') -- LINE ABOVE
+vim.keymap.set('i', '<A-o>', '<Esc>o') -- LINE BELLOW
+vim.keymap.set('i', '<A-O>', '<Esc>O') -- LINE ABOVE
 
 -- MOVEMENT
 vim.keymap.set('!', '<C-b>', '<Left>') -- ONE CHAR BACK
-vim.keymap.set('!', '<M-b>', '<C-o>b') -- ONE wORD BACK
+vim.keymap.set('i', '<A-b>', '<C-o>b') -- ONE wORD BACK
+vim.keymap.set('c', '<A-b>', '<S-Left') -- ONE wORD BACK
 
-vim.keymap.set('!', '<C-f>', '<Right>') -- ONE CHAR FRONT
-vim.keymap.set('!', '<M-f>', '<C-o>w') -- ONE WORD FRONT
+vim.keymap.set('!', '<C-q>', '<C-f>') -- ONE CHAR FRONT
+vim.keymap.set('i', '<C-f>', '<Right>') -- TODO: in command mode I can't overwite default c-f by c-q, mappings don't work
+vim.keymap.set('i', '<A-f>', '<C-o>w') -- ONE WORD FRONT
 
-vim.keymap.set('!', '<C-a>', '<ESC>I') -- GO TO BEGINNING OF LINE
-vim.keymap.set('!', '<C-e>', '<ESC>A') -- GO TO END OF LINE
+vim.keymap.set('!', '<C-a>', '<HOME>') -- GO TO BEGINNING OF LINE
+vim.keymap.set('!', '<C-e>', '<END>') -- GO TO END OF LINE
 
 -- KILL
 vim.keymap.set('!', '<C-h>', '<BS>') -- Delete one character back
-vim.keymap.set('!', '<M-h>', '<C-o>db') -- Delete one word back
-vim.keymap.set('!', '<M-BS>', '<C-o>db') -- Delete one word back
-vim.keymap.set('!', '<C-d>', '<Del>') -- Delete one character front
-vim.keymap.set('!', '<M-d>', '<C-o>dw') -- Delete one character front
+vim.keymap.set('i', '<M-h>', '<C-o>db') -- Delete one word back
+vim.keymap.set('i', '<M-BS>', '<C-o>db') -- Delete one word back
 
-vim.keymap.set('!', '<C-k>', '<C-o>d$') -- DELETE TO END OF LINE
-vim.keymap.set('!', '<C-u>', '<C-o>d^') -- DELETE TO BEGINING OF LINE
-vim.keymap.set('!', '<M-l>', '<C-o>dd') -- delete current line
+vim.keymap.set('!', '<C-d>', '<Del>') -- Delete one character front
+vim.keymap.set('i', '<M-d>', '<C-o>dw') -- Delete one character front
+
+vim.keymap.set('i', '<C-k>', '<C-o>d$') -- DELETE TO END OF LINE
+vim.keymap.set('i', '<C-u>', '<C-o>d^') -- DELETE TO BEGINING OF LINE
+vim.keymap.set('i', '<M-l>', '<C-o>dd') -- delete current line
 
 -- TODO: <c-d> removes one level of indentation, maybe remap to <c-<>
 -- TODO: <c-t> adds one level of indentation, maybe remap to <c->>
 
-vim.keymap.set('!', '<M-d>', '<esc>yypgi') -- Duplicate current line bellow
+vim.keymap.set('i', '<M-d>', '<esc>yypgi') -- Duplicate current line bellow
 
 -- SET UNDO POINTS SO UNDO COMMAND DOESN'T DELETE WHOLE TEXT
-vim.keymap.set('!', '.', '.<C-g>u')
-vim.keymap.set('!', '!', '!<C-g>u')
-vim.keymap.set('!', '?', '?<C-g>u')
-vim.keymap.set('!', ':', ':<C-g>u')
-vim.keymap.set('!', ';', ';<C-g>u')
+vim.keymap.set('i', '.', '.<C-g>u')
+vim.keymap.set('i', '!', '!<C-g>u')
+vim.keymap.set('i', '?', '?<C-g>u')
+vim.keymap.set('i', ':', ':<C-g>u')
+vim.keymap.set('i', ';', ';<C-g>u')

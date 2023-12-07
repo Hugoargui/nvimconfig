@@ -8,11 +8,11 @@ local routes = {
     { filter = { event = 'msg_show', find = '%d+L, %d+B$' }, view = 'mini' },
     { filter = { event = 'msg_show', find = '%-%-No lines in buffer%-%-' }, view = 'mini' },
     { filter = { event = 'msg_show', find = 'more line' }, skip = 'true' }, -- when undoing a line delet
-    { filter = { event = 'msg_show', find = 'line less' }, skip = 'true' }, -- wne deleting line with dd
+    { filter = { event = 'msg_show', find = 'fewer lines' }, skip = 'true' }, -- wne deleting line with dd or others
 
     -- unneeded info on search patterns
     { filter = { event = 'msg_show', find = '^[/?].' }, skip = true },
-    { filter = { event = 'msg_show', find = '^E486: Pattern not found' }, view = 'mini' },
+    { filter = { event = 'msg_show', find = '^E486: Pattern not found' }, skip = true },
 
     -- Word added to spellfile via
     { filter = { event = 'msg_show', find = '^Word .*%.add$' }, view = 'mini' },

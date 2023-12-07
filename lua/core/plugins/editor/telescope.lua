@@ -18,6 +18,9 @@ return {
             oldfiles = {
                 prompt_title = 'Recent Files',
             },
+            live_grep = {
+                prompt_title = 'Search string in project',
+            },
         }
 
         local extensions = {

@@ -105,11 +105,12 @@ local M = {
             ['e'] = { name = '   File Explorer' },
             ['c'] = { '<cmd>Themery<cr>', '🎨 ColorSchemes' },
 
-            ['f'] = {
-                "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-                '  Find files',
-            },
-            ['F'] = { '<cmd>Telescope find_files<cr>', '  Find Files with preview' },
+            -- TODO: if I end up satisfied with smart-open.nvim, remove this from here
+            -- ['f'] = {
+            --     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            --     '  Find files',
+            -- },
+            -- ['F'] = { '<cmd>Telescope find_files<cr>', '  Find Files with preview' },
             ['r'] = { '<cmd>Telescope resume<CR>', '屢 RESUME last search' },
 
             q = {
@@ -168,13 +169,13 @@ local M = {
             m = {
                 name = ' 🟢 Make/Build',
             },
-            -- l = {
-            --     name = '   LSP',
-            --     -- TODO: this don't show
-            --     k = { name = ' LSP change symbol Case' },
-            --     n = { name = 'LSP swap with next' },
-            --     p = { name = 'LSP swap with previous' },
-            -- },
+            l = {
+                name = '   LSP',
+                --     -- TODO: this don't show
+                --     k = { name = ' LSP change symbol Case' },
+                --     n = { name = 'LSP swap with next' },
+                --     p = { name = 'LSP swap with previous' },
+            },
             i = {
                 name = '   Diagnostics',
             },
@@ -184,9 +185,21 @@ local M = {
             },
             s = {
                 name = '   Search',
-                s = { '<cmd>Telescope live_grep<cr>', '  Find Text' },
+                -- s = { '<cmd>Telescope live_grep<cr>', '  Find Text' },
+                s = {
+                    -- Taken from this issue https://github.com/nvim-telescope/telescope.nvim/issues/564
+                    function()
+                        require('telescope.builtin').live_grep({
+                            shorten_path = true,
+                            word_match = '-w',
+                            only_sort_text = true,
+                            search = '',
+                        })
+                    end,
+                    '  FUZZY Find Text in project',
+                },
+
                 h = { '<cmd>Telescope highlights<CR>', '  Search Highligts' },
-                b = { '<cmd>Telescope git_branches<cr>', '  Checkout branch' },
                 H = { '<cmd>Telescope help_tags<cr>', '  Find Help' },
                 M = { '<cmd>Telescope man_pages<cr>', '  Man Pages' },
                 r = { '<cmd>Telescope oldfiles<cr>', '  Open Recent File' },

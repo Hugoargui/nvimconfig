@@ -33,6 +33,7 @@ opt.background = 'dark'
 opt.number = true
 opt.signcolumn = 'yes' -- Needed for plugins that dispaly stuff in left column (git status, diagnostics...)
 opt.cursorline = true -- Line on the line we're at, you can set it's style with highlights
+opt.virtualedit = 'block' -- Virtual cursor mode can go beyond end of line to make "blocks"
 
 -- LastStatus means when to show status bar at the bottom of each window:
 -- 0 : No status bar
@@ -50,7 +51,7 @@ opt.cmdheight = 0
 -- showmode, if vim should display [INSERT], [NORMAL], etc on the command bar, not necesary with most statusline plugins
 opt.showmode = false
 
-opt.scrolloff = 8
+opt.scrolloff = 8 -- 999 is quite nice too, keeps cursor in middle of screen
 opt.sidescrolloff = 8
 
 opt.wrap = false -- do not wrap long lines
@@ -70,7 +71,7 @@ opt.shiftwidth = 4 -- N spaces on syntax tabs (tabs in python, after {<CR> in C+
 -----------------------------------------------------------
 -- SEARCH
 -----------------------------------------------------------
-opt.ignorecase = true -- Search is case Insensitive
+opt.ignorecase = true -- Search and command line autocompletion is case Insensitive
 opt.smartcase = true -- if ignorecase=TRUE, writting BigCase will turn search into sensitive
 
 -----------------------------------------------------------

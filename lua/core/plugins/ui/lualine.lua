@@ -11,7 +11,6 @@ local function simplifiedMode(str)
     elseif str == 'COMMAND' then
         icon = '  '
     end
-    --   return icons.diagnostics.Error
     return icon .. (str == 'V-LINE' and 'VL' or (str == 'V-BLOCK' and 'VB' or str:sub(1, 1)))
 end
 

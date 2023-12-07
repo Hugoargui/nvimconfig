@@ -98,7 +98,6 @@ require('lazy').setup({
                 'netrwFileHandlers',
                 'netrwPlugin',
                 'netrwSettings',
-                -- 'nvim',
                 'optwin',
                 'rplugin',
                 'rplugin',

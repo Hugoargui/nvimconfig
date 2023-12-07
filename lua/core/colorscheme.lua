@@ -18,7 +18,9 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         -- vim.opt.fillchars:append({ foldclose = '' })
         -- vim.opt.fillchars:append({ foldsep = '│' })
 
-        vim.api.nvim_set_hl(0, 'WhichKey', { link = 'Function' }) -- They key
+        vim.api.nvim_set_hl(0, 'SignColumn', { link = 'LineNr' }) -- In some colorschemes it's very different and ugly
+
+        vim.api.nvim_set_hl(0, 'WhichKey', { link = 'Function' }) -- The key
         vim.api.nvim_set_hl(0, 'WhichKeySeparator', { link = 'WhichKey' }) -- The separator between the key and its label
         vim.api.nvim_set_hl(0, 'WhichKeyDesc', { link = 'WhichKey' }) -- The key description
         vim.api.nvim_set_hl(0, 'WhichkeyGroup', { link = 'WhichKey' }) -- A group description
@@ -35,7 +37,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { link = 'DiagnosticOk' })
         vim.api.nvim_set_hl(0, '@lsp.mod.readonly.cpp', { link = 'DiagnosticOk' })
 
-        -- vim.api.nvim_set_hl(0, '@string.cpp', { link = '@text.diff.add' })
         vim.api.nvim_set_hl(0, '@string.cpp', { link = 'BufferVisible' })
 
         vim.api.nvim_set_hl(0, 'SpellBad', { fg = '#ff0000', underline = true })
@@ -43,7 +44,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         vim.api.nvim_set_hl(0, 'SpellRare', { fg = '#FFBF00', underline = true })
         vim.api.nvim_set_hl(0, 'SpellLocal', { fg = '#FFBF00', underline = true })
 
-        -- vim.cmd([[ highlight VertSplit   guibg=none ]])
         vim.api.nvim_set_hl(0, 'StatusLineNc', { bg = 'none' })
 
         vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'TelescopeBorder' })
@@ -71,9 +71,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 
         -- DEBUG ICONS AND HIGHLIGHTS'
         vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#993939' })
-        -- vim.fn.sign_define("DapBreakpoint", { text = "•", texthl = "red", linehl = "", numhl = "" })
-        -- vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
-        -- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
 
         vim.api.nvim_set_hl(0, 'DapLogPoint', { fg = '#61afef', bg = '#31353f' })
         vim.fn.sign_define(
@@ -86,8 +83,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
             'DapStopped',
             { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' }
         )
-        -- vim.fn.sign_define("DapStopped", { text = "▶️", texthl = "", linehl = "", numhl = "" })
-        -- vim.fn.sign_define("DapStopped", { text = "🞂", texthl = "green", linehl = "green" })
 
         vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
         vim.fn.sign_define(
@@ -100,11 +95,20 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         )
 
         -- Change the Diagnostic symbols in the sign column (gutter)
-        -- (not in youtube nvim video)
-        local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+        local icons = require('core.icons').icons
+        local signs = {
+            Error = icons.diagnostics.Error,
+            Warn = icons.diagnostics.Warn,
+            Hint = icons.diagnostics.Hint,
+            Info = icons.diagnostics.Info,
+        }
         for type, icon in pairs(signs) do
             local hl = 'DiagnosticSign' .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+            -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
+            -- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+
+            -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
+            vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
         end
     end, -- end of autocommand callback
 }) -- end of colorscheme autocommand
@@ -112,7 +116,7 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme catppuccin")
-vim.g.theme_id = 4
+vim.cmd("colorscheme rose-pine")
+vim.g.theme_id = 19
 -- end themery block
 --

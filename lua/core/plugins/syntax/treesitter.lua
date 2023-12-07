@@ -15,7 +15,7 @@ return {
 
         config = function()
             require('nvim-treesitter.configs').setup({
-                highlight = { enable = true },
+                highlight = { enable = true, disable = { 'lua' } },
                 indent = { enable = false }, -- it's quite bad except on python files
                 context_commentstring = { enable = true, enable_autocmd = false },
                 autotag = { enable = true }, -- if nvim-ts-autotag plugin is installed
@@ -25,27 +25,20 @@ return {
                     'cmake',
                     'comment', -- nested language for the comments of many programming languages
                     'cpp',
-                    'css',
                     'dockerfile',
                     'gitcommit',
                     'gitignore',
-                    'graphql',
-                    'html',
-                    'javascript',
                     'json',
                     'lua',
                     'make',
                     'markdown',
                     'markdown_inline',
                     'python',
+                    'query', -- should always be installed
                     'regex',
-                    'svelte',
-                    'tsx',
-                    'typescript',
                     'vim',
                     'vimdoc',
                     'yaml',
-                    'query', -- should always be installed
                 },
                 auto_install = true,
             })
