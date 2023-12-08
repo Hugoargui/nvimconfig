@@ -69,22 +69,22 @@ lspconfig['cmake'].setup({
 
 -- -- configure lua server (with special settings)
 -- --TODO: LSP lua doesn't connect on open vim, only on jumping to lua buffer
--- lspconfig['lua_ls'].setup({
---     capabilities = capabilities,
---     on_attach = on_attach,
---     settings = { -- custom settings for lua
---         Lua = {
---             -- make the language server recognize "vim" global
---             diagnostics = {
---                 globals = { 'vim' },
---             },
---             workspace = {
---                 -- make language server aware of runtime files
---                 library = {
---                     [vim.fn.expand('$VIMRUNTIME/lua')] = true,
---                     [vim.fn.stdpath('config') .. '/lua'] = true,
---                 },
---             },
---         },
---     },
--- })
+lspconfig['lua_ls'].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = { -- custom settings for lua
+        Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = {
+                -- make language server aware of runtime files
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.stdpath('config') .. '/lua'] = true,
+                },
+            },
+        },
+    },
+})

@@ -4,13 +4,6 @@
 - check this take on word movement vs spider/smartword:
     https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
 - improve build/compile/run life-cycle. 
-- LUA files very slow
-    - With all plugins anabled, everything lags, almost unusable
-    - Disabling tresitter big improvement
-    - Disabling most plugins noticable improvement
-    - Lua LSP has problemsn attaching
-    - nulls at some point was giving timeout warnings
-    - Could be related to nullls/LSP plugins blocking... check it out
 
 # MEDIUM TERM IDEAS
 - python REPL

@@ -1,6 +1,7 @@
 -- Plugin to setup linters/formatters for any language server
 return {
-    'jose-elias-alvarez/null-ls.nvim',
+    -- 'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     enabled = require('core.enable_plugins').null_ls,
     event = { 'BufReadPost', 'BufNewFile' },
     dependencies = {
@@ -28,6 +29,7 @@ return {
                 }),
             },
             on_attach = function(current_client, bufnr)
+                -- configure format on save
                 if current_client.supports_method('textDocument/formatting') then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -46,6 +48,5 @@ return {
                 end
             end,
         })
-        -- configure format on save
     end,
 }

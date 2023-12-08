@@ -9,6 +9,7 @@ local routes = {
     { filter = { event = 'msg_show', find = '%-%-No lines in buffer%-%-' }, view = 'mini' },
     { filter = { event = 'msg_show', find = 'more line' }, skip = 'true' }, -- when undoing a line delet
     { filter = { event = 'msg_show', find = 'fewer lines' }, skip = 'true' }, -- wne deleting line with dd or others
+    { filter = { event = 'msg_show', find = 'lines yanked$' }, skip = 'true' }, -- wne deleting line with dd or others
 
     -- unneeded info on search patterns
     { filter = { event = 'msg_show', find = '^[/?].' }, skip = true },

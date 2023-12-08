@@ -15,7 +15,8 @@ return {
 
         config = function()
             require('nvim-treesitter.configs').setup({
-                highlight = { enable = true, disable = { 'lua' } },
+                -- highlight = { enable = true, disable = { 'lua' } },
+                highlight = { enable = true },
                 indent = { enable = false }, -- it's quite bad except on python files
                 context_commentstring = { enable = true, enable_autocmd = false },
                 autotag = { enable = true }, -- if nvim-ts-autotag plugin is installed
