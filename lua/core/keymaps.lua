@@ -46,12 +46,10 @@ vim.keymap.set('i', '<A-o>', '<Esc>o') -- LINE BELLOW
 vim.keymap.set('i', '<A-O>', '<Esc>O') -- LINE ABOVE
 
 -- MOVEMENT
-vim.keymap.set('!', '<C-b>', '<Left>') -- ONE CHAR BACK
+vim.keymap.set('i', '<C-b>', '<Left>') -- ONE CHAR BACK
 vim.keymap.set('i', '<A-b>', '<C-o>b') -- ONE wORD BACK
-vim.keymap.set('c', '<A-b>', '<S-Left') -- ONE wORD BACK
 
-vim.keymap.set('!', '<C-q>', '<C-f>') -- ONE CHAR FRONT
-vim.keymap.set('i', '<C-f>', '<Right>') -- TODO: in command mode I can't overwite default c-f by c-q, mappings don't work
+vim.keymap.set('i', '<C-f>', '<Right>') -- ONE CHAR FRONT
 vim.keymap.set('i', '<A-f>', '<C-o>w') -- ONE WORD FRONT
 
 vim.keymap.set('!', '<C-a>', '<HOME>') -- GO TO BEGINNING OF LINE
@@ -80,3 +78,7 @@ vim.keymap.set('i', '!', '!<C-g>u')
 vim.keymap.set('i', '?', '?<C-g>u')
 vim.keymap.set('i', ':', ':<C-g>u')
 vim.keymap.set('i', ';', ';<C-g>u')
+
+-- COMMAND LINE COMMANDS-- TODO: in command mode I can't overwite default c-f by c-q, mappings don't work
+vim.keymap.set('!', '<C-q>', '<C-f>') -- ONE CHAR FRONT
+vim.keymap.set('c', '<A-b>', '<S-Left') -- ONE wORD BACK

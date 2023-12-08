@@ -37,14 +37,32 @@ return {
             defaults = {
                 prompt_prefix = '> ',
                 selection_caret = '> ',
+
                 mappings = {
                     i = {
                         ['<Esc>'] = actions.close, -- don't go into normal mode, just close
+                        ['<C-g>'] = require('telescope.actions.layout').toggle_preview,
+
                         ['<C-j>'] = actions.move_selection_next, -- scroll the list with <c-j>
                         ['<C-k>'] = actions.move_selection_previous, -- scroll the list with <c-k>
-                        ['<C-h>'] = actions.select_horizontal, -- open selection in new horizantal split
                         ['<C-v>'] = actions.select_vertical, -- open selection in new vertical split
+                        ['<C-x>'] = actions.select_horizontal, -- open selection in new horizantal split
                         ['<C-t>'] = actions.select_tab, -- open selection in new tab
+
+                        ['<C-s>'] = actions.toggle_all, -- Toggle multi selection for all entries
+                        ['<C-z>'] = actions.drop_all, -- Drop all entries from the current multiselection.
+
+                        ['<C-n>'] = actions.cycle_history_next,
+                        ['<C-p>'] = actions.cycle_history_prev,
+
+                        ['<A-u>'] = actions.preview_scrolling_up, -- unfortunately C-u more usefult o clear promt
+                        ['<A-d>'] = actions.preview_scrolling_down, -- unfortunately C-d more useful as del
+
+                        ['<C-u>'] = false, -- default is scrolling down preview, I prefer to get clear prompt
+                        ['<C-d>'] = false, -- default is scrolling down preview, I prefer to get delete
+                        ['<Up>'] = false, -- Don't clutter keymaps help
+                        ['<Down>'] = false, -- Don't clutter keymaps help
+                        ['<C-C>'] = false, -- Otherwise shows as "anonymous" in preview
                     },
                 }, -- mappings
                 initial_mode = 'insert',
