@@ -4,8 +4,7 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     opts = { space_char_blankline = ' ', show_current_context = true, show_current_context_start = false },
 
-    config = function(_, opts)
-        require('illuminate').configure(opts)
+    config = function()
         require('ibl').setup()
         if require('core.enable_plugins').rainbow_delimiters then
             local highlight = {

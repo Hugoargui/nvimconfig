@@ -35,7 +35,7 @@ return {
     markdown_preview = true,
     md_headers = true,
     neoscroll = true,
-    null_ls = true, -- TODO: replace by something maintained
+    null_ls = true,
     nvim_tree = true,
     treesitter_textobjects = true,
     ufo = true,
@@ -56,7 +56,7 @@ return {
     -- LSP
     lspsaga = true,
     mason = true, -- Not so long to load, but why waste time when I don't install stuff so often
-    neodim = true, -- Highlihgt unused symbols
+    neodim = false, -- FIX: BREAKS HL, for example toggle line coments makes it white -- Highlihgt unused symbols
     code_action_menu = true, -- Pop up menu for code actions
     lspconfig = true,
     pretty_hover = true, --parses the hover message before opening the popup window
@@ -67,7 +67,7 @@ return {
     -- SESSIONS
 
     -- SYNTAX
-    hlargs = false,
+    hlargs = false, -- NOT NEEDED WHEN SEMANTIC HL SUPPORT
     indentblankline = true,
     rainbow_delimiters = true,
     tree_sitter_asm = false, -- not used

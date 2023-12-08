@@ -1,4 +1,7 @@
 vim.opt.shadafile = 'NONE' -- Disable this while loading will make it faster
+
+vim.loader.enable() -- new feature that is supposed to speed up bootup, it saves me 100ms
+
 require('core.options')
 
 require('core.signcolumn')

@@ -10,10 +10,12 @@
 - tabout plugin
 - dial
 - try tabtree navigation mapped to { and } https://github.com/roobert/tabtree.nvim
-- figure out how to make spellchecker ignore url links.
+- figure out how to make spellchecker ignore url links (and maybe stuff between quotes).
 - incremental selection
 - incorporate the awesome cpp snippets I found https://github.com/t-troebst/config.nvim/blob/master/snippets/cpp.lua
 - incorporate algorithm mnemonics for cpp
+- headlines plugin adds strange squares bellow
+- find way to dim unused variables, neodim breaks highlights
 - git
         - integrating Git in nvim youtube video: https://www.youtube.com/watch?v=57x4ZzzCr2Y&pp=ygUdaW50ZWdyYXRpbiBnaXQgdmltIGFuZCBuZW92aW0%3D
         - Git mergetool tutorial with git: https://gist.github.com/karenyyng/f19ff75c60f18b4b8149

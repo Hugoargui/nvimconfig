@@ -1,6 +1,7 @@
 return {
     'HiPhish/rainbow-delimiters.nvim',
     enabled = require('core.enable_plugins').rainbow_delimiters,
+    event = { 'BufReadPost', 'BufNewFile' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
         -- This module contains a number of default definitions

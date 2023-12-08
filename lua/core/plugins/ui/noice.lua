@@ -4,15 +4,22 @@ local routes = {
     { filter = { min_height = 10 }, view = 'popup' },
 
     -- write/deletion messages
-    { filter = { event = 'msg_show', find = '%d+B written$' }, skip = 'true' },
     { filter = { event = 'msg_show', find = '%d+L, %d+B$' }, view = 'mini' },
     { filter = { event = 'msg_show', find = '%-%-No lines in buffer%-%-' }, view = 'mini' },
     { filter = { event = 'msg_show', find = 'more line' }, skip = 'true' }, -- when undoing a line delet
     { filter = { event = 'msg_show', find = 'fewer lines' }, skip = 'true' }, -- wne deleting line with dd or others
     { filter = { event = 'msg_show', find = 'lines yanked$' }, skip = 'true' }, -- wne deleting line with dd or others
+    { filter = { event = 'msg_show', find = '%d+B written$' }, skip = 'true' },
+
+    -- when changing whole project, don't show that you deleted NNN buffers.
+    { filter = { event = 'msg_show', find = 'buffers deleted$' }, skip = true },
+
+    -- THemery theme switcher
+    { filter = { event = 'msg_show', find = '^Theme saved$' }, skip = true },
 
     -- unneeded info on search patterns
     { filter = { event = 'msg_show', find = '^[/?].' }, skip = true },
+    { filter = { event = 'msg_show', find = 'search hit' }, skip = true },
     { filter = { event = 'msg_show', find = '^E486: Pattern not found' }, skip = true },
 
     -- Word added to spellfile via
@@ -27,9 +34,6 @@ local routes = {
     -- :make
     { filter = { event = 'msg_show', find = '^:!make' }, skip = true },
     { filter = { event = 'msg_show', find = '^%(%d+ of %d+%):' }, skip = true },
-
-    -- when changing whole project, don't show that you deleted NNN buffers.
-    { filter = { event = 'msg_show', find = 'buffers deleted$' }, skip = true },
 
     -- -----------------------------------------------------------------------------
     -- { -- nvim-early-retirement
