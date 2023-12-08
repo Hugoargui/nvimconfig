@@ -44,7 +44,7 @@ return {
     todo_comments = true,
     trouble = false,
     various_textobjects = true,
-    bbye = false,
+    bbye = true,
     vim_cmake = true,
     vim_maximizer = true,
     winshift = true,

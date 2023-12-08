@@ -21,6 +21,9 @@
         - Git mergetool tutorial with git: https://gist.github.com/karenyyng/f19ff75c60f18b4b8149
         - compare to mergetool, other plugins
     - lazygit is nice but not so vim like, replace by git ui that allows to move around with vim window motions
+- Highlight undo plugin (I tried but didn't manage to make it highlight, not worth the time for now)
+- Modes.nvim to highlight deleted lines and changed lines. 
+- sibling-swap.nvim
 
 # LONG TIME IDEAS, NOT URGENT
 - improve search and replace workflow, by example by using Spectre

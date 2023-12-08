@@ -32,3 +32,6 @@ multicursors
 config
 url
 REPL
+automagically
+deleter
+DLL

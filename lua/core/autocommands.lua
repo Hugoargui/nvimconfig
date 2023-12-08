@@ -42,10 +42,28 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
         if DapEnabled then
             require('dapui').close()
         end
+
         SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
         if SymbolsOutlineEnabled then
             vim.cmd('SymbolsOutlineClose')
         end
     end,
-    desc = "Don't leave it open, or it will have ugly buffers when reopening",
+})
+
+vim.api.nvim_create_autocmd('VimEnter', {
+    pattern = '*',
+    -- If you left oil open, close it
+    -- Doesn't work if I do it in VimLeavePre
+    -- Oil builitn close() also doesnt' work
+    callback = function()
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+            vim.api.nvim_set_current_win(win)
+            local buffPath = vim.api.nvim_buf_get_name(0)
+            if string.find(buffPath, 'oil://') then
+                -- TODO: would be great to find a way without closing the window
+                -- vim.api.nvim_command('Bdelete') --fucks up highlight
+                vim.api.nvim_command('bd') --fucks up highlight
+            end
+        end
+    end,
 })

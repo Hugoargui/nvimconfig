@@ -3,7 +3,7 @@ return {
     enabled = require('core.enable_plugins').text_case,
     keys = {
 
-        { 'ga', desc = 'Caseh Changing' },
+        { 'ga', desc = 'Case Changing' },
         { '<leader>lk' },
     },
 
@@ -22,7 +22,7 @@ return {
             'n',
             '<leader>lk',
             '<cmd>TextCaseOpenTelescopeLSPChange<CR>',
-            { desc = 'Change Case of Symbol' }
+            { desc = 'Æ Change Case of Symbol under cursor' }
         )
     end,
 }
