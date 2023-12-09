@@ -20,7 +20,7 @@
 - Highlight undo plugin (I tried but didn't manage to make it highlight, not worth the time for now)
 - Modes.nvim to highlight deleted lines and changed lines.
 - sibling-swap.nvim
-- Arpeggio -> asdf for page scrolling, hjkl for window
+- Arpeggio -> asdf for page scrolling, see arpeggio issues about remap warning
 - Arpeggio for number motions (w+k = 5w for example)
 
 # LONG TIME IDEAS, NOT URGENT
