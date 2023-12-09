@@ -68,7 +68,6 @@ lspconfig['cmake'].setup({
 })
 
 -- -- configure lua server (with special settings)
--- --TODO: LSP lua doesn't connect on open vim, only on jumping to lua buffer
 lspconfig['lua_ls'].setup({
     capabilities = capabilities,
     on_attach = on_attach,

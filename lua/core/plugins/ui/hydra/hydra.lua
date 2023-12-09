@@ -7,8 +7,7 @@ return {
         'anuvyklack/keymap-layer.nvim',
     },
     config = function()
-        -- TODO: add folds menu back when I fix it
-        -- require('core.plugins.ui.hydra.hydra_menus.folds')
+        -- require('core.plugins.ui.hydra.hydra_menus.folds') -- not working
         require('core.plugins.ui.hydra.hydra_menus.toggle_options')
         require('core.plugins.ui.hydra.hydra_menus.window_manager')
     end,
