@@ -2,7 +2,7 @@ return {
     'rcarriga/nvim-dap-ui',
     enabled = require('core.enable_plugins').dap_ui,
     dependencies = { 'mfussenegger/nvim-dap' },
-    keys = { '<lader>du' },
+    keys = { '<leader>du' },
     config = function()
         require('dapui').setup({
             -- Comment out layouts to hide them

@@ -176,9 +176,6 @@ local M = {
                 --     n = { name = 'LSP swap with next' },
                 --     p = { name = 'LSP swap with previous' },
             },
-            i = {
-                name = '   Diagnostics',
-            },
             ['t'] = { name = '   Trouble Diagnostics' },
             d = {
                 name = '   Debugger',

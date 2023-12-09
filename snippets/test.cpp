@@ -33,6 +33,8 @@ int faaaa(int input, int dummy) {
     return 0;
   }
 }
+uint32_t num = 0xb3;
+const bool b = true;
 
 int myBarFunction(int year, int day, int hour, int minute, std::string name) {
   const int unused = 0;

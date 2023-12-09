@@ -113,6 +113,13 @@ return {
 
         -- ------------------------------------------------------------------------------------------------------------
         -- DIAGNOSTICS STUFF
+        local wk_enabled = require('core.enable_plugins').whichkey
+        if wk_enabled then
+            local wkl = require('which-key')
+            wkl.register({
+                name = '   Diagnostics',
+            }, { prefix = '<leader>i', buffer = 0 })
+        end
 
         -- DIAGNOSTICS JUMPING
         keymap.set('n', '<leader>ip', nativediag.goto_prev, { desc = '⬅ Previous Diagnostics', buffer = bufnr })

@@ -42,7 +42,7 @@ return {
     smart_splits = true,
     telescope = true,
     todo_comments = true,
-    trouble = false,
+    trouble = true,
     various_textobjects = true,
     bbye = true,
     vim_cmake = true,

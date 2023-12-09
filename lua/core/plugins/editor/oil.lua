@@ -8,12 +8,12 @@ return {
         {
             '<leader><leader>',
             '<cmd>Oil<CR>',
-            desc = '  Open Filesystem Editor in this window',
+            desc = '  Filesystem Editor in this window',
         },
         {
             '<leader><cr>',
             '<cmd>lua require("oil").open_float()<CR>',
-            desc = '  Open Filesystem Editor in floating window',
+            desc = '  Filesystem Editor floating window',
         },
     },
     init = function()
