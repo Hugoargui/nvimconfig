@@ -3,23 +3,23 @@
 local ts_utils = require('nvim-treesitter.ts_utils')
 
 local ls = require('luasnip')
-local s = ls.snippet
-local sn = ls.snippet_node
+local snippet = ls.snippet
+local snippet_node = ls.snippet_node
 -- local isn = ls.indent_snippet_node
-local t = ls.text_node
-local i = ls.insert_node
-local f = ls.function_node
-local c = ls.choice_node
-local d = ls.dynamic_node
-local r = ls.restore_node
+local text_node = ls.text_node
+local insert_node = ls.insert_node
+local function_node = ls.function_node
+local choice_node = ls.choice_node
+local dynamic_node = ls.dynamic_node
+local restore_node = ls.restore_node
 -- local events = require('luasnip.util.events')
 -- local ai = require('luasnip.nodes.absolute_indexer')
 local extras = require('luasnip.extras')
-local l = extras.lambda
+local lambda = extras.lambda
 local rep = extras.rep
 -- local p = extras.partial
 -- local m = extras.match
-local n = extras.nonempty
+local nonempty = extras.nonempty
 -- local dl = extras.dynamic_lambda
 -- local fmt = require('luasnip.extras.fmt').fmt
 -- local fmta = require('luasnip.extras.fmt').fmta
@@ -117,16 +117,16 @@ return {
     --     i(0),
     --     t({ '', '}' }),
     -- }, { stored = { cond = i(1, 'cond') } }),
-    s('ifc', {
-        t('if constexpr ('),
-        c(1, {
-            r(1, 'cond'),
-            sn(nil, { i(1, 'init'), t('; '), r(2, 'cond') }),
+    snippet('ifc', {
+        text_node('if constexpr ('),
+        choice_node(1, {
+            restore_node(1, 'cond'),
+            snippet_node(nil, { insert_node(1, 'init'), text_node('; '), restore_node(2, 'cond') }),
         }),
-        t({ ') {', '\t' }),
-        i(0),
-        t({ '', '}' }),
-    }, { stored = { cond = i(1, 'cond') } }),
+        text_node({ ') {', '\t' }),
+        insert_node(0),
+        text_node({ '', '}' }),
+    }, { stored = { cond = insert_node(1, 'cond') } }),
     parse('e', 'else {\n\t$0\n}'),
     parse('ei', 'else if ($1) {\n\t$0\n}'),
     parse('eic', 'else if constexpr ($1) {\n\t$0\n}'),
@@ -142,50 +142,59 @@ return {
     -- Attributes
     parse('nd', '[[nodiscard]]'),
 
-    -- Special member declarations
-    s('consd', {
-        dscr = 'Constructor Declaration',
-        d(1, function(_, snip)
+    snippet(
+        { trig = 'example', name = 'add name', dscr = 'add dscr' },
+        function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
             assert(cname, 'Could not get surrounding class!')
-            return sn(nil, { t(cname), t('('), i(1), t(');') })
+            return cname .. '(' .. cname .. ' const& other);'
+        end)
+    ),
+
+    -- Special member declarations
+    snippet('consd', {
+        dscr = 'Constructor Declaration',
+        dynamic_node(1, function(_, snip)
+            local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
+            assert(cname, 'Could not get surrounding class!')
+            return snippet_node(nil, { text_node(cname), text_node('('), insert_node(1), text_node(');') })
         end),
     }),
-    s('cconsd', {
+    snippet('cconsd', {
         dscr = 'Copy Constructor Declaration',
-        f(function(_, snip)
+        function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
             assert(cname, 'Could not get surrounding class!')
             return cname .. '(' .. cname .. ' const& other);'
         end),
     }),
-    s('mconsd', {
+    snippet('mconsd', {
         dscr = 'Move Constructor Declaration',
-        f(function(_, snip)
+        function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
             assert(cname, 'Could not get surrounding class!')
             return cname .. '(' .. cname .. '&& other) noexcept;'
         end),
     }),
-    s('cassd', {
+    snippet('cassd', {
         dscr = 'Copy Assignment Operator Declaration',
-        f(function(_, snip)
+        function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
             assert(cname, 'Could not get surrounding class!')
             return cname .. '& operator=(' .. cname .. ' const& other);'
         end),
     }),
-    s('massd', {
+    snippet('massd', {
         dscr = 'Move Assignment Operator Declaration',
-        f(function(_, snip)
+        function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
             assert(cname, 'Could not get surrounding class!')
             return cname .. '& operator=(' .. cname .. '&& other) noexcept;'
         end),
     }),
-    s('desd', {
+    snippet('desd', {
         dscr = 'Destructor Declaration',
-        f(function(_, snip)
+        function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
             assert(cname, 'Could not get surrounding class!')
             return '~' .. cname .. '();'
@@ -193,154 +202,157 @@ return {
     }),
 
     -- Special member definitions
-    s('consi', {
+    snippet('consi', {
         dscr = 'Constructor Implementation',
-        d(1, function(_, snip)
+        dynamic_node(1, function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
 
             if cname then
-                return sn(nil, {
-                    t(cname .. '('),
-                    i(1),
-                    t(')'),
-                    n(2, ' : '),
-                    i(2),
-                    t({ ' {', '\t' }),
-                    i(3),
-                    t({ '', '}' }),
+                return snippet_node(nil, {
+                    text_node(cname .. '('),
+                    insert_node(1),
+                    text_node(')'),
+                    nonempty(2, ' : '),
+                    insert_node(2),
+                    text_node({ ' {', '\t' }),
+                    insert_node(3),
+                    text_node({ '', '}' }),
                 })
             else
-                return sn(nil, {
-                    i(1, 'Class'),
-                    t('::'),
+                return snippet_node(nil, {
+                    insert_node(1, 'Class'),
+                    text_node('::'),
                     rep(1),
-                    t('('),
-                    i(2),
-                    t(')'),
-                    n(3, ' : '),
-                    i(3),
-                    t({ ' {', '\t' }),
-                    i(4),
-                    t({ '', '}' }),
+                    text_node('('),
+                    insert_node(2),
+                    text_node(')'),
+                    nonempty(3, ' : '),
+                    insert_node(3),
+                    text_node({ ' {', '\t' }),
+                    insert_node(4),
+                    text_node({ '', '}' }),
                 })
             end
         end),
     }),
-    s('cconsi', {
+    snippet('cconsi', {
         dscr = 'Copy Constructor Implementation',
-        d(1, function(_, snip)
+        dynamic_node(1, function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
 
             if cname then
-                return sn(nil, {
-                    t({ cname .. '(' .. cname .. ' const& other) {', '\t' }),
-                    i(1),
-                    t({ '', '}' }),
+                return snippet_node(nil, {
+                    text_node({ cname .. '(' .. cname .. ' const& other) {', '\t' }),
+                    insert_node(1),
+                    text_node({ '', '}' }),
                 })
             else
-                return sn(nil, {
-                    i(1, 'Class'),
-                    t('::'),
-                    l(l._1:match('([^<]*)'), 1),
-                    t('('),
-                    l(l._1:match('([^<]*)'), 1),
-                    t({ ' const& other) {', '\t' }),
-                    i(2),
-                    t({ '', '}' }),
+                return snippet_node(nil, {
+                    insert_node(1, 'Class'),
+                    text_node('::'),
+                    lambda(lambda._1:match('([^<]*)'), 1),
+                    text_node('('),
+                    lambda(lambda._1:match('([^<]*)'), 1),
+                    text_node({ ' const& other) {', '\t' }),
+                    insert_node(2),
+                    text_node({ '', '}' }),
                 })
             end
         end),
     }),
-    s('mconsi', {
+    snippet('mconsi', {
         dscr = 'Move Constructor Implementation',
-        d(1, function(_, snip)
+        dynamic_node(1, function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
 
             if cname then
-                return sn(nil, {
-                    t({ cname .. '(' .. cname .. '&& other) noexcept {', '\t' }),
-                    i(1),
-                    t({ '', '}' }),
+                return snippet_node(nil, {
+                    text_node({ cname .. '(' .. cname .. '&& other) noexcept {', '\t' }),
+                    insert_node(1),
+                    text_node({ '', '}' }),
                 })
             else
-                return sn(nil, {
-                    i(1, 'Class'),
-                    t('::'),
-                    l(l._1:match('([^<]*)'), 1),
-                    t('('),
-                    l(l._1:match('([^<]*)'), 1),
-                    t({ '&& other) noexcept {', '\t' }),
-                    i(2),
-                    t({ '', '}' }),
+                return snippet_node(nil, {
+                    insert_node(1, 'Class'),
+                    text_node('::'),
+                    lambda(lambda._1:match('([^<]*)'), 1),
+                    text_node('('),
+                    lambda(lambda._1:match('([^<]*)'), 1),
+                    text_node({ '&& other) noexcept {', '\t' }),
+                    insert_node(2),
+                    text_node({ '', '}' }),
                 })
             end
         end),
     }),
-    s('cassi', {
+    snippet('cassi', {
         dscr = 'Copy Assignment Implementation',
-        d(1, function(_, snip)
+        dynamic_node(1, function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
 
             if cname then
-                return sn(nil, {
-                    t({ cname .. '& operator=(' .. cname .. ' const& other) {', '\t' }),
-                    i(1),
-                    t({ '', '\treturn *this;', '}' }),
+                return snippet_node(nil, {
+                    text_node({ cname .. '& operator=(' .. cname .. ' const& other) {', '\t' }),
+                    insert_node(1),
+                    text_node({ '', '\treturn *this;', '}' }),
                 })
             else
-                return sn(nil, {
-                    i(1, 'Class'),
-                    t('& '),
+                return snippet_node(nil, {
+                    insert_node(1, 'Class'),
+                    text_node('& '),
                     rep(1),
-                    t('::operator=('),
-                    l(l._1:match('([^<*])'), 1),
-                    t({ ' const& other) {', '\t' }),
-                    i(2),
-                    t({ '', '\treturn *this;', '}' }),
+                    text_node('::operator=('),
+                    lambda(lambda._1:match('([^<*])'), 1),
+                    text_node({ ' const& other) {', '\t' }),
+                    insert_node(2),
+                    text_node({ '', '\treturn *this;', '}' }),
                 })
             end
         end),
     }),
-    s('massi', {
+    snippet('massi', {
         dscr = 'Move Assignment Implementation',
-        d(1, function(_, snip)
+        dynamic_node(1, function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
 
             if cname then
-                return sn(nil, {
-                    t({ cname .. '& operator=(' .. cname .. '&& other) noexcept {', '\t' }),
-                    i(1),
-                    t({ '', '\treturn *this;', '}' }),
+                return snippet_node(nil, {
+                    text_node({ cname .. '& operator=(' .. cname .. '&& other) noexcept {', '\t' }),
+                    insert_node(1),
+                    text_node({ '', '\treturn *this;', '}' }),
                 })
             else
-                return sn(nil, {
-                    i(1, 'Class'),
-                    t('& '),
+                return snippet_node(nil, {
+                    insert_node(1, 'Class'),
+                    text_node('& '),
                     rep(1),
-                    t('::operator=('),
-                    l(l._1:match('([^<]*)'), 1),
-                    t({ '&& other) noexcept {', '\t' }),
-                    i(2),
-                    t({ '', '\treturn *this;', '}' }),
+                    text_node('::operator=('),
+                    lambda(lambda._1:match('([^<]*)'), 1),
+                    text_node({ '&& other) noexcept {', '\t' }),
+                    insert_node(2),
+                    text_node({ '', '\treturn *this;', '}' }),
                 })
             end
         end),
     }),
-    s('desi', {
+    snippet('desi', {
         dscr = 'Destructor Implementation',
-        d(1, function(_, snip)
+        dynamic_node(1, function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
 
             if cname then
-                return sn(nil, { t({ '~' .. cname .. '() {', '\t' }), i(1), t({ '', '}' }) })
+                return snippet_node(
+                    nil,
+                    { text_node({ '~' .. cname .. '() {', '\t' }), insert_node(1), text_node({ '', '}' }) }
+                )
             else
-                return sn(nil, {
-                    i(1, 'Class'),
-                    t('::~'),
-                    l(l._1:match('([^<]*)'), 1),
-                    t({ '() {', '\t' }),
-                    i(2),
-                    t({ '', '}' }),
+                return snippet_node(nil, {
+                    insert_node(1, 'Class'),
+                    text_node('::~'),
+                    lambda(lambda._1:match('([^<]*)'), 1),
+                    text_node({ '() {', '\t' }),
+                    insert_node(2),
+                    text_node({ '', '}' }),
                 })
             end
         end),
@@ -349,28 +361,40 @@ return {
     -- Other
     parse('ip', '${1:range}.begin(), $1.end()'),
     parse('print', "std::cout << $1 << '\\n';"),
-    s('bind', {
-        c(1, {
-            sn(nil, { t('auto const& ['), r(1, 'bindings'), t('] = '), r(2, 'value'), t(';') }),
-            sn(nil, { t('auto&& ['), r(1, 'bindings'), t('] = '), r(2, 'value'), t(';') }),
+    snippet('bind', {
+        choice_node(1, {
+            snippet_node(nil, {
+                text_node('auto const& ['),
+                restore_node(1, 'bindings'),
+                text_node('] = '),
+                restore_node(2, 'value'),
+                text_node(';'),
+            }),
+            snippet_node(nil, {
+                text_node('auto&& ['),
+                restore_node(1, 'bindings'),
+                text_node('] = '),
+                restore_node(2, 'value'),
+                text_node(';'),
+            }),
         }),
-    }, { stored = { bindings = i(1, 'bindings'), value = i(2, 'value') } }),
-    s('main', {
-        t('int main('),
-        c(1, {
-            t(''),
-            t('int const argc, char const* const* const argv'),
+    }, { stored = { bindings = insert_node(1, 'bindings'), value = insert_node(2, 'value') } }),
+    snippet('main', {
+        text_node('int main('),
+        choice_node(1, {
+            text_node(''),
+            text_node('int const argc, char const* const* const argv'),
         }),
-        t({ ') {', '\t' }),
-        i(0),
-        t({ '', '}' }),
+        text_node({ ') {', '\t' }),
+        insert_node(0),
+        text_node({ '', '}' }),
     }),
-    s('inc', {
-        t('#include '),
-        c(1, {
-            sn(nil, { t('<'), r(1, 'header'), t('>') }),
-            sn(nil, { t('"'), r(1, 'header'), t('"') }),
+    snippet('inc', {
+        text_node('#include '),
+        choice_node(1, {
+            snippet_node(nil, { text_node('<'), restore_node(1, 'header'), text_node('>') }),
+            snippet_node(nil, { text_node('"'), restore_node(1, 'header'), text_node('"') }),
         }),
-    }, { stored = { header = i(1, 'header') } }),
+    }, { stored = { header = insert_node(1, 'header') } }),
     parse('cinit', 'auto const $1 = [&] {\n\t$0\n}();'),
 }
