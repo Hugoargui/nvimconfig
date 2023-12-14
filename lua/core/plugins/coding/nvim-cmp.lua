@@ -12,6 +12,7 @@ local M = {
         'hrsh7th/cmp-nvim-lua',
         'saadparwaiz1/cmp_luasnip',
         'onsails/lspkind.nvim',
+        'lukas-reineke/cmp-under-comparator',
     },
     event = 'InsertEnter',
     opts = function()
@@ -82,7 +83,6 @@ local M = {
             -- configure lspkind for vs-code like icons
             formatting = {
                 format = function(entry, vim_item)
-                    -- TODO: check if length limit works properly
                     vim_item.abbr = string.sub(vim_item.abbr, 1, 50) -- Concatenate to maximum size
                     vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
 
@@ -97,6 +97,20 @@ local M = {
                     return vim_item
                 end,
             },
+            sorting = {
+                -- priority_weight = 1.0, -- don't know what it does
+                comparators = {
+                    -- this guy has interesting stuff
+                    -- https://github.com/pysan3/dotfiles/blob/9d3ca30baecefaa2a6453d8d6d448d62b5614ff2/nvim/lua/plugins/70-nvim-cmp.lua#L132-L162
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.score,
+                    cmp.config.compare.recently_used,
+                    require('cmp-under-comparator').under,
+                    cmp.config.compare.kind,
+                },
+            },
+
             -- it's annoying it doesn't move text right when ghost text shows
             -- experimental = {
             --     ghost_text = {
