@@ -5,11 +5,11 @@ return {
 
     cmd = { 'CodeActionMenu' },
     keys = {
-        -- Set together with the reast of LSP mappings
+        -- Set together with the rest of LSP mappings
     },
     config = function()
-        vim.g.code_action_menu_show_details = false
-        vim.g.code_action_menu_show_diff = false -- doesn't seem to work
+        vim.g.code_action_menu_show_details = true
+        vim.g.code_action_menu_show_diff = true -- doesn't seem to work
         vim.g.code_action_menu_show_action_kind = true
     end,
 }

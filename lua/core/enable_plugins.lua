@@ -16,7 +16,6 @@ return {
     cpptools = true,
     ts_context_comments = false,
     ouroboros = true,
-    put_at_end = false,
     substitute = true,
     text_case = false,
     toggleterm = true,

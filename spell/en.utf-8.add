@@ -35,3 +35,5 @@ REPL
 automagically
 deleter
 DLL
+cout
+endl

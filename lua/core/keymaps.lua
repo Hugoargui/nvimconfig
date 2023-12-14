@@ -1,4 +1,3 @@
--- ------------------------------------------------
 -- Visual mode mappings
 -- ------------------------------------------------
 -- Move visual selection up and down
@@ -21,8 +20,32 @@ vim.keymap.set('n', '<A-k>', 'mokdd`o') -- Delete line above
 vim.keymap.set('n', '<C-j>', 'moo<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases
 vim.keymap.set('n', '<C-k>', 'moO<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases:
 
+-- Toggle characters at end of line!
+local matchLastChar = '<cmd>s/\\v(.)$'
+local ternaryConditionOnMatch = '\\=submatch(1)=='
+vim.keymap.set(
+    'n',
+    '<A-;>',
+    'mo' .. matchLastChar .. '/' .. ternaryConditionOnMatch .. "';'" .. "?'':submatch(1).';'<CR>" .. '`o'
+) -- toggle end of line ';'
+vim.keymap.set(
+    'n',
+    '<A-,>',
+    'mo' .. matchLastChar .. '/' .. ternaryConditionOnMatch .. "','" .. "?'':submatch(1).','<CR>" .. '`o'
+) -- toggle end of line ','
+vim.keymap.set(
+    'i',
+    '<A-;>',
+    '<esc>mo' .. matchLastChar .. '/' .. ternaryConditionOnMatch .. "';'" .. "?'':submatch(1).';'<CR>" .. '`oi'
+) -- toggle end of line ';'
+vim.keymap.set(
+    'i',
+    '<A-,>',
+    '<esc>mo' .. matchLastChar .. '/' .. ternaryConditionOnMatch .. "','" .. "?'':submatch(1).','<CR>" .. '`oi'
+) -- toggle end of line ','
+
 -- close current win if there are more than 1 win
--- else close current tab if there are more than 1 tab
+-- else close current tab if there are more than 1 tab;
 -- else close current vim
 function SmartQuit()
     if #vim.api.nvim_tabpage_list_wins(0) > 1 then
@@ -56,9 +79,15 @@ vim.keymap.set('n', '<leader>zg', 'zg', { desc = ' Good: add word to dictiona
 -- ------------------------------------------------
 -- Insert mode readline mappings
 -- ------------------------------------------------
--- Lines bellow/above
-vim.keymap.set('i', '<A-o>', '<Esc>o') -- LINE BELLOW
-vim.keymap.set('i', '<A-O>', '<Esc>O') -- LINE ABOVE
+
+vim.keymap.set('i', '<C-q>', '<C-o>') -- Make one normal mode move and return to insert mode
+
+-- Insert Lines bellow/above while staying in insert mode
+
+vim.keymap.set('i', '<C-o>', '<Esc>o') -- Add line bellow and move to it
+vim.keymap.set('i', '<C-O>', '<Esc>O') -- Add line above and move to it
+vim.keymap.set('i', '<A-o>', '<Esc>moo<Esc>0"_D`oa') -- Add line bellow without moving cursor
+vim.keymap.set('i', '<A-O>', '<Esc>moO<Esc>0"_D`oa') -- Add line above without moving cursor
 
 -- MOVEMENT
 vim.keymap.set('i', '<C-b>', '<Left>') -- ONE CHAR BACK
@@ -97,6 +126,6 @@ vim.keymap.set('i', ';', ';<C-g>u')
 -- ------------------------------------------------
 -- COMMAND LINE COMMANDS
 -- ------------------------------------------------
-vim.keymap.set('c', '<c-j>', '<c-n>')
-vim.keymap.set('c', '<c-k>', '<c-p>')
-vim.keymap.set('c', '<A-h>', '<C-w>')
+vim.keymap.set('c', '<c-j>', '<c-n>') -- Navigate command line like I do Telescope
+vim.keymap.set('c', '<c-k>', '<c-p>') -- Navigate command line like I do Telescope
+vim.keymap.set('c', '<A-h>', '<C-w>') -- otherwise I get used to C-w and close the browser all the time

@@ -183,19 +183,24 @@ return {
         CodeActionMenuEnabled = require('core.enable_plugins').code_action_menu
         LspSagaEnabled = require('core.enable_plugins').lspsaga
         if CodeActionMenuEnabled then
-            keymap.set('n', '<leader>la', '<cmd>CodeActionMenu<CR>', { desc = CodeActionsDescription, buffer = bufnr }) -- see available code actions
+            keymap.set(
+                'n',
+                '<leader>la',
+                ':CodeActionMenu<CR><C-w><C-p>', -- TODO: why doesn't it autofocus?
+                { desc = 'a' .. CodeActionsDescription, buffer = bufnr }
+            ) -- see available code actions
         elseif LspSagaEnabled then
             keymap.set(
                 'n',
                 '<leader>la',
                 '<cmd>Lspsaga code_action<CR>',
-                { desc = CodeActionsDescription, buffer = bufnr }
+                { desc = 'b' .. CodeActionsDescription, buffer = bufnr }
             ) -- see available code actions
             keymap.set(
                 'n',
                 '<leader>lA',
                 '<cmd>Lspsaga code_action<CR>',
-                { desc = CodeActionsDescription, buffer = bufnr }
+                { desc = 'c' .. CodeActionsDescription, buffer = bufnr }
             )
         else
             keymap.set('n', '<leader>la', vim.lsp.codelens.run, { desc = CodeActionsDescription, buffer = bufnr }) -- see available code actions
