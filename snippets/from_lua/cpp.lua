@@ -142,12 +142,17 @@ return {
     -- Attributes
     parse('nd', '[[nodiscard]]'),
 
+    -- TODO: move all snippets to this style to get proper description and docstring
     snippet(
-        { trig = 'example', name = 'add name', dscr = 'add dscr' },
+        { trig = 'example', name = 'add name', dscr = 'add dscr', docstring = 'foo' },
         function_node(function(_, snip)
             local cname = get_surrounding_class(tonumber(snip.env.TM_LINE_NUMBER))
-            assert(cname, 'Could not get surrounding class!')
-            return cname .. '(' .. cname .. ' const& other);'
+            if not cname then
+                print('Could not get surrounding class!')
+                return ''
+            else
+                return cname .. '(' .. cname .. ' const& other);'
+            end
         end)
     ),
 

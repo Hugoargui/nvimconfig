@@ -15,6 +15,12 @@ int foo(int input) {
   }
 }
 
+class dadada {
+public:
+  void dafoo();
+
+private:
+};
 /**
  * @brief Does nothing but has a typo dadadfa
  *
