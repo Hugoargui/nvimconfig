@@ -78,7 +78,9 @@ local M = {
                 {
                     name = 'nvim_lsp', -- LSP, but don't show useless keywords
                     entry_filter = function(entry)
-                        return require('cmp').lsp.CompletionItemKind.Keyword ~= entry:get_kind()
+                        local noKeyword = require('cmp').lsp.CompletionItemKind.Keyword ~= entry:get_kind()
+                        local noLSPsnips = require('cmp').lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+                        return noKeyword and noLSPsnips
                     end,
                 },
                 { name = 'path' }, -- file system paths

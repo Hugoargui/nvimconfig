@@ -6,7 +6,7 @@
       "\t$0",
       "}"
     ],
-    "description": "Code snippet for 'for' loop"
+    "description": "'for' loop"
   },
   "forr": {
     "prefix": "forr",
@@ -15,7 +15,7 @@
       "\t$0",
       "}"
     ],
-    "description": "Code snippet for reverse 'for' loop"
+    "description": "reverse 'for' loop"
   },
   "while": {
     "prefix": "while",
@@ -29,32 +29,32 @@
       "\t$0",
       "}"
     ],
-    "description": "Code snippet for range-based for loop (c++11) statement"
+    "description": "range-based for loop (c++11) statement"
   },
   "if": {
     "prefix": "if",
     "body": ["if ($1) {", "\t$0", "}"],
-    "description": "Code snippet for if statement"
+    "description": "if statement"
   },
   "else": {
     "prefix": "else",
     "body": ["else {", "\t$0", "}"],
-    "description": "Code snippet for else statement"
+    "description": "else statement"
   },
   "else if": {
     "prefix": "else if",
     "body": ["else if ($1) {", "\t$0", "}"],
-    "description": "Code snippet for else-if statement"
+    "description": "else-if statement"
   },
   "enum": {
     "prefix": "enum",
     "body": ["enum ${1:MyEnum} {", "\t$0", "};"],
-    "description": "Code snippet for enum"
+    "description": "C-style enum"
   },
   "enum class": {
     "prefix": "enum class",
     "body": ["enum class ${1:MyClass} {$0};"],
-    "description": "Code snippet for enum class (c++11)"
+    "description": "enum class (c++11)"
   },
   "class": {
     "prefix": "class",
@@ -67,12 +67,12 @@
       "};",
       ""
     ],
-    "description": "Code snippet for empty class"
+    "description": "empty class"
   },
   "interface": {
     "prefix": "interface",
     "body": ["__interface I${1:Interface} {", "\t$0", "};"],
-    "description": "Code snippet for interface (Visual C++)"
+    "description": "interface (Visual C++)"
   },
   "namespace": {
     "prefix": "namespace",
@@ -81,22 +81,22 @@
   "#ifdef": {
     "prefix": "#ifdef",
     "body": ["#ifdef ${1:DEBUG}", "$0", "#endif // ${DEBUG}"],
-    "description": "Code snippet for #ifdef"
+    "description": "preprocessor #ifdef"
   },
   "#ifndef": {
     "prefix": "#ifndef",
     "body": ["#ifndef ${1:DEBUG}", "$0", "#endif // !$1"],
-    "description": "Code snippet for #ifndef"
+    "description": "preprocessor #ifndef"
   },
   "#if": {
     "prefix": "#if",
     "body": ["#if ${1:0}", "$0", "#endif // $1"],
-    "description": "Code snippet for #if"
+    "description": "preprocessor #if"
   },
   "struct": {
     "prefix": "struct",
     "body": ["struct ${1:MyStruct} {", "\t$0", "};"],
-    "description": "Code snippet for struct"
+    "description": ""
   },
   "switch": {
     "prefix": "switch",
@@ -107,7 +107,7 @@
       "\t\tbreak;",
       "}"
     ],
-    "description": "Code snippet for switch statement"
+    "description": "switch statement"
   },
   "try": {
     "prefix": "try",
@@ -119,23 +119,23 @@
       "\t$1",
       "}"
     ],
-    "description": "Code snippet for try catch"
+    "description": "try-catch block"
   },
   "union": {
     "prefix": "union",
     "body": ["union ${1:MyUnion} {", "\t$0", "};"],
-    "description": "Code snippet for union"
+    "description": ""
   },
 
   "cout": {
     "prefix": "cout",
     "body": ["std::cout << \"${1:message}\" << std::endl;"],
-    "description": "Code snippet for printing to std::cout, provided the header is set"
+    "description": "printing to std::cout, provided the header is set"
   },
   "cin": {
     "prefix": "cin",
     "body": ["std::cin >> $1;"],
-    "description": "Code snippet for std::cin, provided the header is set"
+    "description": "std::cin, provided the header is set"
   },
   "printf": {
     "prefix": "printf",
@@ -157,17 +157,17 @@
   "#inc": {
     "prefix": "#inc",
     "body": ["#include \"$0\""],
-    "description": "Code snippet for #include \" \""
+    "description": "snippet for #include \" \""
   },
   "#inc<": {
     "prefix": "#inc<",
     "body": ["#include <$0>"],
-    "description": "Code snippet for #include < >"
+    "description": "snippet for #include < >"
   },
   "#def": {
     "prefix": "def",
     "body": ["#define $0"],
-    "description": "Code snippet for #define \" \""
+    "description": "snippet for #define \" \""
   },
   "Main function template": {
     "prefix": "main",
@@ -178,5 +178,896 @@
     "prefix": "tem",
     "body": ["template <typename $0>"],
     "description": "snippet for a template"
-  }
+  },
+"accumulate": {
+		"prefix": "acl",
+		"body": [
+			"auto sum = std::accumulate(std::begin(${1:container}), std::end(${1:container}), 0, [](int total, $2) {",
+			"  $3",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'accumulate'"
+		},
+
+		"accumulate2": {
+		"prefix": "acm",
+		"body": [
+			"auto sum = std::accumulate(std::begin(${1:container}), std::end(${1:container}), 0);"
+		],
+		"description": "Algorithm mnemonic for std::'accumulate'"
+		},
+
+		"adjacent_find": {
+		"prefix": "ajf",
+		"body": [
+			"auto pos = std::adjacent_find(std::begin(${1:container}), std::end(${1:container}));",
+			"if (pos != std::end(${1:container})) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'adjacent_find'"
+		},
+
+		"all_of": {
+		"prefix": "alo",
+		"body": [
+			"if (std::all_of(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'all_of'"
+		},
+
+		"any_of": {
+		"prefix": "ano",
+		"body": [
+			"if (std::any_of(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'any_of'"
+		},
+
+		"binary_search": {
+		"prefix": "bns",
+		"body": [
+			"auto pos = std::binary_search(std::begin(${1:container}), std::end(${1:container}), $2);",
+			"if (pos != std::end(${1:container})) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'binary_search'"
+		},
+
+		"cin": {
+		"prefix": "sti",
+		"body": [
+			"std::cin >>"
+		],
+		"description": "Algorithm mnemonic for std::'cin'"
+		},
+
+		"copy": {
+		"prefix": "cpy",
+		"body": [
+			"std::copy(std::begin(${1:container}), std::end(${1:container}), std::begin($2));"
+		],
+		"description": "Algorithm mnemonic for std::'copy'"
+		},
+
+		"copy2": {
+		"prefix": "oit",
+		"body": [
+			"std::copy(std::begin(${1:container}), std::end(${1:container}), std::ostream_iterator<$2>{",
+			"  std::cout, \"$3\"",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'copy'"
+		},
+
+		"copy_backward": {
+		"prefix": "cpb",
+		"body": [
+			"std::copy_backward(std::begin(${1:container}), std::end(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'copy_backward'"
+		},
+
+		"copy_if": {
+		"prefix": "cpi",
+		"body": [
+			"std::copy_if(std::begin(${1:container}), std::end(${1:container}), std::begin($2),",
+			"[]($3) {",
+			"  $4",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'copy_if'"
+		},
+
+		"copy_n": {
+		"prefix": "cpn",
+		"body": [
+			"std::copy_n(std::begin(${1:container}), $2, std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'copy_n'"
+		},
+
+		"count": {
+		"prefix": "cnt",
+		"body": [
+			"auto n = std::count(std::begin(${1:container}), std::end(${1:container}), $2);"
+		],
+		"description": "Algorithm mnemonic for std::'count'"
+		},
+
+		"count_if": {
+		"prefix": "cni",
+		"body": [
+			"auto n = std::count_if(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'count_if'"
+		},
+
+		"cout": {
+		"prefix": "sto",
+		"body": [
+			"std::cout <<"
+		],
+		"description": "Algorithm mnemonic for std::'cout'"
+		},
+
+		"equal": {
+		"prefix": "eql",
+		"body": [
+			"if (std::equal(std::begin(${1:container}), std::end(${1:container}), std::begin($2))) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'equal'"
+		},
+
+		"equal_range": {
+		"prefix": "eqr",
+		"body": [
+			"auto bounds = std::equal_range(std::begin(${1:container}), std::end(${1:container}), $2);"
+		],
+		"description": "Algorithm mnemonic for std::'equal_range'"
+		},
+
+		"equal_range2": {
+		"prefix": "erl",
+		"body": [
+			"auto bounds = std::equal_range(std::begin(${1:container}), std::end(${1:container}), $2,",
+			"  []($3,$4) { $5 });"
+		],
+		"description": "Algorithm mnemonic for std::'equal_range'"
+		},
+
+		"erase": {
+		"prefix": "erm",
+		"body": [
+			"${1:container}.erase(std::remove(std::begin(${1:container}), std::end(${1:container}), $2), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'erase'"
+		},
+
+		"fill": {
+		"prefix": "fil",
+		"body": [
+			"std::fill(std::begin(${1:container}), std::end(${1:container}), $2);"
+		],
+		"description": "Algorithm mnemonic for std::'fill'"
+		},
+
+		"fill_n": {
+		"prefix": "fln",
+		"body": [
+			"std::fill_n(std::begin(${1:container}), $2, $3);"
+		],
+		"description": "Algorithm mnemonic for std::'fill_n'"
+		},
+
+		"find": {
+		"prefix": "fnd",
+		"body": [
+			"auto pos = std::find(std::begin(${1:container}), std::end(${1:container}), $2);",
+			"if (pos != std::end(${1:container})) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'find'"
+		},
+
+		"find_end": {
+		"prefix": "fne",
+		"body": [
+			"auto pos = std::find_end(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3));",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'find_end'"
+		},
+
+		"find_first_of": {
+		"prefix": "ffo",
+		"body": [
+			"auto pos = std::find_first_of(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3));",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'find_first_of'"
+		},
+
+		"find_if": {
+		"prefix": "fni",
+		"body": [
+			"auto pos = std::find_if(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'find_if'"
+		},
+
+		"find_if_not": {
+		"prefix": "fin",
+		"body": [
+			"auto pos = std::find_if_not(std::begin(${1:container}), std::end(${1:container}),[]($2) {",
+			"  $3",
+			"});",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'find_if_not'"
+		},
+
+		"for_each": {
+		"prefix": "fre",
+		"body": [
+			"std::for_each(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'for_each'"
+		},
+
+		"generate": {
+		"prefix": "gnr",
+		"body": [
+			"std::generate(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'generate'"
+		},
+
+		"generate_n": {
+		"prefix": "gnn",
+		"body": [
+			"std::generate_n(std::begin(${1:container}), $2, []($3) {",
+			"  $4",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'generate_n'"
+		},
+
+		"includes": {
+		"prefix": "inc",
+		"body": [
+			"if (std::includes(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3))) {",
+			"    $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'includes'"
+		},
+
+		"inplace_merge": {
+		"prefix": "ipm",
+		"body": [
+			"std::inplace_merge(std::begin(${1:container}), std::end(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'inplace_merge'"
+		},
+
+		"iota": {
+		"prefix": "ita",
+		"body": [
+			"std::iota(std::begin(${1:container}), std::end(${1:container}), $2);"
+		],
+		"description": "Algorithm mnemonic for std::'iota'"
+		},
+
+		"is_heap": {
+		"prefix": "ihp",
+		"body": [
+			"if (std::is_heap(std::begin(${1:container}), std::end(${1:container}))) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'is_heap'"
+		},
+
+		"is_heap_until": {
+		"prefix": "ihu",
+		"body": [
+			"auto pos = std::is_heap_until(std::begin(${1:container}), std::end(${1:container}));",
+			"if (pos != std::end(${1:container})) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'is_heap_until'"
+		},
+
+		"is_partitioned": {
+		"prefix": "ipt",
+		"body": [
+			"if (std::is_partitioned(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"  })) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'is_partitioned'"
+		},
+
+		"is_permutation": {
+		"prefix": "ipr",
+		"body": [
+			"if (std::is_permutation(std::begin(${1:container}), std::end(${1:container}), std::begin($2))) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'is_permutation'"
+		},
+
+		"is_sorted": {
+		"prefix": "iss",
+		"body": [
+			"if (std::is_sorted(std::begin(${1:container}), std::end(${1:container}))) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'is_sorted'"
+		},
+
+		"is_sorted_until": {
+		"prefix": "isu",
+		"body": [
+			"auto pos = std::is_sorted_until(std::begin(${1:container}), std::end(${1:container}));",
+			"if (pos != std::end(${1:container})) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'is_sorted_until'"
+		},
+
+		"lexigraphical_compare": {
+		"prefix": "lxc",
+		"body": [
+			"if (std::lexigraphical_compare(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3)) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'lexigraphical_compare'"
+		},
+
+		"lower_bound": {
+		"prefix": "lwb",
+		"body": [
+			"auto pos = std::lower_bound(std::begin(${1:container}), std::end(${1:container}), $2);",
+			"if (pos != std::end(${1:container})) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'lower_bound'"
+		},
+
+		"make_heap": {
+		"prefix": "mkh",
+		"body": [
+			"std::make_heap(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'make_heap'"
+		},
+
+		"max_element": {
+		"prefix": "mxe",
+		"body": [
+			"auto pos = std::max_element(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'max_element'"
+		},
+		
+		"merge": {
+		"prefix": "mrg",
+		"body": [
+			"std::merge(std::begin(${1:container}), std::end(${1:container}),",
+			"std::begin($2), std::end($3), std::begin($4));"
+		],
+		"description": "Algorithm mnemonic for std::'merge'"
+		},
+
+		"minmax_element": {
+		"prefix": "mme",
+		"body": [
+			"auto minmax = std::minmax_element(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'minmax_element'"
+		},
+
+		"min_element": {
+		"prefix": "mne",
+		"body": [
+			"auto pos = std::min_element(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'min_element'"
+		},
+
+		"mismatch": {
+		"prefix": "msm",
+		"body": [
+			"auto values = std::mismatch(std::begin(${1:container}), std::end(${1:container}), std::begin(${1:container}));",
+			"if (values.first == std::end(${1:container})) {",
+			"  $2",
+			"} else {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'mismatch'"
+		},
+
+		"move": {
+		"prefix": "mov",
+		"body": [
+			"std::move(std::begin(${1:container}), std::end(${1:container}), std::begin(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'move'"
+		},
+
+		"move_backward": {
+		"prefix": "mvb",
+		"body": [
+			"std::move_backward(std::begin(${1:container}), std::end(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'move_backward'"
+		},
+
+		"next_permutation": {
+		"prefix": "nxp",
+		"body": [
+			"if (std::next_permutation(std::begin(${1:container}), std::end(${1:container}))) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'next_permutation'"
+		},
+
+		"none_of": {
+		"prefix": "nno",
+		"body": [
+			"if (std::none_of(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'none_of'"
+		},
+
+		"nth_element": {
+		"prefix": "nth",
+		"body": [
+			"std::nth_element(std::begin(${1:container}), std::end(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'nth_element'"
+		},
+
+		"partition": {
+		"prefix": "ptn",
+		"body": [
+			"auto pos = std::partition(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'partition'"
+		},
+
+		"partition_copy": {
+		"prefix": "ptc",
+		"body": [
+			"std::partition_copy(std::begin(${1:container}), std::end(${1:container}),",
+			"                  std::begin($2), std::end($3));"
+		],
+		"description": "Algorithm mnemonic for std::'partition_copy'"
+		},
+
+		"partition_point": {
+		"prefix": "ppt",
+		"body": [
+			"auto pos = std::partition_point(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'partition_point'"
+		},
+
+		"partial_sort": {
+		"prefix": "pst",
+		"body": [
+			"std::partial_sort(std::begin(${1:container}), std::end(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'partial_sort'"
+		},
+		
+		"partial_sort_copy": {
+		"prefix": "psc",
+		"body": [
+			"std::partial_sort_copy(std::begin(${1:container}), std::end(${1:container}),",
+			"                  std::begin($2), std::end($3));"
+		],
+		"description": "Algorithm mnemonic for std::'partial_sort_copy'"
+		},
+
+		"pop_heap": {
+		"prefix": "pph",
+		"body": [
+			"std::pop_heap(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'pop_heap'"
+		},
+
+		"prev_permutation": {
+		"prefix": "prp",
+		"body": [
+			"if (std::prev_permutation(std::begin(${1:container}), std::end(${1:container}))) {",
+			"  $2",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'prev_permutation'"
+		},
+
+		"push_heap": {
+		"prefix": "phh",
+		"body": [
+			"std::push_heap(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'push_heap'"
+		},
+
+		"random_shuffle": {
+		"prefix": "shf",
+		"body": [
+			"std::random_shuffle(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'random_shuffle'"
+		},
+
+		"remove": {
+		"prefix": "rmv",
+		"body": [
+			"auto pos = std::remove(std::begin(${1:container}), std::end(${1:container}), $2);",
+			"if (pos != std::end(${1:container})) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'remove'"
+		},
+
+		"remove_copy": {
+		"prefix": "rmc",
+		"body": [
+			"std::remove_copy(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin(${1:container}), $2);"
+		],
+		"description": "Algorithm mnemonic for std::'remove_copy'"
+		},
+
+		"replace": {
+		"prefix": "rpl",
+		"body": [
+			"std::replace(std::begin(${1:container}), std::end(${1:container}), $2, $3);"
+		],
+		"description": "Algorithm mnemonic for std::'replace'"
+		},
+
+		"remove_copy_if": {
+		"prefix": "rmf",
+		"body": [
+			"std::remove_copy_if(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin(${1:container}), []($2) {",
+			"    $3",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'remove_copy_if'"
+		},
+
+		"remove_if": {
+		"prefix": "rmi",
+		"body": [
+			"auto pos = std::remove_if(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"});",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'remove_if'"
+		},
+
+		"replace_copy": {
+		"prefix": "rpc",
+		"body": [
+			"std::replace_copy(std::begin(${1:container}), std::end(${1:container}), std::begin(${1:container}), $2, $3);"
+		],
+		"description": "Algorithm mnemonic for std::'replace_copy'"
+		},
+
+		"replace_copy_if": {
+		"prefix": "rci",
+		"body": [
+			"std::replace_copy_if(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin(${1:container}), []($2) {",
+			"  $3",
+			"  }, $4);"
+		],
+		"description": "Algorithm mnemonic for std::'replace_copy_if'"
+		},
+
+		"replace_if": {
+		"prefix": "rpi",
+		"body": [
+			"std::replace_if(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3",
+			"}, $4);"
+		],
+		"description": "Algorithm mnemonic for std::'replace_if'"
+		},
+
+		"reverse": {
+		"prefix": "rvr",
+		"body": [
+			"std::reverse(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'reverse'"
+		},
+
+		"reverse_copy": {
+		"prefix": "rvc",
+		"body": [
+			"std::reverse_copy(std::begin(${1:container}), std::end(${1:container}), std::begin($2));"
+		],
+		"description": "Algorithm mnemonic for std::'reverse_copy'"
+		},
+
+		"rotate": {
+		"prefix": "rte",
+		"body": [
+			"std::rotate(std::begin(${1:container}), std::begin($2), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'rotate'"
+		},
+
+		"rotate_copy": {
+		"prefix": "rtc",
+		"body": [
+			"std::rotate_copy(std::begin(${1:container}), std::begin($2), std::end(${1:container}),",
+			"  std::begin($3));"
+		],
+		"description": "Algorithm mnemonic for std::'rotate_copy'"
+		},
+
+		"search": {
+		"prefix": "srh",
+		"body": [
+			"auto pos = std::search(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3));",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'search'"
+		},
+
+		"search_n": {
+		"prefix": "srn",
+		"body": [
+			"auto pos = std::search_n(std::begin(${1:container}), std::end(${1:container}),$2,$3);",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'search_n'"
+		},
+
+		"set_intersection": {
+		"prefix": "stn",
+		"body": [
+			"auto pos = std::set_intersection(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3), std::begin($4));"
+		],
+		"description": "Algorithm mnemonic for std::'set_intersection'"
+		},
+
+		"set_difference": {
+		"prefix": "std",
+		"body": [
+			"auto pos = std::set_difference(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3), std::begin($4));"
+		],
+		"description": "Algorithm mnemonic for std::'set_difference'"
+		},
+
+		"set_symmetric_difference": {
+		"prefix": "ssd",
+		"body": [
+			"auto pos = std::set_symmetric_difference(std::begin(${1:container}),",
+			"  std::end(${1:container}), std::begin($2), std::end($3), std::begin($4));"
+		],
+		"description": "Algorithm mnemonic for std::'set_symmetric_difference'"
+		},
+
+		"set_union": {
+		"prefix": "stu",
+		"body": [
+			"auto pos = std::set_union(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin($2), std::end($3), std::begin($4));"
+		],
+		"description": "Algorithm mnemonic for std::'set_union'"
+		},
+
+		"sort": {
+		"prefix": "srt",
+		"body": [
+			"std::sort(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'sort'"
+		},
+
+		"sort_heap": {
+		"prefix": "sth",
+		"body": [
+			"std::sort_heap(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'sort_heap'"
+		},
+
+		"stable_partition": {
+		"prefix": "spt",
+		"body": [
+			"auto pos = std::stable_partition(std::begin(${1:container}), std::end(${1:container}), []($2) {",
+			"  $3});",
+			"if (pos != std::end(${1:container})) {",
+			"  $4",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'stable_partition'"
+		},
+
+		"stable_sort": {
+		"prefix": "sts",
+		"body": [
+			"std::stable_sort(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'stable_sort'"
+		},
+
+		"string_lower": {
+		"prefix": "lwr",
+		"body": [
+			"std::transform(std::begin(${1:container}), std::end(${1:container}), std::begin(${1:container}), [](char c) {",
+			"return std::tolower(c); });"
+		],
+		"description": "Algorithm mnemonic for std::'string_lower'"
+		},
+
+		"string_upper": {
+		"prefix": "upr",
+		"body": [
+			"std::transform(std::begin(${1:container}), std::end(${1:container}), std::begin(${1:container}), [](char c) {",
+			"return std::toupper(c);",
+			"});",
+			"$2"
+		],
+		"description": "Algorithm mnemonic for std::'string_upper'"
+		},
+
+		"string_trim_left": {
+		"prefix": "ltr",
+		"body": [
+			"${1:container}.erase(0, ${1:container}.find_first_not_of(\" \\t\\n\\r\"));"
+		],
+		"description": "Algorithm mnemonic for std::'string_trim_left'"
+		},
+
+		"string_trim_right": {
+		"prefix": "trm",
+		"body": [
+			"${1:container}.erase(${1:container}.find_last_not_of(\" \\t\\n\\r\") + 1);"
+		],
+		"description": "Algorithm mnemonic for std::'string_trim_right'"
+		},
+
+		"swap": {
+		"prefix": "swp",
+		"body": [
+			"std::swap(${1:container}, $2);"
+		],
+		"description": "Algorithm mnemonic for std::'swap'"
+		},
+
+		"swap_ranges": {
+		"prefix": "swr",
+		"body": [
+			"std::swap_ranges(std::begin(${1:container}), std::end(${1:container}), std::begin($2));"
+		],
+		"description": "Algorithm mnemonic for std::'swap_ranges'"
+		},
+
+		"transform": {
+		"prefix": "tfm",
+		"body": [
+			"std::transform(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::begin(${1:container}), []($2) {",
+			"$3",
+			"});"
+		],
+		"description": "Algorithm mnemonic for std::'transform'"
+		},
+
+		"unique": {
+		"prefix": "uqe",
+		"body": [
+			"auto pos = std::unique(std::begin(${1:container}), std::end(${1:container}));"
+		],
+		"description": "Algorithm mnemonic for std::'unique'"
+		},
+
+		"unique_copy": {
+		"prefix": "ucp",
+		"body": [
+			"std::unique_copy(std::begin(${1:container}), std::end(${1:container}),",
+			"  std::ostream_iterator<string>(std::cout, \"\\n\"));"
+		],
+		"description": "Algorithm mnemonic for std::'unique_copy'"
+		},
+
+		"upper_bound": {
+		"prefix": "upb",
+		"body": [
+			"auto pos = std::upper_bound(std::begin(${1:container}), std::end(${1:container}), $2);",
+			"if (pos != std::end(${1:container})) {",
+			"  $3",
+			"}"
+		],
+		"description": "Algorithm mnemonic for std::'upper_bound'"
+		},
+
+		"vector": {
+		"prefix": "stv",
+		"body": [
+			"std::vector<$2> $3"
+		],
+		"description": "Algorithm mnemonic for std::'vector'"
+		}
 }
