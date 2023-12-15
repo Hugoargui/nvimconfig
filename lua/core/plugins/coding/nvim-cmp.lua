@@ -75,7 +75,12 @@ local M = {
             sources = cmp.config.sources({
                 -- { name = 'nvim_lsp_signature_help' },
                 { name = 'nvim_lua' }, -- neovim and Lua extra API, it only enables itself in .lua files
-                { name = 'nvim_lsp' }, -- lsp
+                {
+                    name = 'nvim_lsp', -- LSP, but don't show useless keywords
+                    entry_filter = function(entry)
+                        return require('cmp').lsp.CompletionItemKind.Keyword ~= entry:get_kind()
+                    end,
+                },
                 { name = 'path' }, -- file system paths
                 { name = 'luasnip' }, -- snippets
                 { name = 'buffer', keyword_length = 5 }, -- words from this buffer
