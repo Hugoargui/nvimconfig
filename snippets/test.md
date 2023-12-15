@@ -15,3 +15,14 @@ std::string myString;
 
 };
 ```
+
+```cpp
+class Foo {
+public:
+  Foo();
+
+private:
+};```
+
+```lua
+``````
