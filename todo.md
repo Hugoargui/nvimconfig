@@ -8,6 +8,8 @@
 - tabout plugin
 - try tabtree navigation mapped to { and } https://github.com/roobert/tabtree.nvim
 - figure out how to make spellchecker ignore url links (and maybe stuff between quotes).
+    syn match texSomevariable "mooncipal" containedin=@spell.markdown contains=@NoSpell
+    syn match dontSpellCheck "mooncipal" contains=@NoSpell
 - incremental selection
 - [fixed?] find way to dim unused variables, neodim breaks highlights
 - git
@@ -20,13 +22,15 @@
 - sibling-swap.nvim
 - Arpeggio -> asdf for page scrolling, see arpeggio issues about remap warning
 - Arpeggio for number motions (w+k = 5w for example)
+- iPid
 
 # LONG TIME IDEAS, NOT URGENT
 - improve search and replace workflow, by example by using Spectre
-- remove cursor when navigating nerdtree
+- remove cursor when navigating nerdtre
 - FLASH jump plugin
 - still not totally happy with yank interface
 - try the moonicipal task runner or another task runner
+-
 
 # LONGER TERM GOALS
 - 'jceb/blinds.nvim', and vim.g.blinds_guibg = '#450341' gives nice results. Consider this alternative

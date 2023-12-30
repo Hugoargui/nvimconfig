@@ -4,25 +4,27 @@
 
 ### Heading 3
 
-```c++
-class dada : public
-{
+```cpp
+class dada : public {
 public:
-int x = 25;
+  int x = 25;
 
 private:
-std::string myString;
-
-};
-```
+  std::string myString;
+};```
 
 ```cpp
 class Foo {
 public:
   Foo();
+  int a = 0;
 
 private:
 };```
 
+
 ```lua
-``````
+local a = 5
+if true then
+    return a
+end``````
