@@ -1,6 +1,7 @@
 return {
     'AckslD/nvim-FeMaco.lua',
     ft = 'markdown',
+    enabled = false, -- slows down cpp code block snippet expansion, deleting of those lines, etc
     config = function()
         local femaco = require('femaco')
         local clip_val = function(min, val, max)

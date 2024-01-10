@@ -1,6 +1,7 @@
 return {
     'danielfalk/smart-open.nvim',
     branch = '0.2.x',
+    -- TODO: lazy load on keys or commands
     config = function()
         require('telescope').load_extension('smart_open')
         vim.keymap.set('n', '<leader>f', function()

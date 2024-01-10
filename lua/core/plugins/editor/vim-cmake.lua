@@ -1,8 +1,10 @@
 return {
     {
         'cdelledonne/vim-cmake',
-        enabled = require('core.enable_plugins').vim_cmake,
-        -- TOOD: not very lazy, add keys here
+        -- TODO: Not able to install anymore, replace by more modern plugin
+        -- enabled = require('core.enable_plugins').vim_cmake,
+        enabled = false,
+        -- TODO: not very lazy, add keys here
         event = 'VeryLazy',
         cmd = { 'CMakeGenerate', 'CMakeBuild', 'CMakeClose', 'CMakeClean' },
         config = function()
