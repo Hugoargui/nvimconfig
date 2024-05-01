@@ -1,5 +1,6 @@
 -- ADD A BORDER AROUND LSPCONFIG WINDOW TO MAKE IT MORE READABLE
 require('lspconfig.ui.windows').default_options.border = 'single'
+vim.diagnostic.config({ float = { border = 'rounded' } })
 
 local lspconfig = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -25,6 +26,29 @@ end
 
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
+
+lspconfig['rust_analyzer'].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    -- If we installed LSP with rustup instead of Mason, tell to use rustup.
+    cmd = {
+        'rustup',
+        'run',
+        'stable',
+        'rust-analyzer',
+    },
+    -- check = {
+    --     command = 'clippy',
+    -- },
+    -- diagnostics = {
+    --     enable = true,
+    -- },
+    assist = { importEnforceGranularity = true, importPrefix = 'crate' },
+    cargo = { allFeatures = true },
+    checkOnSave = { command = 'clippy' },
+    inlayHints = { locationLinks = false },
+    diagnostics = { enable = true, experimental = { enable = true } }, -- to enable more diagnostics not on save
+})
 
 lspconfig['clangd'].setup({
     -- filetypes = { "hpp", "h", "c", "cpp", "objc", "objcpp" },

@@ -1,6 +1,5 @@
 local keymap = vim.keymap -- for conciseness
 local native = vim.lsp.buf -- for conciseness
-local nativediag = vim.diagnostic -- for conciseness
 
 return {
     registerKeymaps = function(client, bufnr)
@@ -122,8 +121,10 @@ return {
         end
 
         -- DIAGNOSTICS JUMPING
-        keymap.set('n', '<leader>ip', nativediag.goto_prev, { desc = '⬅ Previous Diagnostics', buffer = bufnr })
-        keymap.set('n', '<leader>in', nativediag.goto_next, { desc = '➡ Next Diagnostics', buffer = bufnr })
+        keymap.set('n', '<leader>ip', vim.diagnostic.goto_prev, { desc = '⬅ Previous Diagnostics', buffer = bufnr })
+        keymap.set('n', '<leader>in', vim.diagnostic.goto_next, { desc = '➡ Next Diagnostics', buffer = bufnr })
+        keymap.set('n', '<C-p>', vim.diagnostic.goto_prev, { desc = '⬅ Previous Diagnostics', buffer = bufnr })
+        keymap.set('n', '<C-n>', vim.diagnostic.goto_next, { desc = '➡ Next Diagnostics', buffer = bufnr })
         -- keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostics" }) -- jump to previous diagnostic in buffer
         -- keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostics" }) -- jump to next diagnostic in buffer
 
@@ -159,7 +160,7 @@ return {
             keymap.set(
                 'n',
                 '<leader>ii',
-                nativediag.open_float,
+                vim.diagnostic.open_float,
                 { desc = ' Diagnostic under cursor', buffer = bufnr }
             )
         end
@@ -169,7 +170,7 @@ return {
         -- keymap.set(
         --     'n',
         --     '<leader>iq',
-        --     'nativediag.setloclist',
+        --     'vim.diagnostic.setloclist',
         --     { desc = ' Send Diagnostics to LocList', buffer = bufnr }
         -- )
 

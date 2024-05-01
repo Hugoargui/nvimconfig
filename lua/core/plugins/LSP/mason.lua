@@ -21,6 +21,7 @@ local M = {
                 'clangd',
                 'cmake',
                 'pyright',
+                -- To ensure rust LSP is the same as your rust install, rather use rustup component add rust-analyzer
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed

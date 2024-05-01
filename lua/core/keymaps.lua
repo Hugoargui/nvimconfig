@@ -9,6 +9,8 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- ------------------------------------------------
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'L', '$', { desc = 'To end of line' })
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'H', '^', { desc = 'To beginning of line' })
+vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'J', 'J', { desc = 'Join line' })
+vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'K', 'i<CR><ESC>', { desc = 'Split line' })
 
 vim.keymap.set('n', 'U', '<c-r>', { noremap = true })
 -- ----------------------------------------------------

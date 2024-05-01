@@ -29,7 +29,7 @@ return {
     colorizer = true,
     eyeliner = true,
     harpoon = true,
-    headlines = true, -- Highlights for markdown, orgmode etc
+    headlines = false, -- Highlights for markdown, orgmode etc
     icon_picker = true,
     markdown_preview = true,
     md_headers = true,
