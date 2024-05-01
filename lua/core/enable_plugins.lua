@@ -6,6 +6,7 @@ return {
     comment = true,
     cutlass = true,
     lsp_signature = false,
+    lsp_inlayhints = true,
     luasnip = true,
     mini_surround = false,
     autopairs = true,

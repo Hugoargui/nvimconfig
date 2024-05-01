@@ -37,6 +37,7 @@ return {
                     'python',
                     'query', -- should always be installed
                     'regex',
+                    'rust',
                     'vim',
                     'vimdoc',
                     'yaml',
