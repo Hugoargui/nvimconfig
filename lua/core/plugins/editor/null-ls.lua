@@ -27,6 +27,7 @@ return {
                 formatting.uncrustify.with({
                     filetypes = { 'cpp', 'c' },
                 }),
+                formatting.rustfmt,
             },
             on_attach = function(current_client, bufnr)
                 -- configure format on save

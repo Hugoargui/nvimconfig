@@ -43,27 +43,49 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
+-- lspconfig['rust_analyzer'].setup({
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     -- If we installed LSP with rustup instead of Mason, tell to use rustup.
+--     cmd = {
+--         'rustup',
+--         'run',
+--         'stable',
+--         'rust-analyzer',
+--     },
+--     assist = { importEnforceGranularity = true, importPrefix = 'crate' },
+--     cargo = { allFeatures = true },
+--     checkOnSave = true,
+--     check = {
+--         enable = true,
+--         command = 'clippy',
+--         features = 'all',
+--     },
+--     inlayHints = { locationLinks = false },
+--     diagnostics = { enable = true, experimental = { enable = true } }, -- to enable more diagnostics not on save
+-- })
+
 lspconfig['rust_analyzer'].setup({
     capabilities = capabilities,
     on_attach = on_attach,
-    -- If we installed LSP with rustup instead of Mason, tell to use rustup.
-    cmd = {
-        'rustup',
-        'run',
-        'stable',
-        'rust-analyzer',
+    settings = {
+        ['rust-analyzer'] = {
+            cargo = {
+                allFeatures = true,
+            },
+            checkOnSave = {
+                allFeatures = true,
+                command = 'clippy',
+            },
+            procMacro = {
+                ignored = {
+                    ['async-trait'] = { 'async_trait' },
+                    ['napi-derive'] = { 'napi' },
+                    ['async-recursion'] = { 'async_recursion' },
+                },
+            },
+        },
     },
-    -- check = {
-    --     command = 'clippy',
-    -- },
-    -- diagnostics = {
-    --     enable = true,
-    -- },
-    assist = { importEnforceGranularity = true, importPrefix = 'crate' },
-    cargo = { allFeatures = true },
-    checkOnSave = { command = 'clippy' },
-    inlayHints = { locationLinks = false },
-    diagnostics = { enable = true, experimental = { enable = true } }, -- to enable more diagnostics not on save
 })
 
 lspconfig['clangd'].setup({
