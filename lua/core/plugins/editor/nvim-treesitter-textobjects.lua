@@ -68,7 +68,7 @@ return {
                         ['[m'] = { query = '@call.outer', desc = ' Prev Method Call start' },
                         ['[f'] = { query = '@function.outer', desc = ' Prev Function Definition start' },
                         ['[c'] = { query = '@class.outer', desc = ' Prev Class start' },
-                        ['[x'] = { query = '@conditional.outer', desc = '謁 Next Conditional' },
+                        ['[x'] = { query = '@conditional.outer', desc = '謁Next Conditional' },
                         ['[o'] = { query = '@loop.outer', desc = ' Next Loop' },
                         ['[k'] = { query = '@comment.outer', desc = ' Prev Comment' },
                         ['[d'] = { query = '@number.inner', desc = ' Prev Number' },
@@ -78,7 +78,7 @@ return {
                         ['[M'] = { query = '@call.outer', desc = ' Prev Method Call end' },
                         ['[F'] = { query = '@function.outer', desc = ' Prev Function Definition end' },
                         ['[C'] = { query = '@class.outer', desc = ' Prev Class end' },
-                        ['[X'] = { query = '@conditional.outer', desc = '謁 Prev conditional end' },
+                        ['[X'] = { query = '@conditional.outer', desc = '謁Prev conditional end' },
                         ['[O'] = { query = '@loop.outer', desc = ' Prev loop end' },
                     },
                 }, -- textobjects::move

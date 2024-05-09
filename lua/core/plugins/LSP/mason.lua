@@ -21,6 +21,8 @@ local M = {
                 'clangd',
                 'cmake',
                 'pyright',
+                'ocamllsp',
+                'rust_analyzer',
                 -- To ensure rust LSP is the same as your rust install, rather use rustup component add rust-analyzer
             },
             -- auto-install configured servers (with lspconfig)

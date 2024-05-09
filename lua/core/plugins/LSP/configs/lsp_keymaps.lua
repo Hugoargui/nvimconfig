@@ -61,7 +61,7 @@ return {
             'n',
             '<leader>lw',
             '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>',
-            { desc = '冷 Workspace Symbols', buffer = bufnr }
+            { desc = '冷Workspace Symbols', buffer = bufnr }
         )
         -- stopped working
         -- keymap.set('n', '<leader>lf', '<cmd>Lspsaga lsp_finder<CR>', { desc = 'LSP finder' }) -- show definition, references
@@ -133,13 +133,13 @@ return {
             'n',
             '<leader>id',
             '<cmd>Telescope diagnostics bufnr=0<CR>',
-            { desc = ' Document Diagnostics', buffer = bufnr }
+            { desc = '  Document Diagnostics', buffer = bufnr }
         )
         keymap.set(
             'n',
             '<leader>iD',
             '<cmd>Telescope diagnostics<CR>',
-            { desc = '❌Workspace Diagnostics', buffer = bufnr }
+            { desc = '❌ Workspace Diagnostics', buffer = bufnr }
         )
 
         -- CURSOR DIAGNOSTICS
@@ -148,7 +148,7 @@ return {
                 'n',
                 '<leader>ii',
                 '<cmd>Lspsaga show_cursor_diagnostics<CR>',
-                { desc = ' Diagnostics under cursor', buffer = bufnr }
+                { desc = '  Diagnostics under cursor', buffer = bufnr }
             )
             keymap.set(
                 'n',
@@ -180,31 +180,30 @@ return {
         -- TODO: telescope seems like a better solution :
         -- https://github.com/aznhe21/actions-preview.nvim
         -- vim.keymap.set({ "v", "n" }, '<leader>la', require("actions-preview").code_actions)
-        CodeActionsDescription = ' Code Actions'
-        CodeActionMenuEnabled = require('core.enable_plugins').code_action_menu
-        LspSagaEnabled = require('core.enable_plugins').lspsaga
+        local CodeActionsDescription = ' Code Actions'
+        local CodeActionMenuEnabled = require('core.enable_plugins').code_action_menu
+        local LspSagaEnabled = require('core.enable_plugins').lspsaga
         if CodeActionMenuEnabled then
             keymap.set(
                 'n',
                 '<leader>la',
                 ':CodeActionMenu<CR><C-w><C-p>', -- TODO: why doesn't it autofocus?
-                { desc = 'a' .. CodeActionsDescription, buffer = bufnr }
+                { desc = CodeActionsDescription .. ' (CodeActionMenu)', buffer = bufnr }
             ) -- see available code actions
         elseif LspSagaEnabled then
             keymap.set(
                 'n',
                 '<leader>la',
                 '<cmd>Lspsaga code_action<CR>',
-                { desc = 'b' .. CodeActionsDescription, buffer = bufnr }
+                { desc = CodeActionsDescription .. ' (LspSaga)', buffer = bufnr }
             ) -- see available code actions
+        else
             keymap.set(
                 'n',
-                '<leader>lA',
-                '<cmd>Lspsaga code_action<CR>',
-                { desc = 'c' .. CodeActionsDescription, buffer = bufnr }
-            )
-        else
-            keymap.set('n', '<leader>la', vim.lsp.codelens.run, { desc = CodeActionsDescription, buffer = bufnr }) -- see available code actions
+                '<leader>la',
+                vim.lsp.codelens.run,
+                { desc = CodeActionsDescription .. ' ( default CodeLens)', buffer = bufnr }
+            ) -- see available code actions
         end
     end,
 }

@@ -34,6 +34,7 @@ return {
                     'make',
                     'markdown',
                     'markdown_inline',
+                    'ocaml',
                     'python',
                     'query', -- should always be installed
                     'regex',

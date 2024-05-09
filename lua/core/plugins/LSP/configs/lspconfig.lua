@@ -7,7 +7,7 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Outside of attach as we want this to be available even when no LSP is attached.
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
-vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = '🎨Show TS HL under cursor' })
+vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = ' Show TS HL under cursor' })
 
 local on_attach = function(client, bufnr)
     -- enable keybinds only for when lsp server available
@@ -148,4 +148,19 @@ lspconfig['lua_ls'].setup({
             },
         },
     },
+})
+
+lspconfig['ocamllsp'].setup({
+    cmd = { 'ocamllsp' },
+    filetypes = { 'ocaml', 'ocaml.menhir', 'ocaml.interface', 'ocaml.ocamllex', 'reason', 'dune' },
+    root_dir = lspconfig.util.root_pattern(
+        '*.opam',
+        'esy.json',
+        'package.json',
+        '.git',
+        'dune-project',
+        'dune-workspace'
+    ),
+    on_attach = on_attach,
+    capabilities = capabilities,
 })

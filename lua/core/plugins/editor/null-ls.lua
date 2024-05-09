@@ -11,7 +11,7 @@ return {
         -- for conciseness
         local null_ls = require('null-ls')
         local formatting = null_ls.builtins.formatting
-        -- local diagnostics = null_ls.builtins.diagnostics
+        local diagnostics = null_ls.builtins.diagnostics
 
         -- to setup format on save
         local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
@@ -19,6 +19,9 @@ return {
         null_ls.setup({
             debug = false,
             sources = {
+                formatting.trim_whitespace.with({
+                    filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux' },
+                }),
                 formatting.autopep8,
                 formatting.stylua,
                 formatting.clang_format.with({
@@ -28,6 +31,11 @@ return {
                     filetypes = { 'cpp', 'c' },
                 }),
                 formatting.rustfmt,
+                -- # DIAGNOSTICS #
+                -- diagnostics.shellcheck,
+                diagnostics.luacheck.with({
+                    extra_args = { '--globals', 'vim', '--std', 'luajit' },
+                }),
             },
             on_attach = function(current_client, bufnr)
                 -- configure format on save
