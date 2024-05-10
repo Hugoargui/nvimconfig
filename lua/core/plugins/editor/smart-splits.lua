@@ -4,18 +4,34 @@ return {
     'mrjones2014/smart-splits.nvim', -- used by hydra window-manager
     dependencies = { 'kwkarlwang/bufresize.nvim' },
     keys = {
-        '<Left>',
-        '<Right>',
-        '<Up>',
-        '<Right>',
-        '<M-Left>',
-        '<M-Down>',
-        '<M-Up>',
-        '<M-Right>',
-        '<C-Left>',
-        '<C-Up>',
-        '<C-Down>',
-        '<C-Right>',
+        -- '<Left>',
+        -- '<Right>',
+        -- '<Up>',
+        -- '<Right>',
+        -- '<M-Left>',
+        -- '<M-Down>',
+        -- '<M-Up>',
+        -- '<M-Right>',
+        -- '<C-Left>',
+        -- '<C-Up>',
+        -- '<C-Down>',
+        -- '<C-Right>',
+        -- '<C-h>',
+        -- '<C-j>',
+        -- '<C-k>',
+        -- '<C-l>',
+        -- '<M-h>',
+        -- '<M-j>',
+        -- '<M-k>',
+        -- '<M-l>',
+        -- '<C-H>',
+        -- '<C-J>',
+        -- '<C-K>',
+        -- '<C-L>',
+        '<M-m>',
+        '<M-,>',
+        '<M-,>',
+        '<M-/>',
         'Leader<w>',
         '<C-w>',
     },
@@ -30,20 +46,21 @@ return {
 
         local keymap = vim.keymap --for conciseness
 
-        -- I'm not using <Control-hjkl> because I'm too used to press ctrl-l when inside toggleterm.
-        keymap.set('n', '<Left>', require('smart-splits').move_cursor_left)
-        keymap.set('n', '<Down>', require('smart-splits').move_cursor_down)
-        keymap.set('n', '<Up>', require('smart-splits').move_cursor_up)
-        keymap.set('n', '<Right>', require('smart-splits').move_cursor_right)
+        -- Problem: other mappings I tried are not as ergonomic as C-hjkl,
+        -- but I'm so used to C-l in terminal! find solution
+        keymap.set('n', '<M-m>', require('smart-splits').move_cursor_left)
+        keymap.set('n', '<M-,>', require('smart-splits').move_cursor_down)
+        keymap.set('n', '<M-.>', require('smart-splits').move_cursor_up)
+        keymap.set('n', '<M-/>', require('smart-splits').move_cursor_right)
 
-        keymap.set('n', '<M-Left>', require('smart-splits').swap_buf_left)
-        keymap.set('n', '<M-Down>', require('smart-splits').swap_buf_down)
-        keymap.set('n', '<M-Up>', require('smart-splits').swap_buf_up)
-        keymap.set('n', '<M-Right>', require('smart-splits').swap_buf_right)
+        -- keymap.set('n', '<M-m>', require('smart-splits').resize_left, { silent = true })
+        -- keymap.set('n', '<M-,>', require('smart-splits').resize_up, { silent = true })
+        -- keymap.set('n', '<M-.>', require('smart-splits').resize_down, { silent = true })
+        -- keymap.set('n', '<M-/>', require('smart-splits').resize_right, { silent = true })
 
-        keymap.set('n', '<C-Left>', require('smart-splits').resize_left, { silent = true })
-        keymap.set('n', '<C-Up>', require('smart-splits').resize_up, { silent = true })
-        keymap.set('n', '<C-Down>', require('smart-splits').resize_down, { silent = true })
-        keymap.set('n', '<C-Right>', require('smart-splits').resize_right, { silent = true })
+        -- keymap.set('n', '<C-H>', require('smart-splits').swap_buf_left)
+        -- keymap.set('n', '<C-J>', require('smart-splits').swap_buf_down)
+        -- keymap.set('n', '<C-K>', require('smart-splits').swap_buf_up)
+        -- keymap.set('n', '<C-L>', require('smart-splits').swap_buf_right)
     end,
 }

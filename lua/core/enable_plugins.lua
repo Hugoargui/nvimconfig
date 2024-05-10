@@ -1,5 +1,5 @@
 return {
-    hydra = false,
+    hydra = true,
     whichkey = true,
     -- CODING
     autolist = true,

@@ -14,13 +14,15 @@ vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'K', 'i<CR><ESC>', { desc = 'Split line' 
 
 vim.keymap.set('n', 'U', '<c-r>', { noremap = true })
 -- ----------------------------------------------------
-vim.keymap.set('n', '<bs>', 'q', { noremap = true })
+vim.keymap.set('n', '<CR>', '@q', { noremap = true })
+vim.keymap.set('n', '<C-CR>', 'qq', { noremap = true })
 
 -- Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-vim.keymap.set('n', '<A-j>', 'mojdd`o') -- Delete line bellow
-vim.keymap.set('n', '<A-k>', 'mokdd`o') -- Delete line above
-vim.keymap.set('n', '<C-j>', 'moo<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases
-vim.keymap.set('n', '<C-k>', 'moO<Esc>0"_D`o') -- Add line bellow, 0"_D is for whitespace in edge cases:
+vim.keymap.set('n', '<C-j>', 'mojdd`o', { desc = 'Delete line Above' })
+vim.keymap.set('n', '<C-k>', 'mokdd`o', { desc = 'Delete line Bellow' })
+-- 0"_D is for whitespace in edge cases
+vim.keymap.set('n', '<M-j>', 'moo<Esc>0"_D`o', { desc = 'Add line Above' })
+vim.keymap.set('n', '<M-k>', 'moO<Esc>0"_D`o', { desc = 'Add line Bellow' })
 
 -- Toggle characters at end of line!
 local matchLastChar = '<cmd>s/\\v(.)$'
@@ -49,7 +51,7 @@ vim.keymap.set(
 -- close current win if there are more than 1 win
 -- else close current tab if there are more than 1 tab;
 -- else close current vim
-function SmartQuit()
+local function SmartQuit()
     if #vim.api.nvim_tabpage_list_wins(0) > 1 then
         vim.cmd([[close]])
     elseif #vim.api.nvim_list_tabpages() > 1 then
@@ -61,7 +63,7 @@ end
 vim.keymap.set('n', '<C-q>', SmartQuit, { desc = 'smart quit' })
 
 -- Save like normal people
-function SaveFile()
+local function SaveFile()
     local modifiable = vim.api.nvim_buf_get_option(0, 'modifiable')
     if modifiable then
         vim.cmd('w!')
