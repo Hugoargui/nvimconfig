@@ -20,8 +20,8 @@ local M = {
                 'lua_ls',
                 'clangd',
                 'cmake',
-                'pyright',
-                'ocamllsp',
+                -- 'pyright',
+                -- 'ocamllsp',
                 'rust_analyzer',
                 -- To ensure rust LSP is the same as your rust install, rather use rustup component add rust-analyzer
             },

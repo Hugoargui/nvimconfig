@@ -1,6 +1,6 @@
 return {
-    hydra = true,
-    whichkey = true,
+    hydra = false,
+    whichkey = false,
     -- CODING
     autolist = true,
     comment = true,
@@ -35,7 +35,7 @@ return {
     markdown_preview = true,
     md_headers = true,
     neoscroll = true,
-    null_ls = true,
+    null_ls = false,
     nvim_tree = true,
     treesitter_textobjects = true,
     ufo = true,
@@ -50,7 +50,7 @@ return {
     winshift = true,
 
     -- GIT
-    gitsigns = true,
+    gitsigns = false,
     fugitive = true,
 
     -- LSP

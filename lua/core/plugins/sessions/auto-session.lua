@@ -18,6 +18,10 @@ return {
             require('session-lens').setup({
                 auto_restore_enabled = true,
             })
+            vim.keymap.set('n', '<leader>xx', '<cmd>SearchSession<cr>', { desc = 'Search Session' })
+            vim.keymap.set('n', '<leader>xs', '<cmd>SessionSave<cr>', { desc = 'Save or Create session' })
+            vim.keymap.set('n', '<leader>xd', '<cmd>SearchSession<cr>', { desc = 'Delete Sessions' })
+            vim.keymap.set('n', '<leader>xc', '<cmd>cd %:p:h <cr>', { desc = 'Change working directory to the location of the current file' })
         end,
     },
 }

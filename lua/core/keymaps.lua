@@ -13,6 +13,14 @@ vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'J', 'J', { desc = 'Join line' })
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'K', 'i<CR><ESC>', { desc = 'Split line' })
 
 vim.keymap.set('n', 'U', '<c-r>', { noremap = true })
+
+vim.keymap.set({'n'}, '<leader>qq', '<cmd>q<CR>', { desc = '"q  " ->  Quit this if no changes' })
+vim.keymap.set({'n'}, '<leader>qa', '<cmd>qa<CR>', { desc = '"qa " ->  Quit all if no changes' })
+vim.keymap.set({'n'}, '<leader>qQ', '<cmd>q!<CR>', { desc = '"q! " ->  Quit this without saving' })
+vim.keymap.set({'n'}, '<leader>qA', '<cmd>qa!<CR>', { desc = '"qa!" ->  Quit all without saving' })
+vim.keymap.set({'n'}, '<leader>qw', '<cmd>wq<CR>', { desc = '"wq " ->  Save this and quit' })
+vim.keymap.set({'n'}, '<leader>qW', '<cmd>wqa<CR>', { desc = '"wqa" ->  Save all and quit' })
+
 -- ----------------------------------------------------
 vim.keymap.set('n', '<CR>', '@q', { noremap = true })
 vim.keymap.set('n', '<C-CR>', 'qq', { noremap = true })
@@ -48,6 +56,39 @@ vim.keymap.set(
     '<esc>mo' .. matchLastChar .. '/' .. ternaryConditionOnMatch .. "','" .. "?'':submatch(1).','<CR>" .. '`oi'
 ) -- toggle end of line ','
 
+-- Folds mappings
+if require('core.enable_plugins').ufo then
+    vim.keymap.set('n', 'za', 'za', { desc = '  Toggle fold under cursor' })
+    vim.keymap.set('n', 'zA', 'zA', { desc = '  Toggle all folds under cursor ' })
+    vim.keymap.set('n', 'zc', 'zc', { desc = '  Close fold under cursor ' })
+    vim.keymap.set('n', 'zC', 'zC', { desc = '  Close all folds under cursor ' })
+    vim.keymap.set('n', 'zo', 'zo', { desc = '  Open fold under cursor' })
+    vim.keymap.set('n', 'zO', 'zO', { desc = '  Open all folds under cursor ' })
+    vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '  Open all folds in document' })
+    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = '  Close all folds in document' })
+    vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds, { desc = '  Decrease fold level' })
+    vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith, { desc = '  Increase fold level' }) -- closeAllFolds == closeFoldsWith(0)
+else
+    vim.keymap.set('n', 'za', 'za', { desc = 'Toggle fold under cursor' })
+    vim.keymap.set('n', 'zA', 'zA', { desc = 'Toggle all folds under cursor' })
+    vim.keymap.set('n', 'zc', 'zc', { desc = 'Close fold under cursor' })
+    vim.keymap.set('n', 'zC', 'zC', { desc = 'Close all folds under cursor' })
+    vim.keymap.set('n', 'zo', 'zo', { desc = 'Open fold under cursor' })
+    vim.keymap.set('n', 'zO', 'zO', { desc = 'Open all folds under cursor' })
+    vim.keymap.set('n', 'zR', 'zR', { desc = 'Open all folds in document' })
+    vim.keymap.set('n', 'zM', 'zM', { desc = 'Close all folds in document' })
+    vim.keymap.set('n', 'zr', 'zr', { desc = 'Decrease fold level' })
+    vim.keymap.set('n', 'zm', 'zm', { desc = 'Increase fold level' })
+end
+
+-- Window management keymaps
+vim.keymap.set('n', '<leader>wv', '<c-w>v<cr>', { desc = ' Split vertically' })
+vim.keymap.set('n', '<leader>wh', '<C-w>s>', { desc = ' Split horizontally' })
+vim.keymap.set('n', '<leader>we', '<C-w> =<CR>', { desc = ' Make splits equal size' })
+vim.keymap.set('n', '<leader>wq', '<cmd>close<CR>', { desc = '󰅗 Close current window' })
+vim.keymap.set('n', '<leader>wo', '<cmd>only<CR>', { desc = ' Close all other windows' })
+vim.keymap.set('n', '<leader>wz', '<cmd>MaximizerToggle<CR>', { desc = ' Window Zoom' })
+
 -- close current win if there are more than 1 win
 -- else close current tab if there are more than 1 tab;
 -- else close current vim
@@ -72,14 +113,26 @@ end
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', SaveFile, { noremap = true, silent = true })
 
 -- SPELLING MAPPINGS
-vim.keymap.set('n', '<leader>zz', function()
-    require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))
-    vim.opt.spell = true
-end, { desc = '  Spelling Suggestions' })
+if require('core.enable_plugins').telescope then
+    vim.keymap.set(
+        'n',
+        '<leader>zz',
+        function()
+            require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))
+            vim.opt.spell = true
+        end,
+        { desc = '   Spelling Suggestions' })
+end
 vim.keymap.set('n', '<leader>zn', ']s', { desc = '  Next spelling error' })
 vim.keymap.set('n', '<leader>zp', '[s', { desc = '  Previous spelling error' })
-vim.keymap.set('n', '<leader>zg', 'zg', { desc = ' Good: add word to dictionary' })
+vim.keymap.set('n', '<leader>zg', 'zg', { desc = '  Good: add word to dictionary' })
 
+-- Git
+if require('core.enable_plugins').telescope then
+    vim.keymap.set('n', '<leader>go', '<cmd>Telescope git_status<cr>', { desc = ' Open changed file' })
+    vim.keymap.set('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', { desc = ' Checkout branch' })
+    vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', { desc = ' Checkout commit' })
+end
 -- ------------------------------------------------
 -- Insert mode readline mappings
 -- ------------------------------------------------

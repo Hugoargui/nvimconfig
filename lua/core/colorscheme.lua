@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         -- vim.opt.fillchars:append({ foldclose = '' })
         -- vim.opt.fillchars:append({ foldsep = '│' })
 
+        vim.keymap.set('n', '<leader>c', '<cmd>Themery<cr>', { desc = '🎨 Change Colorscheme' }) -- got to declaration
+
         vim.api.nvim_set_hl(0, 'SignColumn', { link = 'LineNr' }) -- In some colorschemes it's very different and ugly
 
         vim.api.nvim_set_hl(0, 'WhichKey', { link = 'Function' }) -- The key

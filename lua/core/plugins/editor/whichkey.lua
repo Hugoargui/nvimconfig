@@ -2,226 +2,113 @@ local M = {
     'folke/which-key.nvim',
     enabled = require('core.enable_plugins').whickhey,
     event = 'VeryLazy',
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+    "<leader>"
+  },
     config = function()
-        if require('core.enable_plugins').ufo then
-            vim.keymap.set('n', 'za', 'za', { desc = '  Toggle fold under cursor' })
-            vim.keymap.set('n', 'zA', 'zA', { desc = '  Toggle all folds under cursor ' })
-            vim.keymap.set('n', 'zc', 'zc', { desc = '  Close fold under cursor ' })
-            vim.keymap.set('n', 'zC', 'zC', { desc = '  Close all folds under cursor ' })
-            vim.keymap.set('n', 'zo', 'zo', { desc = '  Open fold under cursor' })
-            vim.keymap.set('n', 'zO', 'zO', { desc = '  Open all folds under cursor ' })
-            vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '  Open all folds in document' })
-            vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = '  Close all folds in document' })
-            vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds, { desc = '  Decrease fold level' })
-            vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith, { desc = '  Increase fold level' }) -- closeAllFolds == closeFoldsWith(0)
-        else
-            vim.keymap.set('n', 'za', 'za', { desc = 'Toggle fold under cursor' })
-            vim.keymap.set('n', 'zA', 'zA', { desc = 'Toggle all folds under cursor' })
-            vim.keymap.set('n', 'zc', 'zc', { desc = 'Close fold under cursor' })
-            vim.keymap.set('n', 'zC', 'zC', { desc = 'Close all folds under cursor' })
-            vim.keymap.set('n', 'zo', 'zo', { desc = 'Open fold under cursor' })
-            vim.keymap.set('n', 'zO', 'zO', { desc = 'Open all folds under cursor' })
-            vim.keymap.set('n', 'zR', 'zR', { desc = 'Open all folds in document' })
-            vim.keymap.set('n', 'zM', 'zM', { desc = 'Close all folds in document' })
-            vim.keymap.set('n', 'zr', 'zr', { desc = 'Decrease fold level' })
-            vim.keymap.set('n', 'zm', 'zm', { desc = 'Increase fold level' })
-        end
-        local setup = {
-            plugins = {
-                marks = false, -- shows a list of your marks on ' and `
-                registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-                spelling = {
-                    enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-                    suggestions = 20, -- how many suggestions should be shown in the list?
-                },
-                -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-                -- No actual key bindings are created
-                presets = {
-                    operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-                    motions = false, -- adds help for motions
-                    text_objects = false, -- help for text objects triggered after entering an operator
-                    windows = false, -- default bindings on <c-w>
-                    nav = false, -- misc bindings to work with windows
-                    z = false, -- bindings for folds, spelling and others prefixed with z
-                    g = true, -- bindings for prefixed with g
-                },
-            },
-            -- add operators that will trigger motion and text object completion
-            -- to enable all native operators, set the preset / operators plugin above
-            operators = {
-                gc = 'Comment',
-                ys = 'Surround',
-                ga = 'Change Case',
-            },
-            show_keys = true,
 
-            icons = {
-                breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
-                separator = '>', -- symbol used between a key and it's label
-                group = '+', -- symbol prepended to a group
-            },
-            popup_mappings = {
-                scroll_down = '<c-d>', -- binding to scroll down inside the popup
-                scroll_up = '<c-u>', -- binding to scroll up inside the popup
-            },
-            window = {
+        require("which-key").add({
+          { "<leader>?", hidden = true},
+          { "<leader>q", group = " ❌ Quit nVim" },
+          { "<leader>b", group = " 🟢 Make/Build" },
+          { "<leader>m", group = "   Cmake" },
+          { "<leader>d", group = "   Debugger" },
+          { "<leader>i", group = "  Diagnostics" },
+          { "<leader>o", group = " 🔔 Notifications" },
+          { "<leader>t", group = "   Trouble Diagnostics" },
+          { "<leader>l", group = "   LSP" },
+                --     -- TODO: 
+                --     k = { name = ' LSP change symbol Case' },
+                --     n = { name = 'LSP swap with next' },
+                --     p = { name = 'LSP swap with previous' },
+          { "<leader>s", group = "   Search" },
+          { "<leader>ss",
+            -- Taken from this issue https://github.com/nvim-telescope/telescope.nvim/issues/564
+            function()
+                require('telescope.builtin').live_grep({
+                    shorten_path = true,
+                    word_match = '-w',
+                    only_sort_text = true,
+                    search = '',
+                })
+            end,
+            desc = "   FUZZY Find Text in project"
+          },
+          { "<leader>sh", "<cmd>Telescope highlights<CR>", desc = "  Search Highligts", mode = "n" },
+          { "<leader>sH", "<cmd>Telescope help_tags<cr>", desc = "  Find Help", mode = "n" },
+          { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "  Man Pages", mode = "n" },
+          { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "  Open Recent File", mode = "n" },
+          { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "  Registers", mode = "n" },
+          { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "  Keymaps", mode = "n" },
+          { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "󰘳  Commands", mode = "n" },
+
+          { "<leader>r", "<cmd>Telescope resume<CR>", desc = "  RESUME last search", mode = "n" },
+
+          { "<leader>e", desc = "  Toggle File Explorer" },
+
+          { "<leader>g", desc = " 󰊢 Git" },
+
+          { "<leader>w", desc = "   Window  management" },
+
+          { "<leader>x", desc = "   Session Management" },
+
+          -- TODO: maybe only enable this if spellchecking is enabled in this buffer
+          { "<leader>z", desc = " 󱀌  Spell Checking" },
+
+      }) -- end of require("which-key").add({ 
+
+
+        local setup = {
+            win = {
                 border = 'rounded', -- none, single, double, shadow
-                position = 'bottom', -- bottom, top
-                margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-                padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-                winblend = 0,
+                padding = { 2, 2 }, -- extra window padding [top/bottom, right/left] 
             },
             layout = {
                 height = { min = 4, max = 25 }, -- min and max height of the columns
                 width = { min = 20, max = 50 }, -- min and max width of the columns
                 spacing = 3, -- spacing between columns
-                align = 'left', -- align columns left, center or right
+                align = 'center', -- align columns left, center or right
             },
-            ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-            hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ ' }, -- hide mapping boilerplate
-            show_help = true, -- show help message on the command line when the popup is visible
-            triggers = 'auto', -- automatically setup triggers
-            -- triggers = {"<leader>"} -- or specify a list manually
-            triggers_blacklist = {
-                -- list of mode / prefixes that should never be hooked by WhichKey
-                -- this is mostly relevant for key maps that start with a native binding
-                -- most people should not need to change this
-                i = { 'j', 'k' },
-                v = { 'j', 'k' },
-            },
+            icons = {
+                rules = false, -- Disable default icons, I want manual control
+            }
+            -- sort = "manual",
         }
 
         -----------------------------------------------------------------------------------------------------------------
-        local leader_opts = {
-            mode = 'n', -- NORMAL mode
-            prefix = '<leader>',
-            buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true, -- use `silent` when creating keymaps
-            noremap = true, -- use `noremap` when creating keymaps
-            nowait = true, -- use `nowait` when creating keymaps
-        }
 
-        local leader_mappings = {
-            ['e'] = { name = '   File Explorer' },
-            ['c'] = { '<cmd>Themery<cr>', '🎨 ColorSchemes' },
-
-            -- TODO: if I end up satisfied with smart-open.nvim, remove this from here
-            -- ['f'] = {
-            --     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-            --     '  Find files',
+            -- g = {
+            --     name = '   Git',
+            --     g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', ' Lazygit' },
+            --     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", '➡ Next Hunk' },
+            --     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", '⬅ Prev Hunk' },
+            --     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", ' Blame Line Hover' },
+            --     L = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", '↴ Toggle Blame Line' },
+            --     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", ' Preview Hunk' },
+            --     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'ﰸ Reset Hunk' },
+            --     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", ' Reset Buffer' },
+            --     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", ' Stage Hunk' },
+            --     u = {
+            --         "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+            --         '碑 Undo Stage Hunk',
+            --     },
+            --     d = {
+            --         '<cmd>Gitsigns diffthis HEAD<cr>',
+            --         ' Diff',
+            --     },
             -- },
-            -- ['F'] = { '<cmd>Telescope find_files<cr>', '  Find Files with preview' },
-            ['r'] = { '<cmd>Telescope resume<CR>', '屢 RESUME last search' },
-
-            q = {
-                name = ' ❌ Quit nVim',
-                ['q'] = { '<cmd>q<CR>', '"q  " ->  Quit this if no changes' },
-                ['a'] = { '<cmd>qa<CR>', '"qa " ->  Quit all if no changes' },
-                ['Q'] = { '<cmd>q!<CR>', '"q! " ->  Quit this without saving' },
-                ['A'] = { '<cmd>qa!<CR>', '"qa!" ->  Quit all without saving' },
-                ['w'] = { '<cmd>wq<CR>', '"wq " ->  Save this and quit' },
-                ['W'] = { '<cmd>wqa<CR>', '"wqa" ->  Save all and quit' },
-            },
-            ['o'] = { name = ' 🔔 Notifications' },
-
-            x = {
-                name = ' 冷  Session Management',
-                ['x'] = { '<cmd>SearchSession<cr>', 'Search Session' },
-                ['s'] = { '<cmd>SessionSave<cr>', 'Save or Create session' },
-                ['d'] = { '<cmd>AutoSession delete<cr>', 'Delete Sessions' },
-                ['c'] = { '<cmd>cd %:p:h <cr>', 'Change working directory to the location of the current file' },
-            },
-
-            w = {
-                name = '   Window  management',
-                ['v'] = { '<c-w>v<cr>', '匿 Split vertically' },
-                ['h'] = { '<C-w>s>', '鱗 Split horizontally' },
-                ['e'] = { '<C-w> =<CR>', ' Make splits equal size' },
-                ['q'] = { '<cmd>close<CR>', ' Close current window' },
-                ['o'] = { '<cmd>only<CR>', ' Close all other windows' },
-                ['z'] = { '<cmd>MaximizerToggle<CR>', ' Window Zoom' },
-            },
-
-            g = {
-                name = '   Git',
-                g = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', ' Lazygit' },
-                j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", '➡ Next Hunk' },
-                k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", '⬅ Prev Hunk' },
-                l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", ' Blame Line Hover' },
-                L = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", '↴ Toggle Blame Line' },
-                p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", ' Preview Hunk' },
-                r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'ﰸ Reset Hunk' },
-                R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", ' Reset Buffer' },
-                s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", ' Stage Hunk' },
-                u = {
-                    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-                    '碑 Undo Stage Hunk',
-                },
-                o = { '<cmd>Telescope git_status<cr>', ' Open changed file' },
-                b = { '<cmd>Telescope git_branches<cr>', ' Checkout branch' },
-                c = { '<cmd>Telescope git_commits<cr>', ' Checkout commit' },
-                d = {
-                    '<cmd>Gitsigns diffthis HEAD<cr>',
-                    ' Diff',
-                },
-            },
-
-            m = {
-                name = ' 🟢 Make/Build',
-            },
-            l = {
-                name = '   LSP',
-                --     -- TODO: this don't show
-                --     k = { name = ' LSP change symbol Case' },
-                --     n = { name = 'LSP swap with next' },
-                --     p = { name = 'LSP swap with previous' },
-            },
-            ['t'] = { name = '   Trouble Diagnostics' },
-            d = {
-                name = '   Debugger',
-            },
-            s = {
-                name = '   Search',
-                -- s = { '<cmd>Telescope live_grep<cr>', '  Find Text' },
-                s = {
-                    -- Taken from this issue https://github.com/nvim-telescope/telescope.nvim/issues/564
-                    function()
-                        require('telescope.builtin').live_grep({
-                            shorten_path = true,
-                            word_match = '-w',
-                            only_sort_text = true,
-                            search = '',
-                        })
-                    end,
-                    '  FUZZY Find Text in project',
-                },
-
-                h = { '<cmd>Telescope highlights<CR>', '  Search Highligts' },
-                H = { '<cmd>Telescope help_tags<cr>', '  Find Help' },
-                M = { '<cmd>Telescope man_pages<cr>', '  Man Pages' },
-                r = { '<cmd>Telescope oldfiles<cr>', '  Open Recent File' },
-                R = { '<cmd>Telescope registers<cr>', '  Registers' },
-                k = { '<cmd>Telescope keymaps<cr>', '  Keymaps' },
-                c = { '<cmd>Telescope commands<cr>', 'ﯯ  Commands' },
-            },
-            -- TODO: maybe only enable this if spellchecking is enabled in this buffer
-            z = {
-                name = ' 了  Spell Checking',
-            },
-        }
+            --
+        -- }
 
         require('which-key').setup(setup)
-        require('which-key').register(leader_mappings, leader_opts)
 
-        -- [% and ]% come from vim builting plugin, it shows up if we anable []  in whichkey
-        -- with the <plug> name, so may as well document it
-        require('which-key').register({
-            ['[%'] = 'which_key_ignore',
-            [']%'] = 'which_key_ignore',
-            ['zz'] = 'which_key_ignore',
-            ['zb'] = 'which_key_ignore',
-            ['zt'] = 'which_key_ignore',
-        })
     end,
 }
 

@@ -2,7 +2,7 @@ local icons = require('core.icons').icons
 return {
     enabled = require('core.enable_plugins').nvim_tree,
     'nvim-tree/nvim-tree.lua',
-    keys = { '<leader>e' },
+    -- keys = { '<leader>e' },
     -- keys = {
     --     '<leader>e',
     --     '<cmd>NvimTreeToggle<cr>',
@@ -112,7 +112,7 @@ return {
                     body = 'H',
                     heads = {
                         { 'y', api.fs.copy.filename, { silent = true } },
-                        { 'Y', api.fs.copy.relative_path, { silent = true } },
+                        { 'Y', api.fs.copy.relative_path, { silent = true } },tree
                         { '/', api.live_filter.start, { silent = true } },
                         { 'c', api.fs.copy.node, { silent = true } },
                         { 'x', api.fs.cut, { exit = true, silent = true } },

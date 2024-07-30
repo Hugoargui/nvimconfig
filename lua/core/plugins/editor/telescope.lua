@@ -70,7 +70,7 @@ return {
                 sorting_strategy = 'ascending',
                 layout_strategy = 'horizontal',
                 layout_config = {
-                    horizontal = { prompt_position = 'top' },
+                    horizontal = { prompt_position = 'top', height = .999, width = .999 },
                 },
             }, -- defaults
             pickers = pickers,
