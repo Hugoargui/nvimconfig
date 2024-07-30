@@ -50,7 +50,7 @@ return {
     winshift = true,
 
     -- GIT
-    gitsigns = false,
+    gitsigns = true,
     fugitive = true,
 
     -- LSP

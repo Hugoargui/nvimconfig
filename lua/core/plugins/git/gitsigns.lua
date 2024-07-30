@@ -41,5 +41,16 @@ return {
                 col = 1,
             },
         })
+
+        vim.keymap.set({'n'}, '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { desc = '➡ Next Hunk' })
+        vim.keymap.set({'n'}, '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { desc = '⬅ Prev Hunk' })
+        vim.keymap.set({'n'}, '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>", { desc = ' Blame Line Hover' })
+        vim.keymap.set({'n'}, '<leader>gL', "<cmd>lua require 'gitsigns'toggle_current_line_blame()<cr>", { desc = '↴ Toggle Blame Line' })
+        vim.keymap.set({'n'}, '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", { desc = ' Preview Hunk' })
+        vim.keymap.set({'n'}, '<leader>gr', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", { desc = 'ﰸ Reset Hunk' })
+        vim.keymap.set({'n'}, '<leader>gR', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", { desc = ' Reset Buffer' })
+        vim.keymap.set({'n'}, '<leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", { desc = ' Stage Hunk' })
+        vim.keymap.set({'n'}, '<leader>gu', "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", { desc = ' Diff' })
+        vim.keymap.set({'n'}, '<leader>gd', "<cmd>Gitsigns diffthis HEAD<cr>", { desc = '➡ Next Hunk' })
     end,
 }
