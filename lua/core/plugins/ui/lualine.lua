@@ -26,7 +26,8 @@ end
 local show_lsp_name = {
     function()
         local buf_ft = vim.api.nvim_get_option_value('filetype', { scope = 'local' })
-        local clients = vim.lsp.get_active_clients()
+        -- local clients = vim.lsp.get_active_clients() --deprecated
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
             return 'No Active Lsp'
         else

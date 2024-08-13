@@ -5,6 +5,9 @@ vim.opt.spelllang = 'en_us'
 vim.opt.spell = false -- for now, we enable it only for specific filetypes
 vim.opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 
+-- Autosessions plugins recommends this:
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------

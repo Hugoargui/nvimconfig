@@ -19,39 +19,38 @@ return {
         null_ls.setup({
             debug = false,
             sources = {
-                formatting.trim_whitespace.with({
-                    filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux' },
-                }),
+                -- TODO: deprecated: replace by another option
+                -- formatting.trim_whitespace.with({
+                --     filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux' },
+                -- }),
+
                 formatting.autopep8,
                 formatting.stylua,
                 formatting.clang_format.with({
                     filetypes = { 'cpp', 'c' },
                 }),
                 formatting.uncrustify.with({
+
                     filetypes = { 'cpp', 'c' },
                 }),
                 formatting.rustfmt,
                 -- # DIAGNOSTICS #
-                -- diagnostics.shellcheck,
-                diagnostics.luacheck.with({
-                    extra_args = { '--globals', 'vim', '--std', 'luajit' },
-                }),
+                diagnostics.shellcheck,
+                -- TODO: replace by selene
+                -- diagnostics.luacheck.with({
+                --     extra_args = { '--globals', 'vim', '--std', 'luajit' },
+                -- }),
             },
-            on_attach = function(current_client, bufnr)
-                -- configure format on save
-                if current_client.supports_method('textDocument/formatting') then
+            on_attach = function(client, bufnr)
+                if client.supports_method("textDocument/formatting") then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                    vim.api.nvim_create_autocmd('BufWritePre', {
+                    vim.api.nvim_create_autocmd("BufWritePre", {
                         group = augroup,
                         buffer = bufnr,
                         callback = function()
-                            vim.lsp.buf.format({
-                                filter = function(client)
-                                    --  only use null-ls for formatting instead of lsp server
-                                    return client.name == 'null-ls'
-                                end,
-                                bufnr = bufnr,
-                            })
+                            -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                            -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+                            vim.lsp.buf.formatting_sync()
                         end,
                     })
                 end

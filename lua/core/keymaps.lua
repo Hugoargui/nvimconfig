@@ -103,9 +103,10 @@ local function SmartQuit()
 end
 vim.keymap.set('n', '<C-q>', SmartQuit, { desc = 'smart quit' })
 
--- Save like normal people
+-- save like normal people
 local function SaveFile()
-    local modifiable = vim.api.nvim_buf_get_option(0, 'modifiable')
+    -- local modifiable = vim.api.nvim_buf_get_option(0, 'modifiable') -- deprecated, use nvim_get_option_value()
+    local modifiable = true
     if modifiable then
         vim.cmd('w!')
     end

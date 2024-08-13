@@ -1,104 +1,105 @@
 return {
     'zaldih/themery.nvim',
+    enabled = false,
     cmd = { 'Themery' },
-    opts = {
-        themeConfigFile = '~/.config/nvim/lua/core/colorscheme.lua',
-        livePreview = true, -- Apply theme while browsing. Default to true.
-        themes = {
-            {
-                name = '🚀 AstroTheme',
-                colorscheme = 'astrotheme',
-            },
-            {
-                name = '🥋 Ayu',
-                colorscheme = 'ayu',
-            },
-            {
-                name = '🤡 Bluloco',
-                colorscheme = 'bluloco',
-            },
-            {
-                name = '😺 Catppuccin',
-                colorscheme = 'catppuccin',
-            },
-            {
-                name = '  Decay',
-                colorscheme = 'decay',
-            },
-            -- -- with colorbuddy and so on it's very slow to load and gives too much trouble
-            -- {
-            --     name = 'Cobalt2',
-            --     colorscheme = 'cobalt2',
-            --     before = [[require('colorbuddy').colorscheme('cobalt2')]],
-            -- },
-            {
-                name = '🌲 Everforest',
-                colorscheme = 'everforest',
-            },
-            {
-                name = '🧛 Dracula',
-                colorscheme = 'dracula',
-            },
-            {
-                name = '🤎 Gruvbox',
-                colorscheme = 'gruvbox',
-            },
-            {
-                name = '㊗️ Kanagawa',
-                colorscheme = 'kanagawa',
-            },
-            {
-                name = '理  Melange',
-                colorscheme = 'melange',
-            },
-            {
-                name = '🛌 Mellow',
-                colorscheme = 'mellow',
-            },
-            {
-                name = '  Midnight',
-                colorscheme = 'midnight',
-            },
-            {
-                name = '🌕 MoonFly',
-                colorscheme = 'moonfly',
-            },
-            {
-                name = '🌙 NightFly',
-                colorscheme = 'nightfly',
-            },
-            {
-                name = '🦊 Night Fox',
-                colorscheme = 'nightfox',
-            },
-            {
-                name = '  Nord',
-                colorscheme = 'nord',
-            },
-            {
-                name = '⧫  OneDark',
-                colorscheme = 'onedark',
-            },
-            {
-                name = '  OxoCarbon',
-                colorscheme = 'oxocarbon',
-            },
-            {
-                name = '🍷 Rose Pine',
-                colorscheme = 'rose-pine',
-            },
-            {
-                name = '🗼 Tokyo Night',
-                colorscheme = 'tokyonight',
-            },
-            {
-                name = '  Tundra',
-                colorscheme = 'tundra',
-            },
-            {
-                name = '  Zephyr',
-                colorscheme = 'zephyr',
-            },
-        },
-    },
+    -- opts = {
+        -- themeConfigFile = '~/.config/nvim/lua/core/colorscheme.lua',
+        -- livePreview = true, -- Apply theme while browsing. Default to true.
+        -- themes = {
+        --     {
+        --         name = '🚀 AstroTheme',
+        --         colorscheme = 'astrotheme',
+        --     },
+        --     {
+        --         name = '🥋 Ayu',
+        --         colorscheme = 'ayu',
+        --     },
+        --     {
+        --         name = '🤡 Bluloco',
+        --         colorscheme = 'bluloco',
+        --     },
+        --     {
+        --         name = '😺 Catppuccin',
+        --         colorscheme = 'catppuccin',
+        --     },
+        --     {
+        --         name = '  Decay',
+        --         colorscheme = 'decay',
+        --     },
+        --     -- -- with colorbuddy and so on it's very slow to load and gives too much trouble
+        --     -- {
+        --     --     name = 'Cobalt2',
+        --     --     colorscheme = 'cobalt2',
+        --     --     before = [[require('colorbuddy').colorscheme('cobalt2')]],
+        --     -- },
+        --     {
+        --         name = '🌲 Everforest',
+        --         colorscheme = 'everforest',
+        --     },
+        --     {
+        --         name = '🧛 Dracula',
+        --         colorscheme = 'dracula',
+        --     },
+        --     {
+        --         name = '🤎 Gruvbox',
+        --         colorscheme = 'gruvbox',
+        --     },
+        --     {
+        --         name = '㊗️ Kanagawa',
+        --         colorscheme = 'kanagawa',
+        --     },
+        --     {
+        --         name = '理  Melange',
+        --         colorscheme = 'melange',
+        --     },
+        --     {
+        --         name = '🛌 Mellow',
+        --         colorscheme = 'mellow',
+        --     },
+        --     {
+        --         name = '  Midnight',
+        --         colorscheme = 'midnight',
+        --     },
+        --     {
+        --         name = '🌕 MoonFly',
+        --         colorscheme = 'moonfly',
+        --     },
+        --     {
+        --         name = '🌙 NightFly',
+        --         colorscheme = 'nightfly',
+        --     },
+        --     {
+        --         name = '🦊 Night Fox',
+        --         colorscheme = 'nightfox',
+        --     },
+        --     {
+        --         name = '  Nord',
+        --         colorscheme = 'nord',
+        --     },
+        --     {
+        --         name = '⧫  OneDark',
+        --         colorscheme = 'onedark',
+        --     },
+        --     {
+        --         name = '  OxoCarbon',
+        --         colorscheme = 'oxocarbon',
+        --     },
+        --     {
+        --         name = '🍷 Rose Pine',
+        --         colorscheme = 'rose-pine',
+        --     },
+        --     {
+        --         name = '🗼 Tokyo Night',
+        --         colorscheme = 'tokyonight',
+        --     },
+        --     {
+        --         name = '  Tundra',
+        --         colorscheme = 'tundra',
+        --     },
+        --     {
+        --         name = '  Zephyr',
+        --         colorscheme = 'zephyr',
+        --     },
+        -- },
+    -- },
 }
