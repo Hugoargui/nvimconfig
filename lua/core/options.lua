@@ -38,6 +38,9 @@ opt.signcolumn = 'yes' -- Needed for plugins that dispaly stuff in left column (
 opt.cursorline = true -- Line on the line we're at, you can set it's style with highlights
 opt.virtualedit = 'block' -- Virtual cursor mode can go beyond end of line to make "blocks"
 
+-- no tab line at top
+opt.showtabline = 0
+
 -- LastStatus means when to show status bar at the bottom of each window:
 -- 0 : No status bar
 -- 1 : Only when this is the last window

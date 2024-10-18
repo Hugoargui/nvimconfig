@@ -14,12 +14,12 @@ vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'K', 'i<CR><ESC>', { desc = 'Split line' 
 
 vim.keymap.set('n', 'U', '<c-r>', { noremap = true })
 
-vim.keymap.set({'n'}, '<leader>qq', '<cmd>q<CR>', { desc = '"q  " ->  Quit this if no changes' })
-vim.keymap.set({'n'}, '<leader>qa', '<cmd>qa<CR>', { desc = '"qa " ->  Quit all if no changes' })
-vim.keymap.set({'n'}, '<leader>qQ', '<cmd>q!<CR>', { desc = '"q! " ->  Quit this without saving' })
-vim.keymap.set({'n'}, '<leader>qA', '<cmd>qa!<CR>', { desc = '"qa!" ->  Quit all without saving' })
-vim.keymap.set({'n'}, '<leader>qw', '<cmd>wq<CR>', { desc = '"wq " ->  Save this and quit' })
-vim.keymap.set({'n'}, '<leader>qW', '<cmd>wqa<CR>', { desc = '"wqa" ->  Save all and quit' })
+vim.keymap.set({ 'n' }, '<leader>qq', '<cmd>q<CR>', { desc = '"q  " ->  Quit this if no changes' })
+vim.keymap.set({ 'n' }, '<leader>qa', '<cmd>qa<CR>', { desc = '"qa " ->  Quit all if no changes' })
+vim.keymap.set({ 'n' }, '<leader>qQ', '<cmd>q!<CR>', { desc = '"q! " ->  Quit this without saving' })
+vim.keymap.set({ 'n' }, '<leader>qA', '<cmd>qa!<CR>', { desc = '"qa!" ->  Quit all without saving' })
+vim.keymap.set({ 'n' }, '<leader>qw', '<cmd>wq<CR>', { desc = '"wq " ->  Save this and quit' })
+vim.keymap.set({ 'n' }, '<leader>qW', '<cmd>wqa<CR>', { desc = '"wqa" ->  Save all and quit' })
 
 -- ----------------------------------------------------
 vim.keymap.set('n', '<CR>', '@q', { noremap = true })
@@ -115,14 +115,10 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', SaveFile, { noremap = true, silent = 
 
 -- SPELLING MAPPINGS
 if require('core.enable_plugins').telescope then
-    vim.keymap.set(
-        'n',
-        '<leader>zz',
-        function()
-            require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))
-            vim.opt.spell = true
-        end,
-        { desc = '   Spelling Suggestions' })
+    vim.keymap.set('n', '<leader>zz', function()
+        require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))
+        vim.opt.spell = true
+    end, { desc = '   Spelling Suggestions' })
 end
 vim.keymap.set('n', '<leader>zn', ']s', { desc = '  Next spelling error' })
 vim.keymap.set('n', '<leader>zp', '[s', { desc = '  Previous spelling error' })

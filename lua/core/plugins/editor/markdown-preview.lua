@@ -31,7 +31,7 @@ return {
                 }, { prefix = '<leader>a', buffer = 0 })
             end
         else
-            vim.keymap.set('n', '<leader>ap', '<cmd>MarkdownPreview<CR>', '👁️ Launch Markdown Preview')
+            vim.keymap.set('n', '<leader>ap', '<cmd>MarkdownPreview<CR>', { desc = '👁️ Launch Markdown Previe' })
         end
     end,
 }

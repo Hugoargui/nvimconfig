@@ -173,3 +173,4 @@ covariant
 Variadic
 variadic
 printf
+decltype

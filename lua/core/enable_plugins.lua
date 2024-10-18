@@ -38,7 +38,7 @@ return {
     null_ls = false,
     nvim_tree = true,
     treesitter_textobjects = true,
-    ufo = true,
+    ufo = false,
     smart_splits = true,
     telescope = true,
     todo_comments = true,

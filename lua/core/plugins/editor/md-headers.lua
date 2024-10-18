@@ -20,11 +20,16 @@ return {
             function RegisterHeaderKeymap()
                 wkl.register({
                     name = '   Markdown specific actions',
-                    ['a'] = { '<cmd>MarkdownHeadersClosest<CR>', '⛵Navigate Markdown Headers' },
+                    ['a'] = { '<cmd>MarkdownHeadersClosest<CR>', desc = { '⛵Navigate Markdown Headers' } },
                 }, { prefix = '<leader>a', buffer = 0 })
             end
         else
-            vim.keymap.set('n', '<leader>aa', '<cmd>MarkdownHeadersClosest<CR>', '⛵Navigate Markdown Headers')
+            vim.keymap.set(
+                'n',
+                '<leader>aa',
+                '<cmd>MarkdownHeadersClosest<CR>',
+                { desc = '⛵Navigate Markdown Headers' }
+            )
         end
     end,
 }

@@ -29,6 +29,7 @@ return {
                     'dockerfile',
                     'gitcommit',
                     'gitignore',
+                    'html',
                     'json',
                     'lua',
                     'make',

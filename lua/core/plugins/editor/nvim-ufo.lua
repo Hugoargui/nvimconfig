@@ -57,6 +57,7 @@ end
 
 return {
     'kevinhwang91/nvim-ufo',
+
     enabled = require('core.enable_plugins').ufo,
     dependencies = 'kevinhwang91/promise-async',
     event = 'BufReadPost',
