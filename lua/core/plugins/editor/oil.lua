@@ -52,7 +52,8 @@ return {
                     end
 
                     -- ensure no buffers remain with the directory name
-                    vim.api.nvim_buf_set_option(0, 'bufhidden', 'wipe')
+                    local bufnr = vim.api.nvim_get_current_buf()
+                    vim.api.nvim_set_option_value('bufhidden', 'wipe', { buf = bufnr })
 
                     require('oil').open_float()
                 end)
@@ -64,7 +65,7 @@ return {
         default_file_explorer = false,
         view_options = {
             show_hidden = true,
-            is_always_hidden = function(name, bufnr)
+            is_always_hidden = function(name)
                 return vim.startswith(name, '.DS_Store')
             end,
         },

@@ -592,7 +592,7 @@
 		],
 		"description": "Algorithm mnemonic for std::'max_element'"
 		},
-		
+
 		"merge": {
 		"prefix": "mrg",
 		"body": [
@@ -719,7 +719,7 @@
 		],
 		"description": "Algorithm mnemonic for std::'partial_sort'"
 		},
-		
+
 		"partial_sort_copy": {
 		"prefix": "psc",
 		"body": [
@@ -1069,5 +1069,13 @@
 			"std::vector<$2> $3"
 		],
 		"description": "Algorithm mnemonic for std::'vector'"
+		},
+
+		"iostream": {
+		"prefix": "ios",
+		"body": [
+			"#include <iostream>"
+		],
+		"description": "include standard io streams"
 		}
 }

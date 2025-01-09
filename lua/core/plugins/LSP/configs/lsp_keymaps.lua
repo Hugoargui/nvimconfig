@@ -2,7 +2,7 @@ local keymap = vim.keymap -- for conciseness
 local native = vim.lsp.buf -- for conciseness
 
 return {
-    registerKeymaps = function(client, bufnr)
+    registerKeymaps = function(bufnr)
         SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
         if require('core.enable_plugins').lsp_signature then
             vim.keymap.set('n', '<leader>lk', function()

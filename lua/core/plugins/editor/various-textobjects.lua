@@ -4,19 +4,27 @@ return {
     event = { 'ModeChanged' }, -- there is no OperatorPendingModeEnter, this is the second best
     config = function()
         require('various-textobjs').setup({
-            -- lines to seek forwards for "small" textobjs (mostly characterwise textobjs)
-            -- set to 0 to only look in the current line
-            lookForwardSmall = 15,
 
-            -- lines to seek forwards for "big" textobjs (linewise textobjs & url textobj)
-            lookForwardBig = 30,
+            forwardLooking = {
+                -- Number of lines to seek forwards for a text object.
+                -- See the overview table in the README for which text object uses which value.
+                small = 15,
+                big = 30,
+            },
 
-            -- use suggested keymaps (see README)
-            useDefaultKeymaps = false,
+            keymaps = {
+                -- See overview table in README for the defaults. (Note that lazy-loading
+                -- this plugin, the default keymaps cannot be set up. if you set this to
+                -- `true`, you thus need to add `lazy = false` to your lazy.nvim config.)
+                useDefaults = false,
 
-            -- disable some default keymaps. E:g { 'ai', 'ii' }
-            disabledKeymaps = {},
+                -- disable only some default keymaps, for example { "ai", "!" }
+                -- (only relevant when you set `useDefaults = true`)
+                ---@type string[]
+                disabledDefaults = {},
+            },
         })
+
         -- Don't see a difference between aw and iw, just make it directly cw, yw, dw, ...
         -- vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
         -- vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')

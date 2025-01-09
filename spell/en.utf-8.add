@@ -174,3 +174,8 @@ Variadic
 variadic
 printf
 decltype
+param's
+expr
+expr's
+paramtype
+rvalue

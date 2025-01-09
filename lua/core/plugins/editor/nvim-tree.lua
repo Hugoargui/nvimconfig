@@ -112,7 +112,7 @@ return {
                     body = 'H',
                     heads = {
                         { 'y', api.fs.copy.filename, { silent = true } },
-                        { 'Y', api.fs.copy.relative_path, { silent = true } },tree
+                        { 'Y', api.fs.copy.relative_path, { silent = true } },
                         { '/', api.live_filter.start, { silent = true } },
                         { 'c', api.fs.copy.node, { silent = true } },
                         { 'x', api.fs.cut, { exit = true, silent = true } },

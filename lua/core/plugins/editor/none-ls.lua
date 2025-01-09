@@ -9,7 +9,7 @@ return {
     },
     config = function()
         -- for conciseness
-        local null_ls = require('null-ls')
+        local null_ls = require('core.plugins.editor.none-ls')
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics
 
@@ -25,6 +25,7 @@ return {
                 -- }),
 
                 formatting.autopep8,
+                formatting.fixjson,
                 formatting.stylua,
                 formatting.clang_format.with({
                     filetypes = { 'cpp', 'c' },
@@ -34,17 +35,18 @@ return {
                     filetypes = { 'cpp', 'c' },
                 }),
                 formatting.rustfmt,
-                -- # DIAGNOSTICS #
                 diagnostics.shellcheck,
+                diagnostics.cmake_lint,
+                diagnostics.cppcheck,
                 -- TODO: replace by selene
                 -- diagnostics.luacheck.with({
                 --     extra_args = { '--globals', 'vim', '--std', 'luajit' },
                 -- }),
             },
             on_attach = function(client, bufnr)
-                if client.supports_method("textDocument/formatting") then
+                if client.supports_method('textDocument/formatting') then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                    vim.api.nvim_create_autocmd("BufWritePre", {
+                    vim.api.nvim_create_autocmd('BufWritePre', {
                         group = augroup,
                         buffer = bufnr,
                         callback = function()
