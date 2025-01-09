@@ -43,28 +43,6 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- lspconfig['rust_analyzer'].setup({
---     capabilities = capabilities,
---     on_attach = on_attach,
---     -- If we installed LSP with rustup instead of Mason, tell to use rustup.
---     cmd = {
---         'rustup',
---         'run',
---         'stable',
---         'rust-analyzer',
---     },
---     assist = { importEnforceGranularity = true, importPrefix = 'crate' },
---     cargo = { allFeatures = true },
---     checkOnSave = true,
---     check = {
---         enable = true,
---         command = 'clippy',
---         features = 'all',
---     },
---     inlayHints = { locationLinks = false },
---     diagnostics = { enable = true, experimental = { enable = true } }, -- to enable more diagnostics not on save
--- })
-
 lspconfig['rust_analyzer'].setup({
     capabilities = capabilities,
     on_attach = on_attach,
@@ -89,8 +67,7 @@ lspconfig['rust_analyzer'].setup({
 })
 
 lspconfig['clangd'].setup({
-    -- filetypes = { "hpp", "h", "c", "cpp", "objc", "objcpp" },
-    filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+    filetypes = { 'c', 'cpp' },
     capabilities = capabilities,
     on_attach = on_attach,
     cmd = {
@@ -108,10 +85,6 @@ lspconfig['pyright'].setup({
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { 'python' },
-    -- cmd = { 'pyright-langserver', '--stdio' },
-    --root_dir = function(startpath)
-    --       return M.search_ancestors(startpath, matcher)
-    --  end,
     settings = {
         python = {
             analysis = {

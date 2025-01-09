@@ -72,54 +72,29 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         -- vim.api.nvim_set_hl(0, 'UfoFoldedBg', { link = 'Folded.background' })
         -- vim.api.nvim_set_hl(0, 'UfoFoldedFg', { link = 'Folded.foreground' })
 
-        -- DEBUG ICONS AND HIGHLIGHTS'
-        vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#993939' })
-
-        vim.api.nvim_set_hl(0, 'DapLogPoint', { fg = '#61afef', bg = '#31353f' })
-        vim.fn.sign_define(
-            'DapLogPoint',
-            { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' }
-        )
-
-        vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#98c379', bg = '#31353f' })
-        vim.fn.sign_define(
-            'DapStopped',
-            { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' }
-        )
-
-        vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
-        vim.fn.sign_define(
-            'DapBreakpointCondition',
-            { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' }
-        )
-        vim.fn.sign_define(
-            'DapBreakpointRejected',
-            { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' }
-        )
-
-        -- Change the Diagnostic symbols in the sign column (gutter)
-        local icons = require('core.icons').icons
-        local signs = {
-            Error = icons.diagnostics.Error,
-            Warn = icons.diagnostics.Warn,
-            Hint = icons.diagnostics.Hint,
-            Info = icons.diagnostics.Info,
-        }
-        for type, icon in pairs(signs) do
-            local hl = 'DiagnosticSign' .. type
-            -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
-            -- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-
-            -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
-            vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
-        end
+        -- -- Change the Diagnostic symbols in the sign column (gutter)
+        -- local icons = require('core.icons').icons
+        -- local signs = {
+        --     Error = icons.diagnostics.Error,
+        --     Warn = icons.diagnostics.Warn,
+        --     Hint = icons.diagnostics.Hint,
+        --     Info = icons.diagnostics.Info,
+        -- }
+        -- for type, icon in pairs(signs) do
+        --     local hl = 'DiagnosticSign' .. type
+        --     -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
+        --     -- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+        --
+        --     -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
+        --     vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
+        -- end
     end, -- end of autocommand callback
 }) -- end of colorscheme autocommand
 
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme catppuccin")
+vim.cmd('colorscheme catppuccin')
 vim.g.theme_id = 4
 -- end themery block
 --

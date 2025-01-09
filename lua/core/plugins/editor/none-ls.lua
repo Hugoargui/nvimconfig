@@ -1,6 +1,5 @@
 -- Plugin to setup linters/formatters for any language server
 return {
-    -- 'jose-elias-alvarez/null-ls.nvim',
     'nvimtools/none-ls.nvim',
     enabled = require('core.enable_plugins').null_ls,
     event = { 'BufReadPost', 'BufNewFile' },
@@ -30,10 +29,10 @@ return {
                 formatting.clang_format.with({
                     filetypes = { 'cpp', 'c' },
                 }),
-                formatting.uncrustify.with({
-
-                    filetypes = { 'cpp', 'c' },
-                }),
+                -- formatting.uncrustify.with({
+                --
+                --     filetypes = { 'cpp', 'c' },
+                -- }),
                 formatting.rustfmt,
                 diagnostics.shellcheck,
                 diagnostics.cmake_lint,

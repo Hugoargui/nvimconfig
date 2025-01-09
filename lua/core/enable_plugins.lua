@@ -23,8 +23,8 @@ return {
     smartword = true,
 
     -- DEBUGGER
-    dap = true,
-    dapui = true,
+    dap = false,
+    dapui = false,
 
     -- EDITOR
     colorizer = true,
@@ -60,7 +60,7 @@ return {
     code_action_menu = true, -- Pop up menu for code actions
     lspconfig = true,
     pretty_hover = true, --parses the hover message before opening the popup window
-    symbols_outline = true, -- symbol outline sidebar
+    symbols_outline = false, -- symbol outline sidebar... disabled because I don't really use it and it gives deprecation warning)
     symbol_usage = true, -- virtual text for symbol reference count
     navbuddy = true, -- Nice ranger like symbol navigator
 
