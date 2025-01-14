@@ -7,6 +7,13 @@ return {
                 auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
                 close_unsupported_windows = true, -- boolean: Close windows that aren't backed by normal file
                 silent_restore = true, -- Suppress extraneous messages and source the whole session, even if there's an error. Set to false to get the line number a restore error
+                -- cwd_change_handling = true,
+
+                post_cwd_changed_cmds = {
+                    function()
+                        require('lualine').refresh()
+                    end,
+                },
             })
 
             vim.api.nvim_create_autocmd('VimLeavePre', { pattern = '*', command = 'NvimTreeClose' })

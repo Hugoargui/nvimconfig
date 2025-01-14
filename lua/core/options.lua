@@ -84,7 +84,7 @@ opt.smartcase = true -- if ignorecase=TRUE, writting BigCase will turn search in
 -- TEHCNICAL STUFF
 -----------------------------------------------------------
 opt.fileencoding = 'utf-8'
-opt.clipboard:append('unnamedplus') -- Use system clipboard
+-- opt.clipboard:append('unnamedplus') -- Use system clipboard
 opt.backspace = 'indent,eol,start' -- Make <BACKSPACE> behave like you expect
 
 opt.iskeyword:append('-') -- make this-word count as a single word

@@ -11,7 +11,7 @@ chsh -s $(which zsh)
 # now let's make it look into .config/zsh/.zshrc instead of in ~
 sudo vim /etc/zsh/zshenv
 
-# add this lines anywhere in the top: 
+# add this lines anywhere in the top:
 if [[ -z "$XDG_CONFIG_HOME" ]]
 then
         export XDG_CONFIG_HOME="$HOME/.config/"
@@ -27,12 +27,21 @@ cd
 mkdir .config
 mkdir .config/zsh
 vim .zshrc
-#copy paste there the .zshrc from this folder
 #restart
+
+follow manual setup:
+https://thevaluable.dev/zsh-install-configure-mouseless/
+
+manually clone zsh-syntax-highlighting
+https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+
+
+
+
 
 
 # for lsp installed by mason to attach, you need to know the bin where it is installed
-# add this to the path 
+# add this to the path
 ~/.local/share/nvim/mason/bin
 
 mkdir .config/zsh/plugins
@@ -43,7 +52,7 @@ git clone https://github.com/olets/zsh-abbr.git
 
 # restart
 # now it's annoying that it keeps telling you it didn't add abbreviation because it already exists
-# edit plugin to comment out whole message: 
+# edit plugin to comment out whole message:
 if [[ -n $existing_expansion ]]; then
  563         if (( ! force )); then
  564           #verb_phrase="Did not add"
@@ -52,65 +61,65 @@ if [[ -n $existing_expansion ]]; then
  567           #_abbr:util_error "$verb_phrase the $typed_scope \`${(Q)abbreviation}\`. It already has an expansion"
  568           return 2
  569         fi:which
- 
+
  you can clean your home
  rm .bash*
  and so on
- 
+
  install nvim from appimage to get the latest (apt-get is not always up to date)
  https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
 
-or with script: 
+or with script:
     apt-get remove -y neovim
     curl https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage \
       -Lo ~/.local/bin/nvim --create-dirs
     chmod u+x ~/.local/bin/nvim
- 
+
  clone the config into .config/nvim
- 
- 
+
+
  ***********************************
 
- 
+
  to avoid so many errors before launching, install dependencies first
- 
- 
- needed by nvim and other stuff: 
+
+
+ needed by nvim and other stuff:
  sudo apt-get install unzip
  sudo apt-get install curl
- 
- install node 
+
+ install node
  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
- 
- verify by running: 
+
+ verify by running:
  command -v nvm ...this should return 'nvm', i
- 
- 
+
+
  if not working: make sure that this lines are in .zshrc
  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-then 
+then
 nvm install --lts
 nvm install node
 
-check installed version: 
+check installed version:
 nvm ls
 
 npm install -g neovim
 npm install tree-sitter-cli
 npm install tree-sitter
 
- For clipboard errors: 
+ For clipboard errors:
  https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
  curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
 unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
 chmod +x /tmp/win32yank.exe
 sudo mv /tmp/win32yank.exe /usr/local/bin/
- 
+
  For mason you need this:
 sudo apt-get install pip
-sudo pip3 install pynvim 
+sudo pip3 install pynvim
 sudo pip3 install virtualenv
 sudo pip3 install autopep8
 sudo apt-get install python3.10-venv , yes you need it for mason, pip is not enough
@@ -123,7 +132,7 @@ sudo apt install clangd
 sudo apt install ripgrep
 sudo apt install fd-find
 
-probably not needed, but less warnings in checkhealth: 
+probably not needed, but less warnings in checkhealth:
 install luarocks: https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix
 sudo apt install cargo
 sudo apt install composer
@@ -144,10 +153,10 @@ sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic m
 wget https://apt.llvm.org/llvm-snapshot.gpg.key
 sudo apt-key add llvm-snapshot.gpg.key
 sudo apt-install clang-format
-If you run into problems with libffi6 isntall the older libffi6 manually 
+If you run into problems with libffi6 isntall the older libffi6 manually
 https://stackoverflow.com/questions/61875869/ubuntu-20-04-upgrade-python-missing-libffi-so-6
 
 
-# IF cant install assembly lsp, do it manually: 
+# IF cant install assembly lsp, do it manually:
 sudo apt-get install pkg-config libssl-dev
 cargo install asm-lsp

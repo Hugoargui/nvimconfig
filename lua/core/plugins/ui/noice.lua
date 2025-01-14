@@ -6,13 +6,15 @@ local routes = {
     -- write/deletion messages
     { filter = { event = 'msg_show', find = '%d+L, %d+B$' }, view = 'mini' },
     { filter = { event = 'msg_show', find = '%-%-No lines in buffer%-%-' }, view = 'mini' },
-    { filter = { event = 'msg_show', find = 'more line' }, skip = 'true' }, -- when undoing a line delet
-    { filter = { event = 'msg_show', find = 'fewer lines' }, skip = 'true' }, -- wne deleting line with dd or others
-    { filter = { event = 'msg_show', find = 'lines yanked$' }, skip = 'true' }, -- wne deleting line with dd or others
-    { filter = { event = 'msg_show', find = '%d+B written$' }, skip = 'true' },
+    { filter = { event = 'msg_show', find = 'more line' }, skip = true }, -- when undoing a line delete
+    { filter = { event = 'msg_show', find = 'fewer lines' }, skip = true }, -- when deleting line with dd or others
+    { filter = { event = 'msg_show', find = 'lines yanked$' }, skip = true }, -- when deleting line with dd or others
+    { filter = { event = 'msg_show', find = '%d+B written$' }, skip = true },
 
     -- when changing whole project, don't show that you deleted NNN buffers.
     { filter = { event = 'msg_show', find = 'buffers deleted$' }, skip = true },
+    -- Restored session message:
+    { filter = { event = 'notify', find = 'Restored session' }, skip = true },
 
     -- THemery theme switcher
     { filter = { event = 'msg_show', find = '^Theme saved$' }, skip = true },
@@ -30,6 +32,9 @@ local routes = {
         filter = { event = 'msg_show', find = 'No more valid diagnostics to move to' },
         view = 'mini',
     },
+
+    -- Illuminate plugin spams this message after going down one line since last nvim update
+    { filter = { event = 'notify', find = 'position_encoding param is required' }, skip = true },
 
     -- :make
     { filter = { event = 'msg_show', find = '^:!make' }, skip = true },
