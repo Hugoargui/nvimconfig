@@ -55,14 +55,14 @@ return {
 
     -- LSP
     lspsaga = true,
-    mason = true, -- Not so long to load, but why waste time when I don't install stuff so often
-    neodim = false, -- FIX: BREAKS HL, for example toggle line coments makes it white -- Highlihgt unused symbols
+    mason = true,            -- Not so long to load, but why waste time when I don't install stuff so often
+    neodim = false,          -- FIX: BREAKS HL, for example toggle line coments makes it white -- Highlihgt unused symbols
     code_action_menu = true, -- Pop up menu for code actions
     lspconfig = true,
-    pretty_hover = true, --parses the hover message before opening the popup window
+    pretty_hover = true,     --parses the hover message before opening the popup window
     symbols_outline = false, -- symbol outline sidebar... disabled because I don't really use it and it gives deprecation warning)
-    symbol_usage = true, -- virtual text for symbol reference count
-    navbuddy = true, -- Nice ranger like symbol navigator
+    symbol_usage = true,     -- virtual text for symbol reference count
+    navbuddy = true,         -- Nice ranger like symbol navigator
 
     -- SESSIONS
 
