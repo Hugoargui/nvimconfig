@@ -118,30 +118,30 @@ chmod +x /tmp/win32yank.exe
 sudo mv /tmp/win32yank.exe /usr/local/bin/
 
  For mason you need this:
-sudo apt-get install pip
-sudo pip3 install pynvim
+sudo apt-get install pip -y
+sudo pip3 install pynvim 
 sudo pip3 install virtualenv
 sudo pip3 install autopep8
 sudo apt-get install python3.10-venv , yes you need it for mason, pip is not enough
 or maybe sudo apt install python3-venv
 
 
-sudo apt install clang-format
-sudo apt install cmake
-sudo apt install clangd
-sudo apt install ripgrep
-sudo apt install fd-find
+sudo apt install clang-format -y
+sudo apt install cmake -y
+sudo apt install clangd -y
+sudo apt install ripgrep -y
+sudo apt install fd-find -y
 
 probably not needed, but less warnings in checkhealth:
 install luarocks: https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix
-sudo apt install cargo
-sudo apt install composer
-sudo apt install php
-sudo apt install golang-go
-sudo apt install ruby-full
-sudo apt install luarocks
-sudo apt install default-jdk
-sudo apt install default-jre
+sudo apt install cargo -y
+sudo apt install composer -y
+sudo apt install php -y
+sudo apt install golang-go -y
+sudo apt install ruby-full -y
+sudo apt install luarocks -y
+sudo apt install default-jdk -y
+sudo apt install default-jre -y
 
 
 install lazygit
