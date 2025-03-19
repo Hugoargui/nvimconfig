@@ -1,9 +1,7 @@
 return {
     'iamcco/markdown-preview.nvim',
     enabled = require('core.enable_plugins').markdown_preview,
-    build = function()
-        vim.fn['mkdp#util#install']()
-    end,
+    build = "cd app && npm install",
     ft = 'markdown',
     config = function()
         -- set to 1, nvim will open the preview window after entering the markdown buffer
