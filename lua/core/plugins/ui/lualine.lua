@@ -5,7 +5,7 @@ local function simplifiedMode(str)
     if str == 'INSERT' then
         icon = '  '
     elseif str == 'NORMAL' then
-        icon = '  '
+        icon = '󰆤  '
     elseif str == 'V-LINE' or str == 'V-BLOCK' or str == 'VISUAL' then
         icon = '  '
     elseif str == 'COMMAND' then
@@ -57,9 +57,10 @@ local function customLocation(str)
     return 'Line: ' .. string.gsub(str, '%w+', '%1' .. '/%%L', 1)
 end
 
--- For progress, add a fancy icon
+-- For progress, if we want to add a fancy icon
 local function customProgress(str)
-    return ' ' .. str
+    -- return ' ' .. str
+    return str
 end
 
 local M = {
@@ -135,7 +136,13 @@ local M = {
                     },
                     {
                         'filename',
-                        path = 1,
+                        -- path options:
+                          -- 0: Just the filename
+                          -- 1: Relative path
+                          -- 2: Absolute path
+                          -- 3: Absolute path, with tilde as the home directory
+                          -- 4: Filename and parent dir, with tilde as the home directory
+                        path = 0,
                         symbols = { modified = '[+]', readonly = '🔒', unnamed = '' },
                         cond = function()
                             local buffPath = vim.api.nvim_buf_get_name(0)

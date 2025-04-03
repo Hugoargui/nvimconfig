@@ -69,7 +69,7 @@ return {
     -- SYNTAX
     hlargs = false, -- NOT NEEDED WHEN SEMANTIC HL SUPPORT
     indentblankline = true,
-    rainbow_delimiters = true,
+    rainbow_delimiters = false,
     tree_sitter_asm = false, -- not used
     treesitter = true,
     treesitter_playground = false,
