@@ -6,7 +6,7 @@ return {
     cmd = "Trouble",
     keys = {
         { '<leader>tt', '<cmd>Trouble lsp toggle<CR>',                         { desc = 'Trouble LSP' } },
-        { '<leader>tl', '<cmd>Trouble lsp_references toggle<CR>',              { desc = 'Trouble References' } },
+        { '<leader>tr', '<cmd>Trouble lsp_references toggle<CR>',              { desc = 'Trouble References' } },
 
         { '<leader>ts', '<cmd>Trouble symbols toggle win.position=bottom<CR>', { desc = 'Trouble Symbols' } },
         { '<leader>to', '<cmd>Trouble symbols toggle win.position=rightCR>',   { desc = 'Trouble Symbols Right' } },
