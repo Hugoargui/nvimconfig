@@ -73,21 +73,21 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         -- vim.api.nvim_set_hl(0, 'UfoFoldedFg', { link = 'Folded.foreground' })
 
         -- -- Change the Diagnostic symbols in the sign column (gutter)
-        -- local icons = require('core.icons').icons
-        -- local signs = {
-        --     Error = icons.diagnostics.Error,
-        --     Warn = icons.diagnostics.Warn,
-        --     Hint = icons.diagnostics.Hint,
-        --     Info = icons.diagnostics.Info,
-        -- }
-        -- for type, icon in pairs(signs) do
-        --     local hl = 'DiagnosticSign' .. type
-        --     -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
-        --     -- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-        --
-        --     -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
-        --     vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
-        -- end
+        local icons = require('core.icons').icons
+        local signs = {
+            Error = icons.diagnostics.Error,
+            Warn = icons.diagnostics.Warn,
+            Hint = icons.diagnostics.Hint,
+            Info = icons.diagnostics.Info,
+        }
+        for type, icon in pairs(signs) do
+            local hl = 'DiagnosticSign' .. type
+            -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+
+            -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
+            -- vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
+        end
     end, -- end of autocommand callback
 }) -- end of colorscheme autocommand
 

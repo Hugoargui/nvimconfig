@@ -36,8 +36,8 @@ return {
 
         vim.keymap.set({ 'o', 'x' }, 'i<CR>', ':<c-u>normal! ggVG<CR>', { desc = 'Whole Document' }) -- vi<ENTER> selects whole buffer
 
-        vim.keymap.set({ 'o', 'x' }, 'il', ':<c-u>normal! $v^<CR>', { desc = 'Line' }) -- in line
-        vim.keymap.set({ 'o', 'x' }, 'al', ':<c-u>normal! $v0<CR>', { desc = 'Line' }) -- around line
+        vim.keymap.set({ 'o', 'x' }, 'il', ':<c-u>normal! $v^<CR>', { desc = 'Line' })               -- in line
+        vim.keymap.set({ 'o', 'x' }, 'al', ':<c-u>normal! $v0<CR>', { desc = 'Line' })               -- around line
         vim.keymap.set(
             { 'o', 'x' },
             'ai',

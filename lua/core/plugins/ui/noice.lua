@@ -1,31 +1,32 @@
 -- DOCS https://github.com/folke/noice.nvim#-routes
 local routes = {
     -- redirect to popup
-    { filter = { min_height = 10 }, view = 'popup' },
+    { filter = { min_height = 10 },                                         view = 'popup' },
 
     -- write/deletion messages
-    { filter = { event = 'msg_show', find = '%d+L, %d+B$' }, view = 'mini' },
+    { filter = { event = 'msg_show', find = '%d+L, %d+B$' },                view = 'mini' },
     { filter = { event = 'msg_show', find = '%-%-No lines in buffer%-%-' }, view = 'mini' },
-    { filter = { event = 'msg_show', find = 'more line' }, skip = true }, -- when undoing a line delete
-    { filter = { event = 'msg_show', find = 'fewer lines' }, skip = true }, -- when deleting line with dd or others
-    { filter = { event = 'msg_show', find = 'lines yanked$' }, skip = true }, -- when deleting line with dd or others
-    { filter = { event = 'msg_show', find = '%d+B written$' }, skip = true },
+    { filter = { event = 'msg_show', find = 'more line' },                  skip = true }, -- when undoing a line delete
+    { filter = { event = 'msg_show', find = 'fewer lines' },                skip = true }, -- when deleting line with dd or others
+    { filter = { event = 'msg_show', find = 'lines yanked$' },              skip = true }, -- when deleting line with dd or others
+    { filter = { event = 'msg_show', find = '%d+B written$' },              skip = true },
+    { filter = { event = 'msg_show', find = '% line less' },                skip = true }, -- 1 line less; before... b
 
     -- when changing whole project, don't show that you deleted NNN buffers.
-    { filter = { event = 'msg_show', find = 'buffers deleted$' }, skip = true },
+    { filter = { event = 'msg_show', find = 'buffers deleted$' },           skip = true },
     -- Restored session message:
-    { filter = { event = 'notify', find = 'Restored session' }, skip = true },
+    { filter = { event = 'notify', find = 'Restored session' },             skip = true },
 
     -- THemery theme switcher
-    { filter = { event = 'msg_show', find = '^Theme saved$' }, skip = true },
+    { filter = { event = 'msg_show', find = '^Theme saved$' },              skip = true },
 
     -- unneeded info on search patterns
-    { filter = { event = 'msg_show', find = '^[/?].' }, skip = true },
-    { filter = { event = 'msg_show', find = 'search hit' }, skip = true },
-    { filter = { event = 'msg_show', find = '^E486: Pattern not found' }, skip = true },
+    { filter = { event = 'msg_show', find = '^[/?].' },                     skip = true },
+    { filter = { event = 'msg_show', find = 'search hit' },                 skip = true },
+    { filter = { event = 'msg_show', find = '^E486: Pattern not found' },   skip = true },
 
     -- Word added to spellfile via
-    { filter = { event = 'msg_show', find = '^Word .*%.add$' }, view = 'mini' },
+    { filter = { event = 'msg_show', find = '^Word .*%.add$' },             view = 'mini' },
 
     -- Diagnostics
     {
@@ -37,8 +38,8 @@ local routes = {
     { filter = { event = 'notify', find = 'position_encoding param is required' }, skip = true },
 
     -- :make
-    { filter = { event = 'msg_show', find = '^:!make' }, skip = true },
-    { filter = { event = 'msg_show', find = '^%(%d+ of %d+%):' }, skip = true },
+    { filter = { event = 'msg_show', find = '^:!make' },                           skip = true },
+    { filter = { event = 'msg_show', find = '^%(%d+ of %d+%):' },                  skip = true },
 
     -- -----------------------------------------------------------------------------
     -- { -- nvim-early-retirement
@@ -52,11 +53,11 @@ local routes = {
     -- },
 
     -- nvim-treesitter
-    { filter = { event = 'msg_show', find = '^%[nvim%-treesitter%]' }, view = 'mini' },
-    { filter = { event = 'notify', find = 'All parsers are up%-to%-date' }, view = 'mini' },
+    { filter = { event = 'msg_show', find = '^%[nvim%-treesitter%]' },             view = 'mini' },
+    { filter = { event = 'notify', find = 'All parsers are up%-to%-date' },        view = 'mini' },
 
     -- Mason
-    { filter = { event = 'notify', find = '%[mason%-tool%-installer%]' }, view = 'mini' },
+    { filter = { event = 'notify', find = '%[mason%-tool%-installer%]' },          view = 'mini' },
     {
         filter = {
             event = 'notify',
@@ -81,12 +82,12 @@ local M = {
         'stevearc/dressing.nvim',
     },
     keys = {
-        { '<leader>oo', '<cmd>Noice<CR>', silent = true, remap = false, desc = 'Noice History' },
-        { '<leader>oe', '<cmd>Noice errors<CR>', silent = true, remap = false, desc = 'Noice Errors' },
-        { '<leader>ol', '<cmd>Noice last<CR>', silent = true, remap = false, desc = 'Noice Last' },
+        { '<leader>oo', '<cmd>Noice<CR>',           silent = true, remap = false, desc = 'Noice History' },
+        { '<leader>oe', '<cmd>Noice errors<CR>',    silent = true, remap = false, desc = 'Noice Errors' },
+        { '<leader>ol', '<cmd>Noice last<CR>',      silent = true, remap = false, desc = 'Noice Last' },
         { '<leader>ot', '<cmd>Noice telescope<CR>', silent = true, remap = false, desc = 'Noice Telescope' },
-        { '<leader>od', '<cmd>Noice disable<CR>', silent = true, remap = false, desc = 'Disable Noice' },
-        { '<leader>oD', '<cmd>Noice enable<CR>', silent = true, remap = false, desc = 'Enable Noice' },
+        { '<leader>od', '<cmd>Noice disable<CR>',   silent = true, remap = false, desc = 'Disable Noice' },
+        { '<leader>oD', '<cmd>Noice enable<CR>',    silent = true, remap = false, desc = 'Enable Noice' },
         {
             '<leader>o<leader>',
             '<cmd>Noice dismiss<CR>',
@@ -99,11 +100,11 @@ local M = {
     opts = {
 
         presets = {
-            bottom_search = false, -- use a classic bottom cmdline for search
-            command_palette = false, -- position the cmdline and popupmenu together
+            bottom_search = false,        -- use a classic bottom cmdline for search
+            command_palette = false,      -- position the cmdline and popupmenu together
             long_message_to_split = true, -- long messages will be sent to a split
-            inc_rename = false, -- enables an input dialog for inc-rename.nvim
-            lsp_doc_border = true, -- add a border to hover docs and signature help
+            inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+            lsp_doc_border = true,        -- add a border to hover docs and signature help
         },
         health = {
             checker = false, -- Disable if you don't want health checks to run
@@ -136,7 +137,7 @@ local M = {
             hover = {
                 enabled = false,
                 view = nil, -- when nil, use defaults from documentation
-                opts = {}, -- merged with defaults from documentation
+                opts = {},  -- merged with defaults from documentation
             },
             signature = {
                 enabled = false,
@@ -144,10 +145,10 @@ local M = {
                     enabled = false,
                     trigger = false, -- Automatically show signature help when typing a trigger character from the LSP
                     luasnip = false, -- Will open signature help when jumping to Luasnip insert nodes
-                    throttle = 50, -- Debounce lsp signature help request by 50ms
+                    throttle = 50,   -- Debounce lsp signature help request by 50ms
                 },
-                view = nil, -- when nil, use defaults from documentation
-                opts = {}, -- merged with defaults from documentation
+                view = nil,          -- when nil, use defaults from documentation
+                opts = {},           -- merged with defaults from documentation
             },
             message = {
                 -- Messages shown by lsp servers

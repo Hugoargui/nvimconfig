@@ -1,18 +1,20 @@
-local keymap = vim.keymap -- for conciseness
+local keymap = vim.keymap  -- for conciseness
 local native = vim.lsp.buf -- for conciseness
 
 return {
     registerKeymaps = function(bufnr)
         SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
+        local opts = { desc = ' Signature help', buffer = bufnr }
         if require('core.enable_plugins').lsp_signature then
             vim.keymap.set('n', '<leader>lk', function()
                 require('lsp_signature').toggle_float_win()
-            end, { desc = ' Toggle signature', buffer = bufnr })
+            end, opts)
         else
-            keymap.set('n', '<leader>ls', native.signature_help, { desc = ' Signature help', buffer = bufnr }) -- show documentation for what is under cursor
+            keymap.set('n', '<leader>ls', native.signature_help, opts) -- show documentation for what is under cursor
         end
 
         -- ------------------------------------------------------------------------------------------------------------
+        SagaEnabled = require('core.enable_plugins').lspsaga
         -- GO TO DEFINITION
         keymap.set('n', 'gd', native.definition, { desc = 'λ GO TO Definition', buffer = bufnr }) -- go to definition
 
@@ -23,6 +25,7 @@ return {
         keymap.set('n', 'gD', native.declaration, { desc = 'α GO TO Declaration', buffer = bufnr }) -- got to declaration
 
         -- GO TO REFERENCES
+        -- keymap.set('n', 'gr', native.references, { desc = 'Λ GO TO References', buffer = bufnr }) -- go to definition
         keymap.set('n', 'gr', native.references, { desc = 'Λ GO TO References', buffer = bufnr }) -- go to definition
 
         -- GO TO IMPLEMENTATION
@@ -189,7 +192,7 @@ return {
                 '<leader>la',
                 ':CodeActionMenu<CR><C-w><C-p>', -- TODO: why doesn't it autofocus?
                 { desc = CodeActionsDescription .. ' (CodeActionMenu)', buffer = bufnr }
-            ) -- see available code actions
+            )                                    -- see available code actions
         elseif LspSagaEnabled then
             keymap.set(
                 'n',

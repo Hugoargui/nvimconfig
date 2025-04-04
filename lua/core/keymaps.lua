@@ -21,16 +21,28 @@ vim.keymap.set({ 'n' }, '<leader>qA', '<cmd>qa!<CR>', { desc = '"qa!" ->  Qui
 vim.keymap.set({ 'n' }, '<leader>qw', '<cmd>wq<CR>', { desc = '"wq " ->  Save this and quit' })
 vim.keymap.set({ 'n' }, '<leader>qW', '<cmd>wqa<CR>', { desc = '"wqa" ->  Save all and quit' })
 
+-- moving between splits
+-- smart splits very slow on windows
+-- vim.keymap.set('n', '<left>', require('smart-splits').move_cursor_left)
+-- vim.keymap.set('n', '<down>', require('smart-splits').move_cursor_down)
+-- vim.keymap.set('n', '<up>', require('smart-splits').move_cursor_up)
+-- vim.keymap.set('n', '<right>', require('smart-splits').move_cursor_right)
+vim.keymap.set('n', '<left>', '<C-w>h')
+vim.keymap.set('n', '<down>', '<C-w>j')
+vim.keymap.set('n', '<up>', '<C-w>k')
+vim.keymap.set('n', '<right>', 'C-w>l')
+
 -- ----------------------------------------------------
-vim.keymap.set('n', '<CR>', '@q', { noremap = true })
-vim.keymap.set('n', '<C-CR>', 'qq', { noremap = true })
+-- find a better mapping, it fucks up reference window
+-- vim.keymap.set('n', '<CR>', '@q', { noremap = true })
+-- vim.keymap.set('n', '<C-CR>', 'qq', { noremap = true })
 
 -- Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-vim.keymap.set('n', '<C-j>', 'mojdd`o', { desc = 'Delete line Above' })
-vim.keymap.set('n', '<C-k>', 'mokdd`o', { desc = 'Delete line Bellow' })
+-- vim.keymap.set('n', '<C-j>', 'mojdd`o', { desc = 'Delete line Above' })
+-- vim.keymap.set('n', '<C-k>', 'mokdd`o', { desc = 'Delete line Bellow' })
 -- 0"_D is for whitespace in edge cases
-vim.keymap.set('n', '<M-j>', 'moo<Esc>0"_D`o', { desc = 'Add line Above' })
-vim.keymap.set('n', '<M-k>', 'moO<Esc>0"_D`o', { desc = 'Add line Bellow' })
+-- vim.keymap.set('n', '<M-j>', 'moo<Esc>0"_D`o', { desc = 'Add line Above' })
+-- vim.keymap.set('n', '<M-k>', 'moO<Esc>0"_D`o', { desc = 'Add line Bellow' })
 
 -- Toggle characters at end of line!
 local matchLastChar = '<cmd>s/\\v(.)$'
@@ -138,32 +150,32 @@ vim.keymap.set('i', '<C-q>', '<C-o>') -- Make one normal mode move and return to
 
 -- Insert Lines bellow/above while staying in insert mode
 
-vim.keymap.set('i', '<C-o>', '<Esc>o') -- Add line bellow and move to it
-vim.keymap.set('i', '<C-O>', '<Esc>O') -- Add line above and move to it
+vim.keymap.set('i', '<C-o>', '<Esc>o')               -- Add line bellow and move to it
+vim.keymap.set('i', '<C-O>', '<Esc>O')               -- Add line above and move to it
 vim.keymap.set('i', '<A-o>', '<Esc>moo<Esc>0"_D`oa') -- Add line bellow without moving cursor
 vim.keymap.set('i', '<A-O>', '<Esc>moO<Esc>0"_D`oa') -- Add line above without moving cursor
 
 -- MOVEMENT
-vim.keymap.set('i', '<C-b>', '<Left>') -- ONE CHAR BACK
-vim.keymap.set('i', '<A-b>', '<C-o>b') -- ONE wORD BACK
+vim.keymap.set('i', '<C-b>', '<Left>')  -- ONE CHAR BACK
+vim.keymap.set('i', '<A-b>', '<C-o>b')  -- ONE wORD BACK
 
 vim.keymap.set('i', '<C-f>', '<Right>') -- ONE CHAR FRONT
-vim.keymap.set('i', '<A-f>', '<C-o>w') -- ONE WORD FRONT
+vim.keymap.set('i', '<A-f>', '<C-o>w')  -- ONE WORD FRONT
 
-vim.keymap.set('i', '<C-a>', '<HOME>') -- GO TO BEGINNING OF LINE
-vim.keymap.set('i', '<C-e>', '<END>') -- GO TO END OF LINE
+vim.keymap.set('i', '<C-a>', '<HOME>')  -- GO TO BEGINNING OF LINE
+vim.keymap.set('i', '<C-e>', '<END>')   -- GO TO END OF LINE
 
 -- KILL
-vim.keymap.set('i', '<C-h>', '<BS>') -- Delete one character back
-vim.keymap.set('i', '<M-h>', '<C-o>db') -- Delete one word back
+vim.keymap.set('i', '<C-h>', '<BS>')     -- Delete one character back
+vim.keymap.set('i', '<M-h>', '<C-o>db')  -- Delete one word back
 vim.keymap.set('i', '<M-BS>', '<C-o>db') -- Delete one word back
 
-vim.keymap.set('i', '<C-d>', '<Del>') -- Delete one character front
-vim.keymap.set('i', '<M-d>', '<C-o>dw') -- Delete one character front
+vim.keymap.set('i', '<C-d>', '<Del>')    -- Delete one character front
+vim.keymap.set('i', '<M-d>', '<C-o>dw')  -- Delete one character front
 
-vim.keymap.set('i', '<C-k>', '<C-o>d$') -- DELETE TO END OF LINE
-vim.keymap.set('i', '<C-u>', '<C-o>d^') -- DELETE TO BEGINING OF LINE
-vim.keymap.set('i', '<M-l>', '<C-o>dd') -- delete current line
+vim.keymap.set('i', '<C-k>', '<C-o>d$')  -- DELETE TO END OF LINE
+vim.keymap.set('i', '<C-u>', '<C-o>d^')  -- DELETE TO BEGINING OF LINE
+vim.keymap.set('i', '<M-l>', '<C-o>dd')  -- delete current line
 
 -- TODO: <c-d> removes one level of indentation, maybe remap to <c-<>
 -- TODO: <c-t> adds one level of indentation, maybe remap to <c->>

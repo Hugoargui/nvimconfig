@@ -1,5 +1,8 @@
 return {
     'kana/vim-arpeggio',
+
+    enabled = false,
+
     dependencies = {
         { 'folke/which-key.nvim' },
     },
