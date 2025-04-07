@@ -83,6 +83,8 @@ opt.smartcase = true  -- if ignorecase=TRUE, writting BigCase will turn search i
 -----------------------------------------------------------
 -- TEHCNICAL STUFF
 -----------------------------------------------------------
+-- disable right click mouse menu... i'd rather use wezterm settings for copy on right click
+vim.opt.mouse = ""
 opt.fileencoding = 'utf-8'
 -- opt.clipboard:append('unnamedplus') -- Use system clipboard
 opt.backspace = 'indent,eol,start' -- Make <BACKSPACE> behave like you expect
