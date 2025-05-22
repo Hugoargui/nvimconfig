@@ -1,6 +1,7 @@
 local M = {
     'williamboman/mason.nvim',
-    enabled = require('core.enable_plugins').mason,
+    -- enabled = require('core.enable_plugins').mason,
+    enabled = false, -- until I solve issues
     event = 'VeryLazy',
 
     dependencies = {

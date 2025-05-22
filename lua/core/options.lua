@@ -83,10 +83,13 @@ opt.smartcase = true  -- if ignorecase=TRUE, writting BigCase will turn search i
 -----------------------------------------------------------
 -- TEHCNICAL STUFF
 -----------------------------------------------------------
--- disable right click mouse menu... i'd rather use wezterm settings for copy on right click
-vim.opt.mouse = ""
-opt.fileencoding = 'utf-8'
--- opt.clipboard:append('unnamedplus') -- Use system clipboard
+vim.opt.clipboard = "unnamedplus"
+-- disable right click mouse menu... i'd rather use rigth click to copy/paste
+vim.opt.mouse = "a"
+vim.keymap.set('n', '<RightMouse>', '"+p')
+vim.keymap.set('i', '<RightMouse>', '<c-r>+')
+vim.keymap.set('x', '<RightMouse>', '"+y')
+
 opt.backspace = 'indent,eol,start' -- Make <BACKSPACE> behave like you expect
 
 opt.iskeyword:append('-')          -- make this-word count as a single word

@@ -74,22 +74,31 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 
         -- -- Change the Diagnostic symbols in the sign column (gutter)
         local icons = require('core.icons').icons
-        local signs = {
-            Error = icons.diagnostics.Error,
-            Warn = icons.diagnostics.Warn,
-            Hint = icons.diagnostics.Hint,
-            Info = icons.diagnostics.Info,
-        }
-        for type, icon in pairs(signs) do
-            local hl = 'DiagnosticSign' .. type
-            -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+        vim.diagnostic.config({
+            signs = {
+                text = {
+                    -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)
+                    [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+                    [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+                    [vim.diagnostic.severity.INFO] = icons.diagnostics.Hint,
+                    [vim.diagnostic.severity.HINT] = icons.diagnostics.Info,
 
-            -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
-            -- vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
-        end
+                    -- -- IF YOU DEFINE YOUR OWN DIAGNOSTICS COLUMN, DONT'T SHOW ON DEFAULT SIGNCOLUMN
+                    -- [vim.diagnostic.severity.ERROR] = "",
+                    -- [vim.diagnostic.severity.WARN] = "",
+                    -- [vim.diagnostic.severity.INFO] = "",
+                    -- [vim.diagnostic.severity.HINT] = "",
+                },
+                linehl = {
+                    [vim.diagnostic.severity.ERROR] = "Error",
+                    [vim.diagnostic.severity.WARN] = "Warn",
+                    [vim.diagnostic.severity.INFO] = "Info",
+                    [vim.diagnostic.severity.HINT] = "Hint",
+                },
+            },
+        })
     end, -- end of autocommand callback
-}) -- end of colorscheme autocommand
+})       -- end of colorscheme autocommand
 
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block

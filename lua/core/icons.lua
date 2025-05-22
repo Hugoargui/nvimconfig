@@ -4,9 +4,9 @@ return {
         diagnostics = {
             Error = ' ',
             Warn = ' ',
-            Hint = ' ',
+            Hint = '󰠠 ', -- 
             Info = ' ',
-            Ok = ' ',
+            Ok = ' ',
         },
         gitColumn = {
             add = { text = '│' }, --" ","▎"
@@ -22,14 +22,14 @@ return {
             removed = ' ',
         },
 
-        gitFiles = { -- The following are more for the filetree:
-            unstaged = 'US', --'✗',
-            staged = 'S', --'✓',
-            unmerged = 'UM', -- '',
-            renamed = 'R', --'➜',
+        gitFiles = {          -- The following are more for the filetree:
+            unstaged = 'US',  --'✗',
+            staged = 'S',     --'✓',
+            unmerged = 'UM',  -- '',
+            renamed = 'R',    --'➜',
             untracked = 'UT', -- '★',
-            deleted = 'D', -- '',
-            ignored = 'I', -- '◌',
+            deleted = 'D',    -- '',
+            ignored = 'I',    -- '◌',
         },
 
         kinds = {

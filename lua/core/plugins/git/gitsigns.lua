@@ -22,6 +22,7 @@ return {
                 changedelete = { text = '~' },
                 untracked = { text = '┆' },
             },
+
             -- attach_to_untracked = false,
             preview_config = {
                 -- Options passed to nvim_open_win

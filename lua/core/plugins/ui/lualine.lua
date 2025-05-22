@@ -120,10 +120,11 @@ local M = {
                     },
                 },
                 lualine_c = {
-                    {
-                        'diagnostics',
-                        symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-                    },
+                    -- remove diagnostics, they are now next to lsp status on the right
+                    -- {
+                    --     'diagnostics',
+                    --     symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+                    -- },
                     {
                         'filetype',
                         icon_only = true,
@@ -137,11 +138,11 @@ local M = {
                     {
                         'filename',
                         -- path options:
-                          -- 0: Just the filename
-                          -- 1: Relative path
-                          -- 2: Absolute path
-                          -- 3: Absolute path, with tilde as the home directory
-                          -- 4: Filename and parent dir, with tilde as the home directory
+                        -- 0: Just the filename
+                        -- 1: Relative path
+                        -- 2: Absolute path
+                        -- 3: Absolute path, with tilde as the home directory
+                        -- 4: Filename and parent dir, with tilde as the home directory
                         path = 0,
                         symbols = { modified = '[+]', readonly = '🔒', unnamed = '' },
                         cond = function()
@@ -179,10 +180,11 @@ local M = {
                         'location',
                         fmt = customLocation,
                     },
-                    {
-                        'progress',
-                        fmt = customProgress,
-                    },
+                    -- custom % progress just takes space and not very useful
+                    -- {
+                    --     'progress',
+                    --     fmt = customProgress,
+                    -- },
                 },
                 lualine_z = {
                     function()

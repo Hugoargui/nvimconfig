@@ -3,17 +3,17 @@ return {
         'rmagatti/auto-session',
         config = function()
             require('auto-session').setup({
-                log_level = 'error',
-                auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
                 close_unsupported_windows = true, -- boolean: Close windows that aren't backed by normal file
-                silent_restore = true, -- Suppress extraneous messages and source the whole session, even if there's an error. Set to false to get the line number a restore error
-                -- cwd_change_handling = true,
-
+                continue_restore_on_error = true,
+                log_level = 'error',
                 post_cwd_changed_cmds = {
                     function()
                         require('lualine').refresh()
                     end,
                 },
+                suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+                -- silent_restore = true, -- Suppress extraneous messages and source the whole session, even if there's an error. Set to false to get the line number a restore error
+
             })
 
             vim.api.nvim_create_autocmd('VimLeavePre', { pattern = '*', command = 'NvimTreeClose' })

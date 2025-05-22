@@ -79,6 +79,9 @@ lspconfig['clangd'].setup({
         -- "--compile-commands-dir=/home/localuser/test/build",
         '--offset-encoding=utf-16',
     },
+    init_options = {
+        fallbackFlags = { '--std=c++20' }
+    }
 })
 
 lspconfig['pyright'].setup({
