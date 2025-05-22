@@ -38,6 +38,9 @@ return {
         keymap.set('n', '<leader>lf', 'native.format{async=true}', { desc = 'ﯔ Auto-Format', buffer = bufnr }) -- see available code actions
         -- ------------------------------------------------------------------------------------------------------------
 
+        keymap.set("n", "yc", "yygccp", { remap = true, desc = "[P]aste to a comment above" })
+        keymap.set("v", "<C-p>", "ygvgc`>p", { remap = true, desc = "[P]aste to a comment above" })
+
         -- NAVIGATION
         if require('core.enable_plugins').navbuddy then
             keymap.set('n', '<leader>ll', '<cmd>Navbuddy<CR>', { desc = ' Symbol Browser', buffer = bufnr }) -- show  diagnostics for line
