@@ -5,7 +5,7 @@ return {
     autolist = true,
     comment = true,
     cutlass = true,
-    lsp_signature = false,
+    lsp_signature = true,
     lsp_inlayhints = false,
     luasnip = true,
     mini_surround = false,
@@ -68,7 +68,7 @@ return {
     -- SYNTAX
     hlargs = false, -- NOT NEEDED WHEN SEMANTIC HL SUPPORT
     indentblankline = true,
-    rainbow_delimiters = false,
+    rainbow_delimiters = true,
     tree_sitter_asm = false, -- not used
     treesitter = true,
     treesitter_playground = false,

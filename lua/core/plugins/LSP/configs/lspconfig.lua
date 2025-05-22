@@ -15,7 +15,7 @@ local on_attach = function(client, bufnr)
 
     if require('core.enable_plugins').lsp_signature then
         local lsp_signature_config = {
-            hint_enable = false, -- virtual hint enable
+            hint_enable = true, -- virtual hint enable
             hint_prefix = '🐼',
             hint_scheme = 'String',
         }

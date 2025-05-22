@@ -1,7 +1,8 @@
 return {
     'chrisgrieser/nvim-spider',
     enabled = require('core.enable_plugins').spider,
-    keys = { 'w', 'e', 'b', 'q', 'W', 'B', 'E', 'Q' },
+    -- add also operators as I didn't find a way yet to activate it on operator pending mode
+    keys = { 'w', 'e', 'b', 'q', 'W', 'B', 'E', 'Q', 'v', 'y', 'd', 'm', 'X', 's', 'c' },
     config = function()
         require('spider').setup({
             skipInsignificantPunctuation = true,
@@ -47,5 +48,12 @@ return {
         vim.keymap.set({ 'n', 'v' }, 'Q', function()
             vim.fn.search(patternEndOfWord, 'b')
         end)
+
+        -- FIXME: not working for visual mode...
+        vim.keymap.set({ 'o', 'x' }, 'iW', function()
+            vim.fn.search(patterBegiiningOfWORD, 'b')
+            vim.cmd([[normal v]])
+            vim.fn.search(patternEndOfWord)
+        end, { desc = "WHOLE WORD" })
     end,
 }

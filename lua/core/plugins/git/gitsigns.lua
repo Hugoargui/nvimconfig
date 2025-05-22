@@ -34,8 +34,8 @@ return {
             },
         })
 
-        vim.keymap.set({ 'n' }, '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { desc = '➡ Next Hunk' })
-        vim.keymap.set({ 'n' }, '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { desc = '⬅ Prev Hunk' })
+        vim.keymap.set({ 'n' }, '<leader>gn', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { desc = '➡ Next Hunk' })
+        vim.keymap.set({ 'n' }, '<leader>gp', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { desc = '⬅ Prev Hunk' })
         vim.keymap.set(
             { 'n' },
             '<leader>gl',
@@ -84,6 +84,6 @@ return {
             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
             { desc = ' Undo Stage Hunk' }
         )
-        vim.keymap.set({ 'n' }, '<leader>gd', '<cmd>Gitsigns diffthis HEAD<cr>', { desc = '➡ Next Hunk' })
+        vim.keymap.set({ 'n' }, '<leader>gd', '<cmd>Gitsigns diffthis HEAD<cr>', { desc = 'git diff this' })
     end,
 }

@@ -25,8 +25,12 @@ return {
             },
         })
 
-        vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword("inner")<CR>')
-        vim.keymap.set({ "o", "x" }, "w", '<cmd>lua require("various-textobjs").subword("inner")<CR>')
+        vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword("inner")<CR>',
+            { desc = "inside camelCaseWord" })
+        vim.keymap.set({ "o", "x" }, "w", '<cmd>lua require("various-textobjs").subword("inner")<CR>',
+            { desc = "inside camelCaseWord" })
+        -- big case W is in sypder motion as it reuses that function
+
         --
         -- just examples for testing word motions right here:
         -- uint_type exampleTestFoo() = '<cmd>lua this("always-gives").problems(always)'
@@ -85,17 +89,20 @@ return {
         vim.keymap.set(
             { "o", "x" },
             "|",
-            '<cmd>lua require("various-textobjs").column("both")<CR>'
+            '<cmd>lua require("various-textobjs").column("both")<CR>',
+            { desc = "whole column" }
         )
         vim.keymap.set(
             { "o", "x" },
             "a|",
-            '<cmd>lua require("various-textobjs").column("down")<CR>'
+            '<cmd>lua require("various-textobjs").column("down")<CR>',
+            { desc = "column down" }
         )
         vim.keymap.set(
             { "o", "x" },
             "i|",
-            '<cmd>lua require("various-textobjs").column("up")<CR>'
+            '<cmd>lua require("various-textobjs").column("up")<CR>',
+            { desc = "column up" }
         )
 
         -- i and a do kind of the same.. Think about reuses

@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
-        vim.highlight.on_yank({ higroup = 'lualine_a_insert', timeout = 600 })
+        vim.highlight.on_yank({ higroup = 'lualine_a_insert', timeout = 1000, on_visual = true })
     end,
 })
 

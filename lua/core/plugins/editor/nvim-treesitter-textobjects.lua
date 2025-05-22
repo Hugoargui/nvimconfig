@@ -86,29 +86,31 @@ return {
                 swap = {
                     enable = true,
                     swap_next = {
-                        ['<leader>lna'] = {
+                        ['<leader>ln'] = {
                             query = '@parameter.inner',
                             desc = '易 swap this argument/param with next',
                         },
-                        ['<leader>lnf'] = { query = '@function.outer', desc = '李 swap this function with next' },
+                        ['<leader>lf'] = { query = '@function.outer', desc = '李 swap this function with next' },
                     },
                     swap_previous = {
-                        ['<leader>lpa'] = {
+                        ['<leader>lp'] = {
                             query = '@parameter.inner',
                             desc = '易 swap this argument/param with prev',
                         },
-                        ['<leader>lpf'] = { query = '@function.outer', desc = '李 swap function with prev' },
+                        ['<leader>lF'] = { query = '@function.outer', desc = '李 swap function with prev' },
                     },
                 },
             }, -- textobjects
         })
-        local wk_enabled = require('core.enable_plugins').whichkey
-        if wk_enabled then
-            local wk = require('which-key')
-            wk.register({
-                ['n'] = { { desc = '  Swap element with next' } },
-                ['p'] = { { desc = '  Swap element with previous' } },
-            }, { prefix = '<leader>l' })
-        end
+        -- local wk_enabled = require('core.enable_plugins').whichkey
+        -- <leader>lnXXX is too long, give them directly ln/lp for arguments and lf/lF for functions
+        -- I keep this one as reference if I need something similar in the future
+        -- if wk_enabled then
+        --     local wk = require('which-key')
+        --     wk.register({
+        --         ['n'] = { { desc = '  Swap element with next' } },
+        --         ['p'] = { { desc = '  Swap element with previous' } },
+        --     }, { prefix = '<leader>l' })
+        -- end
     end,
 }

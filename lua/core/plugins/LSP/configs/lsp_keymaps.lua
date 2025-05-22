@@ -3,10 +3,9 @@ local native = vim.lsp.buf -- for conciseness
 
 return {
     registerKeymaps = function(bufnr)
-        SymbolsOutlineEnabled = require('core.enable_plugins').symbols_outline
         local opts = { desc = ' Signature help', buffer = bufnr }
         if require('core.enable_plugins').lsp_signature then
-            vim.keymap.set('n', '<leader>lk', function()
+            vim.keymap.set('n', '<leader>ls', function()
                 require('lsp_signature').toggle_float_win()
             end, opts)
         else
