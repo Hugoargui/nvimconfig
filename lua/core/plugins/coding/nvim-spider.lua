@@ -1,7 +1,7 @@
 return {
     'chrisgrieser/nvim-spider',
     enabled = require('core.enable_plugins').spider,
-    keys = { 'w', 'e', 'b', 'q', 'W', 'B' },
+    keys = { 'w', 'e', 'b', 'q', 'W', 'B', 'E', 'Q' },
     config = function()
         require('spider').setup({
             skipInsignificantPunctuation = true,
@@ -30,14 +30,22 @@ return {
         local wordStartSymbols = [['"({[<>.\-@#$: ]]
         local wordAfterSymbol = "[" .. wordStartSymbols .. "]" .. "@<=" .. [[(\w)]]
 
+        local patternEndOfWord = [[\w\>]]
+
         -- local words = wordAfterSymbol .. '|' .. isolatedPunctuation
         local words = wordAfterSymbol -- jump only to alpha words, use smaller motions for punct
-        local pattern = [[\v]] .. words
+        local patterBegiiningOfWORD = [[\v]] .. words
         vim.keymap.set({ 'n', 'v' }, 'W', function()
-            vim.fn.search(pattern)
+            vim.fn.search(patterBegiiningOfWORD)
         end)
         vim.keymap.set({ 'n', 'v' }, 'B', function()
-            vim.fn.search(pattern, 'b')
+            vim.fn.search(patterBegiiningOfWORD, 'b')
+        end)
+        vim.keymap.set({ 'n', 'v' }, 'E', function()
+            vim.fn.search(patternEndOfWord)
+        end)
+        vim.keymap.set({ 'n', 'v' }, 'Q', function()
+            vim.fn.search(patternEndOfWord, 'b')
         end)
     end,
 }

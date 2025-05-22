@@ -69,6 +69,8 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         vim.api.nvim_set_hl(0, 'SubstituteRange', { link = 'lualine_a_normal' })
         vim.api.nvim_set_hl(0, 'SubstituteExchange', { link = 'lualine_a_normal' })
 
+        vim.api.nvim_set_hl(0, 'Visual', { link = 'lualine_a_visual' })
+
         -- vim.api.nvim_set_hl(0, 'UfoFoldedBg', { link = 'Folded.background' })
         -- vim.api.nvim_set_hl(0, 'UfoFoldedFg', { link = 'Folded.foreground' })
 
@@ -103,7 +105,8 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
 -- This colorscheme is set by the ColorScheme Picker
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd('colorscheme catppuccin')
+-- vim.cmd('colorscheme catppuccin')
+vim.cmd('colorscheme rose-pine')
 vim.g.theme_id = 4
 -- end themery block
 --
