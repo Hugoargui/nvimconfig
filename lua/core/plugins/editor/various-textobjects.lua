@@ -25,10 +25,8 @@ return {
             },
         })
 
-        -- Don't see a difference between aw and iw, just make it directly cw, yw, dw, ...
-        -- vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
-        -- vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
-        vim.keymap.set({ 'o', 'x' }, 'w', '<cmd>lua require("various-textobjs").subword(true)<CR>')
+        vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword("inner")<CR>')
+        vim.keymap.set({ "o", "x" }, "w", '<cmd>lua require("various-textobjs").subword("inner")<CR>')
         --
         -- just examples for testing word motions right here:
         -- uint_type exampleTestFoo() = '<cmd>lua this("always-gives").problems(always)'
@@ -63,30 +61,47 @@ return {
             { desc = 'Rest of Indentation' }
         )
         -- Create Delete Surrounding Indentation mapping as in the documentation
-        vim.keymap.set('n', 'dsi', function()
-            -- select inner indentation
-            require('various-textobjs').indentation(true, true)
+        vim.keymap.set("n", "dsi", function()
+            -- select outer indentation
+            require("various-textobjs").indentation("outer", "outer")
 
             -- plugin only switches to visual mode when a textobj has been found
-            local notOnIndentedLine = vim.fn.mode():find('V') == nil
-            if notOnIndentedLine then
-                return
-            end
+            local indentationFound = vim.fn.mode():find("V")
+            if not indentationFound then return end
 
             -- dedent indentation
-            vim.cmd.normal({ '<', bang = true })
+            vim.cmd.normal { "<", bang = true }
 
             -- delete surrounding lines
-            local endBorderLn = vim.api.nvim_buf_get_mark(0, '>')[1] + 1
-            local startBorderLn = vim.api.nvim_buf_get_mark(0, '<')[1] - 1
-            vim.cmd(tostring(endBorderLn) .. ' delete') -- delete end first so line index is not shifted
-            vim.cmd(tostring(startBorderLn) .. ' delete')
-        end, { desc = 'Delete surrounding indentation' })
+            local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1]
+            local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1]
+            vim.cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
+            vim.cmd(tostring(startBorderLn) .. " delete")
+        end, { desc = "Delete Surrounding Indentation" })
+
+        -- column text object:
+        -- THE COLUMN TEXTOBJ takes an optional parameter for direction:
+        -- "down" (default), "up", "both"
+        vim.keymap.set(
+            { "o", "x" },
+            "|",
+            '<cmd>lua require("various-textobjs").column("both")<CR>'
+        )
+        vim.keymap.set(
+            { "o", "x" },
+            "a|",
+            '<cmd>lua require("various-textobjs").column("down")<CR>'
+        )
+        vim.keymap.set(
+            { "o", "x" },
+            "i|",
+            '<cmd>lua require("various-textobjs").column("up")<CR>'
+        )
 
         -- i and a do kind of the same.. Think about reuses
-        vim.keymap.set({ 'o', 'x' }, 'ak', '<cmd>lua require("various-textobjs").key(false)<CR>', { desc = 'Key' })
-        vim.keymap.set({ 'o', 'x' }, 'ik', '<cmd>lua require("various-textobjs").key(true)<CR>', { desc = 'Key' })
-        vim.keymap.set({ 'o', 'x' }, 'av', '<cmd>lua require("various-textobjs").value(false)<CR>', { desc = 'Value' })
-        vim.keymap.set({ 'o', 'x' }, 'iv', '<cmd>lua require("various-textobjs").value(true)<CR>', { desc = 'Value' })
+        vim.keymap.set({ 'o', 'x' }, 'ak', '<cmd>lua require("various-textobjs").key("outer")<CR>', { desc = 'Key' })
+        vim.keymap.set({ 'o', 'x' }, 'ik', '<cmd>lua require("various-textobjs").key("inner")<CR>', { desc = 'Key' })
+        vim.keymap.set({ 'o', 'x' }, 'av', '<cmd>lua require("various-textobjs").value("outer")<CR>', { desc = 'Value' })
+        vim.keymap.set({ 'o', 'x' }, 'iv', '<cmd>lua require("various-textobjs").value("inner")<CR>', { desc = 'Value' })
     end,
 }
