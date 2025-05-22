@@ -20,7 +20,6 @@ return {
     substitute = true,
     text_case = false,
     toggleterm = true,
-    smartword = true,
 
     -- DEBUGGER
     dap = false,

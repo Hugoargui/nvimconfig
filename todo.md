@@ -1,6 +1,7 @@
 # NEAR FUTURE
 - sypder for big words works finally, thangs to reddit thread, but figure out how to do it for operation pending mode
     https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
+    also do a regex for E and gE
 - improve build/compile/run life-cycle.
 - improve search and replace workflow, by example by using Spectre/grugfar
 
