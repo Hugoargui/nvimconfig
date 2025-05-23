@@ -21,16 +21,10 @@ vim.keymap.set({ 'n' }, '<leader>qA', '<cmd>qa!<CR>', { desc = '"qa!" ->  Qui
 vim.keymap.set({ 'n' }, '<leader>qw', '<cmd>wq<CR>', { desc = '"wq " ->  Save this and quit' })
 vim.keymap.set({ 'n' }, '<leader>qW', '<cmd>wqa<CR>', { desc = '"wqa" ->  Save all and quit' })
 
--- moving between splits
--- smart splits very slow on windows
--- vim.keymap.set('n', '<left>', require('smart-splits').move_cursor_left)
--- vim.keymap.set('n', '<down>', require('smart-splits').move_cursor_down)
--- vim.keymap.set('n', '<up>', require('smart-splits').move_cursor_up)
--- vim.keymap.set('n', '<right>', require('smart-splits').move_cursor_right)
-vim.keymap.set('n', '<left>', '<C-w>h')
-vim.keymap.set('n', '<down>', '<C-w>j')
-vim.keymap.set('n', '<up>', '<C-w>k')
-vim.keymap.set('n', '<right>', 'C-w>l')
+
+vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "[P]aste to a comment above" })
+vim.keymap.set("v", "<C-p>", "ygvgc`>p", { remap = true, desc = "[P]aste to a comment above" })
+
 
 -- ----------------------------------------------------
 -- find a better mapping, it fucks up reference window
@@ -94,6 +88,30 @@ else
 end
 
 -- Window management keymaps
+
+-- moving between splits
+if require('core.enable_plugins').smart_splits then
+    vim.keymap.set('n', '<C-A-h>', require('smart-splits').resize_left)
+    vim.keymap.set('n', '<C-A-j>', require('smart-splits').resize_down)
+    vim.keymap.set('n', '<C-A-k>', require('smart-splits').resize_up)
+    vim.keymap.set('n', '<C-A-l>', require('smart-splits').resize_right)
+    -- moving between splits
+    vim.keymap.set('n', '<A-h>', require('smart-splits').move_cursor_left)
+    vim.keymap.set('n', '<A-j>', require('smart-splits').move_cursor_down)
+    vim.keymap.set('n', '<A-k>', require('smart-splits').move_cursor_up)
+    vim.keymap.set('n', '<A-l>', require('smart-splits').move_cursor_right)
+    -- swapping buffers between windows
+    -- vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
+    -- vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
+    -- vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
+    -- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+else
+    vim.keymap.set('n', '<A-h>', '<C-w>h')
+    vim.keymap.set('n', '<A-w>', '<C-w>j')
+    vim.keymap.set('n', '<A-k>', '<C-w>k')
+    vim.keymap.set('n', '<A-l>', '<C-w>l')
+end
+
 vim.keymap.set('n', '<leader>wv', '<c-w>v<cr>', { desc = ' Split vertically' })
 vim.keymap.set('n', '<leader>wh', '<C-w>s>', { desc = ' Split horizontally' })
 vim.keymap.set('n', '<leader>we', '<C-w> =<CR>', { desc = ' Make splits equal size' })

@@ -224,7 +224,4 @@ Hydra({
         { 'q', pcmd('close', 'E444'), { desc = 'close window' } },
         { '<C-c>', pcmd('close', 'E444'), { desc = false } },
         { '<C-q>', pcmd('close', 'E444'), { desc = false } },
-
-        { '<Esc>', nil, { exit = true, desc = false } },
-    },
-})
+    { '<Esc>', nil, { exit = true, desc = false } },
