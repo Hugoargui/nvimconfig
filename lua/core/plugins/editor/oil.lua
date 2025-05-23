@@ -2,7 +2,7 @@ return {
     'stevearc/oil.nvim',
     dependencies = {
         { 'nvim-treesitter/nvim-treesitter' },
-        { 'nvim-tree/nvim-web-devicons', lazy = true },
+        { 'nvim-tree/nvim-web-devicons',    lazy = true },
     },
     keys = {
         {
@@ -11,7 +11,7 @@ return {
             desc = '  Filesystem Editor in this window',
         },
         {
-            '<leader><cr>',
+            '-',
             '<cmd>lua require("oil").open_float()<CR>',
             desc = '  Filesystem Editor floating window',
         },
@@ -27,6 +27,23 @@ return {
             callback = function()
                 pcall(vim.api.nvim_clear_autocmds, { group = 'FileExplorer' })
             end,
+        })
+
+        local detail = false
+        require("oil").setup({
+            keymaps = {
+                ["<c-g>"] = {
+                    desc = "Toggle file detail view",
+                    callback = function()
+                        detail = not detail
+                        if detail then
+                            require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+                        else
+                            require("oil").set_columns({ "icon" })
+                        end
+                    end,
+                },
+            },
         })
 
         vim.api.nvim_create_autocmd('BufEnter', {
@@ -73,7 +90,4 @@ return {
             padding = 4,
         },
     },
-    config = function(_, opts)
-        require('oil').setup(opts)
-    end,
 }

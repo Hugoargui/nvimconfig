@@ -101,6 +101,13 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
                 },
             },
         })
+        -- MAKE TRANSPARENT:
+        vim.cmd [[
+      highlight Normal guibg=none
+      highlight NonText guibg=none
+      highlight Normal ctermbg=none
+      highlight NonText ctermbg=none
+        ]]
     end, -- end of autocommand callback
 })       -- end of colorscheme autocommand
 
