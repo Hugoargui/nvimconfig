@@ -77,6 +77,8 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
         -- -- Change the Diagnostic symbols in the sign column (gutter)
         local icons = require('core.icons').icons
         vim.diagnostic.config({
+            virtual_lines = false,
+            virtual_text = true,
             signs = {
                 text = {
                     -- IF YOU WANT THEM ON THE GUTTER (OVERLAPS WITH GITSIGNS)

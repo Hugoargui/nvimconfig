@@ -7,12 +7,31 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- ------------------------------------------------
 -- Normal mode mappings
 -- ------------------------------------------------
+-- Smart go to first char in line:
+local function jump_to_line_start()
+    local col = vim.fn.col '.'
+    local first_non_blank = vim.fn.indent(vim.fn.line '.') + 1
+    if col == first_non_blank then
+        return '0' -- Jump to the beginning of the line
+    else
+        return '^' -- Jump to the first non-blank character
+    end
+end
+
+vim.keymap.set({ 'n', 'v', 'o' }, 'H', function()
+    return jump_to_line_start()
+end, { noremap = true, expr = true, desc = 'To beginning of line' })
+
+-- vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'H', '^', { desc = 'To beginning of line' })
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'L', '$', { desc = 'To end of line' })
-vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'H', '^', { desc = 'To beginning of line' })
+
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'J', 'J', { desc = 'Join line' })
 vim.keymap.set({ 'n', 'x', 'v', 'o' }, 'K', 'i<CR><ESC>', { desc = 'Split line' })
 
 vim.keymap.set('n', 'U', '<c-r>', { noremap = true })
+
+-- backspace to toggle between current/previous buffer
+vim.keymap.set('n', '<bs>', '<c-^>\'”zz', { silent = true, noremap = true })
 
 vim.keymap.set({ 'n' }, '<leader>qq', '<cmd>q<CR>', { desc = '"q  " ->  Quit this if no changes' })
 vim.keymap.set({ 'n' }, '<leader>qa', '<cmd>qa<CR>', { desc = '"qa " ->  Quit all if no changes' })
@@ -21,22 +40,29 @@ vim.keymap.set({ 'n' }, '<leader>qA', '<cmd>qa!<CR>', { desc = '"qa!" ->  Qui
 vim.keymap.set({ 'n' }, '<leader>qw', '<cmd>wq<CR>', { desc = '"wq " ->  Save this and quit' })
 vim.keymap.set({ 'n' }, '<leader>qW', '<cmd>wqa<CR>', { desc = '"wqa" ->  Save all and quit' })
 
+-- "p" makes sense, gv selects the last Visual selection, so this one selects the last pasted text.
+vim.keymap.set({ 'n' }, 'gp',
+    function()
+        vim.api.nvim_feedkeys("`[" .. vim.fn.strpart(vim.fn.getregtype(), 0, 1) .. "`]", "n", false)
+    end,
+    { desc = "GOTO last paste" }
+)
 
 vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "[P]aste to a comment above" })
 vim.keymap.set("v", "<C-p>", "ygvgc`>p", { remap = true, desc = "[P]aste to a comment above" })
-
 
 -- ----------------------------------------------------
 -- find a better mapping, it fucks up reference window
 -- vim.keymap.set('n', '<CR>', '@q', { noremap = true })
 -- vim.keymap.set('n', '<C-CR>', 'qq', { noremap = true })
 
--- Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+-- LINE MOVING MAPPINGS    -- Add empty lines before and after cursor line
+vim.keymap.set('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>",
+    { desc = 'Put empty line above' })
+vim.keymap.set('n', 'go', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>",
+    { desc = 'Put empty line below' })
 -- vim.keymap.set('n', '<C-j>', 'mojdd`o', { desc = 'Delete line Above' })
 -- vim.keymap.set('n', '<C-k>', 'mokdd`o', { desc = 'Delete line Bellow' })
--- 0"_D is for whitespace in edge cases
--- vim.keymap.set('n', '<M-j>', 'moo<Esc>0"_D`o', { desc = 'Add line Above' })
--- vim.keymap.set('n', '<M-k>', 'moO<Esc>0"_D`o', { desc = 'Add line Bellow' })
 
 -- Toggle characters at end of line!
 local matchLastChar = '<cmd>s/\\v(.)$'
@@ -86,6 +112,49 @@ else
     vim.keymap.set('n', 'zr', 'zr', { desc = 'Decrease fold level' })
     vim.keymap.set('n', 'zm', 'zm', { desc = 'Increase fold level' })
 end
+
+-- NAVIGATE INDENTATION LEVELS:
+-- TODO: make working
+-- https://old.reddit.com/r/neovim/comments/16aan6k/my_latest_favorite_mapping_share_yours/
+-- local function indent_traverse(direction, equal)
+-- return function() -- Get the current cursor position
+--     local current_line, column = unpack(vim.api.nvim_win_get_cursor(0))
+--     local match_line = current_line
+--     local match_indent = false
+--     local match = false
+--     local buf_length = vim.api.nvim_buf_line_count(0)
+--
+--     -- Look for a line of appropriate indent
+--     -- level without going out of the buffer
+--     while (not match)
+--         and (match_line ~= buf_length)
+--         and (match_line ~= 1)
+--     do
+--         match_line = match_line + direction
+--         local match_line_str = vim.api.nvim_buf_get_lines(0, match_line - 1, match_line, false)[1]
+--         -- local match_line_is_whitespace = match_line_str and match_line_str:match('^%s*$')
+--         local match_line_is_whitespace = match_line_str:match('^%s*$')
+--
+--         if equal then
+--             match_indent = vim.fn.indent(match_line) <= vim.fn.indent(current_line)
+--         else
+--             match_indent = vim.fn.indent(match_line) < vim.fn.indent(current_line)
+--         end
+--         match = match_indent and not match_line_is_whitespace
+--     end
+--
+--     -- If a line is found go to line
+--     if match or match_line == buf_length then
+--         vim.fn.cursor({ match_line, column + 1 })
+--     end
+-- end
+-- end
+
+-- vim.keymap.set({ 'n', 'v' }, "gj", indent_traverse(1, true))   -- next equal indent
+-- vim.keymap.set({ 'n', 'v' }, 'gk', indent_traverse(-1, true))  -- previous equal indent
+-- vim.keymap.set({ 'n', 'v' }, 'gJ', indent_traverse(1, false))  -- next equal indent
+-- vim.keymap.set({ 'n', 'v' }, 'gK', indent_traverse(-1, false)) -- previous equal indent
+
 
 -- Window management keymaps
 

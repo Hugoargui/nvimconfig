@@ -18,7 +18,7 @@ return {
         keymap.set('n', 'gd', native.definition, { desc = 'λ GO TO Definition', buffer = bufnr }) -- go to definition
 
         -- PPEK DEFINITION
-        keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition', buffer = bufnr }) -- peek definition and make edits in window
+        keymap.set('n', 'gP', '<cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition', buffer = bufnr }) -- peek definition and make edits in window
 
         -- GO TO DECLARATION
         keymap.set('n', 'gD', native.declaration, { desc = 'α GO TO Declaration', buffer = bufnr }) -- got to declaration

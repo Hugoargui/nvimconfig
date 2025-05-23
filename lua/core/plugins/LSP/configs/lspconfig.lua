@@ -9,7 +9,7 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 vim.keymap.set('n', '<leader>l<space>', '<cmd>LspInfo<CR>', { desc = ' Lsp INFO' })
 vim.keymap.set('n', '<leader>lt', '<cmd>Inspect<cr>', { desc = ' Show TS HL under cursor' })
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
     -- enable keybinds only for when lsp server available
     require('core.plugins.LSP.configs.lsp_keymaps').registerKeymaps(bufnr)
 
@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
             hint_scheme = 'String',
         }
 
-        require('lsp_signature').on_attach(lsp_signature_config, _)
+        require('lsp_signature').on_attach(lsp_signature_config, bufnr)
     end
 end
 
