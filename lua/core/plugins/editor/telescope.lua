@@ -53,8 +53,12 @@ return {
                         ['<C-x>'] = actions.select_horizontal,       -- open selection in new horizantal split
                         ['<C-t>'] = actions.select_tab,              -- open selection in new tab
 
-                        ['<C-s>'] = actions.toggle_all,              -- Toggle multi selection for all entries
-                        ['<C-z>'] = actions.drop_all,                -- Drop all entries from the current multiselection.
+                        -- For buffers
+                        ['<C-d>'] = require('telescope.actions').delete_buffer,
+
+
+                        ['<C-s>'] = actions.toggle_all, -- Toggle multi selection for all entries
+                        ['<C->'] = actions.drop_all,    -- Drop all entries from the current multiselection.
 
                         ['<C-n>'] = actions.cycle_history_next,
                         ['<C-p>'] = actions.cycle_history_prev,
@@ -62,13 +66,13 @@ return {
                         ['<A-u>'] = actions.preview_scrolling_up,   -- unfortunately C-u more usefult o clear promt
                         ['<A-d>'] = actions.preview_scrolling_down, -- unfortunately C-d more useful as del
 
-                        ['<C-u>'] = false,                          -- default is scrolling down preview, I prefer to get clear prompt
-                        ['<C-d>'] = false,                          -- default is scrolling down preview, I prefer to get delete
-                        ['<Up>'] = false,                           -- Don't clutter keymaps help
-                        ['<Down>'] = false,                         -- Don't clutter keymaps help
-                        ['<C-C>'] = false,                          -- Otherwise shows as "anonymous" in preview
+                        -- ['<C-u>'] = false,                          -- default is scrolling down preview, I prefer to get clear prompt
+                        -- ['<C-d>'] = false,                          -- default is scrolling down preview, I prefer to get delete
+                        ['<Up>'] = false,   -- Don't clutter keymaps help
+                        ['<Down>'] = false, -- Don't clutter keymaps help
+                        ['<C-C>'] = false,  -- Otherwise shows as "anonymous" in preview
                     },
-                },                                                  -- mappings
+                },                          -- mappings
                 initial_mode = 'insert',
                 selection_strategy = 'reset',
                 sorting_strategy = 'ascending',

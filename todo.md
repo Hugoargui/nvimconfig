@@ -1,4 +1,6 @@
 # NEAR FUTURE
+- a/i targets
+- [] make it work with ,; to repeat
 - sypder for big words works finally, thangs to reddit thread, but figure out how to do it for operation pending mode
     https://old.reddit.com/r/neovim/comments/181bsu8/my_take_on_a_word_movement/
     also do a regex for E and gE
@@ -6,6 +8,7 @@
 - improve search and replace workflow, by example by using Spectre/grugfar
 
 # MEDIUM TERM IDEAS
+- namu symbol navigation seems like a nice upgrade
 - python REPL
 - tabout plugin
 - try tabtree navigation mapped to { and } https://github.com/roobert/tabtree.nvim
@@ -13,7 +16,6 @@
     syn match texSomevariable "mooncipal" containedin=@spell.markdown contains=@NoSpell
     syn match dontSpellCheck "mooncipal" contains=@NoSpell
 - incremental selection
-- [fixed?] find way to dim unused variables, neodim breaks highlights
 - git
         - integrating Git in nvim youtube video: https://www.youtube.com/watch?v=57x4ZzzCr2Y&pp=ygUdaW50ZWdyYXRpbiBnaXQgdmltIGFuZCBuZW92aW0%3D
         - Git mergetool tutorial with git: https://gist.github.com/karenyyng/f19ff75c60f18b4b8149

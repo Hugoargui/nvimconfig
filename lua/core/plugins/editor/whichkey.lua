@@ -49,6 +49,7 @@ local M = {
             { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "  Registers", mode = "n" },
             { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "  Keymaps", mode = "n" },
             { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "󰘳  Commands", mode = "n" },
+            { "<leader>sb", function() require('telescope.builtin').buffers({ sort_lastused = true }) end, desc = "󰷊  Buffers", mode = "n" },
 
             { "<leader>r", "<cmd>Telescope resume<CR>", desc = "  RESUME last search", mode = "n" },
 
